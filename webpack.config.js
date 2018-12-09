@@ -5,6 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 export default {
     entry: ['./src/index.js'],
     mode: 'development',
+    devtool: 'eval-source-map',
     output: {
         path: path.resolve('dist'),
         filename: 'bundle.js',
