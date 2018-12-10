@@ -1,8 +1,13 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 
-const App = () => {
-    return <div>Hello world from React!</div>
-}
+import Header from './common/components/Header/Header'
+
+const App = () => (
+  <div>
+    <Header totalLounches={21} />
+    <div>Hello world from React</div>
+  </div>
+)
 
 export default hot(module)(App)
