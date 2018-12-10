@@ -2,10 +2,16 @@ import webpack from 'webpack'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
+import { srcPath, publicPath } from '../config/paths'
+
 export default {
-    entry: ['./src/index.js'],
+    entry: [path.resolve(srcPath, 'index.js')],
     mode: 'development',
     devtool: 'eval-source-map',
+    resolve: {
+      modules: [srcPath, 'node_modules'],
+      extensions: ['.js', '.jsx', '.json']
+    },
     output: {
         path: path.resolve('dist'),
         filename: 'bundle.js',
@@ -25,7 +31,7 @@ export default {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: 'src/index.html',
+            template: path.resolve(publicPath, 'index.html'),
             inject: 'body'
         }),
         new webpack.HotModuleReplacementPlugin(),
