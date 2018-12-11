@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { srcPath, publicPath } from '../config/paths'
 
 export default {
-    entry: [path.resolve(srcPath, 'index.js')],
+    entry: [path.resolve(srcPath, 'root/index.js')],
     mode: 'development',
     devtool: 'eval-source-map',
     resolve: {
