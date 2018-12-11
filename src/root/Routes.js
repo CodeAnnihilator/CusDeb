@@ -2,14 +2,14 @@ import React from 'react'
 import { hot } from 'react-hot-loader'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import Lounches from 'modules/Lounches/Lounches'
+import Lounches from 'modules/Lounches/containers/Lounches'
 import Rockets from 'modules/Rockets/Rockets'
 
-import Header from 'common/components/Header/Header'
+import Header from 'common/containers/Header'
 
 const Routes = () => (
   <div>
-    <Header totalLounches={21} />
+    <Header />
     <Switch>
       <Redirect exact from='/' to='/lounches' />
       <Route path='/lounches' component={Lounches} />

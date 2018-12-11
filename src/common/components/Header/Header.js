@@ -8,7 +8,6 @@ export default class Header extends Component {
   toggleShowData = () => this.setState({ isDataShown: !this.state.isDataShown })
 
   render() {
-
     const { isDataShown } = this.state
     const { totalLounches } = this.props
 
@@ -16,7 +15,9 @@ export default class Header extends Component {
       <div>
         <h1>SpaceX Lounches</h1>
         <button onClick={this.toggleShowData}>{isDataShown ? 'hide' : 'show'}</button>
-        { isDataShown &&  <div>total lounches: {totalLounches}</div> }
+        { isDataShown && totalLounches > 0 && <div>total lounches: { totalLounches }</div> }
+        { isDataShown && !totalLounches && <div>loading total lounches...</div> }
+        <hr /><br />
       </div>
     )
   }

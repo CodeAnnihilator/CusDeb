@@ -1,12 +1,17 @@
-const counterReducer = (state = 0, action) => {
+import types from '../constants/entities'
+
+const initialState = {
+  lounches: [],
+  rockets: []
+}
+
+const entitiesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
+    case types.REQUEST_LOUNCHES_SUCCESS:
+      return { ...state, lounches: action.payload }
     default:
       return state
   }
 }
 
-export default counterReducer
+export default entitiesReducer
