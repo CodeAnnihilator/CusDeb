@@ -7,16 +7,12 @@ export default class InfiniteScroll extends Component {
     offset:3
   }
 
-  componentWillReceiveProps(nextProps) {
-    
+  componentDidMount() {
+    window.addEventListener('scroll', this.loadOnScroll);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.loadOnScroll)
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.loadOnScroll);
   }
 
   loadOnScroll = () => {

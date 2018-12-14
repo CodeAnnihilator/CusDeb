@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import InfiniteScroll from 'common/components/HOC/InfiniteScroll/InfiniteScroll'
+import InfiniteScroll from 'common/components/InfiniteScroll/InfiniteScroll'
 import Lounch from './components/Lounch/Lounch'
 
 export default class Lounches extends Component {

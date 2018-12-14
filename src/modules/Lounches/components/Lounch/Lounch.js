@@ -1,7 +1,7 @@
 import React from 'react'
 import { videoEmbedURI } from 'config/main'
 
-import IframeLoader from 'common/components/HOC/IframeLoader/IframeLoader'
+import IframeLoader from 'common/components/IframeLoader/IframeLoader'
 
 const Lounch = ({ data }) => {
   return (
