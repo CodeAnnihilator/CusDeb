@@ -29,7 +29,8 @@
     "redux": "^4.0.1",
     "redux-immutable": "^4.0.0",
     "redux-saga": "^0.16.2",
-    "regenerator-runtime": "^0.13.1"
+    "regenerator-runtime": "^0.13.1",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

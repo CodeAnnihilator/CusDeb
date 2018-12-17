@@ -9,7 +9,7 @@ const Lounch = ({ data }) => {
   const launchDataUTC = data.get('launch_date_utc')
   const linkMissionPatchSmall= data.getIn(['links', 'mission_patch_small'])
   const rocketName = data.getIn(['rocket', 'rocket_name'])
-  const videoLink = videoEmbedURI(data.getIn(['links', 'video_link']).slice(-11))
+  const videoLink = data.getIn(['links', 'video_link'])
   return (
     <div>
       <h3>Mission name: { missionName }</h3>
@@ -18,7 +18,7 @@ const Lounch = ({ data }) => {
         <div>Lounch Date: { launchDataUTC.slice(0, 10) }</div>
         <div>Lounch Time: { launchDataUTC.slice(11, 16) }</div>
         <div>Rocket: { rocketName }</div>
-        { videoLink && <IframeLoader src={videoLink} /> }
+        { videoLink && <IframeLoader src={videoEmbedURI(videoLink.slice(-11))} /> }
         <div>Details: { data.details || 'no details' }</div>
     </div>
   )

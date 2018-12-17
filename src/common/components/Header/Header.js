@@ -9,14 +9,25 @@ export default class Header extends Component {
 
   render() {
     const { isDataShown } = this.state
-    const { totalLounches } = this.props
+    const {
+      totalLounches,
+      totalSuccededLaunches,
+      totalUpcomingLaunches
+    } = this.props
 
     return (
       <div>
-        <h1>SpaceX Lounches</h1>
+        <h1>SpaceX Launches</h1>
         <button onClick={this.toggleShowData}>{isDataShown ? 'hide' : 'show'}</button>
-        { isDataShown && totalLounches > 0 && <div>total lounches: { totalLounches }</div> }
-        { isDataShown && !totalLounches && <div>loading total lounches...</div> }
+        {
+          isDataShown && (
+            <div>
+              <div>total launches: { totalLounches }</div>
+              <div>succeded launches: { totalSuccededLaunches }</div>
+              <div>upcoming launches: { totalUpcomingLaunches }</div>
+            </div>
+          )
+        }
         <hr /><br />
       </div>
     )

@@ -11,19 +11,19 @@ export default class Lounches extends Component {
   }
 
   render() {
-    const { lounches } = this.props
-    if (!lounches.size) return <div>loading lounches...</div>
+    const { launches } = this.props
+    if (!launches.size) return <div>loading lounches...</div>
     return (
       <InfiniteScroll>
-      {
-        lounches.map((lounch, index) => (
-          <Lounch
-            key={index}
-            data={lounch}
-          />
-        ))
-      }
-    </InfiniteScroll>
+        {
+          launches.map((lounch, index) => (
+            <Lounch
+              key={index}
+              data={lounch}
+            />
+          ))
+        }
+      </InfiniteScroll>
     )
   }
 }

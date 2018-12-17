@@ -2,11 +2,11 @@ import { connect } from 'react-redux'
 
 import Lounches from '../Lounches'
 
-import { getLounches } from 'common/selectors/entities'
+import { getLaunches } from 'common/selectors/entities'
 import { requestLounches } from 'common/actions/entities'
 
 const mapStateToProps = state => ({
-  lounches: getLounches(state)
+  launches: getLaunches(state)
 })
 
 const mapDispatchToProps = dispatch => ({
