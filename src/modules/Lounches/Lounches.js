@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { List } from 'immutable'
 
 import InfiniteScroll from 'common/components/InfiniteScroll/InfiniteScroll'
 import Lounch from './components/Lounch/Lounch'
@@ -11,20 +12,18 @@ export default class Lounches extends Component {
 
   render() {
     const { lounches } = this.props
-    if (!lounches.length) return <div>loading lounches...</div>
+    if (!lounches.size) return <div>loading lounches...</div>
     return (
-      <div>
-        <InfiniteScroll>
-          {
-            lounches.map((lounch, index) => (
-              <Lounch
-                key={index}
-                data={lounch}
-              />
-            ))
-          }
-        </InfiniteScroll>
-      </div>
+      <InfiniteScroll>
+      {
+        lounches.map((lounch, index) => (
+          <Lounch
+            key={index}
+            data={lounch}
+          />
+        ))
+      }
+    </InfiniteScroll>
     )
   }
 }

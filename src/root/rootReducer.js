@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux'
-import { connectRouter } from 'connected-react-router'
+import { combineReducers } from 'redux-immutable'
+import { connectRouter } from 'connected-react-router/immutable'
 
 import entitiesReducer from 'common/reducers/entities'
 

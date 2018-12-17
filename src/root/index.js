@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory'
 import createSagaMiddleware from 'redux-saga'
 import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { ConnectedRouter, routerMiddleware } from 'connected-react-router'
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router/immutable'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { render } from 'react-dom'
 
