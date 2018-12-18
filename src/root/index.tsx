@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import createHistory from 'history/createBrowserHistory'
 import createSagaMiddleware from 'redux-saga'
 import { applyMiddleware, createStore } from 'redux'
@@ -9,7 +9,7 @@ import { render } from 'react-dom'
 
 import rootSaga from './rootSaga'
 import rootReducer from './rootReducer'
-import Routes from './Routes.js'
+import Routes from './Routes'
 
 const sagaMiddleware = createSagaMiddleware()
 const history = createHistory()

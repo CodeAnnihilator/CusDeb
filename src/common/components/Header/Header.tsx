@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export default class Header extends Component {
+export interface IHeaderProps {
+  totalLounches: string;
+  totalSuccededLaunches: string;
+  totalUpcomingLaunches: string
+}
+
+export default class Header extends React.Component<IHeaderProps> {
   state = {
     isDataShown: true
   }
 
-  toggleShowData = () => this.setState({ isDataShown: !this.state.isDataShown })
+  private toggleShowData = (): void => this.setState({ isDataShown: !this.state.isDataShown })
 
-  render() {
+  render(): React.ReactNode {
     const { isDataShown } = this.state
     const {
       totalLounches,

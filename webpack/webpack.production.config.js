@@ -15,6 +15,11 @@ export default {
       filename: '[name].[contenthash].js',
       chunkFilename: '[name].[contenthash].js',
     },
+    stats: {
+      entrypoints: false,
+      children: false,
+      modules: false
+    },
     module: {
       rules: [
         ...baseConfig.module.rules,

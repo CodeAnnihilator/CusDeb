@@ -4,7 +4,12 @@ import { List } from 'immutable'
 import InfiniteScroll from 'common/components/InfiniteScroll/InfiniteScroll'
 import Lounch from './components/Lounch/Lounch'
 
-export default class Lounches extends Component {
+interface IProps {
+  requestLounches: () => void;
+  launches: List<[]>
+}
+
+export default class Lounches extends Component<IProps> {
   componentWillMount() {
     const { requestLounches } = this.props
     requestLounches()

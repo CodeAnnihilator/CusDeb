@@ -5,28 +5,26 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { srcPath, publicPath } from '../config/paths'
 
 export default {
-  entry: [path.resolve(srcPath, 'root/index.js')],
+  entry: [path.resolve(srcPath, 'root/index.tsx')],
   resolve: {
     modules: [srcPath, 'node_modules'],
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.json', '.ts', '.tsx']
   },
   output: {
     path: path.resolve('dist'),
     publicPath: '/'
   },
-  stats: {
-    entrypoints: false,
-    children: false,
-    modules: false
-  },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        test: /\.(ts|tsx)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: { plugins: ['react-hot-loader/babel'] }
+          },
+          'ts-loader'
+        ]
       }
     ]
   },

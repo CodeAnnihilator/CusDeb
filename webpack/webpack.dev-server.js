@@ -13,7 +13,7 @@ const options = {
     entrypoints: false,
     children: false,
     modules: false,
-    colors: true
+    colors: true,
   }
 }
 

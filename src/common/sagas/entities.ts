@@ -11,7 +11,7 @@ function* requestLounchesSaga() {
     yield put(requestLounchesSuccess(data))
   } catch (error) {
     console.log(error)
-    yield put(requestLounchesError(error))
+    // yield put(requestLounchesError(error))
   }
 }
 
