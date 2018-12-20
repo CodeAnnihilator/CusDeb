@@ -17,11 +17,11 @@
   &_el {
     color: #4E5C62;
     display: inline-flex;
-    height: 50px;
+    height: 40px;
     align-items: center;
     position: relative;
     cursor: pointer;
-    padding: 23px 31px;
+    padding: 23px 25px;
     border-bottom: 1px solid #252b31;
     cursor: pointer;
     &__active {
@@ -38,6 +38,6 @@
 }
 
 .collapsed {
-  min-width: 90px;
-  width: 90px;
+  min-width: 80px;
+  width: 80px;
 }

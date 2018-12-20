@@ -5,28 +5,46 @@
 }
 
 .byttonContainer {
-  height: 100px;
+  height: 85px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #F9FAFB;
-  margin-left: 25px;
+  border-bottom: 1px solid #f1f1f1;
+  padding-left: 25px;
 }
 
 .createBuildButton {
   font-size: 13px;
   font-weight: bold;
-  padding: 20px 20px;
+  padding: 16px;
   background-color: #74B0EA;
-  width: 150px;
+  width: 132px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: 4px;
+  border-radius: 34px;
   border: 1px solid #6EA1DE;
-  box-shadow: 0px 2px 0px 0px rgba(103,156,219,1);
+  box-shadow: 0px 2px 0px 0px #679cdb;
   &:hover {
     cursor: pointer;
     background-color: #7fb6ec;
   }
+}
+
+.container {
+  background-color: #F7FAFD;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.images {
+  display: flex;
+  flex: 1;
+}
+
+.descriptionBar {
+  width: 286px;
+  background-color: white;
+  border-left: 1px solid #f1f1f1;
 }
