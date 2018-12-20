@@ -1,0 +1,43 @@
+.wrapper {
+  background-color: #181C1F;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  min-width: 200px;
+  transition: all 0.25s ease-in-out;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: all 0.25s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  &_el {
+    color: #4E5C62;
+    display: inline-flex;
+    height: 50px;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 23px 31px;
+    border-bottom: 1px solid #252b31;
+    cursor: pointer;
+    &__active {
+      color: #68BF84;
+    }
+    &_img {
+      width: 28px;
+    }
+    &_text {
+      font-size: 14px;
+      margin-left: 30px;
+    }
+  }
+}
+
+.collapsed {
+  min-width: 90px;
+  width: 90px;
+}

@@ -7,6 +7,8 @@ import { ConnectedRouter, routerMiddleware } from 'connected-react-router/immuta
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { render } from 'react-dom'
 
+import 'styles/index.scss'
+
 import rootSaga from './rootSaga'
 import rootReducer from './rootReducer'
 import Routes from './Routes'

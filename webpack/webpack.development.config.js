@@ -1,4 +1,5 @@
 import webpack from 'webpack'
+import path from 'path'
 
 import baseConfig from './webpack.base.config.js'
 
@@ -15,7 +16,7 @@ export default {
       rules: [
         ...baseConfig.module.rules,
         {
-          test: /\.scss$/,
+          test: /\.(css|scss)$/,
           use: [
             { loader: 'style-loader' },
             {
@@ -25,7 +26,12 @@ export default {
                 localIdentName: '[name]__[local]__[hash:base64:5]'
               }
             },
-            { loader: 'sass-loader' }
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [path.resolve(__dirname, "../src")]
+              }
+            }
           ]
         }
       ]
