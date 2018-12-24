@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
 }
 
 .byttonContainer {
@@ -35,7 +36,6 @@
   background-color: #F7FAFD;
   display: flex;
   flex: 1;
-  justify-content: space-between;
 }
 
 .images {
@@ -44,7 +44,8 @@
   padding: 20px;
   flex-wrap: wrap;
   align-content: baseline;
-  overflow-y: scroll;
+  flex-flow: column wrap;
+  overflow-x: scroll;
 }
 
 .descriptionBar {
@@ -55,18 +56,19 @@
 
 .image {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  max-width: 550px;
-  width: 300px;
+  align-self: self-start;
+  min-width: 260px;
+
   background-color: white;
   border: 1px solid #f0f3f5;
   border-radius: 4px;
   padding: 10px;
   margin: 5px;
-  flex: 1 0 20%;
   color: #4a4c5d;
-  align-self: self-start;
-  min-width: 250px;
+  box-shadow: 0px 0px 3px 2px rgba(241,244,249,0.6);
+  
   &_header {
     display: flex;
     align-items: center;
@@ -94,6 +96,71 @@
     font-size: 14px;
     line-height: 18px;
     max-height: 150px;
-    overflow: scroll;
+    overflow: hidden;
   }
+}
+
+.viewTabs {
+  display: flex;
+  margin-left: 50px;
+}
+
+.viewTab {
+  position: relative;
+  &_img {
+    padding: 20px;
+    height: 15px;
+  }
+  &_active::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background-color: #73b0ea;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 4px;
+
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  &_button {
+    width: 110px;
+    background-color: #73b0ea;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 2px;
+    color: white;
+    &_img {
+      height: 13px;
+    }
+    &_text {
+      font-size: 13px;
+    }
+  }
+  &_devider {
+    width: 1px;
+    height: auto;
+    background-color: #f1f1f1;
+    align-self: stretch;
+    margin: 0 10px;
+  }
+  &_img {
+    width: 20px;
+    padding: 8px;
+  }
+}
+
+.myMasonryGrid {
+  display: flex;
+}
+.myMasonryGridColumn {
 }
