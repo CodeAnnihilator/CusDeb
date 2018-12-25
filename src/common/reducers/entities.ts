@@ -1,9 +1,10 @@
-import { fromJS, List } from 'immutable'
+import { fromJS } from 'immutable'
 import types from '../constants/entities'
 
+import { generateDummyImages } from './dummyData'
+
 const initialState = fromJS({
-  lounches: List(),
-  rockets: List()
+  images: generateDummyImages(10)
 })
 
 export default (state = initialState, action) => {

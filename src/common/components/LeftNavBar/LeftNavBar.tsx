@@ -10,7 +10,7 @@ import EnveloperSVG from 'assets/images/envelope.svg'
 
 export default class LeftNavBar extends Component<{}> {
   state = {
-    isCollapsed: false
+    isCollapsed: true
   }
 
   onToggle = () => this.setState({ isCollapsed: !this.state.isCollapsed })

@@ -28,9 +28,10 @@
     &_title {
       font-size: 14px;
       font-weight: bold;
+      text-transform: uppercase;
     }
     &_date {
-      font-size: 14px;
+      font-size: 12px;
       margin-top: 5px;
     }
   }
@@ -38,9 +39,8 @@
 
 .note {
   font-size: 13px;
-  line-height: 16px;
+  line-height: 22px;
   max-height: 150px;
   overflow: hidden;
   padding: 20px 20px 10px 20px;
-  text-align: justify;
 }

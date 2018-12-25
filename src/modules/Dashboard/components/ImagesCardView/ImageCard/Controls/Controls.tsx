@@ -7,18 +7,26 @@ import EditSVG from 'assets/images/edit.svg'
 
 import styles from './controls.scss'
 
-const Controls = () => (
+interface IProps {
+  isEmulate: boolean
+}
+
+const Controls: React.SFC<IProps> = ({ isEmulate }) => (
   <div className={styles.controls}>
     <div className={styles.control}>
       <img className={styles.img} src={DownloadSVG} />
       <span>Download</span>
     </div>
     <div className={styles.devider} />
-    <div className={styles.control}>
-      <img className={styles.img} src={TerminalSVG} />
-      <span>Terminal</span>
-    </div>
-    <div className={styles.devider} />
+    {
+      isEmulate && (
+        <div className={styles.control}>
+          <img className={styles.img} src={TerminalSVG} />
+          <span>Terminal</span>
+        </div>
+      )
+    }
+    { isEmulate && <div className={styles.devider} /> }
     <div className={styles.control}>
       <img className={styles.img} src={EditSVG} />
       <span>Edit</span>

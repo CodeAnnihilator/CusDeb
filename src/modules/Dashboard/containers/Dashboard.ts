@@ -2,15 +2,10 @@ import { connect } from 'react-redux'
 
 import Dashboard from '../Dashboard'
 
-// import { getLaunches } from 'common/selectors/entities'
-// import { requestLounches } from 'common/actions/entities'
+import { getImages } from 'common/selectors/entities'
 
-// const mapStateToProps = state => ({
-//   launches: getLaunches(state)
-// })
+const mapStateToProps = state => ({
+  images: getImages(state)
+})
 
-// const mapDispatchToProps = dispatch => ({
-//   requestLounches: () => dispatch(requestLounches())
-// })
-
-export default connect(null, null)(Dashboard)
+export default connect(mapStateToProps, null)(Dashboard)

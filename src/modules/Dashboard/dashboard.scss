@@ -1,18 +1,11 @@
 .wrapper {
   display: flex;
-  flex-direction: column;
   flex: 1;
-  overflow: hidden;
+  flex-direction: column;
 }
 
 .container {
   background-color: #F7FAFD;
   display: flex;
   flex: 1;
-}
-
-.descriptionBar {
-  width: 286px;
-  background-color: white;
-  border-left: 1px solid #f1f1f1;
 }
