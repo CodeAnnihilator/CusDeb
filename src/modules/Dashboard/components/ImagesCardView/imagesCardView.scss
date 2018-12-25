@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  min-width: 290px;
+  flex-wrap: wrap;
+  align-content: baseline;
+  flex-flow: column wrap;
+  overflow-x: scroll;
+}
+
+.masonyGrid {
+  display: flex;
+}

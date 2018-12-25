@@ -1,0 +1,27 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.devider {
+  width: 1px;
+  height: auto;
+  background-color: #f1f1f1;
+  align-self: stretch;
+  margin: 0 10px;
+}
+
+.img {
+  width: 20px;
+  padding: 8px;
+}

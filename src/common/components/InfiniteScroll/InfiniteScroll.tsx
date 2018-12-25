@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 interface IProps {
-  children: any
+  children: Array<React.ReactChild>
 }
 
-export default class InfiniteScroll extends Component<IProps> {
+export default class InfiniteScroll extends PureComponent<IProps> {
 
   public refs: {
     scroll: HTMLDivElement
@@ -24,7 +24,7 @@ export default class InfiniteScroll extends Component<IProps> {
     window.removeEventListener('scroll', this.loadOnScroll)
   }
 
-  private loadOnScroll = (): void => {
+  loadOnScroll = (): void => {
     const { currentCount, totalCount } = this.state
     const { innerHeight, innerWidth } = window
     const { scroll } = this.refs

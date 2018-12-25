@@ -1,0 +1,20 @@
+.tab {
+  position: relative;
+}
+
+.img {
+  padding: 20px;
+  height: 13px;
+}
+
+.active::after {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: #00c359;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 4px;
+}
