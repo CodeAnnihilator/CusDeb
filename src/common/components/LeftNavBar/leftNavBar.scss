@@ -1,10 +1,20 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
   background-color: #181C1F;
   display: flex;
   flex-direction: column;
-  width: 200px;
-  min-width: 200px;
-  transition: all 0.25s ease-in-out;
+  width: 170px;
+  min-width: 170px;
+  transition: all 0.15s ease-in-out;
+  @include mobile {
+    min-width: auto;
+    width: auto;
+  };
+  @include tablet {
+    min-width: auto;
+    width: auto;
+  };
 }
 
 .navigation {
@@ -14,6 +24,8 @@
   transition: all 0.25s ease-in-out;
   overflow: hidden;
   white-space: nowrap;
+  position: sticky;
+  top: 0;
   &_el {
     color: #4E5C62;
     display: inline-flex;
@@ -35,9 +47,22 @@
       margin-left: 30px;
     }
   }
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  };
 }
 
 .collapsed {
   min-width: 80px;
   width: 80px;
+  @include mobile {
+    min-width: auto;
+    width: auto;
+  }
+  @include tablet {
+    min-width: auto;
+    width: auto;
+  }
 }

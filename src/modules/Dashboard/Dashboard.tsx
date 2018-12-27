@@ -4,7 +4,7 @@ import { List } from 'immutable'
 import styles from './dashboard.scss'
 
 import CreateBuildButton from './components/CreateBuildButton/CreateBuildButton'
-import ViewTabs from './components/ViewTabs/ViewTabs'
+// import ViewTabs from './components/ViewTabs/ViewTabs'
 import ImagesCardView from './components/ImagesCardView/ImagesCardView'
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab'
 
@@ -18,7 +18,7 @@ export default class Dashboard extends PureComponent<IProps> {
     return (
       <div className={styles.wrapper}>
         <CreateBuildButton />
-        <ViewTabs />
+        { /* <ViewTabs /> */ }
         <div className={styles.container}>
           <ImagesCardView images={images} />
           <CurrentImageTab />

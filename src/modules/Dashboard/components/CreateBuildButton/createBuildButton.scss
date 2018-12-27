@@ -1,3 +1,5 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
   height: 70px;
   display: flex;
@@ -5,6 +7,11 @@
   border-bottom: 1px solid #f1f1f1;
   padding-left: 25px;
   background-color: #fbfbfb;
+  position: sticky;
+  top: 0;
+  @include mobile {
+    padding-left: 0;
+  }
 }
 
 .button {
@@ -23,5 +30,11 @@
   &:hover {
     cursor: pointer;
     background-color: #7fb6ec;
+  }
+  @include mobile {
+    flex: 1;
+    width: auto;
+    margin: 0 20px;
+    padding: 20px 0;
   }
 }

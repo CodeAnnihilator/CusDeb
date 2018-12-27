@@ -13,10 +13,12 @@ interface IProps {
 }
 
 const breakpointCols = {
-  default: 2,
-  1500: 3,
+  default: 7,
+  2560: 6,
+  2000: 4,
+  1700: 3,
   1400: 2,
-  950: 1
+  767: 1
 }
 
 const ImagesCardView: React.SFC<IProps> = ({ images }) => (

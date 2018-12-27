@@ -23,7 +23,6 @@ export default class Masonry extends PureComponent<IProps, IState> {
   }
 
   componentDidMount() {
-    console.log(this.props.children)
     this.reCalculateColumnCount()
     if (window) window.addEventListener('resize', this.reCalculateColumnCount)
   }

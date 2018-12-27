@@ -1,14 +1,25 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
   background-color: #3bbf64;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include mobile {
+    height: auto;
+    flex-direction: column;
+  }
 }
 
 .leftSideWrapper {
   display: flex;
   align-items: center;
+  @include mobile {
+    justify-content: center;
+    width: 100%;
+    padding: 30px 0 20px 0;
+  }
 }
 
 .toggle {
@@ -21,6 +32,12 @@
   &_img {
     width: 23px;
   }
+  @include mobile {
+    display: none;
+  };
+  @include tablet {
+    display: none;
+  };
 }
 
 .brand {
@@ -44,6 +61,12 @@
   min-width: 300px;
   width: 380px;
   justify-content: space-evenly;
+  @include mobile {
+    height: 70px;
+    width: 100%;
+    min-width: auto;
+    border-top: 1px solid #00b54d;
+  }
 }
 
 .notifications {

@@ -1,10 +1,18 @@
+@import 'styles/mixins.scss';
+
 .page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .wrapper {
   display: flex;
   flex: 1;
+  @include mobile {
+    flex-direction: column;
+  }
+  @include tablet {
+    flex-direction: column;
+  }
 }

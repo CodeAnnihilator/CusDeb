@@ -1,8 +1,17 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
-  width: 260px;
+  width: 220px;
   background-color: white;
   border-left: 1px solid #f1f3f5;
   color: #4a4c5d;
+  &_inner {
+    position: sticky;
+    top: 70px;
+  }
+  @include mobile {
+    display: none;
+  }
 }
 
 .header {
