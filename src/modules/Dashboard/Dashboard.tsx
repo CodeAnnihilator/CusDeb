@@ -12,6 +12,7 @@ import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader'
 interface IProps {
   images: List<any>;
   requestImages: () => void;
+  selectImage: (name: string) => void;
 }
 
 export default class Dashboard extends PureComponent<IProps> {
@@ -22,7 +23,7 @@ export default class Dashboard extends PureComponent<IProps> {
     }
   }
   render() {
-    const { images } = this.props
+    const { images, selectImage } = this.props
     return (
       <div className={styles.wrapper}>
         <CreateBuildButton />
@@ -32,7 +33,7 @@ export default class Dashboard extends PureComponent<IProps> {
             images.size > 0
               ? (
                   <div className={styles.images}>
-                    <ImagesCardView images={images} />
+                    <ImagesCardView images={images} onSelect={selectImage} />
                     <CurrentImageTab />
                   </div>
                 )

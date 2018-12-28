@@ -1,7 +1,6 @@
 import React from 'react'
 import { List } from 'immutable'
 
-// import Masonry from 'react-masonry-css'
 import Masonry from 'common/components/Masonry/Masonry'
 
 import ImageCard from './ImageCard/ImageCard'
@@ -10,6 +9,7 @@ import styles from './imagesCardView.scss'
 
 interface IProps {
   images: List<any>;
+  onSelect: (name: string) => void;
 }
 
 const breakpointCols = {
@@ -21,7 +21,7 @@ const breakpointCols = {
   767: 1
 }
 
-const ImagesCardView: React.SFC<IProps> = ({ images }) => (
+const ImagesCardView: React.SFC<IProps> = ({ images, onSelect }) => (
   <div className={styles.wrapper}>
     <Masonry breakpointCols={breakpointCols} >
       {
@@ -29,6 +29,7 @@ const ImagesCardView: React.SFC<IProps> = ({ images }) => (
           <ImageCard
             key={index}
             image={image}
+            onSelect={onSelect}
           />
         ))
       }
