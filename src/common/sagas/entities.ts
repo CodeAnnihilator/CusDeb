@@ -1,20 +1,20 @@
-import { takeLatest, call, put } from 'redux-saga/effects'
+import { takeLatest, put, call } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
 
-import { requestLounches } from 'api/entities'
-import { requestLounchesSuccess } from 'common/actions/entities'
-
+import { generateDummyImages } from 'common/seed/images'
+import { requestImagesSuccess } from 'common/actions/entities'
 import types from 'common/constants/entities'
 
-function* requestLounchesSaga() {
+function* requestImagesSaga() {
+  const data = generateDummyImages(10)
   try {
-    const { data } = yield call(requestLounches)
-    yield put(requestLounchesSuccess(data))
+    yield call(delay, 2000)
+    yield put(requestImagesSuccess(data))
   } catch (error) {
     console.log(error)
-    // yield put(requestLounchesError(error))
   }
 }
 
 export default function* watchEntities() {
-  yield takeLatest(types.REQUEST_LOUNCHES, requestLounchesSaga)
+  yield takeLatest(types.REQUEST_IMAGES, requestImagesSaga)
 }

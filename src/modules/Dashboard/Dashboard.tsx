@@ -7,12 +7,20 @@ import CreateBuildButton from './components/CreateBuildButton/CreateBuildButton'
 // import ViewTabs from './components/ViewTabs/ViewTabs'
 import ImagesCardView from './components/ImagesCardView/ImagesCardView'
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab'
+import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader'
 
 interface IProps {
   images: List<any>;
+  requestImages: () => void;
 }
 
 export default class Dashboard extends PureComponent<IProps> {
+  componentWillMount() {
+    const { images, requestImages } = this.props
+    if (!images.size) {
+      requestImages()
+    }
+  }
   render() {
     const { images } = this.props
     return (
@@ -20,8 +28,16 @@ export default class Dashboard extends PureComponent<IProps> {
         <CreateBuildButton />
         { /* <ViewTabs /> */ }
         <div className={styles.container}>
-          <ImagesCardView images={images} />
-          <CurrentImageTab />
+          { 
+            images.size > 0
+              ? (
+                  <div className={styles.images}>
+                    <ImagesCardView images={images} />
+                    <CurrentImageTab />
+                  </div>
+                )
+              : <ImagesPreloader text='loading images' />
+          }
         </div>
       </div>
     )

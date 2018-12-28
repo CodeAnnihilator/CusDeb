@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 
+import styles from './masonry.scss'
+
 interface IProps {
   children: any;
   breakpointCols: any;
@@ -89,7 +91,7 @@ export default class Masonry extends PureComponent<IProps, IState> {
     const width = `${100 / childrenInColumns.length}%`;
 
     return childrenInColumns.map((items, i) => (
-      <div key={i} style={{ width }}>
+      <div className={styles.column} key={i} style={{ width }}>
         {items}
       </div>
     ))

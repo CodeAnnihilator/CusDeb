@@ -1,14 +1,14 @@
 import types from '../constants/entities'
 
 
-export const requestLounches = () => ({ type: types.REQUEST_LOUNCHES })
+export const requestImages = () => ({ type: types.REQUEST_IMAGES })
 
-export const requestLounchesSuccess = data => ({
-  type: types.REQUEST_LOUNCHES_SUCCESS,
+export const requestImagesSuccess = data => ({
+  type: types.REQUEST_IMAGES_SUCCESS,
   payload: data
 })
 
-export const requestLounchesError = error => ({
-  type: types.REQUEST_LOUNCHES_SUCCESS,
+export const requestImagesError = error => ({
+  type: types.REQUEST_IMAGES_ERROR,
   payload: error
 })

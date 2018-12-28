@@ -1,17 +1,15 @@
-import { fromJS } from 'immutable'
+import { fromJS, List } from 'immutable'
 import types from '../constants/entities'
 
-import { generateDummyImages } from './dummyData'
-
 const initialState = fromJS({
-  images: generateDummyImages(10)
+  images: List()
 })
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.REQUEST_LOUNCHES_SUCCESS:
+    case types.REQUEST_IMAGES_SUCCESS:
       return state
-        .set('lounches', fromJS(action.payload))
+        .set('images', fromJS(action.payload))
     default:
       return state
   }
