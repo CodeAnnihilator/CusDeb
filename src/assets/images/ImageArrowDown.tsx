@@ -3,12 +3,14 @@ import React from 'react'
 interface IProps {
   fill?: string;
   className?: string;
+  style?: object;
 }
 
-const ImageArrowDown: React.SFC<IProps> = ({ fill, className }) => (
+const ImageArrowDown: React.SFC<IProps> = ({ fill, className, style }) => (
   <svg
     fill={fill}
     className={className}
+    style={style}
     width='284.929px'
     height='284.929px'
     viewBox='0 0 284.929 284.929'

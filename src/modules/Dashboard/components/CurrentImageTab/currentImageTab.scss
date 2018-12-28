@@ -42,32 +42,13 @@
   line-height: 50px;
   font-size: 12px;
   border-bottom: 1px solid #f1f3f5;
+  cursor: pointer;
   &_tab {
     flex: 1;
     text-align: center;
     text-transform: uppercase;
     &__active {
       background-color: #F4F8FB;
-    }
-  }
-}
-
-.packages {
-  &_tab {
-    justify-content: space-between;
-    display: flex;
-    height: 40px;
-    align-items: center;
-    padding: 0 25px;
-    font-size: 12px;
-    border-bottom: 1px solid #f1f3f5;
-    & span:last-child {
-      font-weight: bold;
-    }
-    &_img {
-      fill: grey;
-      height: 11px;
-      width: 11px;
     }
   }
 }
