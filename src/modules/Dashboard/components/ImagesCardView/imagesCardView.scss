@@ -1,3 +1,5 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
   display: flex;
   flex: 1;
@@ -7,6 +9,9 @@
   align-content: baseline;
   flex-flow: column wrap;
   overflow-x: scroll;
+  @include mobile {
+    overflow: auto;
+  }
 }
 
 .masonyGrid {

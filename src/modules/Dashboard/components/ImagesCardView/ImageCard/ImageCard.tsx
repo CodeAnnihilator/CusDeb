@@ -27,7 +27,7 @@ export default class ImageCard extends PureComponent<IProps> {
     const name = image.get('name')
     const thumb = image.get('thumb')
     return (
-      <div className={cn(styles.wrapper, {[styles.active]: isActive})}>
+      <div ref='test'className={cn(styles.wrapper, {[styles.active]: isActive})}>
         <div className={styles.header} onClick={() => onSelect(name)}>
           <img className={styles.header_img} src={thumb || ''} />
           <div className={cn(styles.header_text, {[styles.header_text__active]: isActive})}>

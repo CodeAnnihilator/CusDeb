@@ -13,26 +13,12 @@ interface IProps {
 interface IState {
   activeMainTab: number;
   openedDropdownTabs: List<any>;
-  height: number;
 }
 
 export default class CurrentImageTab extends PureComponent<IProps, IState> {
   state = {
     activeMainTab: 0,
     openedDropdownTabs: List([0, 0, 1]),
-    height: 0
-  }
-
-  public refs: {
-    main: HTMLInputElement;
-    tabs: HTMLInputElement
-  }
-
-  componentDidMount() {
-
-    const offsetTop = this.refs.tabs.getBoundingClientRect().bottom
-    const windowHeight = window.screen.availHeight
-    this.setState({ height: windowHeight - offsetTop - 30 })
   }
 
   onSwitchMainTab = nextTab => {
@@ -60,8 +46,8 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
     const thumb = activeImage && activeImage.get('thumb')
 
     return (
-      <div ref='main' className={styles.wrapper}>
-        <div ref='tabs' className={styles.wrapper_inner}>
+      <div className={styles.wrapper}>
+        <div className={styles.wrapper_inner}>
         <div className={styles.header_title}>{ distro }</div>
           <div className={styles.tabs}>
             <div
@@ -86,7 +72,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
           }
           {
             activeMainTab === 1 && (
-              <div className={styles.dropDownWrapper} style={{ height: this.state.height }}>
+              <div className={styles.dropDownWrapper}>
                 <DropDownTab
                   title='Base Packages'
                   value={basePackages.size}

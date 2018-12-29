@@ -3,6 +3,9 @@
 .page {
   display: flex;
   flex-direction: column;
+  @include mobile {
+    height: auto;
+  }
   height: 100vh;
 }
 
