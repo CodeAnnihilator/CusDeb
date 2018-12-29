@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import cn from 'classnames'
 import { Map } from 'immutable'
 
 import Controls from './Controls/Controls'
@@ -15,19 +16,20 @@ import styles from './imageCard.scss'
 interface IProps {
   image: Map<any, any>;
   onSelect: (name: string) => void;
+  isActive: boolean;
 }
 
 const distributive = distributives[Math.round(Math.random() * 2)]
 
-const ImageCard: React.SFC<IProps> = ({ image, onSelect }) => {
+const ImageCard: React.SFC<IProps> = ({ image, onSelect, isActive=false }) => {
   const notes = image.get('notes')
   const distro = image.getIn(['distro', 'full_name'])
   const startedAt = image.get('started_at')
   const isEmulate = image.get('emulate')
   const name = image.get('name')
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
+    <div className={cn(styles.wrapper, {[styles.active]: isActive})}>
+      <div className={styles.header} onClick={() => onSelect(name)}>
         <img className={styles.header_img} src={distributive} />
         <div className={styles.header_text}>
           <div className={styles.header_text_title}>{ distro }</div>

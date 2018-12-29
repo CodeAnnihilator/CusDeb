@@ -27,6 +27,9 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
+    padding: 15px 10px;
+    text-align: center;
+    line-height: 23px;
   }
   &_createdAt {
     font-size: 12px;
@@ -51,4 +54,9 @@
       background-color: #F4F8FB;
     }
   }
+}
+
+.dropDownWrapper {
+  overflow: scroll;
+  height: 500px;
 }

@@ -9,7 +9,7 @@ import DebianSVG from 'assets/images/distributive/debian.svg'
 import styles from './currentImageTab.scss'
 
 interface IProps {
-
+  activeImage: any;
 }
 
 interface IState {
@@ -38,21 +38,17 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
   }
 
   render() {
-    const {
-      activeMainTab,
-      openedDropdownTabs
-    } = this.state
+    const { activeMainTab, openedDropdownTabs } = this.state
+    const { activeImage } = this.props
+
+    const basePackages = activeImage && activeImage.get('basePackages').valueSeq() || List()
+    const depPackages = activeImage && activeImage.get('depPackages').valueSeq() || List()
+    const addedPackages = activeImage && activeImage.get('addedPackages').valueSeq() || List()
+
     return (
       <div className={styles.wrapper}>
         <div className={styles.wrapper_inner}>
-          <div className={styles.header}>
-            <img className={styles.header_img} src={DebianSVG} />
-            <div className={styles.header_title}>raspbian 9 "stretch" (32-bit)</div>
-            <div className={styles.header_createdAt}>
-              <span>Created at: </span>
-              <strong className={styles.header_createdAt_date}>21.09.2018</strong>
-            </div>
-          </div>
+        <div className={styles.header_title}>raspbian 9 "stretch" (32-bit)</div>
           <div className={styles.tabs}>
             <div
               onClick={() => this.onSwitchMainTab(0)}
@@ -64,26 +60,55 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
             >packages</div>
           </div>
           {
+            activeMainTab === 0 && (
+              <div className={styles.header}>
+                <img className={styles.header_img} src={DebianSVG} />
+                <div className={styles.header_createdAt}>
+                  <span>Created at: </span>
+                  <strong className={styles.header_createdAt_date}>21.09.2018</strong>
+                </div>
+              </div>
+            )
+          }
+          {
             activeMainTab === 1 && (
-              <div>
+              <div className={styles.dropDownWrapper}>
                 <DropDownTab
                   title='Base Packages'
-                  value={180}
-                  isOpened={openedDropdownTabs.get(0)}
+                  value={basePackages.size}
+                  isOpened={!!openedDropdownTabs.get(0)}
                   onClick={() => this.onToggleDropdownTabs(0)}
-                />
+                >
+                  {
+                    basePackages.map((pack, index) => (
+                      <div key={index}>{pack.get('package')}</div>
+                    ))
+                  }
+                </DropDownTab>
                 <DropDownTab
                   title='Dependencies'
-                  value={21}
-                  isOpened={openedDropdownTabs.get(1)}
+                  value={depPackages.size}
+                  isOpened={!!openedDropdownTabs.get(1)}
                   onClick={() => this.onToggleDropdownTabs(1)}
-                />
+                >
+                  {
+                    depPackages.map((pack, index) => (
+                      <div key={index}>{pack.get('package')}</div>
+                    ))
+                  }
+                </DropDownTab>
                 <DropDownTab
                   title='Added Packages'
-                  value={18}
-                  isOpened={openedDropdownTabs.get(2)}
+                  value={addedPackages.size}
+                  isOpened={!!openedDropdownTabs.get(2)}
                   onClick={() => this.onToggleDropdownTabs(2)}
-                />
+                >
+                  {
+                    addedPackages.map((pack, index) => (
+                      <div key={index}>{pack.get('package')}</div>
+                    ))
+                  }
+                </DropDownTab>
               </div>
             )
           }

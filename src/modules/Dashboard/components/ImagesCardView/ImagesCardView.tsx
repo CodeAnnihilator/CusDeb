@@ -1,5 +1,5 @@
 import React from 'react'
-import { List } from 'immutable'
+import { List, Map } from 'immutable'
 
 import Masonry from 'common/components/Masonry/Masonry'
 
@@ -9,6 +9,7 @@ import styles from './imagesCardView.scss'
 
 interface IProps {
   images: List<any>;
+  activeImage: Map<any, any>;
   onSelect: (name: string) => void;
 }
 
@@ -21,20 +22,28 @@ const breakpointCols = {
   767: 1
 }
 
-const ImagesCardView: React.SFC<IProps> = ({ images, onSelect }) => (
-  <div className={styles.wrapper}>
-    <Masonry breakpointCols={breakpointCols} >
-      {
-        images.map((image, index) => (
-          <ImageCard
-            key={index}
-            image={image}
-            onSelect={onSelect}
-          />
-        ))
-      }
-    </Masonry>
-  </div>
-)
+const ImagesCardView: React.SFC<IProps> = ({ images, onSelect, activeImage }) => {
+  const activeImageName = activeImage && activeImage.get('name')
+  return (
+    <div className={styles.wrapper}>
+      <Masonry breakpointCols={breakpointCols} >
+        {
+          images.map((image, index) => {
+            const currentImageName = image.get('name')
+            const isActive = currentImageName === activeImageName
+            return (
+              <ImageCard
+                key={index}
+                image={image}
+                onSelect={onSelect}
+                isActive={isActive}
+              />
+            )
+          })
+        }
+      </Masonry>
+    </div>
+  )
+}
 
 export default ImagesCardView

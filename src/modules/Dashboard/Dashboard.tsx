@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { List } from 'immutable'
+import { List, Map } from 'immutable'
 
 import styles from './dashboard.scss'
 
@@ -12,6 +12,7 @@ import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader'
 interface IProps {
   images: List<any>;
   requestImages: () => void;
+  activeImage: Map<any, any>;
   selectImage: (name: string) => void;
 }
 
@@ -23,7 +24,11 @@ export default class Dashboard extends PureComponent<IProps> {
     }
   }
   render() {
-    const { images, selectImage } = this.props
+    const {
+      images,
+      selectImage,
+      activeImage
+    } = this.props
     return (
       <div className={styles.wrapper}>
         <CreateBuildButton />
@@ -33,8 +38,14 @@ export default class Dashboard extends PureComponent<IProps> {
             images.size > 0
               ? (
                   <div className={styles.images}>
-                    <ImagesCardView images={images} onSelect={selectImage} />
-                    <CurrentImageTab />
+                    <ImagesCardView
+                      images={images}
+                      onSelect={selectImage}
+                      activeImage={activeImage}
+                    />
+                    <CurrentImageTab
+                      activeImage={activeImage}
+                    />
                   </div>
                 )
               : <ImagesPreloader text='loading images' />

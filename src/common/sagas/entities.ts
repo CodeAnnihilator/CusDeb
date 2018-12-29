@@ -6,7 +6,7 @@ import { requestImagesSuccess } from 'common/actions/entities'
 import types from 'common/constants/entities'
 
 function* requestImagesSaga() {
-  const data = generateDummyImages(10)
+  const data = generateDummyImages(3)
   try {
     yield call(delay, 2000)
     yield put(requestImagesSuccess(data))

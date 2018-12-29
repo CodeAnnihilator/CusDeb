@@ -55,11 +55,11 @@ const generateRandomNote = () => {
   return wordsArray.join(' ')
 }
 
-const generateRandomPackages = () => {
+const generateRandomPackages = (max, min=0) => {
   const packages = Array.from(
-    { length: generateRandomLength(25) },
+    { length: generateRandomLength(max, min) },
     () => generateRandomString()
-  )
+  ).map(el => ({ package: el }))
   return packages
 }
 
@@ -70,7 +70,9 @@ const generateDummyImage = () => ({
   emulate: !!Math.round(Math.random()),
   name: generateRandomString(),
   notes: generateRandomNote(),
-  packages: generateRandomPackages(),
+  basePackages: generateRandomPackages(180, 100),
+  depPackages: generateRandomPackages(40, 15),
+  addedPackages: generateRandomPackages(25),
   started_at: new Date(),
   targetdevice: generateTargetDevice()
 })
