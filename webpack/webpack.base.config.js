@@ -35,7 +35,7 @@ export default {
                 outputPath: 'dist/assets/'
             }
         }]
-      },
+      }
     ]
   },
   plugins: [

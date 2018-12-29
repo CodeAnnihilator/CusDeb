@@ -1,3 +1,7 @@
+import DebianSVG from 'assets/images/distributive/ubuntu.svg'
+import DevuanSVG from 'assets/images/distributive/devuan.svg'
+import UbuntuSVG from 'assets/images/distributive/ubuntu.svg'
+
 export const buildTypes = [
   'Classic image',
   'Mender compatible image',
@@ -63,6 +67,12 @@ const generateRandomPackages = (max, min=0) => {
   return packages
 }
 
+const generateRandomImage = () => {
+  const variants = [DebianSVG, DevuanSVG, UbuntuSVG]
+  const selectedVariant = variants[Math.round(Math.random() * 2)]
+  return selectedVariant
+}
+
 const generateDummyImage = () => ({
   buildtype: generateBuildType(),
   configuration: generateConfiguration(),
@@ -74,7 +84,8 @@ const generateDummyImage = () => ({
   depPackages: generateRandomPackages(40, 15),
   addedPackages: generateRandomPackages(25),
   started_at: new Date(),
-  targetdevice: generateTargetDevice()
+  targetdevice: generateTargetDevice(),
+  thumb: generateRandomImage()
 })
 
 export const generateDummyImages = (length) => {

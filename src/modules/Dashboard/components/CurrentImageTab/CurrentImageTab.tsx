@@ -4,8 +4,6 @@ import { List } from 'immutable'
 
 import DropDownTab from './DropDownTab/DropDownTab'
 
-import DebianSVG from 'assets/images/distributive/debian.svg'
-
 import styles from './currentImageTab.scss'
 
 interface IProps {
@@ -15,12 +13,26 @@ interface IProps {
 interface IState {
   activeMainTab: number;
   openedDropdownTabs: List<any>;
+  height: number;
 }
 
 export default class CurrentImageTab extends PureComponent<IProps, IState> {
   state = {
     activeMainTab: 0,
-    openedDropdownTabs: List([0, 0, 1])
+    openedDropdownTabs: List([0, 0, 1]),
+    height: 0
+  }
+
+  public refs: {
+    main: HTMLInputElement;
+    tabs: HTMLInputElement
+  }
+
+  componentDidMount() {
+
+    const offsetTop = this.refs.tabs.getBoundingClientRect().bottom
+    const windowHeight = window.screen.availHeight
+    this.setState({ height: windowHeight - offsetTop - 30 })
   }
 
   onSwitchMainTab = nextTab => {
@@ -44,11 +56,13 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
     const basePackages = activeImage && activeImage.get('basePackages').valueSeq() || List()
     const depPackages = activeImage && activeImage.get('depPackages').valueSeq() || List()
     const addedPackages = activeImage && activeImage.get('addedPackages').valueSeq() || List()
+    const distro = activeImage && activeImage.getIn(['distro', 'full_name'])
+    const thumb = activeImage && activeImage.get('thumb')
 
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.wrapper_inner}>
-        <div className={styles.header_title}>raspbian 9 "stretch" (32-bit)</div>
+      <div ref='main' className={styles.wrapper}>
+        <div ref='tabs' className={styles.wrapper_inner}>
+        <div className={styles.header_title}>{ distro }</div>
           <div className={styles.tabs}>
             <div
               onClick={() => this.onSwitchMainTab(0)}
@@ -62,7 +76,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
           {
             activeMainTab === 0 && (
               <div className={styles.header}>
-                <img className={styles.header_img} src={DebianSVG} />
+                <img className={styles.header_img} src={thumb} />
                 <div className={styles.header_createdAt}>
                   <span>Created at: </span>
                   <strong className={styles.header_createdAt_date}>21.09.2018</strong>
@@ -72,7 +86,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
           }
           {
             activeMainTab === 1 && (
-              <div className={styles.dropDownWrapper}>
+              <div className={styles.dropDownWrapper} style={{ height: this.state.height }}>
                 <DropDownTab
                   title='Base Packages'
                   value={basePackages.size}
