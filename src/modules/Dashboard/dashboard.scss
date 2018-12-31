@@ -1,5 +1,6 @@
 .wrapper {
   display: flex;
+  min-height: 0px;
   flex: 1;
   flex-direction: column;
 }
@@ -7,6 +8,7 @@
 .container {
   background-color: #F7FAFD;
   display: flex;
+  min-height: 0px;
   flex: 1;
 }
 

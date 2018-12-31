@@ -3,14 +3,15 @@
 .page {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   @include mobile {
     height: auto;
   }
-  height: 100vh;
 }
 
 .wrapper {
   display: flex;
+  min-height: 0px;
   flex: 1;
   @include mobile {
     flex-direction: column;

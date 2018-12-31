@@ -6,7 +6,10 @@
   padding: 0 25px;
   font-size: 12px;
   border-bottom: 1px solid #f1f3f5;
+  position: sticky;
+  top: 0;
   cursor: pointer;
+  background-color: white;
   & span:last-child {
     font-weight: bold;
   }

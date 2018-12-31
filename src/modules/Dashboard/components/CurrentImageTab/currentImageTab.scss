@@ -1,14 +1,14 @@
 @import 'styles/mixins.scss';
 
 .wrapper {
-  width: 220px;
+  width: 250px;
   background-color: white;
   border-left: 1px solid #f1f3f5;
   color: #4a4c5d;
   height: calc(100vh - 141px);
+  position: sticky;
+  top: 70px;
   &_inner {
-    position: sticky;
-    top: 70px;
     display: flex;
     flex-direction: column;
     height: 100%;
