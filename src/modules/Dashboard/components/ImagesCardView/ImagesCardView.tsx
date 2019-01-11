@@ -1,10 +1,7 @@
 import React from 'react'
 import { List, Map } from 'immutable'
-
 import Masonry from 'common/components/Masonry/Masonry'
-
 import ImageCard from './ImageCard/ImageCard'
-
 import styles from './imagesCardView.scss'
 
 interface IProps {
@@ -37,6 +34,7 @@ const ImagesCardView: React.SFC<IProps> = ({ images, onSelect, activeImage }) =>
                 image={image}
                 onSelect={onSelect}
                 isActive={isActive}
+                images={images}
               />
             )
           })

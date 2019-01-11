@@ -73,13 +73,21 @@ const generateRandomImage = () => {
   return selectedVariant
 }
 
-const generateRandomStatus = () => !!Math.round(Math.random());
+const generateBuild = () => {
+  const statuses = ['building', 'error', 'ready'];
+  const randomNum = Math.round((Math.random() * 2));
+
+  return {
+    status: statuses[randomNum],
+    activeStep: Math.round((Math.random() * 10)),
+    totalSteps: 10,
+  };
+}
 
 const generateDummyImage = () => ({
   buildtype: generateBuildType(),
   configuration: generateConfiguration(),
   distro: generateDistro(),
-  hasError: generateRandomStatus(),
   emulate: !!Math.round(Math.random()),
   name: generateRandomString(),
   notes: generateRandomNote(),
@@ -88,7 +96,8 @@ const generateDummyImage = () => ({
   addedPackages: generateRandomPackages(25),
   started_at: new Date(),
   targetdevice: generateTargetDevice(),
-  thumb: generateRandomImage()
+  thumb: generateRandomImage(),
+  build: generateBuild(),
 })
 
 export const generateDummyImages = (length) => {

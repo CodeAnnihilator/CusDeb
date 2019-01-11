@@ -1,8 +1,7 @@
 import React from 'react'
-
 import styles from './fadedText.scss'
 
-const FadedText = ({ text='LOADING' }) => {
+const FadedText = ({ text }) => {
   return (
     <div className={styles.loading}>
       <div className={styles.loadingText}>
@@ -10,6 +9,10 @@ const FadedText = ({ text='LOADING' }) => {
       </div>
     </div>
   )
+}
+
+FadedText.defaultProps = {
+  text: 'LOADING',
 }
 
 export default FadedText

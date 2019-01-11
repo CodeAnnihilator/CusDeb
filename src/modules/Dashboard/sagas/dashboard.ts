@@ -1,7 +1,6 @@
-import { takeLatest, put } from 'redux-saga/effects'
-import { fromJS } from 'immutable'
-
-import types from 'common/constants/entities'
+import {takeLatest, put} from 'redux-saga/effects'
+import {fromJS} from 'immutable'
+import {types} from 'common/constants/entities'
 
 import { selectImage } from 'modules/Dashboard/actions/dashboard'
 
