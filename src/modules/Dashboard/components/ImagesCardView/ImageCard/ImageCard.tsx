@@ -29,15 +29,15 @@ export default class ImageCard extends PureComponent<IProps> {
   styleGetter = (tail: string) => styles[tail]
 
   render() {
-    const { image, isActive } = this.props;
-    const { styleGetter } = this;
+    const {image, isActive} = this.props;
+    const {styleGetter} = this;
  
     const notes = image.get('notes')
     const distro = image.getIn(['distro', 'full_name'])
     const startedAt = image.get('started_at')
     const isEmulate = image.get('emulate')
     const thumb = image.get('thumb')
-    const hasError = image.get('hasError')
+    const hasError = image.get('hasError')    
 
     return (
       <div ref='test'className={cn(styles.wrapper, {[styles.active]: isActive})}>
@@ -49,25 +49,27 @@ export default class ImageCard extends PureComponent<IProps> {
           </div>
         </div>
         { notes &&
-          <div
-            className={cn(styles.note, {[styleGetter('note--error')]: hasError})}
-            onClick={this.onSelect}
-          >
-            {!hasError ? notes : (
-              <div className={styleGetter('error-box')}>
-                <div className={styleGetter('error-box_header')}>
-                  Oops, something went wrong
+          (
+            <div
+              className={cn(styles.note, {[styleGetter('note--error')]: hasError})}
+              onClick={this.onSelect}
+            >
+              {!hasError ? notes : (
+                <div className={styleGetter('error-box')}>
+                  <div className={styleGetter('error-box_header')}>
+                    Oops, something went wrong
+                  </div>
+                  <div>
+                    if the problem persists, please
+                    {' '}
+                    <a href="/dashboard">
+                      report an issue
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  if the problem persists, please
-                  {' '}
-                  <a href="/dashboard">
-                    report an issue
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )
         }
         <Controls isEmulate={isEmulate} />
       </div>
