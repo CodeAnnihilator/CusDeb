@@ -73,10 +73,13 @@ const generateRandomImage = () => {
   return selectedVariant
 }
 
+const generateRandomStatus = () => !!Math.round(Math.random());
+
 const generateDummyImage = () => ({
   buildtype: generateBuildType(),
   configuration: generateConfiguration(),
   distro: generateDistro(),
+  hasError: generateRandomStatus(),
   emulate: !!Math.round(Math.random()),
   name: generateRandomString(),
   notes: generateRandomNote(),
