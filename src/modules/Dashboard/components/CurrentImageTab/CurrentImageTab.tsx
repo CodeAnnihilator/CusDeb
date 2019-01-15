@@ -4,6 +4,7 @@ import cn from 'classnames'
 import DropDownTab from './DropDownTab/DropDownTab'
 
 import styles from './currentImageTab.scss'
+import { Trans } from 'react-i18next';
 
 interface IProps {
 	activeImage: any;
@@ -64,11 +65,15 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 						<div
 							onClick={() => this.onSwitchMainTab(0)}
 							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 0})}
-						>common</div>
+						>
+							<Trans i18nKey="common.Common"/>
+						</div>
 						<div
 							onClick={() => this.onSwitchMainTab(1)}
 							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 1})}
-						>packages</div>
+						>
+							<Trans i18nKey="common.Packages"/>
+						</div>
 					</div>
 					{
 						activeMainTab === 0 && (
@@ -85,7 +90,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 						activeMainTab === 1 && (
 							<div className={styles.dropDownWrapper}>
 								<DropDownTab
-									title='Base Packages'
+									title={<Trans i18nKey="Packages.Base"/>}
 									value={basePackages.length}
 									isOpened={!!openedDropdownTabs.base}
 									onClick={() => this.onToggleDropdownTabs('base')}
@@ -97,7 +102,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									}
 								</DropDownTab>
 								<DropDownTab
-									title='Dependencies'
+									title={<Trans i18nKey="Packages.Dependencies"/>}
 									value={depPackages.length}
 									isOpened={!!openedDropdownTabs.dependencies}
 									onClick={() => this.onToggleDropdownTabs('dependencies')}
@@ -109,7 +114,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									}
 								</DropDownTab>
 								<DropDownTab
-									title='Added Packages'
+									title={<Trans i18nKey="Packages.Added"/>}
 									value={addedPackages.length}
 									isOpened={!!openedDropdownTabs.added}
 									onClick={() => this.onToggleDropdownTabs('added')}

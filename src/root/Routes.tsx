@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { withNamespaces} from 'react-i18next';
 
 import Login from 'modules/Login/Login'
 import Registration from 'modules/Registration/Registration'
@@ -20,6 +21,6 @@ const Routes = () => (
       <MainLayoutRoute path='/dashboard' component={Dashboard} />
     </Switch>
   </div>
-)
+);
 
-export default hot(module)(Routes)
+export default hot(module)(withNamespaces('translation')(Routes))

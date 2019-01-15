@@ -13,6 +13,7 @@ import controlsStyles from 'modules/Dashboard/components/ImagesCardView/ImageCar
 import {createSvgComponent} from 'common/helpers/entities';
 import {FaCircleNotch} from 'react-icons/fa';
 import {IoMdBuild} from 'react-icons/io';
+import { Trans } from 'react-i18next';
 
 interface IProps {
   image: {
@@ -65,7 +66,7 @@ export default class ImageCard extends Component<IProps> {
 	errorStateControls: IControls[] = [
 		{
 			icon: <div className={controlsStyles.reactImg}><FaCircleNotch size={16} fill={COLORS.black} /></div>, 
-			title: 'Error log',
+			title: 'ErrorLog',
 		},
 		{
 			icon: <div className={controlsStyles.reactImg}><IoMdBuild size={16} fill={COLORS.gray600} /></div>,
@@ -96,13 +97,13 @@ export default class ImageCard extends Component<IProps> {
 			jsx = (
 				<div className={styleGetter('error-box')}>
 					<div className={styleGetter('error-box_header')}>
-						Oops, something went wrong
+						<Trans i18nKey="Dashboard.ImageError" />
 					</div>
-					<div>
-						if the problem persists, please
+					<div className={styleGetter('error-box_container')}>
+						<span><Trans i18nKey="Dashboard.issueWarning" /></span>
 						{' '}
 						<a href="/dashboard">
-							report an issue
+							<Trans i18nKey="Dashboard.reportAboutIssue" />
 						</a>
 					</div>
 				</div>
@@ -151,7 +152,7 @@ export default class ImageCard extends Component<IProps> {
 				<img className={styles.header_img} src={ thumb } />
 				<div className={cn(styles.header_text, {[styles.header_text__active]: isActive})}>
 					<div className={styles.header_text_title}>{ distro }</div>
-					<div className={styles.header_text_date}>Started at: { moment(startedAt).format('L') }</div>
+					<div className={styles.header_text_date}><Trans i18nKey="Image.StartedAt" />: { moment(startedAt).format('L') }</div>
 				</div>
 			</div>
 			{this.renderContent()}

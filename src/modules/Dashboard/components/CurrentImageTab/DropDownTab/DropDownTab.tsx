@@ -5,7 +5,7 @@ import ImageArrowDown from 'assets/images/ImageArrowDown'
 import styles from './dropDownTab.scss'
 
 interface IProps {
-  title: string;
+  title: string | React.ReactNode;
   value: number;
   isOpened: boolean;
   onClick: () => void;

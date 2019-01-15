@@ -1,0 +1,34 @@
+{   
+    "common": {
+        "LoadingImages": "Images are loading",
+        "En": "English",
+        "Ru": "Russian",
+        "Common": "Common",
+        "Packages": "Packages",
+        "Download": "Download",
+        "Edit": "Edit",
+        "Delete": "Delete",
+        "Terminal": "Terminal",
+        "Rebuild": "Rebuild",
+        "ErrorLog": "ErrorLog",
+        "Dashboard": "Dashboard",
+        "Blog": "Blog",
+        "Docs": "Docs",
+        "Feedback": "Feedback"
+    },
+    "Packages": {
+        "Base": "Base packages",
+        "Dependencies": "Dependencies",
+        "Added": "Added packages"
+    },
+    "Image": {
+        "StartedAt": "Started At",
+        "CreatedAt": "Created At"
+    },
+    "Dashboard": {
+        "CreateNewBuild": "Create new build",
+        "ImageError": "Oops, something went wrong",
+        "issueWarning": "if the problem persists, please",
+        "reportAboutIssue": "report an issue"
+    }
+}

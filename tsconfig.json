@@ -15,5 +15,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "resolveJsonModule": true
-  }
+  },
 }
