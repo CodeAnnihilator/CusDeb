@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import { List, Map } from 'immutable'
 
 import styles from './dashboard.scss'
 
@@ -10,17 +9,17 @@ import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab'
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader'
 
 interface IProps {
-  images: List<any>;
+  images: Array<any>;
   requestImages: () => void;
-  activeImage: Map<any, any>;
+  activeImage: any;
   selectImage: (name: string) => void;
 }
 
 export default class Dashboard extends PureComponent<IProps> {
-  componentWillMount() {
-    const { images, requestImages } = this.props
-    if (!images.size) {
-      requestImages()
+  componentDidMount() {
+    const { images, requestImages } = this.props;
+    if (!images.length) {
+      requestImages();
     }
   }
   render() {
@@ -35,7 +34,7 @@ export default class Dashboard extends PureComponent<IProps> {
         { /* <ViewTabs /> */ }
         <div className={styles.container}>
           { 
-            images.size > 0
+            images.length > 0
               ? (
                   <div className={styles.images}>
                     <ImagesCardView

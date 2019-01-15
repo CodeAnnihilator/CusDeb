@@ -1,31 +1,27 @@
-import {fromJS, List, merge, Map} from 'immutable'
 import {handleActions} from 'redux-actions'
 import {types} from '../constants/entities'
 
-const initialState = Map({
-	images: List(),
-	buildingImages: List(),
-})
+const initialState = {
+	images: [],
+	buildingImages: [],
+};
 
 export default handleActions({
-	[types.REQUEST_IMAGES_SUCCESS]: (state, action) => state.set('images', fromJS(action.payload)),
-	[types.UPDATE_IMAGE]: (state, {payload: {changes}}) => {
-
-		const images = state.get('images');
-
-		return state
-			.set('images', images.map(item => {
-				if (item.get('name') === changes.get('name')) {
-					return merge(item, changes);
+	[types.REQUEST_IMAGES_SUCCESS]: (state, action) => ({...state, images: action.payload}),
+	[types.UPDATE_IMAGE]: (state, {payload: {changes}}) => ({
+		...state,
+		images: state.images.map(item => {
+			if (item.name === changes.name) {
+				return {
+					...item,
+					...changes,
 				}
+			}
 
-				return item;
-			}))
-			.set('buildingImages', changes.getIn(['build', 'status']) === 'building'
-				? state
-					.get('buildingImages')
-					.push(merge(images.find(item => item.get('name') === changes.get('name')), changes))
-				: state.get('buildingImages')
-			);
-	},
+			return item;
+		}),
+		buildingImages: changes.build.status === 'building'
+			? [...state.buildingImages, {...state.images.find(elem => elem.name === changes.name), ...changes}]
+			: state.buildingImages
+	}),
 }, initialState);

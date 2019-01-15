@@ -1,7 +1,6 @@
 import React, {Component, SyntheticEvent} from 'react';
 import moment from 'moment';
 import cn from 'classnames';
-import {Map, List} from 'immutable';
 import Controls from './Controls/Controls';
 import styles from './imageCard.scss';
 import PreLoader from 'common/components/ProgressBar/ProgressBar';
@@ -16,10 +15,18 @@ import {FaCircleNotch} from 'react-icons/fa';
 import {IoMdBuild} from 'react-icons/io';
 
 interface IProps {
-  image: Map<any, any>;
+  image: {
+	  name: string,
+	  notes: string,
+	  build: string,
+	  distro: {
+		full_name: string,
+	  },
+	  started_at: string,
+	  thumb: string,
+  };
   onSelect: (name: string) => void;
   isActive: boolean;
-  images: List<any>;
 }
 
 interface IControls {
@@ -73,16 +80,16 @@ export default class ImageCard extends Component<IProps> {
 	onSelect = () => {
 		const {image, onSelect} = this.props;
 
-		onSelect(image.get('name'));
+		onSelect(image.name);
   	}
 
   renderContent = () => {
 	const {styleGetter} = this;
 	const {image} = this.props;
-	const [status, activeStep, totalSteps] = ['status', 'activeStep', 'totalSteps'].map(item => image.getIn(['build', item]));
-	const notes = image.get('notes');
+	const [status, activeStep, totalSteps] = ['status', 'activeStep', 'totalSteps'].map(item => image.build[item]);
+	const notes = image.notes;
 
-	let jsx = <React.Fragment />;
+	let jsx: string | React.ReactNode = <React.Fragment />;
 
 	switch (status) {
 		case 'error': {
@@ -134,9 +141,9 @@ export default class ImageCard extends Component<IProps> {
 
   render() {
 	const {image, isActive} = this.props;
-	const distro = image.getIn(['distro', 'full_name']);
-	const startedAt = image.get('started_at');
-	const thumb = image.get('thumb');
+	const distro = image.distro.full_name;
+	const startedAt = image.started_at;
+	const thumb = image.thumb;
 
 	return (
 		<div ref='test'className={cn(styles.wrapper, {[styles.active]: isActive})}>
