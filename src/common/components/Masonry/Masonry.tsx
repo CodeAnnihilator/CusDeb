@@ -19,14 +19,14 @@ export default class Masonry extends PureComponent<IProps, IState> {
 
   constructor(props) {
     super(props)
-    const { breakpointCols } = props
-    const columnCount = (breakpointCols && breakpointCols.default) ? breakpointCols.default : 2
+    const { breakpointCols } = props;
+    const columnCount = (breakpointCols && breakpointCols.default) ? breakpointCols.default : 2;
     this.state = { columnCount }
   }
 
   componentDidMount() {
-    this.reCalculateColumnCount()
-    if (window) window.addEventListener('resize', this.reCalculateColumnCount)
+    this.reCalculateColumnCount();
+    if (window) window.addEventListener('resize', this.reCalculateColumnCount);
   }
 
   componentWillReceiveProps() {
@@ -34,13 +34,13 @@ export default class Masonry extends PureComponent<IProps, IState> {
   }
 
   componentWillUnmount() {
-    if (window) window.removeEventListener('resize', this.reCalculateColumnCount)
+    if (window) window.removeEventListener('resize', this.reCalculateColumnCount);
   }
 
 
   reCalculateColumnCount = () => {
-    const windowWidth = window && window.innerWidth || Infinity
-    let breakpointColsObject = this.props.breakpointCols
+    const windowWidth = window && window.innerWidth || Infinity;
+    let breakpointColsObject = this.props.breakpointCols;
 
     if(parseInt(breakpointColsObject) > 0) {
       breakpointColsObject = {
@@ -53,7 +53,7 @@ export default class Masonry extends PureComponent<IProps, IState> {
 
     for (let breakpoint in breakpointColsObject) {
       const optBreakpoint = parseInt(breakpoint)
-      const isCurrentBreakpoint = optBreakpoint > 0 && windowWidth <= optBreakpoint
+      const isCurrentBreakpoint = optBreakpoint > 0 && windowWidth <= optBreakpoint;
       if (isCurrentBreakpoint && optBreakpoint < matchedBreakpoint) {
         matchedBreakpoint = optBreakpoint
         columns = breakpointColsObject[breakpoint]
@@ -67,20 +67,19 @@ export default class Masonry extends PureComponent<IProps, IState> {
     }
   }
 
-
   itemsInColumns() {
     const currentColumnCount = this.state.columnCount;
     const itemsInColumns = new Array(currentColumnCount);
     const items = this.props.children || [];
 
-    for (let i = 0; i < items.size; i++) {
+    for (let i = 0; i < items.length; i++) {
       const columnIndex = i % currentColumnCount;
 
       if(!itemsInColumns[columnIndex]) {
         itemsInColumns[columnIndex] = [];
       }
 
-      itemsInColumns[columnIndex].push(items.get(i));
+      itemsInColumns[columnIndex].push(items[i]);
     }
 
     return itemsInColumns;

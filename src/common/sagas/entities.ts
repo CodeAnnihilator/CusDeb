@@ -4,7 +4,6 @@ import {generateDummyImages} from 'common/seed/images'
 import {requestImagesSuccess, updateImage} from 'common/actions/entities'
 import {types} from 'common/constants/entities'
 import { getBuildingImages } from 'common/selectors/entities';
-import { fromJS, merge } from 'immutable';
 
 function* requestImagesSaga() {
 	const data = generateDummyImages(30)
@@ -17,7 +16,7 @@ function* requestImagesSaga() {
 }
 
 function* taskCreator(image) {
-	const [activeStep, totalSteps] = ['activeStep', 'totalSteps'].map(item => image.getIn(['build', item]))
+	const [activeStep, totalSteps] = ['activeStep', 'totalSteps'].map(item => image.build[item]);
 	
 	for (let i = activeStep; i <= totalSteps; i++) {
 		yield call(delay, Math.round(Math.random() * 5) * 1000);
@@ -26,30 +25,32 @@ function* taskCreator(image) {
 		if (hasBulidFailded) status = 'error';
 		else if (i < totalSteps && !hasBulidFailded) status = 'building';
 		else if (i === totalSteps && !hasBulidFailded) {
-			yield put(updateImage(
-				merge(image, fromJS({
+			yield put(updateImage({
+				...image,
+				...{
 					build: {
 						status: 'building',
 						activeStep: totalSteps,
 						totalSteps,
 					}
-				}))
-			))
+				}
+			}))
 
 			yield call(delay, 2000);
 			
 			status = 'ready';
 		}
 
-		yield put(updateImage(
-			merge(image, fromJS({
+		yield put(updateImage({
+			...image,
+			...{
 				build: {
 					status,
 					activeStep: i,
 					totalSteps,
 				}
-			}))
-		))
+			}}))
+
 
 		if (status === 'error') break;
 	}
@@ -58,8 +59,8 @@ function* taskCreator(image) {
 function* watchImagesStatusesSaga() {
 	const data = yield select(getBuildingImages);
 
-	for (let i = 0; i < data.size; i++) {
-		yield spawn(taskCreator, data.get(i));
+	for (let i = 0; i < data.length; i++) {
+		yield spawn(taskCreator, data[i]);
 	}
 }
 

@@ -1,19 +1,15 @@
-import { fromJS } from 'immutable'
+import types from '../constants/dashboard';
+import {handleActions} from 'redux-actions';
 
-import types from '../constants/dashboard'
+const initialState = {
+	activeImageId: null,
+	isPending: true
+};
 
-const initialState = fromJS({
-  activeImageId: null,
-  isPending: true
-})
-
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case types.SELECT_IMAGE:
-      return state
-        .set('activeImageId', action.payload)
-        .set('isPending', false)
-    default:
-      return state
-  }
-}
+export default handleActions({
+	[types.SELECT_IMAGE]: (state, action) => ({
+		...state,
+		activeImageId: action.payload,
+		isPending: false,
+	}),
+}, initialState)

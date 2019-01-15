@@ -1,119 +1,130 @@
 import React, { PureComponent } from 'react'
 import cn from 'classnames'
-import { List } from 'immutable'
 
 import DropDownTab from './DropDownTab/DropDownTab'
 
 import styles from './currentImageTab.scss'
 
 interface IProps {
-  activeImage: any;
+	activeImage: any;
 }
 
 interface IState {
-  activeMainTab: number;
-  openedDropdownTabs: List<any>;
+	activeMainTab: number;
+	openedDropdownTabs: {
+		base: number,
+		dependencies: number,
+		added: number,
+	};
 }
 
 export default class CurrentImageTab extends PureComponent<IProps, IState> {
-  state = {
-    activeMainTab: 0,
-    openedDropdownTabs: List([0, 0, 1]),
-  }
+	static defaultProps = {
+		activeImage: {
+			basePackages: [],
+			addedPackages: [],
+			depPackages: [],
+			distro: {
+				full_name: '',
+			}
+		}
+	}
 
-  onSwitchMainTab = nextTab => {
-    const { activeMainTab } = this.state
-    if (nextTab !== activeMainTab) {
-      this.setState({ activeMainTab: nextTab })
-    }
-  }
+	state = {
+		activeMainTab: 0,
+		openedDropdownTabs: {
+			base: 0,
+			dependencies: 0,
+			added: 1,
+		},
+	}
 
-  onToggleDropdownTabs = tab => {
-    const { openedDropdownTabs } = this.state
-    const isOpened = openedDropdownTabs.get(tab)
-    if (!isOpened) this.setState({ openedDropdownTabs: openedDropdownTabs.set(tab, 1) })
-    if (isOpened) this.setState({ openedDropdownTabs: openedDropdownTabs.set(tab, 0) })
-  }
+	onSwitchMainTab = nextTab => {
+		if (nextTab !== this.state.activeMainTab) {
+			this.setState({ activeMainTab: nextTab })
+		}
+	}
 
-  render() {
-    const { activeMainTab, openedDropdownTabs } = this.state
-    const { activeImage } = this.props
+	onToggleDropdownTabs = tab => this.setState(prevState => ({
+		openedDropdownTabs: {
+			...prevState.openedDropdownTabs,
+			[tab]: !prevState.openedDropdownTabs[tab],
+		}
+	}))
 
-    const basePackages = activeImage && activeImage.get('basePackages').valueSeq() || List()
-    const depPackages = activeImage && activeImage.get('depPackages').valueSeq() || List()
-    const addedPackages = activeImage && activeImage.get('addedPackages').valueSeq() || List()
-    const distro = activeImage && activeImage.getIn(['distro', 'full_name'])
-    const thumb = activeImage && activeImage.get('thumb')
+	render() {
+		const { activeMainTab, openedDropdownTabs } = this.state;
+		const { activeImage: {basePackages, addedPackages, depPackages, distro, thumb}} = this.props;
 
-    return (
-      <div className={styles.wrapper}>
-        <div className={styles.wrapper_inner}>
-        <div className={styles.header_title}>{ distro }</div>
-          <div className={styles.tabs}>
-            <div
-              onClick={() => this.onSwitchMainTab(0)}
-              className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 0})}
-            >common</div>
-            <div
-              onClick={() => this.onSwitchMainTab(1)}
-              className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 1})}
-            >packages</div>
-          </div>
-          {
-            activeMainTab === 0 && (
-              <div className={styles.header}>
-                <img className={styles.header_img} src={thumb} />
-                <div className={styles.header_createdAt}>
-                  <span>Created at: </span>
-                  <strong className={styles.header_createdAt_date}>21.09.2018</strong>
-                </div>
-              </div>
-            )
-          }
-          {
-            activeMainTab === 1 && (
-              <div className={styles.dropDownWrapper}>
-                <DropDownTab
-                  title='Base Packages'
-                  value={basePackages.size}
-                  isOpened={!!openedDropdownTabs.get(0)}
-                  onClick={() => this.onToggleDropdownTabs(0)}
-                >
-                  {
-                    basePackages.map((pack, index) => (
-                      <div key={index}>{pack.get('package')}</div>
-                    ))
-                  }
-                </DropDownTab>
-                <DropDownTab
-                  title='Dependencies'
-                  value={depPackages.size}
-                  isOpened={!!openedDropdownTabs.get(1)}
-                  onClick={() => this.onToggleDropdownTabs(1)}
-                >
-                  {
-                    depPackages.map((pack, index) => (
-                      <div key={index}>{pack.get('package')}</div>
-                    ))
-                  }
-                </DropDownTab>
-                <DropDownTab
-                  title='Added Packages'
-                  value={addedPackages.size}
-                  isOpened={!!openedDropdownTabs.get(2)}
-                  onClick={() => this.onToggleDropdownTabs(2)}
-                >
-                  {
-                    addedPackages.map((pack, index) => (
-                      <div key={index}>{pack.get('package')}</div>
-                    ))
-                  }
-                </DropDownTab>
-              </div>
-            )
-          }
-        </div>
-      </div>
-    )
-  }
+		return (
+			<div className={styles.wrapper}>
+				<div className={styles.wrapper_inner}>
+				<div className={styles.header_title}>{ distro.name }</div>
+					<div className={styles.tabs}>
+						<div
+							onClick={() => this.onSwitchMainTab(0)}
+							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 0})}
+						>common</div>
+						<div
+							onClick={() => this.onSwitchMainTab(1)}
+							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 1})}
+						>packages</div>
+					</div>
+					{
+						activeMainTab === 0 && (
+							<div className={styles.header}>
+								<img className={styles.header_img} src={thumb} />
+								<div className={styles.header_createdAt}>
+									<span>Created at: </span>
+									<strong className={styles.header_createdAt_date}>21.09.2018</strong>
+								</div>
+							</div>
+						)
+					}
+					{
+						activeMainTab === 1 && (
+							<div className={styles.dropDownWrapper}>
+								<DropDownTab
+									title='Base Packages'
+									value={basePackages.length}
+									isOpened={!!openedDropdownTabs.base}
+									onClick={() => this.onToggleDropdownTabs('base')}
+								>
+									{
+										basePackages.map((pack, index) => (
+											<div key={index}>{pack.package}</div>
+										))
+									}
+								</DropDownTab>
+								<DropDownTab
+									title='Dependencies'
+									value={depPackages.length}
+									isOpened={!!openedDropdownTabs.dependencies}
+									onClick={() => this.onToggleDropdownTabs('dependencies')}
+								>
+									{
+										depPackages.map((pack, index) => (
+											<div key={index}>{pack.package}</div>
+										))
+									}
+								</DropDownTab>
+								<DropDownTab
+									title='Added Packages'
+									value={addedPackages.length}
+									isOpened={!!openedDropdownTabs.added}
+									onClick={() => this.onToggleDropdownTabs('added')}
+								>
+									{
+										addedPackages.map((pack, index) => (
+											<div key={index}>{pack.package}</div>
+										))
+									}
+								</DropDownTab>
+							</div>
+						)
+					}
+				</div>
+			</div>
+		)
+	}
 }
