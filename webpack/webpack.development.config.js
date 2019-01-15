@@ -1,5 +1,6 @@
 import webpack from 'webpack'
 import path from 'path'
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 import baseConfig from './webpack.base.config.js'
 
@@ -39,5 +40,8 @@ export default {
     plugins: [
       ...baseConfig.plugins,
       new webpack.HotModuleReplacementPlugin(),
-    ]
+      new WebpackNotifierPlugin({
+        title: 'CusDeb',
+      }),
+    ],
 }

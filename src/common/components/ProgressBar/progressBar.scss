@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+.fill {
+  position: absolute;
+  height: 100%;
+  transition: width 1s;
+}
+
+.progress {
+  position: relative;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.container {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.title {
+  font-size: 12px;
+}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "development": "babel-node ./webpack/webpack.dev-server.js",
+    "dev": "babel-node ./webpack/webpack.dev-server.js",
     "start": "npm run build && node webpack/static-server.js",
     "build": "babel-node ./node_modules/webpack/bin/webpack --config webpack/webpack.production.config.js"
   },
@@ -30,11 +30,13 @@
     "moment": "2.23.0",
     "react": "16.6.3",
     "react-dom": "16.6.3",
+    "react-icons": "3.3.0",
     "react-masonry-css": "1.0.12",
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",
     "react-svg": "7.2.2",
     "redux": "4.0.1",
+    "redux-actions": "^2.6.4",
     "redux-immutable": "4.0.0",
     "redux-saga": "0.16.2",
     "regenerator-runtime": "0.13.1",
@@ -66,6 +68,7 @@
     "resize-observer-polyfill": "1.5.1",
     "resolve-url-loader": "3.0.0",
     "sass-loader": "7.1.0",
+    "sass-variable-loader": "^0.1.2",
     "style-loader": "0.23.1",
     "svg-inline-loader": "0.8.0",
     "ts-loader": "5.3.1",
@@ -77,6 +80,7 @@
     "webpack-bundle-analyzer": "3.0.3",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10",
-    "webpack-hot-middleware": "2.24.3"
+    "webpack-hot-middleware": "2.24.3",
+    "webpack-notifier": "^1.7.0"
   }
 }
