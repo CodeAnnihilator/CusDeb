@@ -1,20 +1,32 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import Header from 'common/components/Header/Header'
-import LeftNavBar from 'common/components/LeftNavBar/LeftNavBar'
+import LeftNavBarContainer from 'common/constants/LeftNavBarContainer';
 
 import styles from './mainLayout.scss'
 
-const MainLayout = ({ children }) => {
-  return (
-    <div className={styles.page}>
-      <Header />
-      <div className={styles.wrapper}>
-        <LeftNavBar />
-        { children }
-      </div>
-    </div>
-  )
+interface IState {
+	isCollapsed: boolean;
+}
+
+class MainLayout extends Component<{}, IState> {
+	state = {
+		isCollapsed: true,
+	}
+
+	onToggle = () => this.setState(prevState => ({ isCollapsed: !prevState.isCollapsed}));
+
+	render() {
+		return (
+			<div className={styles.page}>
+			  <Header onToggle={this.onToggle} />
+			  <div className={styles.wrapper}>
+			  	<LeftNavBarContainer isCollapsed={this.state.isCollapsed} />
+				{ this.props.children }
+			  </div>
+			</div>
+		  )
+	}
 }
 
 export default MainLayout
