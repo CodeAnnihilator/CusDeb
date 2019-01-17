@@ -12,6 +12,30 @@
   }
 }
 
+.dropdown_item > a {
+  display: flex !important;
+  align-items: center;
+}
+
+.dropdown_title {
+  display: flex !important;
+  align-items: center;
+}
+
+.dropdown_title_language {
+  margin-right: 5px;
+}
+
+.dropdown_menu {
+  min-width: 65px,
+}
+ 
+.flag {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
 .leftSideWrapper {
   display: flex;
   align-items: center;

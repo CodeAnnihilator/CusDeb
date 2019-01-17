@@ -7,6 +7,8 @@ import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { render } from 'react-dom';
 
+import 'locales/i18nextConfig';
+
 import 'styles/index.scss'
 
 import rootSaga from './rootSaga'

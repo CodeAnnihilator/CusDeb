@@ -26,9 +26,14 @@
     "classnames": "2.2.6",
     "connected-react-router": "6.0.0",
     "history": "4.7.2",
+    "i18next": "13.1.2",
+    "i18next-browser-languagedetector": "2.2.4",
+    "i18next-xhr-backend": "1.5.1",
     "moment": "2.23.0",
     "react": "16.6.3",
+    "react-bootstrap": "0.32.4",
     "react-dom": "16.6.3",
+    "react-i18next": "9.0.2",
     "react-icons": "3.3.0",
     "react-masonry-css": "1.0.12",
     "react-redux": "6.0.0",
@@ -66,7 +71,7 @@
     "resize-observer-polyfill": "1.5.1",
     "resolve-url-loader": "3.0.0",
     "sass-loader": "7.1.0",
-    "sass-variable-loader": "^0.1.2",
+    "sass-variable-loader": "0.1.2",
     "style-loader": "0.23.1",
     "svg-inline-loader": "0.8.0",
     "ts-loader": "5.3.1",
@@ -79,6 +84,6 @@
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10",
     "webpack-hot-middleware": "2.24.3",
-    "webpack-notifier": "^1.7.0"
+    "webpack-notifier": "1.7.0"
   }
 }

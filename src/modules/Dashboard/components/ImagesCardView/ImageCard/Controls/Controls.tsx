@@ -1,6 +1,7 @@
 import React, {SyntheticEvent} from 'react';
 import styles from './controls.scss';
 import cn from 'classnames';
+import { Trans } from 'react-i18next';
 
 interface IProps {
 	icons: {
@@ -23,7 +24,9 @@ const Controls: React.SFC<IProps> = ({ icons }) => (
 						onClick={!isDisabled ? onClick : null}
 					>
 						{icon}
-						<span>{title}</span>
+						<span>
+							<Trans i18nKey={`common.${title}`} />
+						</span>
 					</div>
 					{index !== icons.length - 1 ? <div className={styles.devider} /> : null}
 				</React.Fragment>
