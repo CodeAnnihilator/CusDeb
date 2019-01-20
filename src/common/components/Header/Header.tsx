@@ -2,6 +2,8 @@ import React from 'react'
 
 import styles from './header.scss'
 
+import { createSvgComponent } from 'common/helpers/entities';
+
 import Dropdown from 'react-bootstrap/lib/Dropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 
@@ -12,7 +14,6 @@ import NotificationBellSVG from 'assets/images/notification-bell.svg'
 import AngleArrowDownSVG from 'assets/images/angle-arrow-down.svg'
 
 import i18n from 'locales/i18nextConfig';
-import { createSvgComponent } from 'common/helpers/entities';
 import { Trans } from 'react-i18next';
 
 const setLanguage = (lng) => i18n
@@ -36,13 +37,13 @@ const dropDownItems = [
 	}
 ];
 
-const Header = () => {
+const Header = ({ onToggle }) => {
 	const currentSelectedItem = dropDownItems.find(item => item.shortName === i18n.language.toUpperCase()) || dropDownItems[0];
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.leftSideWrapper}>
-				<div className={styles.toggle}>
+				<div className={styles.toggle} onClick={onToggle} >
 					<img className={styles.toggle_img} src={MenuSVG} />
 				</div>
 				<div className={styles.brand}>

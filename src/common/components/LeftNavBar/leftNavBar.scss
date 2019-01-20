@@ -1,69 +1,73 @@
 @import 'styles/mixins.scss';
+@import 'styles/colors.scss';
 
 .wrapper {
-  background-color: #181C1F;
-  display: flex;
-  flex-direction: column;
-  width: 170px;
-  min-width: 170px;
-  transition: all 0.15s ease-in-out;
-  @include mobile {
-    min-width: auto;
-    width: auto;
-  };
-  @include tablet {
-    min-width: auto;
-    width: auto;
-  };
+	background-color: #181C1F;
+	display: flex;
+	flex-direction: column;
+	width: 170px;
+	min-width: 170px;
+	transition: all 0.15s ease-in-out;
+	@include mobile {
+		min-width: auto;
+		width: auto;
+	};
+	@include tablet {
+		min-width: auto;
+		width: auto;
+	};
 }
 
 .navigation {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  transition: all 0.25s ease-in-out;
-  overflow: hidden;
-  white-space: nowrap;
-  position: sticky;
-  top: 0;
-  &_el {
-    color: #4E5C62;
-    display: inline-flex;
-    height: 40px;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-    padding: 17px 29px;
-    border-bottom: 1px solid #252b31;
-    cursor: pointer;
-    &__active {
-      color: #68BF84;
-    }
-    &_img {
-      width: 22px;
-      height: 22px;
-    }
-    &_text {
-      font-size: 14px;
-      margin-left: 30px;
-    }
-  }
-  @include tablet {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-  };
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	transition: all 0.25s ease-in-out;
+	overflow: hidden;
+	white-space: nowrap;
+	position: sticky;
+	top: 0;
+	&_el {
+		color: #4E5C62;
+		display: inline-flex;
+		height: 40px;
+		align-items: center;
+		position: relative;
+		cursor: pointer;
+		padding: 17px 29px;
+		border-bottom: 1px solid #252b31;
+		cursor: pointer;
+		text-decoration: none;
+		&__active {
+			color: $activeNavBarItem;
+		}
+		&_img {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+		}
+		&_text {
+			font-size: 14px;
+			margin-left: 50px;
+			color: inherit;
+		}
+	}
+	@include tablet {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+	};
 }
 
 .collapsed {
-  min-width: 80px;
-  width: 80px;
-  @include mobile {
-    min-width: auto;
-    width: auto;
-  }
-  @include tablet {
-    min-width: auto;
-    width: auto;
-  }
+	min-width: 80px;
+	width: 80px;
+	@include mobile {
+		min-width: auto;
+		width: auto;
+	}
+	@include tablet {
+		min-width: auto;
+		width: auto;
+	}
 }
