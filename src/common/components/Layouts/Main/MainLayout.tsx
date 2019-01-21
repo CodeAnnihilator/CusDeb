@@ -1,32 +1,32 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
-import Header from 'common/components/Header/Header'
+import Header from 'common/components/Header/Header';
 import LeftNavBarContainer from 'common/constants/LeftNavBarContainer';
 
-import styles from './mainLayout.scss'
+import styles from './mainLayout.scss';
 
 interface IState {
 	isCollapsed: boolean;
 }
 
 class MainLayout extends Component<{}, IState> {
-	state = {
+	public state = {
 		isCollapsed: true,
-	}
+	};
 
-	onToggle = () => this.setState(prevState => ({ isCollapsed: !prevState.isCollapsed}));
+	protected readonly onToggle = () => this.setState(prevState => ({isCollapsed: !prevState.isCollapsed}));
 
-	render() {
+	public render() {
 		return (
 			<div className={styles.page}>
-			  <Header onToggle={this.onToggle} />
-			  <div className={styles.wrapper}>
-			  	<LeftNavBarContainer isCollapsed={this.state.isCollapsed} />
+				<Header onToggle={this.onToggle} />
+				<div className={styles.wrapper}>
+				<LeftNavBarContainer isCollapsed={this.state.isCollapsed} />
 				{ this.props.children }
-			  </div>
+				</div>
 			</div>
-		  )
+		);
 	}
 }
 
-export default MainLayout
+export default MainLayout;

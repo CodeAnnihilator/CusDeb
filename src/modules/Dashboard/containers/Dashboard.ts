@@ -1,20 +1,20 @@
-import { connect } from 'react-redux'
+import {connect} from 'react-redux';
 
-import Dashboard from '../Dashboard'
+import {requestImages} from 'common/actions/entities';
+import {getImages} from 'common/selectors/entities';
 
-import { getImages } from 'common/selectors/entities'
-import { getActiveImage } from '../selectors/dashboard'
-import { requestImages } from 'common/actions/entities'
-import { selectImage } from '../actions/dashboard'
+import Dashboard from '../Dashboard';
+import {selectImage} from '../actions/dashboard';
+import {getActiveImage} from '../selectors/dashboard';
 
 const mapStateToProps = state => ({
-  images: getImages(state),
-  activeImage: getActiveImage(state)
-})
+	images: getImages(state),
+	activeImage: getActiveImage(state),
+});
 
-const mapDispatchToProps = (dispatch) => ({
-  requestImages: () => dispatch(requestImages()),
-  selectImage: (name) => dispatch(selectImage(name))
-})
+const mapDispatchToProps = dispatch => ({
+	requestImages: () => dispatch(requestImages()),
+	selectImage: name => dispatch(selectImage(name)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

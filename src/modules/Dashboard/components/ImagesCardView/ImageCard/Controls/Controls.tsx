@@ -1,18 +1,18 @@
-import React, {SyntheticEvent} from 'react';
-import styles from './controls.scss';
 import cn from 'classnames';
-import { Trans } from 'react-i18next';
+import React, {SyntheticEvent} from 'react';
+import {Trans} from 'react-i18next';
+import styles from './controls.scss';
 
 interface IProps {
-	icons: {
+	icons: Array<{
 		icon: React.ReactNode;
 		isDisabled?: boolean;
 		onClick?: (event: SyntheticEvent) => void | null;
-		title: string
-	}[]
+		title: string;
+	}>;
 }
 
-const Controls: React.SFC<IProps> = ({ icons }) => (
+const Controls: React.SFC<IProps> = ({icons}) => (
 	<div className={styles.controls}>
 		{
 			icons.map(({icon, title, onClick, isDisabled}, index) => (

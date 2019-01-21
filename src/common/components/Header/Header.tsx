@@ -1,44 +1,44 @@
-import React from 'react'
+import React from 'react';
+import {Trans} from 'react-i18next';
 
-import styles from './header.scss'
+import Dropdown from 'react-bootstrap/lib/Dropdown';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
 
-import { createSvgComponent } from 'common/helpers/entities';
-
-import Dropdown from 'react-bootstrap/lib/Dropdown'
-import MenuItem from 'react-bootstrap/lib/MenuItem'
-
-import MenuSVG from 'assets/images/menu.svg'
-import UKFlagIcon from 'assets/images/uk.svg'
-import RUFlagIcon from 'assets/images/ru.svg'
-import NotificationBellSVG from 'assets/images/notification-bell.svg'
-import AngleArrowDownSVG from 'assets/images/angle-arrow-down.svg'
-
+import {createSvgComponent} from 'common/helpers/entities';
 import i18n from 'locales/i18nextConfig';
-import { Trans } from 'react-i18next';
 
-const setLanguage = (lng) => i18n
+import AngleArrowDownSVG from 'assets/images/angle-arrow-down.svg';
+import MenuSVG from 'assets/images/menu.svg';
+import NotificationBellSVG from 'assets/images/notification-bell.svg';
+import RUFlagIcon from 'assets/images/ru.svg';
+import UKFlagIcon from 'assets/images/uk.svg';
+
+import styles from './header.scss';
+
+const setLanguage = lng => i18n
 	.changeLanguage(lng)
 	.catch(error => {
-		if (error) return console.warn('something went wrong loading', error)
+		if (error) return console.warn('something went wrong loading', error);
 	});
 
 const dropDownItems = [
 	{
-		title: <Trans i18nKey="common.En" />,
+		title: <Trans i18nKey='common.En' />,
 		onSelect: setLanguage,
 		shortName: 'EN',
-		icon: createSvgComponent(styles.flag, UKFlagIcon)
+		icon: createSvgComponent(styles.flag, UKFlagIcon),
 	},
 	{
-		title: <Trans i18nKey="common.Ru" />,
+		title: <Trans i18nKey='common.Ru' />,
 		onSelect: setLanguage,
 		shortName: 'RU',
-		icon: createSvgComponent(styles.flag, RUFlagIcon)
-	}
+		icon: createSvgComponent(styles.flag, RUFlagIcon),
+	},
 ];
 
-const Header = ({ onToggle }) => {
-	const currentSelectedItem = dropDownItems.find(item => item.shortName === i18n.language.toUpperCase()) || dropDownItems[0];
+const Header = ({onToggle}) => {
+	const currentSelectedItem = dropDownItems
+		.find(item => item.shortName === i18n.language.toUpperCase()) || dropDownItems[0];
 
 	return (
 		<div className={styles.wrapper}>
@@ -92,7 +92,7 @@ const Header = ({ onToggle }) => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default Header
+export default Header;

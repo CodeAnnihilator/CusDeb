@@ -1,5 +1,5 @@
-import {handleActions} from 'redux-actions'
-import {types} from '../constants/entities'
+import {handleActions} from 'redux-actions';
+import {types} from '../constants/entities';
 
 const initialState = {
 	images: [],
@@ -15,13 +15,13 @@ export default handleActions({
 				return {
 					...item,
 					...changes,
-				}
+				};
 			}
 
 			return item;
 		}),
 		buildingImages: changes.build.status === 'building'
 			? [...state.buildingImages, {...state.images.find(elem => elem.name === changes.name), ...changes}]
-			: state.buildingImages
+			: state.buildingImages,
 	}),
 }, initialState);

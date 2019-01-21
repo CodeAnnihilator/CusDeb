@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react'
-import cn from 'classnames'
+import cn from 'classnames';
+import React, {PureComponent} from 'react';
+import {Trans} from 'react-i18next';
 
-import DropDownTab from './DropDownTab/DropDownTab'
+import DropDownTab from './DropDownTab/DropDownTab';
 
-import styles from './currentImageTab.scss'
-import { Trans } from 'react-i18next';
+import styles from './currentImageTab.scss';
 
 interface IProps {
 	activeImage: any;
@@ -13,49 +13,60 @@ interface IProps {
 interface IState {
 	activeMainTab: number;
 	openedDropdownTabs: {
-		base: number,
-		dependencies: number,
-		added: number,
+		base: number;
+		dependencies: number;
+		added: number;
 	};
 }
 
 export default class CurrentImageTab extends PureComponent<IProps, IState> {
-	static defaultProps = {
+	public static defaultProps = {
 		activeImage: {
 			basePackages: [],
 			addedPackages: [],
 			depPackages: [],
 			distro: {
 				full_name: '',
-			}
-		}
-	}
+			},
+		},
+	};
 
-	state = {
+	public state = {
 		activeMainTab: 0,
 		openedDropdownTabs: {
 			base: 0,
 			dependencies: 0,
 			added: 1,
 		},
-	}
+	};
 
-	onSwitchMainTab = nextTab => {
+	private readonly onSwitchMainTab = nextTab => {
 		if (nextTab !== this.state.activeMainTab) {
-			this.setState({ activeMainTab: nextTab })
+			this.setState({activeMainTab: nextTab});
 		}
 	}
 
-	onToggleDropdownTabs = tab => this.setState(prevState => ({
+	private readonly onToggleDropdownTabs = tab => this.setState(prevState => ({
 		openedDropdownTabs: {
 			...prevState.openedDropdownTabs,
 			[tab]: !prevState.openedDropdownTabs[tab],
-		}
+		},
 	}))
 
-	render() {
-		const { activeMainTab, openedDropdownTabs } = this.state;
-		const { activeImage: {basePackages, addedPackages, depPackages, distro, thumb}} = this.props;
+	public render() {
+		const {
+			activeMainTab,
+			openedDropdownTabs,
+		} = this.state;
+		const {
+			activeImage: {
+				basePackages,
+				addedPackages,
+				depPackages,
+				distro,
+				thumb,
+			},
+		} = this.props;
 
 		return (
 			<div className={styles.wrapper}>
@@ -66,13 +77,13 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 							onClick={() => this.onSwitchMainTab(0)}
 							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 0})}
 						>
-							<Trans i18nKey="common.Common"/>
+							<Trans i18nKey='common.Common'/>
 						</div>
 						<div
 							onClick={() => this.onSwitchMainTab(1)}
 							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 1})}
 						>
-							<Trans i18nKey="common.Packages"/>
+							<Trans i18nKey='common.Packages'/>
 						</div>
 					</div>
 					{
@@ -90,7 +101,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 						activeMainTab === 1 && (
 							<div className={styles.dropDownWrapper}>
 								<DropDownTab
-									title={<Trans i18nKey="Packages.Base"/>}
+									title={<Trans i18nKey='Packages.Base'/>}
 									value={basePackages.length}
 									isOpened={!!openedDropdownTabs.base}
 									onClick={() => this.onToggleDropdownTabs('base')}
@@ -102,7 +113,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									}
 								</DropDownTab>
 								<DropDownTab
-									title={<Trans i18nKey="Packages.Dependencies"/>}
+									title={<Trans i18nKey='Packages.Dependencies'/>}
 									value={depPackages.length}
 									isOpened={!!openedDropdownTabs.dependencies}
 									onClick={() => this.onToggleDropdownTabs('dependencies')}
@@ -114,7 +125,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									}
 								</DropDownTab>
 								<DropDownTab
-									title={<Trans i18nKey="Packages.Added"/>}
+									title={<Trans i18nKey='Packages.Added'/>}
 									value={addedPackages.length}
 									isOpened={!!openedDropdownTabs.added}
 									onClick={() => this.onToggleDropdownTabs('added')}
@@ -130,6 +141,6 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 					}
 				</div>
 			</div>
-		)
+		);
 	}
 }
