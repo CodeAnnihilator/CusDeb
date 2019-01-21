@@ -7,7 +7,6 @@
 	"rules": {
 		"no-constant-condition": true,
 		"unnecessary-constructor": true,
-		"typeof-compare": true,
 		"triple-equals": true,
 		"strict-type-predicates": true,
 		"strict-boolean-expressions": false,
@@ -81,7 +80,6 @@
 		"quotemark": [true, "single", "avoid-escape", "avoid-template" ],
 		"trailing-comma": [true, { "multiline": "always", "singleline": "never" }],
 		"variable-name": [true, "ban-keywords"],
-		"linterOptions": { "exclude": ["node_modules/**"]},
 		"curly": [true, "ignore-same-line"],
 
 		"ordered-imports": [

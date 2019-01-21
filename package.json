@@ -1,25 +1,18 @@
 {
-  "name": "SpaceXLaunches",
+  "name": "CusDeb",
   "version": "1.0.0",
   "description": "",
   "main": "test.js",
   "scripts": {
     "dev": "babel-node ./webpack/webpack.dev-server.js",
     "start": "npm run build && node webpack/static-server.js",
-    "build": "babel-node ./node_modules/webpack/bin/webpack --config webpack/webpack.production.config.js",
-    "lint": "tslint tests/*.ts -t verbose"
+    "build": "babel-node ./node_modules/webpack/bin/webpack --config webpack/webpack.production.config.js ",
+    "lint": "tslint --project tsconfig.json './src/**/*.tsx'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CodeAnnihilator/SpaceXLounches.git"
-  },
+  "pre-commit": "lint",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CodeAnnihilator/SpaceXLounches/issues"
-  },
-  "homepage": "https://github.com/CodeAnnihilator/SpaceXLounches#readme",
   "dependencies": {
     "@types/react": "16.7.17",
     "@types/react-dom": "16.0.11",
@@ -70,6 +63,7 @@
     "mini-css-extract-plugin": "0.5.0",
     "node-sass": "4.11.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pre-commit": "^1.2.2",
     "raw-loader": "1.0.0",
     "react-hot-loader": "4.3.12",
     "redux-devtools-extension": "2.13.7",
@@ -81,6 +75,7 @@
     "svg-inline-loader": "0.8.0",
     "ts-loader": "5.3.1",
     "tslint": "^5.12.1",
+    "tslint-loader": "^3.5.4",
     "tslint-react": "^3.6.0",
     "typescript": "3.2.2",
     "typings-for-css-modules-loader": "1.7.0",
@@ -89,7 +84,7 @@
     "webpack": "4.27.1",
     "webpack-bundle-analyzer": "3.0.3",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "3.1.10",
+    "webpack-dev-server": "^3.1.14",
     "webpack-hot-middleware": "2.24.3",
     "webpack-notifier": "1.7.0"
   }
