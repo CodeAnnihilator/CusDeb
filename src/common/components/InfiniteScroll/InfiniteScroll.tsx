@@ -1,48 +1,54 @@
-import React, { PureComponent } from 'react'
+import React, {PureComponent} from 'react';
 
 interface IProps {
-  children: Array<React.ReactChild>
+	children: React.ReactChild[];
 }
 
-export default class InfiniteScroll extends PureComponent<IProps> {
+interface IState {
+	totalCount: number;
+	currentCount: number;
+	offset: number;
+}
 
-  public refs: {
-    scroll: HTMLDivElement
-  }
+export default class InfiniteScroll extends PureComponent<IProps, IState> {
 
-  state = {
-    totalCount: this.props.children.length,
-    currentCount:3,
-    offset:3
-  }
+	public refs: {
+		scroll: HTMLDivElement;
+	};
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.loadOnScroll)
-  }
+	public state: IState = {
+		totalCount: this.props.children.length,
+		currentCount: 3,
+		offset: 3,
+	};
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.loadOnScroll)
-  }
+	public componentDidMount() {
+		window.addEventListener('scroll', this.loadOnScroll);
+	}
 
-  loadOnScroll = (): void => {
-    const { currentCount, totalCount } = this.state
-    const { innerHeight, innerWidth } = window
-    const { scroll } = this.refs
-    if (currentCount == totalCount) return
-    const rect = scroll.getBoundingClientRect()
-    const isAtEnd = rect.bottom <= innerHeight && rect.right <= innerWidth
-    if (isAtEnd) this.setState({ currentCount: currentCount + 3 })
-  
-  }
+	public componentWillUnmount() {
+		window.removeEventListener('scroll', this.loadOnScroll);
+	}
 
-  render() {
-    const { currentCount, totalCount } = this.state
-    const { children } = this.props
-    return (
-      <div ref='scroll'>
-        { children.filter((_, index) => index <= currentCount) }
-        { currentCount < totalCount && <div>Please wait. Loading...</div> }
-      </div>
-    )
-  }
+	private readonly loadOnScroll = (): void => {
+		const {currentCount, totalCount} = this.state;
+		const {innerHeight, innerWidth} = window;
+		const {scroll} = this.refs;
+		if (currentCount === totalCount) return;
+		const rect = scroll.getBoundingClientRect();
+		const isAtEnd = rect.bottom <= innerHeight && rect.right <= innerWidth;
+		if (isAtEnd) this.setState(st => ({currentCount: st.currentCount + 3}));
+	}
+
+	public render() {
+		const {currentCount, totalCount} = this.state;
+		const {children} = this.props;
+
+		return (
+			<div ref='scroll'>
+				{ children.filter((_, index) => index <= currentCount) }
+				{ currentCount < totalCount && <div>Please wait. Loading...</div> }
+			</div>
+		);
+	}
 }

@@ -1,12 +1,10 @@
-import { createSelector } from 'reselect'
+import {createSelector} from 'reselect';
 
-import { getImages } from 'common/selectors/entities'
+import {getImages} from 'common/selectors/entities';
 
 export const getActiveImageId = state => (state.dashboard || {}).activeImageId;
 
 export const getActiveImage = createSelector(
 	[getImages, getActiveImageId],
-	(images, activeImageId) => {
-		return images.find(image => image.name === activeImageId)
-	}
-)
+	(images, activeImageId) => images.find(image => image.name === activeImageId),
+);

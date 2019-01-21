@@ -1,21 +1,25 @@
-import React from 'react'
+import React from 'react';
+import {Trans} from 'react-i18next';
 
-import styles from './imagesPreloader.scss'
+import styles from './imagesPreloader.scss';
 
-import DelayedDotsPreloader from 'common/components/Preloaders/DelayedDots/DelayedDots'
-import { Trans } from 'react-i18next';
+import DelayedDotsPreloader from 'common/components/Preloaders/DelayedDots/DelayedDots';
 
 interface IProps {
-  text: string;
+	text: string;
 }
 
-const ImagesPreloader: React.SFC<IProps> = ({ text }) => (
-  <div className={styles.wrapper}>
-    <DelayedDotsPreloader />
-    <span className={styles.text}>
-      <Trans i18nKey="common.LoadingImages">...</Trans>
-    </span>
-  </div>
-)
+const ImagesPreloader: React.SFC<IProps> = ({text}) => (
+	<div className={styles.wrapper}>
+		<DelayedDotsPreloader />
+		<span className={styles.text}>
+			<Trans i18nKey='common.LoadingImages'>{text}</Trans>
+		</span>
+	</div>
+);
 
-export default ImagesPreloader
+ImagesPreloader.defaultProps = {
+	text: '...',
+};
+
+export default ImagesPreloader;

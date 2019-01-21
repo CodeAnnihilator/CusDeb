@@ -1,23 +1,23 @@
-import {takeLatest, put, call, select, spawn} from 'redux-saga/effects'
-import {delay} from 'redux-saga'
-import {generateDummyImages} from 'common/seed/images'
-import {requestImagesSuccess, updateImage} from 'common/actions/entities'
-import {types} from 'common/constants/entities'
-import { getBuildingImages } from 'common/selectors/entities';
+import {delay} from 'redux-saga';
+import {call, put, select, spawn, takeLatest} from 'redux-saga/effects';
+
+import {requestImagesSuccess, updateImage} from 'common/actions/entities';
+import {types} from 'common/constants/entities';
+import {generateDummyImages} from 'common/seed/images';
+import {getBuildingImages} from 'common/selectors/entities';
 
 function* requestImagesSaga() {
-	const data = generateDummyImages(30)
+	const data = generateDummyImages(30);
 	try {
-		yield call(delay, 2000)
-		yield put(requestImagesSuccess(data))
+		yield call(delay, 2000);
+		yield put(requestImagesSuccess(data));
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 	}
 }
 
 function* taskCreator(image) {
 	const [activeStep, totalSteps] = ['activeStep', 'totalSteps'].map(item => image.build[item]);
-	
 	for (let i = activeStep; i <= totalSteps; i++) {
 		yield call(delay, Math.round(Math.random() * 5) * 1000);
 		let status = '';
@@ -32,12 +32,11 @@ function* taskCreator(image) {
 						status: 'building',
 						activeStep: totalSteps,
 						totalSteps,
-					}
-				}
-			}))
+					},
+				},
+			}));
 
 			yield call(delay, 2000);
-			
 			status = 'ready';
 		}
 
@@ -48,9 +47,8 @@ function* taskCreator(image) {
 					status,
 					activeStep: i,
 					totalSteps,
-				}
-			}}))
-
+				},
+			}}));
 
 		if (status === 'error') break;
 	}
@@ -59,8 +57,8 @@ function* taskCreator(image) {
 function* watchImagesStatusesSaga() {
 	const data = yield select(getBuildingImages);
 
-	for (let i = 0; i < data.length; i++) {
-		yield spawn(taskCreator, data[i]);
+	for (const image of data) {
+		yield spawn(taskCreator, image);
 	}
 }
 

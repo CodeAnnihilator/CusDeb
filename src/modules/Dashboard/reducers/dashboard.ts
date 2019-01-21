@@ -1,9 +1,10 @@
-import types from '../constants/dashboard';
 import {handleActions} from 'redux-actions';
+
+import types from '../constants/dashboard';
 
 const initialState = {
 	activeImageId: null,
-	isPending: true
+	isPending: true,
 };
 
 export default handleActions({
@@ -12,4 +13,4 @@ export default handleActions({
 		activeImageId: action.payload,
 		isPending: false,
 	}),
-}, initialState)
+}, initialState);
