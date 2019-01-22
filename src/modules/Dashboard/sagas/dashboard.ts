@@ -4,7 +4,7 @@ import {types} from 'common/constants/entities';
 
 import {selectImage} from 'modules/Dashboard/actions/dashboard';
 
-function* imagesPreloaderSaga(action) {
+function* imagesPreloaderSaga(action: any) {
 	const data = action.payload;
 	const activeImageId = data[0].name;
 	yield put(selectImage(activeImageId));

@@ -9,8 +9,8 @@ interface IProps {
 	color?: string;
 	width?: string | number;
 	height?: string | number;
-	stepsCount?: number;
-	step?: number;
+	stepsCount: number;
+	step: number;
 	text?: string;
 	textColor?: string;
 }

@@ -15,7 +15,11 @@ import UKFlagIcon from 'assets/images/uk.svg';
 
 import styles from './header.scss';
 
-const setLanguage = lng => i18n
+interface IProps {
+	onToggle: () => void;
+}
+
+const setLanguage = (lng: string) => i18n
 	.changeLanguage(lng)
 	.catch(error => {
 		if (error) return console.warn('something went wrong loading', error);
@@ -36,7 +40,7 @@ const dropDownItems = [
 	},
 ];
 
-const Header = ({onToggle}) => {
+const Header: React.SFC<IProps> = ({onToggle}) => {
 	const currentSelectedItem = dropDownItems
 		.find(item => item.shortName === i18n.language.toUpperCase()) || dropDownItems[0];
 
@@ -65,7 +69,7 @@ const Header = ({onToggle}) => {
 				<div className={styles.language}>
 					<Dropdown
 						pullRight
-						id={1}
+						id='1'
 					>
 						<Dropdown.Toggle className={styles.dropdown_title}>
 							<>
@@ -80,7 +84,7 @@ const Header = ({onToggle}) => {
 								<MenuItem
 									key={shortName.toLowerCase()}
 									eventKey={shortName.toLowerCase()}
-									onSelect={onSelect}
+									onSelect={onSelect as any}
 									className={styles.dropdown_item}
 								>
 									{icon}

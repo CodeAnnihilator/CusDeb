@@ -16,7 +16,7 @@ function* requestImagesSaga() {
 	}
 }
 
-function* taskCreator(image) {
+function* taskCreator(image: any) { // todo -> to d.ts file
 	const [activeStep, totalSteps] = ['activeStep', 'totalSteps'].map(item => image.build[item]);
 	for (let i = activeStep; i <= totalSteps; i++) {
 		yield call(delay, Math.round(Math.random() * 5) * 1000);

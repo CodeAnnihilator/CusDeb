@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './fadedText.scss';
 
-const FadedText = ({text}) => (
+const FadedText = ({text}: any) => (
 	<div className={styles.loading}>
 		<div className={styles.loadingText}>
 			{
 				text
 					.split('')
-					.map((letter, index) => (
+					.map((letter: string, index: number) => (
 						<span key={index}>{letter}</span>
 					))
 			}

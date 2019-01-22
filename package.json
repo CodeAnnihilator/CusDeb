@@ -14,8 +14,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/i18next-browser-languagedetector": "^2.0.1",
+    "@types/i18next-xhr-backend": "^1.4.1",
     "@types/react": "16.7.17",
+    "@types/react-bootstrap": "^0.32.15",
     "@types/react-dom": "16.0.11",
+    "@types/redux-actions": "^2.3.1",
     "axios": "0.18.0",
     "classnames": "2.2.6",
     "connected-react-router": "6.0.0",

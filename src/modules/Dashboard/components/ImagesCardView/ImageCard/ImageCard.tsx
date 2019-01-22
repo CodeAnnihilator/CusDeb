@@ -5,7 +5,7 @@ import {Trans} from 'react-i18next';
 import {FaCircleNotch} from 'react-icons/fa';
 import {IoMdBuild} from 'react-icons/io';
 
-import PreLoader from 'common/components/ProgressBar/ProgressBar';
+import ProgressBar from 'common/components/ProgressBar/ProgressBar';
 import {COLORS} from 'common/constants/entities';
 import {createSvgComponent} from 'common/helpers/entities';
 
@@ -123,7 +123,7 @@ export default class ImageCard extends Component<IProps> {
 			}
 			case 'building': {
 				jsx = (
-					<PreLoader
+					<ProgressBar
 						height={50}
 						step={activeStep}
 						textColor={COLORS.gray600}
