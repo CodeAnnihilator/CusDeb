@@ -3,8 +3,8 @@ import {Route} from 'react-router-dom';
 
 import MainLayout from './MainLayout';
 
-const MainLayoutRoute = ({component: Component, ...rest}) => {
-	const ComponentToRender = matchProps => (
+const MainLayoutRoute = ({component: Component, ...rest}: any) => {
+	const ComponentToRender = (matchProps: any) => (
 		<MainLayout>
 			<Component {...matchProps} />
 		</MainLayout>

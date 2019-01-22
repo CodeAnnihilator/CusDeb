@@ -49,7 +49,7 @@ const generateDistro = () => {
 
 const generateRandomString = () => Math.random().toString(36).replace(/[^a-z]+/g, '');
 
-const generateRandomLength = (length, min = 0) => min + Math.round(Math.random() * length);
+const generateRandomLength = (length: number, min = 0) => min + Math.round(Math.random() * length);
 
 const generateRandomNote = () => {
 	const wordsArray = Array.from(
@@ -65,7 +65,7 @@ const generateRandomNote = () => {
 	return wordsArray.join(' ');
 };
 
-const generateRandomPackages = (max, min = 0) => {
+const generateRandomPackages = (max: number, min = 0) => {
 	const packages = Array.from(
 		{length: generateRandomLength(max, min)},
 		() => generateRandomString()).map(el => ({package: el}),
@@ -108,7 +108,7 @@ const generateDummyImage = () => ({
 	build: generateBuild(),
 });
 
-export const generateDummyImages = length => {
+export const generateDummyImages = (length: number) => {
 	const images = Array.from(
 		{length},
 		() => generateDummyImage(),

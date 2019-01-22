@@ -5,15 +5,15 @@ export const requestImages = () => ({type: types.REQUEST_IMAGES});
 
 export const requestImagesSuccess = createAction(
 	types.REQUEST_IMAGES_SUCCESS,
-	data => data,
+	(data: any) => data,
 );
 
 export const updateImage = createAction(
 	types.UPDATE_IMAGE,
-	changes => ({changes}),
+	(changes: any) => ({changes}),
 );
 
 export const requestImagesError = createAction(
 	types.REQUEST_IMAGES_ERROR,
-	error => error,
+	(error: any) => error,
 );

@@ -12,12 +12,7 @@ interface IState {
 }
 
 export default class Masonry extends PureComponent<IProps, IState> {
-
-	public refs: {
-		main: HTMLInputElement;
-	};
-
-	constructor(props) {
+	constructor(props: IProps) {
 		super(props);
 		const {breakpointCols} = props;
 		const columnCount = (breakpointCols && breakpointCols.default) ? breakpointCols.default : 2;

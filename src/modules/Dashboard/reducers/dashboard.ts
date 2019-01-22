@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default handleActions({
-	[types.SELECT_IMAGE]: (state, action) => ({
+	[types.SELECT_IMAGE]: (state: any , action: any) => ({
 		...state,
 		activeImageId: action.payload,
 		isPending: false,

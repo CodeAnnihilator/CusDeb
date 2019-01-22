@@ -7,7 +7,7 @@ interface IProps {
 	icons: Array<{
 		icon: React.ReactNode;
 		isDisabled?: boolean;
-		onClick?: (event: SyntheticEvent) => void | null;
+		onClick?: ((event: SyntheticEvent) => void);
 		title: string;
 	}>;
 }
@@ -21,7 +21,7 @@ const Controls: React.SFC<IProps> = ({icons}) => (
 						className={cn(styles.control, {
 							[styles['control--disabled']] : isDisabled,
 						})}
-						onClick={!isDisabled ? onClick : null}
+						onClick={!isDisabled ? onClick : undefined}
 					>
 						{icon}
 						<span>

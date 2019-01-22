@@ -11,10 +11,12 @@ interface IState {
 }
 
 export default class InfiniteScroll extends PureComponent<IProps, IState> {
+	private readonly scroll: any;
 
-	public refs: {
-		scroll: HTMLDivElement;
-	};
+	constructor(props: IProps) {
+		super(props);
+		this.scroll = React.createRef();
+	}
 
 	public state: IState = {
 		totalCount: this.props.children.length,
@@ -33,9 +35,8 @@ export default class InfiniteScroll extends PureComponent<IProps, IState> {
 	private readonly loadOnScroll = (): void => {
 		const {currentCount, totalCount} = this.state;
 		const {innerHeight, innerWidth} = window;
-		const {scroll} = this.refs;
 		if (currentCount === totalCount) return;
-		const rect = scroll.getBoundingClientRect();
+		const rect = this.scroll.getBoundingClientRect();
 		const isAtEnd = rect.bottom <= innerHeight && rect.right <= innerWidth;
 		if (isAtEnd) this.setState(st => ({currentCount: st.currentCount + 3}));
 	}
@@ -45,7 +46,7 @@ export default class InfiniteScroll extends PureComponent<IProps, IState> {
 		const {children} = this.props;
 
 		return (
-			<div ref='scroll'>
+			<div ref={this.scroll}>
 				{ children.filter((_, index) => index <= currentCount) }
 				{ currentCount < totalCount && <div>Please wait. Loading...</div> }
 			</div>

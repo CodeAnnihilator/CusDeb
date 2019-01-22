@@ -12,9 +12,8 @@ export default class ViewTabs extends PureComponent {
 		activeTab: 0,
 	};
 
-	private readonly onSwitchTab = (tab: number): void => (
-		this.state.activeTab !== tab && this.setState({activeTab: tab})
-	)
+	private readonly onSwitchTab = (tab: number) => this.state.activeTab !== tab
+		&& this.setState({activeTab: tab})
 
 	public render() {
 		const {activeTab} = this.state;

@@ -40,13 +40,13 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 		},
 	};
 
-	private readonly onSwitchMainTab = nextTab => {
+	private readonly onSwitchMainTab = (nextTab: any) => {
 		if (nextTab !== this.state.activeMainTab) {
 			this.setState({activeMainTab: nextTab});
 		}
 	}
 
-	private readonly onToggleDropdownTabs = tab => this.setState(prevState => ({
+	private readonly onToggleDropdownTabs = (tab: any) => this.setState(prevState => ({
 		openedDropdownTabs: {
 			...prevState.openedDropdownTabs,
 			[tab]: !prevState.openedDropdownTabs[tab],
@@ -107,7 +107,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									onClick={() => this.onToggleDropdownTabs('base')}
 								>
 									{
-										basePackages.map((pack, index) => (
+										basePackages.map((pack: any, index: any) => (
 											<div key={index}>{pack.package}</div>
 										))
 									}
@@ -119,7 +119,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									onClick={() => this.onToggleDropdownTabs('dependencies')}
 								>
 									{
-										depPackages.map((pack, index) => (
+										depPackages.map((pack: any, index: any) => (
 											<div key={index}>{pack.package}</div>
 										))
 									}
@@ -131,7 +131,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 									onClick={() => this.onToggleDropdownTabs('added')}
 								>
 									{
-										addedPackages.map((pack, index) => (
+										addedPackages.map((pack: any, index: any) => (
 											<div key={index}>{pack.package}</div>
 										))
 									}
