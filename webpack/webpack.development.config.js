@@ -28,11 +28,19 @@ export default {
               }
             },
             {
+                loader: 'postcss-loader',
+                options: {
+                    config: {
+                        path: path.resolve(__dirname),
+                    }
+                },
+            },
+            {
               loader: 'sass-loader',
               options: {
                 includePaths: [path.resolve(__dirname, "../src")]
               }
-            }
+            },
           ]
         }
       ]
