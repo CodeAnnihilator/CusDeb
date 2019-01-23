@@ -1,0 +1,76 @@
+@import 'styles/colors.scss';
+
+#modal-container {
+	position: relative;
+	z-index: 999;
+}
+
+.popup-layout {
+	background-color: rgba(0,0,0,0.5);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup-header {
+	background-color: $gray200;
+	border-bottom: 1px solid $gray400;
+	height: 75px;
+	width: 100%;
+	flex-direction: column;
+    display: flex;
+    justify-content: center;
+	&__title {
+		display: flex;
+   		justify-content: center;
+	}
+	z-index: 10000;
+}
+
+.popup-header-close {
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	border: 2px solid $gray400;
+	border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	right: 20px;
+	z-index: 10000;
+    top: 20px;
+	&__cross {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.popup-container {
+	width: 640px;
+	height: 480px;
+	position: absolute;
+	border: 1px solid $gray400;
+	border-radius: 5px;
+	z-index: 10000;
+}
+
+.popup-content {
+	background-color: $gray200;
+	height: calc(100% - 150px);
+	z-index: 10000;
+    overflow-y: auto;
+    word-break: break-word;
+}
+
+.popup-footer {
+	background-color: $blue50;
+    height: 75px;
+    border-top: 1px solid $gray400;
+	z-index: 10000;
+}

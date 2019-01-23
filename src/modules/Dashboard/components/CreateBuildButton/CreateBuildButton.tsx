@@ -1,3 +1,4 @@
+import Popup from 'common/components/Popup/index';
 import React from 'react';
 import {Trans} from 'react-i18next';
 import styles from './createBuildButton.scss';
