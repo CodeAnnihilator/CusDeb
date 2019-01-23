@@ -43,7 +43,9 @@ export default {
 				use: [
 					{
 						loader: 'tslint-loader',
-						options: { /* Loader options go here */ }
+						options: {
+                            typeCheck: true,
+                        }
 					}
 				]
 			}
