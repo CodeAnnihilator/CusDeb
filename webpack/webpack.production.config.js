@@ -1,4 +1,6 @@
 import webpack from 'webpack'
+import path from 'path'
+import autoprefixer from 'autoprefixer'
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
@@ -33,7 +35,15 @@ export default {
                 modules: true
               }
             },
-            { loader: 'sass-loader' }
+            {
+                loader: 'postcss-loader',
+                options: {
+                    config: {
+                        path: path.resolve(__dirname),
+                    }
+                },
+            },
+            { loader: 'sass-loader' },
           ]
         }
       ]
