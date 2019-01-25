@@ -94,23 +94,6 @@
   }
 }
 
-.notifications {
-  position: relative;
-  &_img {
-    width: 27px;
-  }
-  &_unred {
-    width: 8px;
-    height: 8px;
-    border-radius: 40px;
-    background-color: #ED6D69;
-    border: 2px solid #d86157;
-    position: absolute;
-    top: -3px;
-    right: 4px;
-  }
-}
-
 .devider {
   width: 1px;
   height: 100%;
