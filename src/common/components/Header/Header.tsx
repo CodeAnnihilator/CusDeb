@@ -9,7 +9,6 @@ import i18n from 'locales/i18nextConfig';
 
 import AngleArrowDownSVG from 'assets/images/angle-arrow-down.svg';
 import MenuSVG from 'assets/images/menu.svg';
-import NotificationBellSVG from 'assets/images/notification-bell.svg';
 import RUFlagIcon from 'assets/images/ru.svg';
 import UKFlagIcon from 'assets/images/uk.svg';
 
@@ -56,10 +55,6 @@ const Header: React.SFC<IProps> = ({onToggle}) => {
 				</div>
 			</div>
 			<div className={styles.controls}>
-				<div className={styles.notifications}>
-					<img className={styles.notifications_img} src={NotificationBellSVG} />
-					<div className={styles.notifications_unred} />
-				</div>
 				<div className={styles.devider} />
 				<div className={styles.user}>
 					<span>Eugene Pyatibratov</span>
