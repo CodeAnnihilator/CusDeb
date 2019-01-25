@@ -4,7 +4,7 @@ interface IProps {
 	fill?: string;
 	className?: string;
 }
-
+/* tslint:disable */
 const ImageDotMatrix: React.SFC<IProps> = ({fill, className}) => (
 	<svg
 		viewBox='0 0 19 19'

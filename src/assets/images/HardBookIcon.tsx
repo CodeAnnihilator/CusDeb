@@ -5,7 +5,7 @@ interface IProps {
 	className?: string;
 	style?: object;
 }
-
+/* tslint:disable */
 const HardBookIcon: React.SFC<IProps> = ({fill, className, style}) => (
 	<svg
 		fill={fill}
