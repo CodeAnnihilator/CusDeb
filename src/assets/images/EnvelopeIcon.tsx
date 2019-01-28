@@ -5,7 +5,7 @@ interface IProps {
 	className?: string;
 	style?: object;
 }
-
+/* tslint:disable */
 const EnvelopeIcon: React.SFC<IProps> = ({fill, className, style}) => (
 	<svg
 		fill={fill}
