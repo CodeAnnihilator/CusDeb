@@ -1,3 +1,5 @@
+import randomNumInRange from 'utils/randomNumInRange';
+
 import DebianSVG from 'assets/images/distributive/debian.svg';
 import DevuanSVG from 'assets/images/distributive/devuan.svg';
 import UbuntuSVG from 'assets/images/distributive/ubuntu.svg';
@@ -81,18 +83,19 @@ const generateRandomImage = () => {
 	return selectedVariant;
 };
 
-const generateBuild = () => {
+const generateBuild = (index: number) => {
 	const statuses = ['building', 'error', 'ready'];
-	const randomNum = Math.round((Math.random() * 2));
+
+	const resultStatus = index < 3 ? statuses[index] : statuses[randomNumInRange(0, 2)];
 
 	return {
-		status: statuses[randomNum],
-		activeStep: Math.round((Math.random() * 10)),
+		status: resultStatus,
+		activeStep: randomNumInRange(0, 10),
 		totalSteps: 10,
 	};
 };
 
-const generateDummyImage = () => ({
+const generateDummyImage = (index: number) => ({
 	buildtype: generateBuildType(),
 	configuration: generateConfiguration(),
 	distro: generateDistro(),
@@ -105,14 +108,11 @@ const generateDummyImage = () => ({
 	started_at: new Date(),
 	targetdevice: generateTargetDevice(),
 	thumb: generateRandomImage(),
-	build: generateBuild(),
+	build: generateBuild(index),
 });
 
-export const generateDummyImages = (length: number) => {
-	const images = Array.from(
-		{length},
-		() => generateDummyImage(),
-	);
-
-	return images;
-};
+export const generateDummyImages = (length: number) => (
+	Array.from({length},
+		(_, index) => generateDummyImage(index),
+	)
+);

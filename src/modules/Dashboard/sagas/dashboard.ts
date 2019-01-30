@@ -6,8 +6,11 @@ import {selectImage} from 'modules/Dashboard/actions/dashboard';
 
 function* imagesPreloaderSaga(action: any) {
 	const data = action.payload;
-	const activeImageId = data[0].name;
-	yield put(selectImage(activeImageId));
+
+	if (data.length) {
+		const activeImageId = data[0].name;
+		yield put(selectImage(activeImageId));
+	}
 }
 
 export default function* watchEntities() {
