@@ -1,4 +1,4 @@
-import {brands, buildTypes, distros, targetDevices} from 'common/seed/images';
+import {brands, buildTypes, distros, targetDevices} from 'common/seed/images/images';
 
 import {handleActions} from 'redux-actions';
 import {CREATE_IMAGE_SELECT_ENTITY, CREATE_IMAGE_SET_FILTER_BY_TYPE} from '../constants/contants';

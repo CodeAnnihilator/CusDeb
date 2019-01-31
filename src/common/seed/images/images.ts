@@ -1,4 +1,5 @@
 import randomNumInRange from 'utils/randomNumInRange';
+import generatePackagesWithTypes from './packages';
 
 import DebianSVG from 'assets/images/distributive/debian.svg';
 import DevuanSVG from 'assets/images/distributive/devuan.svg';
@@ -77,14 +78,21 @@ const generateRandomNote = () => {
 	return wordsArray.join(' ');
 };
 
-const generateRandomPackages = (max: number, min = 0) => {
-	const packages = Array.from(
-		{length: generateRandomLength(max, min)},
-		() => generateRandomString()).map(el => ({package: el}),
-	);
+// const generatePackages = (type: string) => {
+// 	const allPackages = [...packageList];
 
-	return packages;
-};
+// 	const generatePackages = (max: number, min: number) => {
+// 		const sliceFromIndex = generateRandomLength(allPackages.length - min, 0);
+// 		const sliceLength = generateRandomLength(max, min);
+
+// 		const da = allPackages.slice(
+// 			sliceFromIndex,
+// 			sliceFromIndex + sliceLength,
+// 		).map(el => ({package: el}));
+
+// 		return da[type];
+// 	};
+// };
 
 const generateRandomImage = () => {
 	const variants = [DebianSVG, DevuanSVG, UbuntuSVG];
@@ -105,21 +113,25 @@ const generateBuild = (index: number) => {
 	};
 };
 
-const generateDummyImage = (index: number) => ({
-	buildtype: generateBuildType(),
-	configuration: generateConfiguration(),
-	distro: generateDistro(),
-	emulate: !!Math.round(Math.random()),
-	name: generateRandomString(),
-	notes: generateRandomNote(),
-	basePackages: generateRandomPackages(180, 100),
-	depPackages: generateRandomPackages(40, 15),
-	addedPackages: generateRandomPackages(25),
-	started_at: new Date(),
-	targetdevice: generateTargetDevice(),
-	thumb: generateRandomImage(),
-	build: generateBuild(index),
-});
+const generateDummyImage = (index: number) => {
+	const packages = generatePackagesWithTypes();
+
+	return {
+		buildtype: generateBuildType(),
+		configuration: generateConfiguration(),
+		distro: generateDistro(),
+		emulate: !!Math.round(Math.random()),
+		name: generateRandomString(),
+		notes: generateRandomNote(),
+		basePackages: packages.filter((item: any) => item.type === 'base'),
+		depPackages: packages.filter((item: any) => item.type === 'dependencies'),
+		addedPackages: packages.filter((item: any) => item.type === 'added'),
+		started_at: new Date(),
+		targetdevice: generateTargetDevice(),
+		thumb: generateRandomImage(),
+		build: generateBuild(index),
+	};
+};
 
 export const generateDummyImages = (length: number) => (
 	Array.from({length},

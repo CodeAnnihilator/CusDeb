@@ -3,7 +3,7 @@ import {call, put, select, spawn, takeLatest} from 'redux-saga/effects';
 
 import {requestImagesSuccess, updateImage} from 'common/actions/entities';
 import {types} from 'common/constants/entities';
-import {generateDummyImages} from 'common/seed/images';
+import {generateDummyImages} from 'common/seed/images/images';
 import {getBuildingImages} from 'common/selectors/entities';
 
 function* requestImagesSaga() {

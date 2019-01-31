@@ -108,7 +108,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 								>
 									{
 										basePackages.map((pack: any, index: any) => (
-											<div key={index}>{pack.package}</div>
+											<div key={index}>{pack.name}</div>
 										))
 									}
 								</DropDownTab>
@@ -120,7 +120,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 								>
 									{
 										depPackages.map((pack: any, index: any) => (
-											<div key={index}>{pack.package}</div>
+											<div key={index}>{pack.name}</div>
 										))
 									}
 								</DropDownTab>
@@ -132,7 +132,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 								>
 									{
 										addedPackages.map((pack: any, index: any) => (
-											<div key={index}>{pack.package}</div>
+											<div key={index}>{pack.name}</div>
 										))
 									}
 								</DropDownTab>
