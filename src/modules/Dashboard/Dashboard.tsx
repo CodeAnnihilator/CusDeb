@@ -1,10 +1,12 @@
-import React, {PureComponent} from 'react';
+import React, {ChangeEvent, PureComponent} from 'react';
+import {Trans} from 'react-i18next';
 
-import CreateBuildButton from './components/CreateBuildButton/CreateBuildButton';
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
 import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
+import CreateBuildButtonContainer from './containers/CreateBuildButtonContainer';
 
+import Select from 'common/components/Select/Select';
 import styles from './dashboard.scss';
 
 interface IProps {
@@ -20,6 +22,30 @@ export default class Dashboard extends PureComponent<IProps> {
 		if (!images.length) requestImages();
 	}
 
+	public items = [
+		{
+			icon: <div/>,
+			onClick: (event: ChangeEvent<HTMLDivElement>, value: any) =>
+				this.setState({selectedItem: value}),
+			title: 'Nice',
+			id: 1,
+			isDisabled: false,
+		},
+		{
+			icon: <div/>,
+			onClick: (event: ChangeEvent<HTMLDivElement>, value: any) =>
+				this.setState({selectedItem: value}),
+			title: 'Nice 2',
+			id: 2,
+			isDisabled: false,
+		},
+	];
+
+	public state = {
+		value: '',
+		selectedItem: this.items[0],
+	};
+
 	public render() {
 	const {
 		images,
@@ -29,7 +55,7 @@ export default class Dashboard extends PureComponent<IProps> {
 
 	return (
 		<div className={styles.wrapper}>
-			<CreateBuildButton />
+			<CreateBuildButtonContainer />
 			{ /* <ViewTabs /> */ }
 			<div className={styles.container}>
 				{

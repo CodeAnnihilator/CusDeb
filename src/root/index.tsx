@@ -1,4 +1,4 @@
-import {routerMiddleware, ConnectedRouter} from 'connected-react-router';
+import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
 import * as React from 'react';
 import {render} from 'react-dom';
@@ -7,9 +7,11 @@ import {applyMiddleware, createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import Routes from './Routes';
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
+import Routes from './Routes';
+
+// import {whyDidYouUpdate} from 'why-did-you-update';
 
 import 'locales/i18nextConfig';
 import 'styles/index.scss';
@@ -28,6 +30,8 @@ const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
+
+// whyDidYouUpdate(React, {include: [/^Select/], exclude: [/^Connect/]} as any); use for re-renders searching
 
 render((
 	<Provider store={store}>

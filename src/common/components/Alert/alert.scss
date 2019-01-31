@@ -1,0 +1,26 @@
+@import 'styles/colors.scss';
+
+.warning {
+    background: $amber100;
+    color: #987C5F;
+    width: 150px;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info {
+    @extend .warning;
+    background: $blue100;
+    color: #5C54FF;
+}
+
+.error {
+    @extend .warning;
+    background: $red100;
+    color: #8D6E63;
+}

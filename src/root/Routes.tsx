@@ -9,6 +9,7 @@ import Registration from 'modules/Registration/Registration';
 
 import AuthLayoutRoute from 'common/components/Layouts/Auth/AuthLayoutRoute';
 import MainLayoutRoute from 'common/components/Layouts/Main/MainLayoutRoute';
+import CreateImageInitialization from 'modules/CreateImage/components/CreateImageInitialization';
 
 const Routes = () => (
 	<div>
@@ -21,6 +22,7 @@ const Routes = () => (
 			<MainLayoutRoute path='/dashboard' component={Dashboard} />
 			<MainLayoutRoute path='/docs' component={() => <div><h2>Hello from /docs route</h2></div>} />
 			<MainLayoutRoute path='/blog' component={() => <div><h2>Hello from /blog route</h2></div>} />
+			<MainLayoutRoute path='/create' component={CreateImageInitialization} />
 		</Switch>
 	</div>
 );
