@@ -7,9 +7,12 @@
 }
 
 .fill {
-  position: absolute;
-  height: 100%;
-  transition: width 1s;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transform: scaleX(1);
+	transform-origin: left;
+	transition: transform 1s linear;
 }
 
 .progress {
