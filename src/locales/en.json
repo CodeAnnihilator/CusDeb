@@ -14,7 +14,8 @@
         "Dashboard": "Dashboard",
         "Blog": "Blog",
         "Docs": "Docs",
-        "Feedback": "Feedback"
+        "Feedback": "Feedback",
+        "selected": "selected"
     },
     "Packages": {
         "Base": "Base packages",
@@ -30,5 +31,12 @@
         "ImageError": "Oops, something went wrong",
         "issueWarning": "if the problem persists, please",
         "reportAboutIssue": "report an issue"
+    },
+    "CreateImage": {
+        "SelectItems": "Select items",
+        "InitializationStep": "Initialization Step",
+        "DeviceNotSelected": "Device is not selected",
+        "HeaderSubTitle": "Random text, Random textRandom text, Random textRandom textRandom text, Random text",
+        "NextStep": "Next Step"
     }
 }

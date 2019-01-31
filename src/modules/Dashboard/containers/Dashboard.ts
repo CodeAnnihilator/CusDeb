@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {requestImages} from 'common/actions/entities';
 import {getImages} from 'common/selectors/entities';
 
-import Dashboard from '../Dashboard';
 import {selectImage} from '../actions/dashboard';
+import Dashboard from '../Dashboard';
 import {getActiveImage} from '../selectors/dashboard';
 
 const mapStateToProps = (state: any) => ({

@@ -1,0 +1,81 @@
+.ui-flex {
+	display: flex;
+
+	&--justify-content {
+		&_flex-end {
+			justify-content: flex-end;
+		}
+		&_center {
+			justify-content: center;
+		}
+		&_space-between {
+			justify-content: space-between;
+		}
+		&_space-around {
+			justify-content: space-around;
+		}
+	}
+	&--align-items {
+		&_flex-start {
+			align-items: flex-start;
+		}
+		&_flex-end {
+			align-items: flex-end;
+		}
+		&_center {
+			align-items: center;
+		}
+		&_baseline {
+			align-items: baseline;
+		}
+	}
+	&--direction {
+		&_column {
+			flex-direction: column;
+		}
+	}
+	&--wrap {
+		&_wrap {
+			flex-wrap: wrap;
+		}
+	}
+	&--grow_1 {
+		flex-grow: 1;
+	}
+	&--grow_2 {
+		flex-grow: 2;
+	}
+	&--shrink_0 {
+		flex-shrink: 0;
+	}
+	&--shrink_2 {
+		flex-shrink: 2;
+	}
+	&--overflow_hidden {
+		overflow: hidden;
+	}
+}
+
+.ui-flex:not(.ui-flex--direction_column) {
+	& > .ui-flex--indent_small + .ui-flex--indent_small {
+		margin-left: 5px;
+	}
+	& > .ui-flex--indent_medium + .ui-flex--indent_medium {
+		margin-left: 10px;
+	}
+	& > .ui-flex--indent_large + .ui-flex--indent_large {
+		margin-left: 20px;
+	}
+}
+
+.ui-flex--direction_column {
+	& > .ui-flex--indent_small + .ui-flex--indent_small {
+		margin-top: 5px;
+	}
+	& > .ui-flex--indent_medium + .ui-flex--indent_medium {
+		margin-top: 10px;
+	}
+	& > .ui-flex--indent_large + .ui-flex--indent_large {
+		margin-top: 20px;
+	}
+}

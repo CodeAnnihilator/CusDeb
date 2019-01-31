@@ -8,6 +8,12 @@ export const buildTypes = [
 	'Mender artifact',
 ];
 
+export const brands = [
+	'Raspberry',
+	'Debian',
+	'Something else',
+];
+
 export const targetDevices = [
 	'Raspberry Pi Model B and B+',
 	'Raspberry Pi 2 Model B',
@@ -21,6 +27,10 @@ export const distros = [
 	'Ubuntu 16.04 "Xenial Xerus" (32-bit)',
 	'Raspbian 9 "Stretch" (32-bit)',
 	'Devuan 1 "Jessie" (32-bit)',
+	'Ubuntu 16.03 "Xenial Xerus" (64-bit)',
+	'Ubuntu 16.06 "Xenial Xerus" (86-bit)',
+	'Raspbian 12 "Stretch" (32-bit)',
+	'Devuan 11 "Jessie" (32-bit)',
 ];
 
 const generateBuildType = () => {

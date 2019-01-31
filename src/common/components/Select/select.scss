@@ -1,0 +1,107 @@
+@import 'styles/colors.scss';
+
+.selectWrapper {
+    background-color: $gray50;
+    min-width: 300px;
+}
+
+.selectSelectedItemsWrapper {
+    border-bottom: 1px solid $gray400;
+    min-height: 50px;
+    box-sizing: border-box;
+    border: 1px solid $blue200;
+    border-style: none solid solid;
+    width: 100%;
+    background: $blueCreateImageSelectedItem;
+    justify-content: center;
+}
+
+.selectContentBox {
+    border: 1px solid $gray300;
+    border-style: none solid solid;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+.selectHeader {
+    height: 50px;
+    background: $blueCreateImageSelect;
+}
+
+.selectSelectedItemsType {
+    box-sizing: border-box;
+    background: $blueCreateImageSelect;
+    border: 1px solid $blue800;
+    font-size: 12px;
+    color: $white;
+    width: 100%;
+    font-weight: 500;
+    text-transform: uppercase;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectItemSelected {
+    background-color: $gray100;
+}
+
+.selectSelectedItemsTitle {
+    font-size: 11px;
+}
+
+.selectSelectedItemsTitleClose {
+    cursor: pointer;
+}
+
+.selectInput {
+    padding: 5px;
+    border: 1px solid $gray300;
+    box-sizing: border-box;
+    border-style: solid none;
+}
+
+.selectItemsWrapper {
+    overflow-y: auto;
+}
+
+.selectItemSelectLabel {
+    padding-right: 25px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: $gray600;
+}
+
+.selectItemSelectTitle {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 100px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.selectItemSelectTitleText {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.selectItem {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    font-size: 12px;
+    cursor: pointer;
+    border-top: 1px solid $gray300;
+    &:first-child {
+        border-top: none;
+    }
+    
+}
