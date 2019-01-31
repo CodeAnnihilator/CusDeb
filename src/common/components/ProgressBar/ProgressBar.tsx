@@ -18,7 +18,7 @@ interface IProps {
 const ProgressBar: React.SFC<IProps> = ({color, width, height, text, textColor, stepsCount, step}) => (
 	<div className={styles.wrapper} style={{width, height}}>
 		<div className={styles.progress}>
-			<div className={styles.fill} style={{background: color, width: `${100 / stepsCount * step}%`}}/>
+			<div className={styles.fill} style={{background: color, transform: `scaleX(${100 / stepsCount * step / 100})`}}/>
 			<div className={styles.container}>
 				<SimpleLoader />
 				<span className={styles.title} style={{color: textColor}}>
