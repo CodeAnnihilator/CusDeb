@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+var TSLintPlugin = require('tslint-webpack-plugin');
 
 import {srcPath, publicPath} from '../config/paths';
 
@@ -35,19 +36,6 @@ export default {
 						outputPath: 'dist/assets/'
 					}
 				}]
-			},
-			{
-				test: /\.ts?x/,
-				enforce: 'pre',
-				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'tslint-loader',
-						options: {
-                            typeCheck: true,
-                        }
-					}
-				]
 			}
 		]
 	},
@@ -55,7 +43,11 @@ export default {
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: path.resolve(publicPath, 'index.html'),
-			inject: 'body'
+			inject: 'body',
+		}),
+		new TSLintPlugin({
+			files: ['src/**/*.ts*'],
+			silent: true,
 		})
 	]
 }

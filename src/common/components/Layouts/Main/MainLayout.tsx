@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Header from 'common/components/Header/Header';
-import LeftNavBarContainer from 'common/constants/LeftNavBarContainer';
+import LeftNavBarContainer from 'common/containers/LeftNavBarContainer';
 
 import styles from './mainLayout.scss';
 
