@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 var TSLintPlugin = require('tslint-webpack-plugin');
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 
 import {srcPath, publicPath} from '../config/paths';
 
@@ -40,6 +41,9 @@ export default {
 		]
 	},
 	plugins: [
+		new StyleLintPlugin({
+			configFile: './webpack/.stylelintrc.json',
+		}),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: path.resolve(publicPath, 'index.html'),

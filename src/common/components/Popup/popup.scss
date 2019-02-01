@@ -23,13 +23,14 @@
 	height: 75px;
 	width: 100%;
 	flex-direction: column;
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
+	z-index: 10000;
+
 	&__title {
 		display: flex;
-   		justify-content: center;
+		justify-content: center;
 	}
-	z-index: 10000;
 }
 
 .popup-header-close {
@@ -38,12 +39,13 @@
 	position: absolute;
 	border: 2px solid $gray400;
 	border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	right: 20px;
 	z-index: 10000;
-    top: 20px;
+	top: 20px;
+
 	&__cross {
 		display: flex;
 		align-items: center;
@@ -64,13 +66,13 @@
 	background-color: $gray200;
 	height: calc(100% - 150px);
 	z-index: 10000;
-    overflow-y: auto;
-    word-break: break-word;
+	overflow-y: auto;
+	word-break: break-word;
 }
 
 .popup-footer {
 	background-color: $blue50;
-    height: 75px;
-    border-top: 1px solid $gray400;
+	height: 75px;
+	border-top: 1px solid $gray400;
 	z-index: 10000;
 }

@@ -1,28 +1,29 @@
 .wrapper {
-  justify-content: space-between;
-  display: flex;
-  height: 40px;
-  align-items: center;
-  padding: 0 25px;
-  font-size: 12px;
-  border-bottom: 1px solid #f1f3f5;
-  position: sticky;
-  top: 0;
-  cursor: pointer;
-  background-color: white;
-  & span:last-child {
-    font-weight: bold;
-  }
+	justify-content: space-between;
+	display: flex;
+	height: 40px;
+	align-items: center;
+	padding: 0 25px;
+	font-size: 12px;
+	border-bottom: 1px solid #F1F3F5;
+	position: sticky;
+	top: 0;
+	cursor: pointer;
+	background-color: white;
+
+	& span:last-child {
+		font-weight: bold;
+	}
 }
 
 .img {
-  fill: grey;
-  height: 11px;
-  width: 11px;
+	fill: grey;
+	height: 11px;
+	width: 11px;
 }
 
 .children {
-  padding: 15px 25px;
-  font-size: 13px;
-  line-height: 18px;
+	padding: 15px 25px;
+	font-size: 13px;
+	line-height: 18px;
 }

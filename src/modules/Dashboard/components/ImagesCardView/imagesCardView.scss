@@ -1,19 +1,20 @@
 @import 'styles/mixins.scss';
 
 .wrapper {
-  display: flex;
-  flex: 1;
-  padding: 5px;
-  min-width: 290px;
-  flex-wrap: wrap;
-  align-content: baseline;
-  flex-flow: column wrap;
-  overflow-x: scroll;
-  @include mobile {
-    overflow: auto;
-  }
+	display: flex;
+	flex: 1;
+	padding: 5px;
+	min-width: 290px;
+	flex-wrap: wrap;
+	align-content: baseline;
+	flex-flow: column wrap;
+	overflow-x: scroll;
+
+	@include mobile {
+		overflow: auto;
+	}
 }
 
 .masonyGrid {
-  display: flex;
+	display: flex;
 }

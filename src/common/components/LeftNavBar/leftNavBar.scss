@@ -8,10 +8,12 @@
 	width: 170px;
 	min-width: 170px;
 	transition: all 0.15s ease-in-out;
+
 	@include mobile {
 		min-width: auto;
 		width: auto;
 	};
+	/* stylelint-ignore */
 	@include tablet {
 		min-width: auto;
 		width: auto;
@@ -27,6 +29,7 @@
 	white-space: nowrap;
 	position: sticky;
 	top: 0;
+
 	&_el {
 		color: #4E5C62;
 		display: inline-flex;
@@ -35,23 +38,27 @@
 		position: relative;
 		cursor: pointer;
 		padding: 17px 29px;
-		border-bottom: 1px solid #252b31;
+		border-bottom: 1px solid #252B31;
 		cursor: pointer;
 		text-decoration: none;
+
 		&__active {
 			color: $activeNavBarItem;
 		}
+
 		&_img {
 			width: 20px;
 			height: 20px;
 			position: absolute;
 		}
+
 		&_text {
 			font-size: 14px;
 			margin-left: 50px;
 			color: inherit;
 		}
 	}
+
 	@include tablet {
 		flex-direction: row;
 		align-items: center;

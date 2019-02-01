@@ -1,19 +1,21 @@
 .column {
-  @for $i from 1 to 20 {
-    & > div:nth-child(#{$i}) {
-      animation: pulse $i * 0.3s;
-    }
-  }
+	@for $i from 1 to 20 {
+		& > div:nth-child(#{$i}) {
+			animation: pulse $i * 0.3s;
+		}
+	}
 }
 
 @keyframes pulse {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
