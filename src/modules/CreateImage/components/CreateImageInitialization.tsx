@@ -1,7 +1,8 @@
 
 import React from 'react';
+
+import CreateImageInitializationContentContainer from '../containers/CreateImageInitializationContentContainer';
 import CreateImageInitializationHeaderContainer from '../containers/CreateImageInitializationHeaderContainer';
-import CreateImageInitializationContent from './CreateImageInitializationContent';
 
 import Flex from 'common/components/Flex/Flex';
 
@@ -12,7 +13,7 @@ const CreateImageInitialization: React.SFC = () => (
 			direction='column'
 			alignItems='center'
 		>
-			<CreateImageInitializationContent />
+			<CreateImageInitializationContentContainer />
 		</Flex>
 	</div>
 );

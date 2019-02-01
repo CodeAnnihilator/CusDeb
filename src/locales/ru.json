@@ -34,9 +34,20 @@
     },
     "CreateImage": {
         "SelectItems": "Выберите элементы",
+        "PackagesListStep": "Этап выбора пакетов",
+        "UsersAndGroupsStep": "Этап управления пользователями и группами",
+        "ConfigurationStep": "Этап конфигурации",
         "InitializationStep": "Этап инициализации",
+        "Issues": {
+            "Brands": "Бренд не выбран",
+            "Devices": "Устройство не выбрано",
+            "Distros": "Дистрибутив не выбран",
+            "BuildType": "Тип билда не выбран"
+        },
         "DeviceNotSelected": "Устройство не выбрано",
         "HeaderSubTitle": "Рандомнный текст, очень много текста.Рандомнный текст, очень много текста",
-        "NextStep": "Следующий шаг"
+        "NextStep": "Следующий шаг",
+        "PreviousStep": "Предыдущий шаг",
+        "SkipSteps": "Пропустить оставшиеся шаги"
     }
 }

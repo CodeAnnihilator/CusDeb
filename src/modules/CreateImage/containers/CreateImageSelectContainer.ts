@@ -23,7 +23,7 @@ const makeMapStateToProps = () => {
 
 const mapDispatchToProps = (dispatch: any, {type}: any) => ({
 	onClick: (event: SyntheticEvent, entity: any) => dispatch(selectEntity({entity, type})),
-	dropSelected: (event: SyntheticEvent) => dispatch(selectEntity({entity: null, type})),
+	dropSelected: (event: SyntheticEvent) => dispatch(selectEntity({entity: null, type, isDrop: true})),
 	onInputChange: (event: SyntheticEvent, filter: string) => dispatch(setFilterByType({filter, type})),
 	onInputCloseBtnClick: (event: SyntheticEvent, filter: string) => dispatch(setFilterByType({filter: '', type})),
 });
