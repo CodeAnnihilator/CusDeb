@@ -1,12 +1,14 @@
 
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import CreateImageSelectContainer from '../containers/CreateImageSelectContainer';
 
 import Flex from 'common/components/Flex/Flex';
 
-export default class CreateImageInitializationContent extends PureComponent {
-	private readonly selectTypes = ['brands', 'targetDevices', 'distros', 'buildTypes'];
+interface IProps {
+	selectTypes: string[];
+}
 
+export default class CreateImageInitializationContent extends Component<IProps> {
 	public render() {
 		return (
 			<Flex
@@ -14,19 +16,16 @@ export default class CreateImageInitializationContent extends PureComponent {
 				wrap='wrap'
 				style={{margin: '0px 40px'}}
 			>
-				{this.selectTypes.map((item, index) => (
-					<Flex
-						indent='medium'
-						key={index}
-						direction='column'
-						alignItems='center'
-						style={{marginTop: 40}}
-					>
-						<Flex indent='large'>{`Select ${item}`}</Flex>
-						<Flex indent='large'>
+				{this.props.selectTypes.map((item, index) => (
+						<Flex
+							indent='medium'
+							key={index}
+							direction='column'
+							alignItems='center'
+							style={{marginTop: 40}}
+						>
 							<CreateImageSelectContainer type={item} />
 						</Flex>
-					</Flex>
 				))}
 			</Flex>
 		);

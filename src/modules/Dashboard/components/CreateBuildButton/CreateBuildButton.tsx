@@ -3,13 +3,16 @@ import {Trans} from 'react-i18next';
 
 import styles from './createBuildButton.scss';
 
-const CreateBuildButton = (props: any) => (
+import {NavLink} from 'react-router-dom';
+
+const CreateBuildButton = () => (
 	<div className={styles.wrapper}>
-		<div
+		<NavLink
+			to='/create'
 			className={styles.button}
 		>
 			<Trans i18nKey='Dashboard.CreateNewBuild' />
-		</div>
+		</NavLink>
 	</div>
 );
 
