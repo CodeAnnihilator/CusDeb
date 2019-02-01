@@ -1,6 +1,6 @@
 .spinner {
-  width: 32px;
-  height: 32px;
+	width: 32px;
+	height: 32px;
 	animation: contanim 1s linear infinite;
 }
 
@@ -25,17 +25,19 @@ $d: 175.6449737548828;
 
 @keyframes strokeanim {
 	0% {
-    stroke-dasharray: 1, 300;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 120, 300;
-    stroke-dashoffset: -$d / 3;
-  }
-  100% {
-    stroke-dasharray: 120, 300;
-    stroke-dashoffset: -$d;
-  }
+		stroke-dasharray: 1, 300;
+		stroke-dashoffset: 0;
+	}
+
+	50% {
+		stroke-dasharray: 120, 300;
+		stroke-dashoffset: -$d / 3;
+	}
+
+	100% {
+		stroke-dasharray: 120, 300;
+		stroke-dashoffset: -$d;
+	}
 }
 
 @keyframes contanim {

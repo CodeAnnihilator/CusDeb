@@ -1,22 +1,22 @@
 @import 'styles/mixins.scss';
 
 .page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  @include mobile {
-    height: auto;
-  }
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	@include mobile {
+		height: auto;
+	}
 }
 
 .wrapper {
-  display: flex;
-  min-height: 0px;
-  flex: 1;
-  @include mobile {
-    flex-direction: column;
-  }
-  @include tablet {
-    flex-direction: column;
-  }
+	display: flex;
+	min-height: 0px;
+	flex: 1;
+	@include mobile {
+		flex-direction: column;
+	}
+	@include tablet {
+		flex-direction: column;
+	}
 }

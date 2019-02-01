@@ -1,72 +1,81 @@
 @import 'styles/mixins.scss';
 
 .wrapper {
-  width: 330px;
-  background-color: white;
-  border-left: 1px solid #f1f3f5;
-  color: #4a4c5d;
-  height: calc(100vh - 141px);
-  position: sticky;
-  top: 70px;
-  &_inner {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  @include mobile {
-    display: none;
-  }
-  @include tablet {
-    width: 250px;
-    height: calc(100vh - 211px);
-  }
+	width: 330px;
+	background-color: white;
+	border-left: 1px solid #F1F3F5;
+	color: #4A4C5D;
+	height: calc(100vh - 141px);
+	position: sticky;
+	top: 70px;
+
+	&_inner {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	@include mobile {
+		display: none;
+	}
+
+	@include tablet {
+		width: 250px;
+		height: calc(100vh - 211px);
+	}
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 20px;
-  &_img {
-    width: 40px;
-    margin: 20px;
-  }
-  &_title {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 0 10px;
-    text-align: center;
-    line-height: 23px;
-  }
-  &_createdAt {
-    font-size: 12px;
-    margin-top: 5px;
-    &_date {
-      font-weight: bold;
-    }
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 20px;
+
+	&_img {
+		width: 40px;
+		margin: 20px;
+	}
+
+	&_title {
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 14px;
+		padding: 0 10px;
+		text-align: center;
+		line-height: 23px;
+	}
+
+	&_createdAt {
+		font-size: 12px;
+		margin-top: 5px;
+
+		&_date {
+			font-weight: bold;
+		}
+	}
 }
 
 .tabs {
-  display: flex;
-  line-height: 50px;
-  font-size: 12px;
-  border-bottom: 1px solid #f1f3f5;
-  cursor: pointer;
-  flex-shrink: 0;
-  &_tab {
-    flex: 1;
-    text-align: center;
-    text-transform: uppercase;
-    &__active {
-      background-color: #F4F8FB;
-    }
-  }
+	display: flex;
+	line-height: 50px;
+	font-size: 12px;
+	border-bottom: 1px solid #F1F3F5;
+	cursor: pointer;
+	flex-shrink: 0;
+
+	&_tab {
+		flex: 1;
+		text-align: center;
+		text-transform: uppercase;
+
+		&__active {
+			background-color: #F4F8FB;
+		}
+	}
 }
 
 .dropDownWrapper {
-  overflow: scroll;
-  height: 100%;
-  width: 100%;
+	overflow: scroll;
+	height: 100%;
+	width: 100%;
 }

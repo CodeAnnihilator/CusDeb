@@ -49,9 +49,11 @@
     "redux-saga": "0.16.2",
     "regenerator-runtime": "0.13.1",
     "reselect": "4.0.0",
+    "stylelint": "9.10.1",
+    "stylelint-webpack-plugin": "0.10.5",
     "tslint-eslint-rules": "5.4.0",
     "typescript-tslint-plugin": "0.2.1",
-    "why-did-you-update": "^1.0.6"
+    "why-did-you-update": "1.0.6"
   },
   "devDependencies": {
     "@babel/cli": "7.2.0",

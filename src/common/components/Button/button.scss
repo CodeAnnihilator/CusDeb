@@ -2,26 +2,28 @@
 @import 'styles/mixins.scss';
 
 .button {
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px;
-    background-color: #74B0EA;
-    width: 118px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 4px;
-    border: 1px solid #6EA1DE;
-    box-shadow: 0px 2px 0px 0px #679cdb;
-    &:hover {
-        cursor: pointer;
-        background-color: #7fb6ec;
-    }
-    @include mobile {
-        flex: 1;
-        width: auto;
-        margin: 0 20px;
-        padding: 20px 0;
-    }
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px;
+	background-color: #74B0EA;
+	width: 118px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	border-radius: 4px;
+	border: 1px solid #6EA1DE;
+	box-shadow: 0px 2px 0px 0px #679CDB;
+
+	&:hover {
+		cursor: pointer;
+		background-color: #7FB6EC;
+	}
+
+	@include mobile {
+		flex: 1;
+		width: auto;
+		margin: 0 20px;
+		padding: 20px 0;
+	}
 }

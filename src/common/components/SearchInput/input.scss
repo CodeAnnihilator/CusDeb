@@ -1,33 +1,33 @@
 @import 'styles/colors.scss';
 
 .inputWrapper {
-    position: relative;
-    display: flex;
-    width: inherit;
-    border-radius: 5px;
-    align-items: center;
+	position: relative;
+	display: flex;
+	width: inherit;
+	border-radius: 5px;
+	align-items: center;
 }
 
 .input {
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 12px;
-    width: 100%;
-    box-sizing: border-box;
-    height: inherit;
-    padding-left: 30px;
-    padding-right: 25px;
-    border: 1px solid $gray400;
-    border-radius: 5px;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 12px;
+	width: 100%;
+	box-sizing: border-box;
+	height: inherit;
+	padding-left: 30px;
+	padding-right: 25px;
+	border: 1px solid $gray400;
+	border-radius: 5px;
 }
 
 .inputIcon {
-    position: absolute;
-    margin-left: 5px;
+	position: absolute;
+	margin-left: 5px;
 }
 
 .clearAll {
-    position: absolute;
-    margin-right: 5px;
-    right: 0;
-    cursor: pointer;
+	position: absolute;
+	margin-right: 5px;
+	right: 0;
+	cursor: pointer;
 }
