@@ -1,4 +1,4 @@
-import {ChangeEvent, ReactNode, MouseEvent} from 'react';
+import {ChangeEvent, MouseEvent, ReactNode} from 'react';
 
 export default interface IProps {
 	selected: {

@@ -1,6 +1,10 @@
 import webpack from 'webpack'
 import path from 'path'
-const WebpackNotifierPlugin = require('webpack-notifier');
+import WebpackNotifierPlugin from 'webpack-notifier';
+import SimpleProgressWebpackPlugin from 'simple-progress-webpack-plugin';
+import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+
+import {libPath} from '../config/paths';
 
 import baseConfig from './webpack.base.config.js'
 
@@ -46,10 +50,17 @@ export default {
       ]
     },
     plugins: [
-      ...baseConfig.plugins,
-      new webpack.HotModuleReplacementPlugin(),
+	  ...baseConfig.plugins,
+	  new webpack.HotModuleReplacementPlugin(),
+	  new FriendlyErrorsWebpackPlugin(),
+	  new SimpleProgressWebpackPlugin({format: 'minimal'}),
       new WebpackNotifierPlugin({
-        title: 'CusDeb',
-      }),
+		  skipFirstNotification: true,
+		  title: 'CusDeb',
+	  }),
+	  new webpack.DllReferencePlugin({
+		context: __dirname,
+		manifest: require(path.resolve(libPath, 'library.json'))
+	  })
     ],
 }
