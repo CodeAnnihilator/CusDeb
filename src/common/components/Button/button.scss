@@ -25,3 +25,11 @@
         padding: 20px 0;
     }
 }
+
+.success {
+    @extend .success;
+
+    border: 1px solid #6EA1DE;
+    box-shadow: 0px 2px 0px 0px #679cdb;
+    background-color: #74B0EA;
+}

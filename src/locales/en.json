@@ -35,8 +35,19 @@
     "CreateImage": {
         "SelectItems": "Select items",
         "InitializationStep": "Initialization Step",
+        "PackagesListStep": "Package List Step",
+        "UsersAndGroupsStep": "Users & Groups Step",
+        "ConfigurationStep": "Configuration Step",
         "DeviceNotSelected": "Device is not selected",
-        "HeaderSubTitle": "Random text, Random textRandom text, Random textRandom textRandom text, Random text",
-        "NextStep": "Next Step"
+        "Issues": {
+            "Brands": "Brand is not selected",
+            "Devices": "Device is not selected",
+            "Distros": "Distributive is not selected",
+            "BuildType": "Build type is not selected"
+        },
+        "HeaderSubTitle": "Random text, Random textRandom text, Random text Random textRandom text, Random text",
+        "NextStep": "Next step",
+        "PreviousStep": "Previous step",
+        "SkipSteps": "Skip optional steps"
     }
 }

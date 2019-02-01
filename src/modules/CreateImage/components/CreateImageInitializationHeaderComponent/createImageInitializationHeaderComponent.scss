@@ -10,3 +10,32 @@
     font-size: 11px;
     color: #839297;
 }
+
+.buttonPrev {
+    background: #C8F3F5;
+    color: $gray600;
+    border: none;
+    box-shadow: none;
+    &:hover{
+        background: $blue200;
+    }
+}
+
+.skipSteps {
+    @extend .headerStepInfo;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
+    &:hover{
+        color: $gray600;
+    }
+}
+
+.buttonNext {
+    @extend .buttonPrev;
+    background: #C9F3D7;
+    &:hover{
+        background: $green200;
+    }
+}

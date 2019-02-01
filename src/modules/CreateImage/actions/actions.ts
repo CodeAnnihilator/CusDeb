@@ -7,7 +7,7 @@ import {
 
 export const changeCurrentStep = createAction(
 	CREATE_IMAGE_CHANGE_CURRENT_STEP,
-	(step: number) => step,
+	(step: string) => ({step}),
 );
 
 export const selectEntity = createAction(
