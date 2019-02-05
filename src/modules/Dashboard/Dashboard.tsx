@@ -6,7 +6,6 @@ import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
 import CreateBuildButtonContainer from './containers/CreateBuildButtonContainer';
 
-import Select from 'common/components/Select/Select';
 import styles from './dashboard.scss';
 
 interface IProps {

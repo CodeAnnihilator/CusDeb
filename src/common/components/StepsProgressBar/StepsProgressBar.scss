@@ -1,0 +1,91 @@
+$step-height: 32px;
+$full-width: 790px;
+
+.container {
+	display: flex;
+	justify-content: center;
+	padding: 30px 60px 0 60px;
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 500px;
+}
+
+.body {
+	display: flex;
+	width: 100%;
+	margin-left: $step-height;
+	max-width: $full-width;
+}
+
+.stepPoint {
+	position: absolute;
+	right: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: $step-height;
+}
+
+.stepIcon {
+	width: 35%;
+	height: 35%;
+	border-radius: 100px;
+	background-color: #C9CCD2;
+	display: flex;
+	align-items: center;
+	transition: width 0.1s, height 0.1s;
+	justify-content: center;
+}
+
+.stepIconImage {
+	max-width: 45%;
+	max-height: 45%;
+}
+
+.step {
+	position: relative;
+	display: flex;
+	border-radius: 100px;
+	transition: background-color 0.15s;
+	align-items: center;
+	box-sizing: border-box;
+	flex-grow: 1;
+	background: #EBEDF3;
+	height: $step-height;
+	margin-left: -$step-height;
+
+	&:first-child {
+		flex-grow: initial;
+		width: $step-height;
+	}
+
+	&_completed {
+		background-color: #8FE8BA;
+
+		& .stepIcon {
+			background-color: #68C67F;
+			width: 65%;
+			height: 65%;
+		}
+	}
+
+	&_inProgress {
+		background-color: #DADEEA;
+
+		& .stepIcon {
+			background-color: #8B9EB1;
+		}
+	}
+}
+
+.title {
+	bottom: calc(100% + 13px);
+	font-size: 11px;
+	min-width: 120px;
+	text-align: center;
+	left: 50%;
+	color: #768293;
+	transform: translateX(-50%);
+	position: absolute;
+}

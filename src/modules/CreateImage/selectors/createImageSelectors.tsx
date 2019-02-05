@@ -20,6 +20,21 @@ export const getSelectedItemByType = createSelector(
 	(selectedItems, type) => selectedItems[type],
 );
 
+export const getSelectedSteps = createSelector(
+	getSelectedItems,
+	selectedItems => {
+		const keys = Object.keys(selectedItems);
+		let selectedCounter = 0;
+		for (const key in keys) {
+			if (selectedItems[keys[key]] !== null) {
+				selectedCounter++;
+			}
+		}
+
+		return selectedCounter;
+	},
+);
+
 export const getSelectItems = createSelector(
 	getSelectedItems,
 	itemsHash => {

@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
-import CreateImageInitializationContent from '../components/CreateImageInitializationContent';
-import {getSelectItems} from '../selectors/createImageSelectors';
+import InitializationContent from '../components/CreateImageInitializationContent/CreateImageInitializationContent';
+import {getSelectedSteps, getSelectItems} from '../selectors/createImageSelectors';
 
 const mapStateToProps = (state: any) => ({
 	selectTypes: getSelectItems(state),
+	selectedItems: getSelectedSteps(state),
 });
 
-export default connect(mapStateToProps)(CreateImageInitializationContent as any);
+export default connect(mapStateToProps)(InitializationContent as any);
