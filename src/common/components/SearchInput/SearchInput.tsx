@@ -1,7 +1,8 @@
 import React, {ChangeEvent, MouseEvent, PureComponent} from 'react';
 import styles from './input.scss';
 
-import {MdClose, MdSearch} from 'react-icons/md';
+import Magnifier from 'assets/images/magnifier.svg';
+import {MdClose} from 'react-icons/md';
 
 interface IProps {
 	isDisabled?: boolean;
@@ -45,7 +46,7 @@ export default class SearchInput extends PureComponent<IProps> {
 				className={styles.inputWrapper}
 				style={{height}}
 			>
-				<span className={styles.inputIcon}><MdSearch size={20} /></span>
+				<img className={styles.inputIcon} src={Magnifier} alt=''/>
 				<input
 					value={value}
 					disabled={isDisabled}

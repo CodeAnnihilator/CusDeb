@@ -3,7 +3,8 @@
 .warning {
 	background: $amber100;
 	color: #987C5F;
-	width: 150px;
+	min-width: 150px;
+	margin: -10px 0;
 	padding: 0 10px;
 	height: 30px;
 	font-size: 12px;

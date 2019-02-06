@@ -36,7 +36,7 @@ export default handleActions({
 		let isFounded = false;
 		const sameAsSeleted = !entity || state.selectedItems[type] && state.selectedItems[type].id === entity.id;
 		const dropedValues = ['brands', 'targetDevices', 'distros', 'buildTypes'].reduceRight(
-			(obj: {[key: string]: null | string}, item: string) => {
+			(obj: {[key: string]: null | string}, item: any) => {
 				if (item !== type && !isFounded) obj[item] = null;
 				else if (item === type) {
 					obj[item] = null;

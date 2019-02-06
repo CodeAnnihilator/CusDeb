@@ -5,46 +5,100 @@ import DevuanSVG from 'assets/images/distributive/devuan.svg';
 import UbuntuSVG from 'assets/images/distributive/ubuntu.svg';
 
 export const buildTypes = [
-	'Classic image',
-	'Mender compatible image',
-	'Mender artifact',
+	{
+		title: 'Classic image',
+	},
+	{
+		title: 'Mender compatible image',
+	},
+	{
+		title: 'Mender artifact',
+	},
 ];
 
 export const brands = [
-	'Raspberry',
-	'Debian',
-	'Something else',
+	{
+		title: 'Raspberry',
+		icon: 'Raspberry',
+	},
+	{
+		title: 'Orange pi',
+		icon: 'SampleBrand',
+	},
+	{
+		title: 'Something else',
+		icon: 'SampleBrand',
+	},
 ];
 
 export const targetDevices = [
-	'Raspberry Pi Model B and B+',
-	'Raspberry Pi 2 Model B',
-	'Raspberry Pi 3 Model B',
-	'Raspberry Pi Zero',
+	{
+		title: 'Raspberry Pi Model B and B+',
+		icon: 'Raspberry',
+	},
+	{
+		title: 'Raspberry Pi 2 Model B',
+		icon: 'Raspberry',
+	},
+	{
+		title: 'Raspberry Pi 3 Model B',
+		icon: 'Raspberry',
+	},
+	{
+		title: 'Raspberry Pi Zero',
+		icon: 'Raspberry',
+	},
 ];
 
 export const distros = [
-	'Ubuntu 18.04 "Bionic Beaver" (32-bit)',
-	'Ubuntu 18.04 "Bionic Beaver" (64-bit)',
-	'Ubuntu 16.04 "Xenial Xerus" (32-bit)',
-	'Raspbian 9 "Stretch" (32-bit)',
-	'Devuan 1 "Jessie" (32-bit)',
-	'Ubuntu 16.03 "Xenial Xerus" (64-bit)',
-	'Ubuntu 16.06 "Xenial Xerus" (86-bit)',
-	'Raspbian 12 "Stretch" (32-bit)',
-	'Devuan 11 "Jessie" (32-bit)',
+	{
+		title: 'Ubuntu 18.04 \'Bionic Beaver\' (32-bit)',
+		icon: 'Ubuntu',
+	},
+	{
+		title: 'Ubuntu 18.04 \'Bionic Beaver\' (64-bit)',
+		icon: 'Ubuntu',
+	},
+	{
+		title: 'Ubuntu 16.04 \'Xenial Xerus\' (32-bit)',
+		icon: 'Ubuntu',
+	},
+	{
+		title: 'Raspbian 9 \'Stretch\' (32-bit)',
+		icon: 'Raspbian',
+	},
+	{
+		title: 'Devuan 1 \'Jessie\' (32-bit)',
+		icon: 'Devuan',
+	},
+	{
+		title: 'Ubuntu 16.03 \'Xenial Xerus\' (64-bit)',
+		icon: 'Ubuntu',
+	},
+	{
+		title: 'Ubuntu 16.06 \'Xenial Xerus\' (86-bit)',
+		icon: 'Ubuntu',
+	},
+	{
+		title: 'Raspbian 12 \'Stretch\' (32-bit)',
+		icon: 'Raspbian',
+	},
+	{
+		title: 'Devuan 11 \'Jessie\' (32-bit)',
+		icon: 'Devuan',
+	},
 ];
 
 const generateBuildType = () => {
 	const buildType = buildTypes[Math.round(Math.random() * (buildTypes.length - 1))];
 
-	return {full_name: buildType};
+	return {full_name: buildType.title};
 };
 
 const generateTargetDevice = () => {
 	const targetDevice = targetDevices[Math.round(Math.random() * (targetDevices.length - 1))];
 
-	return {full_name: targetDevice};
+	return {full_name: targetDevice.title};
 };
 
 const generateConfiguration = () => ({
@@ -56,7 +110,7 @@ const generateConfiguration = () => ({
 const generateDistro = () => {
 	const distro = distros[Math.round(Math.random() * (distros.length - 1))];
 
-	return {full_name: distro};
+	return {full_name: distro.title};
 };
 
 const generateRandomString = () => Math.random().toString(36).replace(/[^a-z]+/g, '');

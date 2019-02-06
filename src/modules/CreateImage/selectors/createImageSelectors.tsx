@@ -2,7 +2,8 @@ import {createSelector} from 'reselect';
 
 import React from 'react';
 
-import {MdVerifiedUser} from 'react-icons/md';
+import BrandsLogos from 'assets/images/brandsLogos';
+import DestributivesLogos from 'assets/images/distributivesLogos';
 
 export const getCurrentStep = (state: any) =>  state.createImage.currentStep;
 
@@ -97,13 +98,15 @@ export const makeGetImagesByType = () => createSelector(
 				break;
 		}
 
-		return items.reduce((memo: any, item: string) => {
-			if (item.toUpperCase().includes(filter.toUpperCase())) {
+		const Logos = {...DestributivesLogos, ...BrandsLogos}
+
+		return items.reduce((memo: any, item: {title: string; icon: any}) => {
+			if (item.title.toUpperCase().includes(filter.toUpperCase())) {
 				memo.push(
 					{
-						icon: <MdVerifiedUser size={28} />,
-						id: item,
-						title: item,
+						icon: Logos[item.icon],
+						id: item.title,
+						title: item.title,
 						isDisabled: false,
 					},
 				);
