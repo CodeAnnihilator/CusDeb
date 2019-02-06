@@ -14,8 +14,8 @@ const makeMapStateToProps = () => {
 		selected: getSelectedItemByType(state, type),
 		items: getImagesByType(state, type),
 		headerTitle: `Select ${type}`,
-		placeholder: `type a ${type}`,
-		width: 300,
+		placeholder: `find ${type}...`,
+		width: 286,
 		height: 440,
 		inputValue: getInputValueByType(state, type),
 	});

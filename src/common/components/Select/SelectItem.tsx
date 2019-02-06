@@ -8,7 +8,7 @@ interface IProps {
 	item: {
 		id: number | string;
 		title: string | number;
-		icon?: ReactNode;
+		icon?: string;
 		isDisabled: boolean;
 	};
 	isSelected: boolean;
@@ -27,7 +27,9 @@ export default class SelectItem extends PureComponent<IProps> {
 				onClick={this.onItemClick}
 			>
 				<span className={styles.selectItemSelectTitle} >
-					{item.icon ? <span style={{marginRight: 10}}>{item.icon}</span> : null}
+					{item.icon ? <span style={{marginRight: 21}}>
+						<img src={item.icon} style={{width: 26}} alt=''/>
+					</span> : null}
 					<span className={styles.selectItemSelectTitleText} >{item.title}</span>
 				</span>
 				{isSelected

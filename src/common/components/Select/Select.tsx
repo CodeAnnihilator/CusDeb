@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, {PureComponent} from 'react';
 import Flex from '../Flex/Flex';
 import SearchInput from '../SearchInput/SearchInput';
@@ -23,6 +24,7 @@ export default class Select extends PureComponent<IProps> {
 		const {
 			width,
 			items,
+			fade,
 			height,
 			selected,
 			inputValue,
@@ -36,7 +38,9 @@ export default class Select extends PureComponent<IProps> {
 
 		return (
 			<Flex
-				className={styles.selectWrapper}
+				className={cn(
+					styles.selectWrapper, {[styles.selectWrapperFaded]: fade})
+				}
 				style={{width, height}}
 				direction='column'
 			>
@@ -57,7 +61,7 @@ export default class Select extends PureComponent<IProps> {
 											className={styles.selectSelectedItemsTitle}
 											indent='large'
 										>
-											{selected.icon}
+											<img src={selected.icon} className={styles.selectedItemIcon} alt=''/>
 										</Flex>
 									)
 									: null}

@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React from 'react';
 import CreateImageSelectContainer from '../../containers/CreateImageSelectContainer';
 
@@ -25,7 +26,7 @@ const InitializationContent: React.SFC<IProps> = ({selectedItems, selectTypes}) 
 				<Flex
 					justifyContent='center'
 					wrap='wrap'
-					style={{margin: '0px 40px'}}
+					style={{margin: '0px 20px', overflow: 'hidden'}}
 				>
 					{selectTypes.map((item, index) => (
 							<Flex
@@ -33,9 +34,9 @@ const InitializationContent: React.SFC<IProps> = ({selectedItems, selectTypes}) 
 								key={index}
 								direction='column'
 								alignItems='center'
-								style={{marginTop: 40}}
+								style={{marginTop: 25}}
 							>
-								<CreateImageSelectContainer type={item} />
+								<CreateImageSelectContainer type={item} fade/>
 							</Flex>
 					))}
 				</Flex>

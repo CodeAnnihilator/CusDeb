@@ -14,15 +14,15 @@
 	width: 100%;
 	box-sizing: border-box;
 	height: inherit;
-	padding-left: 30px;
-	padding-right: 25px;
-	border: 1px solid $gray400;
+	padding: 14px 21px 14px 49px;
+	border: 1px solid #F2F5FA;
 	border-radius: 5px;
 }
 
 .inputIcon {
 	position: absolute;
-	margin-left: 5px;
+	margin-left: 17px;
+	max-height: 17px;
 }
 
 .clearAll {

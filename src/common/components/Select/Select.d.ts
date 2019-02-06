@@ -5,7 +5,7 @@ export default interface IProps {
 		id: number | string;
 		title: string | number;
 		onClick: (event: ChangeEvent<HTMLDivElement>, item: any) => void;
-		icon?: ReactNode;
+		icon?: string;
 		isDisabled: boolean;
 	};
 	items: Array<{
@@ -20,6 +20,7 @@ export default interface IProps {
 	headerTitle?: string | ReactNode;
 	height?: string | number;
 	placeholder?: string;
+	fade?: boolean;
 	inputValue: string | number;
 	onInputChange: (event: ChangeEvent<HTMLInputElement>, value: string | {[x: string]: string}) => void;
 	onInputCloseBtnClick: (event: MouseEvent<HTMLSpanElement>) => void;
