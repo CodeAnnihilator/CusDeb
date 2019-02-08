@@ -30,7 +30,8 @@
         "CreateNewBuild": "Создать новый билд",
         "ImageError": "Ой, что-то пошло не так",
         "issueWarning": "Если ошибка воспроизводится, пожалуйста",
-        "reportAboutIssue": "сообщите о проблеме"
+        "reportAboutIssue": "сообщите о проблеме",
+        "noDescription": "Описание отсутствует"
     },
     "CreateImage": {
         "SelectItems": "Выберите элементы",

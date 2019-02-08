@@ -7,7 +7,7 @@ import {generateDummyImages} from 'common/seed/images';
 import {getBuildingImages} from 'common/selectors/entities';
 
 function* requestImagesSaga() {
-	const data = generateDummyImages(5);
+	const data = generateDummyImages(10);
 	try {
 		yield call(delay, 2000);
 		yield put(requestImagesSuccess(data));
@@ -22,7 +22,7 @@ function* taskCreator(image: any) { // todo -> to d.ts file
 		yield call(delay, Math.round(Math.random() * 5) * 1000);
 		let status = '';
 		const hasBulidFailded = Math.round(Math.random() * 100) <= 3;
-		if (hasBulidFailded) status = 'error';
+		if (hasBulidFailded) status = 'build_error';
 		else if (i < totalSteps && !hasBulidFailded) status = 'building';
 		else if (i === totalSteps && !hasBulidFailded) {
 			yield put(updateImage({
@@ -37,7 +37,7 @@ function* taskCreator(image: any) { // todo -> to d.ts file
 			}));
 
 			yield call(delay, 2000);
-			status = 'ready';
+			status = 'build_ready';
 		}
 
 		yield put(updateImage({
@@ -50,7 +50,7 @@ function* taskCreator(image: any) { // todo -> to d.ts file
 				},
 			}}));
 
-		if (status === 'error') break;
+		if (status === 'build_error') break;
 	}
 }
 

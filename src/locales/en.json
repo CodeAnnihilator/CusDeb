@@ -30,7 +30,8 @@
         "CreateNewBuild": "Create new build",
         "ImageError": "Oops, something went wrong",
         "issueWarning": "if the problem persists, please",
-        "reportAboutIssue": "report an issue"
+        "reportAboutIssue": "report an issue",
+        "noDescription": "No description"
     },
     "CreateImage": {
         "SelectItems": "Select items",

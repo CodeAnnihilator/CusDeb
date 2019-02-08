@@ -15,7 +15,7 @@ interface IProps {
 const Controls: React.SFC<IProps> = ({icons}) => (
 	<div className={styles.controls}>
 		{
-			icons.map(({icon, title, onClick, isDisabled}, index) => (
+			icons.map(({icon, title, onClick, isDisabled}) => (
 				<React.Fragment key={title}>
 					<div
 						className={cn(styles.control, {
@@ -28,7 +28,6 @@ const Controls: React.SFC<IProps> = ({icons}) => (
 							<Trans i18nKey={`common.${title}`} />
 						</span>
 					</div>
-					{index !== icons.length - 1 ? <div className={styles.devider} /> : null}
 				</React.Fragment>
 			))
 		}

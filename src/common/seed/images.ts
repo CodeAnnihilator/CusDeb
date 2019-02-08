@@ -3,6 +3,7 @@ import randomNumInRange from 'utils/randomNumInRange';
 import DebianSVG from 'assets/images/distributive/debian.svg';
 import DevuanSVG from 'assets/images/distributive/devuan.svg';
 import UbuntuSVG from 'assets/images/distributive/ubuntu.svg';
+import RaspberrySVG from 'assets/images/raspberry-pi.svg';
 
 export const buildTypes = [
 	{
@@ -34,19 +35,19 @@ export const brands = [
 export const targetDevices = [
 	{
 		title: 'Raspberry Pi Model B and B+',
-		icon: 'Raspberry',
+		icon: RaspberrySVG,
 	},
 	{
 		title: 'Raspberry Pi 2 Model B',
-		icon: 'Raspberry',
+		icon: RaspberrySVG,
 	},
 	{
 		title: 'Raspberry Pi 3 Model B',
-		icon: 'Raspberry',
+		icon: RaspberrySVG,
 	},
 	{
 		title: 'Raspberry Pi Zero',
-		icon: 'Raspberry',
+		icon: RaspberrySVG,
 	},
 ];
 
@@ -98,7 +99,7 @@ const generateBuildType = () => {
 const generateTargetDevice = () => {
 	const targetDevice = targetDevices[Math.round(Math.random() * (targetDevices.length - 1))];
 
-	return {full_name: targetDevice.title};
+	return {full_name: targetDevice.title, device_icon: targetDevice.icon};
 };
 
 const generateConfiguration = () => ({
@@ -150,7 +151,7 @@ const generateRandomImage = () => {
 const generateBuild = (index: number) => {
 	const statuses = ['building', 'error', 'ready'];
 
-	const resultStatus = index < 3 ? statuses[index] : statuses[randomNumInRange(0, 2)];
+	const resultStatus = index < 3 ? statuses[index] : statuses[randomNumInRange(0, 3)];
 
 	return {
 		status: resultStatus,
