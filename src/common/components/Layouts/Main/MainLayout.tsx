@@ -19,7 +19,7 @@ class MainLayout extends Component<{}, IState> {
 	public render() {
 		return (
 			<div className={styles.page}>
-				<Header onToggle={this.onToggle} />
+				<Header onToggle={this.onToggle} isMenuOpen={!this.state.isCollapsed}/>
 				<div className={styles.wrapper}>
 				<LeftNavBarContainer isCollapsed={this.state.isCollapsed} />
 				{ this.props.children }

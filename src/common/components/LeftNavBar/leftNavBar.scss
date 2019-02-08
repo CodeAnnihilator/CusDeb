@@ -5,8 +5,8 @@
 	background-color: #181C1F;
 	display: flex;
 	flex-direction: column;
-	width: 170px;
-	min-width: 170px;
+	width: 160px;
+	min-width: 160px;
 	transition: all 0.15s ease-in-out;
 
 	@include mobile {
@@ -37,7 +37,7 @@
 		align-items: center;
 		position: relative;
 		cursor: pointer;
-		padding: 17px 29px;
+		padding: 10px 20px 9px 20px;
 		border-bottom: 1px solid #252B31;
 		cursor: pointer;
 		text-decoration: none;
@@ -67,8 +67,8 @@
 }
 
 .collapsed {
-	min-width: 80px;
-	width: 80px;
+	min-width: 60px;
+	width: 60px;
 	@include mobile {
 		min-width: auto;
 		width: auto;
