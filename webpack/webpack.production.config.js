@@ -1,10 +1,11 @@
 import webpack from 'webpack'
 import path from 'path'
-import autoprefixer from 'autoprefixer'
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
+
+import {rootPath} from '../config/paths';
 
 import baseConfig from './webpack.base.config.js'
 
@@ -75,7 +76,6 @@ export default {
     },
     plugins: [
       ...baseConfig.plugins,
-      new CleanWebpackPlugin(['dist']),
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.HashedModuleIdsPlugin(),
@@ -83,6 +83,11 @@ export default {
       new MiniCssExtractPlugin({
         filename: '[name].[hash].css',
         chunkFilename: '[id].[hash].css',
-      })
+	  }),
+	  new CleanWebpackPlugin(['dist'], {
+		root: rootPath,
+		verbose: true, 
+		dry: false
+	  })
     ]
 }

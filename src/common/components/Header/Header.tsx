@@ -8,7 +8,6 @@ import {createSvgComponent} from 'common/helpers/entities';
 import i18n from 'locales/i18nextConfig';
 
 import AngleArrowDownSVG from 'assets/images/angle-arrow-down.svg';
-import MenuSVG from 'assets/images/menu.svg';
 import RUFlagIcon from 'assets/images/ru.svg';
 import UKFlagIcon from 'assets/images/uk.svg';
 
@@ -16,6 +15,7 @@ import styles from './header.scss';
 
 interface IProps {
 	onToggle: () => void;
+	isMenuOpen: boolean;
 }
 
 const setLanguage = (lng: string) => i18n
@@ -39,15 +39,17 @@ const dropDownItems = [
 	},
 ];
 
-const Header: React.SFC<IProps> = ({onToggle}) => {
+const Header: React.SFC<IProps> = ({onToggle, isMenuOpen}) => {
 	const currentSelectedItem = dropDownItems
 		.find(item => item.shortName === i18n.language.toUpperCase()) || dropDownItems[0];
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.leftSideWrapper}>
-				<div className={styles.toggle} onClick={onToggle} >
-					<img className={styles.toggle_img} src={MenuSVG} />
+				<div className={[styles.toggle, (isMenuOpen ? styles.toggle_active : null)].join(' ')} onClick={onToggle} >
+					<div className={styles.toggle_img}>
+						<span/><span/><span/><span/>
+					</div>
 				</div>
 				<div className={styles.brand}>
 					<span className={styles.brand_text}>CusDeb</span>
