@@ -17,7 +17,9 @@ import 'locales/i18nextConfig';
 import 'styles/index.scss';
 
 const sagaMiddleware = createSagaMiddleware();
-const history = createHistory();
+const history = createHistory({
+	basename: `/${process.env.PREFIX}`,
+});
 
 const store = createStore(
 	rootReducer(history),
