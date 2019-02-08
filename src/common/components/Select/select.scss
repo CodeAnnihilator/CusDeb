@@ -3,6 +3,7 @@
 @keyframes slidein {
 	0% {
 		opacity: 0;
+		left: 50%;
 		transform: rotate(15deg);
 	}
 
@@ -11,6 +12,7 @@
 	}
 
 	100% {
+		left: 0;
 		transform: none;
 		opacity: 1;
 	}
@@ -26,6 +28,7 @@
 	transform-origin: 300% 100%;
 	animation-duration: 0.5s;
 	animation-name: slidein;
+	position: relative;
 }
 
 .selectSelectedItemsWrapper {

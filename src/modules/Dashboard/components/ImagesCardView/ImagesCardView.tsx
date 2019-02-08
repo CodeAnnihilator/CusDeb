@@ -15,9 +15,10 @@ interface IProps {
 
 const breakpointCols = {
 	default: 7,
-	2560: 6,
-	2000: 4,
-	1700: 3,
+	2500: 6,
+	2200: 5,
+	1900: 4,
+	1600: 3,
 	1400: 2,
 	767: 1,
 };
