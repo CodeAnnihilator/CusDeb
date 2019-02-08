@@ -7,7 +7,7 @@ import {generateDummyImages} from 'common/seed/images';
 import {getBuildingImages} from 'common/selectors/entities';
 
 function* requestImagesSaga() {
-	const data = generateDummyImages(10);
+	const data = generateDummyImages(5);
 	try {
 		yield call(delay, 2000);
 		yield put(requestImagesSuccess(data));
