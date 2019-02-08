@@ -4,6 +4,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 var TSLintPlugin = require('tslint-webpack-plugin');
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 
+import {prefix} from '../config/main';
+
 import {srcPath, publicPath} from '../config/paths';
 
 export default {
@@ -14,7 +16,7 @@ export default {
 	},
 	output: {
 		path: path.resolve('dist'),
-		publicPath: '/'
+		publicPath: '/app/'
 	},
 	module: {
 		rules: [
@@ -52,6 +54,11 @@ export default {
 		new TSLintPlugin({
 			files: ['src/**/*.ts*'],
 			silent: true,
-		})
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+			  PREFIX: JSON.stringify(prefix),
+			},
+		}),
 	]
 }

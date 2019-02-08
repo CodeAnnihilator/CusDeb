@@ -1,14 +1,16 @@
-const express = require('express')
-const path = require('path')
-const port = process.env.PORT || 3000
-const app = express()
+import express from 'express';
+import path from 'path';
+import {port, prefix} from '../config/main';
 
-const rootPath = path.join(__dirname, '../')
+const app = express();
 
-app.use(express.static(rootPath + 'dist'))
+const rootPath = path.join(__dirname, '../');
+const allowedRoutes = prefix ? `/${prefix}*` : '*';
 
-app.get('*', (req, res) => {
+app.use('/app', express.static(rootPath + 'dist'));
+
+app.get(allowedRoutes, (req, res) => {
   res.sendFile(rootPath + 'dist/index.html')
-})
+});
 
-app.listen(port)
+app.listen(port);
