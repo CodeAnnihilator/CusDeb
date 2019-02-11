@@ -7,6 +7,17 @@ const initialState = {
 
 export default handleActions({
 	[types.REQUEST_IMAGES_SUCCESS]: (state: any, action: any) => ({...state, images: action.payload}),
+	[types.UPDATE_IMAGES_START_DATE]: (state: any, {payload: {images}}: any) => ({
+		...state,
+		images: state.images.map((oldItem: any) => {
+			const foundedItem = images.find((item: any) => item.name === oldItem.name) || {};
+
+			return {
+				...oldItem,
+				...foundedItem,
+			};
+		}),
+	}),
 	[types.UPDATE_IMAGE]: (state: any, {payload: {changes}}: any) => ({
 		...state,
 		images: state.images.map((item: any) => {

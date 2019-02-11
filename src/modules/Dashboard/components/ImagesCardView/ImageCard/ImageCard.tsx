@@ -53,7 +53,7 @@ export default class ImageCard extends Component<IProps> {
 		image: {
 			thumb: '',
 		},
-	}; /* wtf? it's doesnt't works! */
+	};
 
 	private readonly readyStateControls: IControls[] = [
 		{
@@ -195,7 +195,7 @@ export default class ImageCard extends Component<IProps> {
 					<img className={styles.titles_img} src={ thumb } />
 					<div className={styles.titles_main}>{ distro }</div>
 					<div className={styles.titles_sub}>
-						<Trans i18nKey='Image.StartedAt' />: { moment(startedAt).format('L') }
+						<Trans i18nKey='Image.StartedAt' />: { moment(startedAt).fromNow() }
 					</div>
 				</div>
 				<div className={styles.device}>

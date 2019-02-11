@@ -1,3 +1,4 @@
+import moment from 'moment';
 import randomNumInRange from 'utils/randomNumInRange';
 
 import DebianSVG from 'assets/images/distributive/debian.svg';
@@ -164,13 +165,12 @@ const generateDummyImage = (index: number) => ({
 	buildtype: generateBuildType(),
 	configuration: generateConfiguration(),
 	distro: generateDistro(),
-	emulate: !!Math.round(Math.random()),
 	name: generateRandomString(),
 	notes: generateRandomNote(),
 	basePackages: generateRandomPackages(180, 100),
 	depPackages: generateRandomPackages(40, 15),
 	addedPackages: generateRandomPackages(25),
-	started_at: new Date(),
+	started_at: moment.now(),
 	targetdevice: generateTargetDevice(),
 	thumb: generateRandomImage(),
 	build: generateBuild(index),
