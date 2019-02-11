@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React from 'react';
 import {Trans} from 'react-i18next';
 import {NavLink, Route} from 'react-router-dom';
@@ -14,7 +15,7 @@ import RegistrationCreateNewUserContainer from '../containers/RegistrationCreate
 import silentClasses from 'styles/_silent_classes.scss';
 import styles from './registration.scss';
 
-const ICON_SIZE = 32;
+const ICON_SIZE = 24;
 
 const Registration = (props: any) => (
 		<>
@@ -85,7 +86,13 @@ const Registration = (props: any) => (
 								className={styles.registationButton}
 								key={id}
 							>
-								<Flex indent='small'>
+								<Flex
+									indent='small'
+									className={cn(
+										styles.registationButton_icon, {
+										[styles.registationButton_icon_facebook]: title === 'Facebook',
+									})}
+								>
 									{icon}
 								</Flex>
 								<Flex indent='small'>

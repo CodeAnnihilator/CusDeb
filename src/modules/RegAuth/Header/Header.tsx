@@ -43,7 +43,7 @@ const headerItems = [
 
 const Header = () => (
 	<Flex className={styles.header}>
-		<Flex width='80%' justifyContent='center'>
+		<Flex className={styles.header_container} justifyContent='space-between'>
 			<Flex alignItems='center'>
 				<Flex indent='large'>
 					<SuppliesIcon className={styles.suppliesIcon} fill={COLORS.white}/>
