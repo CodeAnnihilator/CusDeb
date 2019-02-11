@@ -1,4 +1,4 @@
-{   
+{
     "common": {
         "LoadingImages": "Images are loading",
         "En": "English",
@@ -13,7 +13,8 @@
         "ErrorLog": "ErrorLog",
         "Dashboard": "Dashboard",
         "Blog": "Blog",
-        "Docs": "Docs",
+		"Docs": "Docs",
+		"ClickHere": "Click here",
         "Feedback": "Feedback",
         "selected": "selected"
     },
@@ -50,5 +51,43 @@
         "NextStep": "Next step",
         "PreviousStep": "Previous step",
         "SkipSteps": "Skip optional steps"
+    },
+    "RegAuth": {
+        "Home": "Home",
+        "Features": "Features",
+        "Plans": "Plans",
+        "SignIn": "Sign In",
+        "SignUp": "Sign Up",
+        "SingUpWith": "Sign up with {{title}}",
+        "CreateAccount": "Create new account",
+        "CreateFreeAccount": "Create your free account",
+        "BackToRegistration": "Back to sign up methods",
+        "OrSignUpWith": "Or sign up with",
+        "BecomeMember": "Become a member",
+        "AlreadyHaveAccount": "Already have an account",
+        "Registation": {
+            "Username": "Name",
+            "Email": "Email Address",
+            "Password": "Password",
+            "Confirm": "Repeat Password",
+            "Placeholders": {
+                "Username": "Enter your name",
+                "Email": "Enter your e-mail",
+                "Password": "Enter your password",
+                "Confirm": "Repeat your password"
+            },
+            "Validation": {
+                "Required": "Required field",
+                "InvalidEmail": "Wrong email address",
+                "PwdsAreUncomparable": "Passwords don't match",
+                "PwdIsIncorrect": "Passwort must have atleast one kerning symbol, 6 chars and have letters in both cases"
+            }
+		},
+		"Auth": {
+			"DontHaveAnAccount": "Don’t have an account",
+			"Register": "Register",
+			"ForgotPassword": "Forgot your password",
+			"SignInToCusdeb": "Sign in to CusDeb"
+		}
     }
 }

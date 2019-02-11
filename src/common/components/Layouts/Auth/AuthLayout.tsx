@@ -1,8 +1,10 @@
 import React from 'react';
 
+import HeaderContainer from 'modules/RegAuth/Header/containers/HeaderContainer';
+
 const AuthLayout = ({children}: any) => (
 	<div>
-		<div>AUTH LAYOUT</div>
+		<HeaderContainer />
 		<div>
 			{children}
 		</div>

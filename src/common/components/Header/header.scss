@@ -1,7 +1,8 @@
 @import 'styles/mixins.scss';
+@import 'styles/colors.scss';
 
 .wrapper {
-	background-color: #3BBF64;
+	background-color: $headerColor;
 	min-height: 60px;
 	display: flex;
 	align-items: center;
@@ -30,7 +31,7 @@
 .dropdown_menu {
 	min-width: 65px,
 }
- 
+
 .flag {
 	width: 20px;
 	height: 20px;
@@ -40,7 +41,7 @@
 .leftSideWrapper {
 	display: flex;
 	align-items: center;
- 
+
 	@include mobile {
 		justify-content: center;
 		width: 100%;
@@ -98,7 +99,7 @@
 
 	/* stylelint-ignore */
 	@include mobile {
-		display: none; 
+		display: none;
 	};
 	/* stylelint-ignore */
 	@include tablet {

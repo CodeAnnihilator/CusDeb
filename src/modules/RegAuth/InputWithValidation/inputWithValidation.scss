@@ -1,0 +1,23 @@
+@import 'styles/colors.scss';
+
+.input {
+	width: 310px;
+	height: 50px;
+	padding: 0px 25px;
+	border: 1px solid #E0E0E0;
+	font-size: 11px;
+	line-height: 18px;
+	font-family: 'Fira Sans', sans-serif;
+
+	&_error {
+		color: $red600;
+	}
+}
+
+.title {
+	font-size: 12px;
+	font-family: 'Fira Sans', sans-serif;
+	color: #404758;
+	font-weight: 300;
+	line-height: 18px;
+}

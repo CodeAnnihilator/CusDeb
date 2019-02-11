@@ -1,5 +1,6 @@
 import {connectRouter} from 'connected-react-router';
 import {combineReducers} from 'redux';
+import {reducer as formReducer} from 'redux-form';
 
 import entitiesReducer from 'common/reducers/entities';
 import createImageInitializationReducer from 'modules/CreateImage/reducers/createImageInitializationReducer';
@@ -10,6 +11,7 @@ const rootReducer = (history: any) => combineReducers({
 	dashboard: dashboardReducer,
 	createImage: createImageInitializationReducer,
 	router: connectRouter(history as any),
+	form: formReducer,
 });
 
 export default rootReducer;
