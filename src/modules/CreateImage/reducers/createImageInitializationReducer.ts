@@ -34,7 +34,7 @@ export default handleActions({
 	}),
 	[CREATE_IMAGE_SELECT_ENTITY]: (state: any , {payload: {entity, type, isDrop = false}}) => {
 		let isFounded = false;
-		const sameAsSeleted = !entity || state.selectedItems[type] && state.selectedItems[type].id === entity.id;
+
 		const dropedValues = ['brands', 'targetDevices', 'distros', 'buildTypes'].reduceRight(
 			(obj: {[key: string]: null | string}, item: any) => {
 				if (item !== type && !isFounded) obj[item] = null;
@@ -49,7 +49,7 @@ export default handleActions({
 
 		return ({
 			...state,
-			selectedItems: isDrop || sameAsSeleted
+			selectedItems: isDrop
 				? {
 					...state.selectedItems,
 					...dropedValues,
@@ -59,7 +59,7 @@ export default handleActions({
 					[type]: entity,
 				},
 		});
-},
+	},
 	[CREATE_IMAGE_SET_FILTER_BY_TYPE]: (state: any , {payload: {filter, type}}) => ({
 		...state,
 		entitesFilters: {
