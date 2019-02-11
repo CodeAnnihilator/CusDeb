@@ -1,0 +1,70 @@
+@import 'styles/colors.scss';
+
+.registration {
+	width: 440px;
+	height: 640px;
+	border: 1px solid $gray300;
+	box-sizing: border-box;
+}
+
+.cusdebIcon {
+	padding-bottom: 30px;
+	width: 40px;
+	height: 40px;
+}
+
+.header {
+	border-bottom: 1px solid $gray300;
+	padding: 25px 0px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.registationButton {
+	width: 360px;
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #E3E7EC;
+	box-sizing: border-box;
+	font-size: 11px;
+	color: #626A7F;
+	line-height: 18px;
+	text-transform: uppercase;
+	font-family: 'Fira Sans', sans-serif;
+	cursor: pointer;
+}
+
+.registrationNavlink {
+	color: #626A7F !important;
+	text-decoration: none !important;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.registrationAlreadyHaveAccount {
+	font-size: 12px;
+	font-family: Fira Sans, sans-serif;
+	color: #404758;
+	letter-spacing: normal;
+	line-height: 18px;
+	font-weight: normal;
+}
+
+.registationCreateNewWrapper {
+	width: 100%;
+	padding: 20px 0px;
+	border-bottom: 1px solid $gray300;
+	box-sizing: border-box;
+}
+
+.registrationWrapper{
+	padding: 20px;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	box-sizing: border-box;
+}

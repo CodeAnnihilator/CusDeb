@@ -1,0 +1,1 @@
+export const SEND_AUTH_DATA = 'AUTH/SEND_AUTH_DATA';

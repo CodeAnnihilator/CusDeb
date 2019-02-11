@@ -1,0 +1,49 @@
+@import 'styles/colors.scss';
+
+.header {
+	width: 100%;
+	height: 80px;
+	background-color: $headerColor;
+	justify-content: center;
+
+	:first-child {
+		border: none;
+	}
+}
+
+.headerLogoItem {
+	height: 40px;
+	font-size: 24px;
+	font-weight: 600;
+	color: $white;
+}
+
+.headerLogoItemSubLogo {
+	align-self: baseline;
+	font-size: 11px;
+	color: $white;
+}
+
+.headerItem {
+	border-left: 1px solid #38A46B;
+	width: 130px;
+	color: $white;
+	text-decoration: none;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: 300;
+	font-size: 12px;
+	text-transform: uppercase;
+
+	&:hover {
+		color: #F1F8E9;
+		cursor: pointer;
+	}
+}
+
+.suppliesIcon {
+	width: 40px;
+}
