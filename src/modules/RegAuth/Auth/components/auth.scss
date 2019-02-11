@@ -1,11 +1,15 @@
 @import 'styles/colors.scss';
 @import 'styles/_silent_classes.scss';
 
+$icon-padding: 8px;
+
 .container {
 	width: 440px;
 	padding-bottom: 25px;
 	border: 1px solid $gray300;
 	box-sizing: border-box;
+	background-color: white;
+	margin: 70px 0;
 }
 
 .cusdebIcon {
@@ -39,7 +43,15 @@
 }
 
 .icon {
+	border: 1px solid grey;
+	border-radius: 50px;
+	padding: $icon-padding;
+	box-sizing: border-box;
 	cursor: pointer;
+
+	&_github {
+		padding: $icon-padding;
+	}
 }
 
 .dontHaveAccount {
@@ -63,6 +75,7 @@
 	width: 100%;
 	height: 100%;
 	justify-content: center;
+	background-color: #F8FAFC;
 	box-sizing: border-box;
 }
 
