@@ -2,6 +2,7 @@
 
 $border-color: #F1F1F1;
 $time-to-animate: 1s;
+$note-line-height: 18px;
 
 .container {
 	padding: 0 12px;
@@ -158,13 +159,40 @@ $time-to-animate: 1s;
 	color: #87889D;
 	font-size: 11px;
 	font-weight: 300;
-	line-height: 18px;
+	line-height: $note-line-height;
 	padding: 20px 10px 15px 20px;
 	border-bottom: 1px solid $border-color;
 
-	&_opened {
-		-webkit-line-clamp: initial;
-		height: fit-content;
+	&_wrapper {
+		transition: height 0.1s, max-height 0.1s;
+		max-height: $note-line-height * 3;
+		overflow: hidden;
+	}
+
+	&_open {
+		& .note_wrapper {
+			max-height: initial;
+		}
+
+		& .note_expand_icon {
+			transform: rotate(180deg);
+		}
+	}
+
+	&_expand {
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		margin-bottom: -10px;
+		padding: 10px;
+		align-items: center;
+
+		&_icon {
+			top: -1px;
+			position: relative;
+			left: 10px;
+			max-height: 14px;
+		}
 	}
 }
 

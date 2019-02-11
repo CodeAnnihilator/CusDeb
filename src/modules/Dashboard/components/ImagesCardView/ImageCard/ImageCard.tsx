@@ -2,23 +2,16 @@ import cn from 'classnames';
 import moment from 'moment';
 import React, {Component, SyntheticEvent} from 'react';
 import {Trans} from 'react-i18next';
-import {FaCircleNotch} from 'react-icons/fa';
-import {IoMdBuild} from 'react-icons/io';
 
 import ProgressBar from 'common/components/ProgressBar/ProgressBar';
 import {COLORS} from 'common/constants/entities';
-import {createSvgComponent} from 'common/helpers/entities';
-
-import controlsStyles from 'modules/Dashboard/components/ImagesCardView/ImageCard/Controls/controls.scss';
+import StateControls from './imageCardParts';
 
 import Controls from './Controls/Controls';
 
 import ErrorSignSVG from 'assets/images/block-sign.svg';
 import CheckSignSVG from 'assets/images/check.svg';
-import DeleteSVG from 'assets/images/delete.svg';
-import DownloadSVG from 'assets/images/download.svg';
-import EditSVG from 'assets/images/edit.svg';
-import TerminalSVG from 'assets/images/terminal.svg';
+import ExpandIconSVG from 'assets/images/down-arrow.svg';
 
 import styles from './imageCard.scss';
 
@@ -41,61 +34,28 @@ interface IProps {
 	isActive: boolean;
 }
 
-interface IControls {
-	icon: React.ReactNode;
-	onClick?: (event: SyntheticEvent) => void | null;
-	isDisabled?: boolean;
-	title: string;
+interface IState {
+	isNotesExpanded: boolean;
 }
 
-export default class ImageCard extends Component<IProps> {
+export default class ImageCard extends Component<IProps, IState> {
+	public state: IState = {
+		isNotesExpanded: false,
+	};
+
 	public static defaultProps = {
 		image: {
 			thumb: '',
 		},
 	}; /* wtf? it's doesnt't works! */
 
-	private readonly readyStateControls: IControls[] = [
-		{
-			icon: createSvgComponent(controlsStyles.img, DownloadSVG),
-			title: 'Download',
-		},
-		{
-			icon: createSvgComponent(controlsStyles.img, TerminalSVG),
-			title: 'Terminal',
-		},
-		{
-			icon: createSvgComponent(controlsStyles.img, EditSVG),
-			title: 'Edit',
-		},
-		{
-			icon: createSvgComponent(controlsStyles.img, DeleteSVG),
-			title: 'Delete',
-		},
-	]; /* todo : change icons at react-icons and redraw a design */
-
-	private readonly errorStateControls: IControls[] = [
-		{
-			icon: (
-				<FaCircleNotch size={18} fill={COLORS.black} />
-			),
-			title: 'ErrorLog',
-		},
-		{
-			icon: (
-				<IoMdBuild size={18} fill={COLORS.gray600} />
-			),
-			title: 'Rebuild',
-		},
-		{
-			icon: createSvgComponent(controlsStyles.img, DeleteSVG),
-			title: 'Delete',
-		},
-	];
-
 	protected onSelect = () => {
 		const {image, onSelect} = this.props;
 		onSelect(image.name);
+	}
+
+	protected onNoteExpand = () => {
+		this.setState({isNotesExpanded: !this.state.isNotesExpanded});
 	}
 
 	public renderContent = () => {
@@ -117,13 +77,13 @@ export default class ImageCard extends Component<IProps> {
 						<a href='/dashboard'><Trans i18nKey='Dashboard.reportAboutIssue' /></a>
 					</div>
 				</div>
-				<Controls icons={this.errorStateControls}/>
+				<Controls icons={StateControls.error}/>
 			</div>
 		);
 
 		const readyJSX = (animated?: string) => (
 			<div className={cn(styles.ready_box, {[styles.animated_box]: !!animated})}>
-				<Controls icons={this.readyStateControls}/>
+				<Controls icons={StateControls.ready}/>
 			</div>
 		);
 
@@ -175,6 +135,7 @@ export default class ImageCard extends Component<IProps> {
 
 	public render() {
 		const {image, isActive} = this.props;
+		const {isNotesExpanded} = this.state;
 		const distro = image.distro.full_name;
 		const startedAt = image.started_at;
 		const {thumb, targetdevice, notes} = image;
@@ -202,8 +163,23 @@ export default class ImageCard extends Component<IProps> {
 					<img src={targetdevice.device_icon} className={styles.device_icon} alt=''/>
 					<span className={styles.device_name}>{targetdevice.full_name}</span>
 				</div>
-				<div className={styles.note}>
-					{notes ? notes : <Trans i18nKey='Dashboard.noDescription' />}
+				<div className={cn(styles.note, {[styles.note_open]: isNotesExpanded})}>
+					{
+						notes ?
+							<>
+								{notes.length > 270 ?
+									<>
+										<div className={styles.note_wrapper}>{notes}</div>
+										<div onClick={this.onNoteExpand} className={styles.note_expand}>
+											{isNotesExpanded ? 'contract' : 'expand'} notes text
+											<img className={styles.note_expand_icon} src={ExpandIconSVG} alt=''/>
+										</div>
+									</>
+									: <div>{notes}</div>
+								}
+							</>
+						: <Trans i18nKey='Dashboard.noDescription' />
+					}
 				</div>
 				{this.renderContent()}
 			</div>
