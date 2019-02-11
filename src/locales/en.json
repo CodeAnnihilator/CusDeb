@@ -16,7 +16,8 @@
 		"Docs": "Docs",
 		"ClickHere": "Click here",
         "Feedback": "Feedback",
-        "selected": "selected"
+        "selected": "selected",
+        "select": "select"
     },
     "Packages": {
         "Base": "Base packages",

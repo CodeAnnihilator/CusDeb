@@ -188,7 +188,7 @@ export default class ImageCard extends Component<IProps> {
 							styles.selectButton, {[
 							styles.selectButtonActive]: isActive,
 						})}
-					> {isActive ? 'Active' : 'Select'}
+					> {isActive ? <Trans i18nKey={'common.selected'} /> : <Trans i18nKey={'common.select'} />}
 					</div>
 				</div>
 				<div className={styles.titles}>
