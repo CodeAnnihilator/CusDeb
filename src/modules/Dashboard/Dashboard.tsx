@@ -1,5 +1,4 @@
 import React, {ChangeEvent, PureComponent} from 'react';
-import {Trans} from 'react-i18next';
 
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
 import ImagesCardView from './components/ImagesCardView/ImagesCardView';

@@ -16,6 +16,10 @@ import Routes from './Routes';
 import 'locales/i18nextConfig';
 import 'styles/index.scss';
 
+import moment from 'moment';
+
+moment.defaultFormat = 'YYYY.MM.DD';
+
 const sagaMiddleware = createSagaMiddleware();
 const history = createHistory({
 	basename: `/${process.env.PREFIX}`,

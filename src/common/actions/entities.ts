@@ -13,6 +13,11 @@ export const updateImage = createAction(
 	(changes: any) => ({changes}),
 );
 
+export const updateImagesDateStart = createAction(
+	types.UPDATE_IMAGES_START_DATE,
+	(images: any[]) => ({images}),
+);
+
 export const requestImagesError = createAction(
 	types.REQUEST_IMAGES_ERROR,
 	(error: any) => error,
