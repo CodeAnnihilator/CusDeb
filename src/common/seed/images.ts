@@ -121,7 +121,7 @@ const generateRandomLength = (length: number, min = 0) => min + Math.round(Math.
 
 const generateRandomNote = () => {
 	const wordsArray = Array.from(
-		{length: generateRandomLength(35, 4)},
+		{length: generateRandomLength(50, 4)},
 		() => {
 			const leftPart = generateRandomString().slice(0, generateRandomLength(10));
 			const rightPart = generateRandomString().slice(0, generateRandomLength(10));
