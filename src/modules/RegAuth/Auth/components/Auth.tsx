@@ -18,100 +18,111 @@ import InputWithValidation from 'modules/RegAuth/InputWithValidation/InputWithVa
 import silentClasses from 'styles/_silent_classes.scss';
 import styles from './auth.scss';
 
-const Auth = (props: any) => (
-	<Flex
-		className={styles.wrapper}
-	>
-		<Flex
-			alignItems='center'
-			direction='column'
-			className={styles.container}
-		>
+import SimpleLoader from 'common/components/Preloaders/SimpleLoader/SimpleLoader';
+
+export default class Auth extends React.PureComponent<any> {
+	private readonly onSubmit = (event: any) => {
+		event.persist();
+		this.props.sendAuthData();
+	}
+
+	public render() {
+		const {valid, isFetching} = this.props;
+
+		return (
 			<Flex
-				direction='column'
-				alignItems='center'
-				className={styles.header}
-			>
-				<Flex indent='medium'>
-					<SuppliesIcon className={styles.cusdebIcon} fill={COLORS.green800} />
-				</Flex>
-				<Flex indent='medium' className={silentClasses.toUpperCase}>
-					<Trans i18nKey='RegAuth.Auth.SignInToCusdeb' />
-				</Flex>
-				<Flex indent='medium' className={styles.dontHaveAccount}>
-					<Flex indent='small'>
-						<Trans i18nKey='RegAuth.Auth.DontHaveAnAccount' />?
-					</Flex>
-					<Flex indent='small'>
-						<NavLink to='/registration'>
-							<Trans i18nKey='RegAuth.Auth.Register' />
-						</NavLink>
-					</Flex>
-				</Flex>
-			</Flex>
-			<Flex
-				indent='large'
-				justifyContent='center'
-				alignItems='center'
-				className={styles.resetPwdWrapper}
+				className={styles.wrapper}
 			>
 				<Flex
-					className={styles.resetPwdContainer}
+					alignItems='center'
+					direction='column'
+					className={styles.container}
 				>
-					<Flex alignItems='center'>
-						<Flex indent='small'><Trans i18nKey='RegAuth.Auth.ForgotPassword' /></Flex>?
-						<Flex indent='small'>
-							<NavLink to='/reset'><Trans i18nKey='common.ClickHere' /></NavLink>
+					<Flex
+						direction='column'
+						alignItems='center'
+						className={styles.header}
+					>
+						<Flex indent='medium'>
+							<SuppliesIcon className={styles.cusdebIcon} fill={COLORS.green800} />
 						</Flex>
+						<Flex indent='medium' className={silentClasses.toUpperCase}>
+							<Trans i18nKey='RegAuth.Auth.SignInToCusdeb' />
+						</Flex>
+						<Flex indent='medium' className={styles.dontHaveAccount}>
+							<Flex indent='small'>
+								<Trans i18nKey='RegAuth.Auth.DontHaveAnAccount' />?
+							</Flex>
+							<Flex indent='small'>
+								<NavLink to='/registration'>
+									<Trans i18nKey='RegAuth.Auth.Register' />
+								</NavLink>
+							</Flex>
+						</Flex>
+					</Flex>
+					<Flex
+						indent='large'
+						justifyContent='center'
+						alignItems='center'
+						className={styles.resetPwdWrapper}
+					>
+						<Flex
+							className={styles.resetPwdContainer}
+						>
+							<Flex alignItems='center'>
+								<Flex indent='small'><Trans i18nKey='RegAuth.Auth.ForgotPassword' /></Flex>?
+								<Flex indent='small'>
+									<NavLink to='/reset'><Trans i18nKey='common.ClickHere' /></NavLink>
+								</Flex>
+							</Flex>
+						</Flex>
+					</Flex>
+					<Flex
+						className={styles.iconsBlock}
+						alignItems='center'
+						justifyContent='center'
+						indent='large'
+					>
+						{socialNetworks(50).map(item => (
+							<Flex
+								key={item.id}
+								indent='small'
+								className={styles.icon}
+							>
+								{item.icon}
+							</Flex>
+						))}
+					</Flex>
+					<Flex
+						width='100%'
+						indent='large'
+						direction='column'
+						alignItems='center'
+					>
+						<Field
+							name='email'
+							component={InputWithValidation as any}
+							type='text'
+							validate={[rules.required, rules.email]}
+						/>
+						<Field
+							name='password'
+							component={InputWithValidation as any}
+							type='text'
+							validate={rules.required}
+						/>
+					</Flex>
+					<Flex
+						indent='large'
+						className={cn(styles.loginButton, {
+							[styles.loginButton_disabled]: !valid,
+						})}
+						onClick={valid ? this.onSubmit : null}
+					>
+						{isFetching ? <SimpleLoader color={COLORS.white} /> : <Trans i18nKey='RegAuth.Auth.Login' />}
 					</Flex>
 				</Flex>
 			</Flex>
-			<Flex
-				className={styles.iconsBlock}
-				alignItems='center'
-				justifyContent='center'
-				indent='large'
-			>
-				{socialNetworks(50).map(item => (
-					<Flex
-						key={item.id}
-						indent='small'
-						className={styles.icon}
-					>
-						{item.icon}
-					</Flex>
-				))}
-			</Flex>
-			<Flex
-				width='100%'
-				indent='large'
-				direction='column'
-				alignItems='center'
-			>
-				<Field
-					name='email'
-					component={InputWithValidation as any}
-					type='text'
-					validate={[rules.required, rules.email]}
-				/>
-				<Field
-					name='password'
-					component={InputWithValidation as any}
-					type='text'
-					validate={rules.required}
-				/>
-			</Flex>
-			<Flex
-				indent='large'
-				className={cn(styles.loginButton, {
-					[styles.loginButton_disabled]: !props.valid,
-				})}
-				onClick={props.valid ? props.sendAuthData : null}
-			>
-				<Trans i18nKey='RegAuth.CreateAccount' />
-			</Flex>
-		</Flex>
-	</Flex>
-);
-
-export default Auth;
+		);
+	}
+}

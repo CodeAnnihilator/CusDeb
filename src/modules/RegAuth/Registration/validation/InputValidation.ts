@@ -1,7 +1,5 @@
 import i18next from 'i18next';
 
-const geti18nValue = (key: string) => i18next.t(`RegAuth.Registation.Validation.${key}`);
-
 const inputBaseValidation =  {
 	required: (value: string) => value
 		? undefined
