@@ -14,6 +14,7 @@ import {
 	IoIosArrowBack,
 } from 'react-icons/io/';
 
+import SimpleLoader from 'common/components/Preloaders/SimpleLoader/SimpleLoader';
 import InputWithValidation from 'modules/RegAuth/InputWithValidation/InputWithValidation';
 
 import silentClasses from 'styles/_silent_classes.scss';
@@ -113,7 +114,7 @@ const RegistrationCreateNewUser = (props: any) => (
 					})}
 					onClick={props.valid ? props.sendData : null}
 				>
-					<Trans i18nKey='RegAuth.CreateAccount' />
+					{props.isFetching ? <SimpleLoader /> : <Trans i18nKey='RegAuth.CreateAccount' />}
 				</Flex>
 			</Flex>
 		</Flex>
