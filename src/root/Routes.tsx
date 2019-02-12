@@ -1,31 +1,50 @@
 import * as React from 'react';
 import {hot} from 'react-hot-loader';
 import {withNamespaces} from 'react-i18next';
-import {Switch} from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 
-import Dashboard from 'modules/Dashboard/containers/Dashboard';
+import CommonLayout from 'common/components/Layouts/Common/CommonLayout';
+import ProtectedLayout from 'common/components/Layouts/Protected/ProtectedLayout';
 
-import AuthLayoutRoute from 'common/components/Layouts/Auth/AuthLayoutRoute';
-import MainLayoutRoute from 'common/components/Layouts/Main/MainLayoutRoute';
 import CreateImageInitialization from 'modules/CreateImage/components/CreateImageInitialization';
+import Dashboard from 'modules/Dashboard/containers/Dashboard';
 import AuthContainer from 'modules/RegAuth/Auth/containers/AuthContainer';
 import HomeContainer from 'modules/RegAuth/Home/containers/HomeContainer';
 import RegistrationContainer from 'modules/RegAuth/Registration/containers/RegistrationContainer';
 
 const Routes = () => (
-	<div>
-		<Switch>
-			<AuthLayoutRoute path='/home' component={HomeContainer} />
-			<AuthLayoutRoute path='/login' component={AuthContainer} />
-			<AuthLayoutRoute path='/registration' component={RegistrationContainer} />
-			<AuthLayoutRoute path='/plans' component={() => <div><h2>Hello from /plans route</h2></div>} />
-			<AuthLayoutRoute path='/features' component={() => <div><h2>Hello from /features route</h2></div>} />
-			<MainLayoutRoute path='/dashboard' component={Dashboard} />
-			<MainLayoutRoute path='/docs' component={() => <div><h2>Hello from /docs route</h2></div>} />
-			<MainLayoutRoute path='/blog' component={() => <div><h2>Hello from /blog route</h2></div>} />
-			<MainLayoutRoute path='/create' component={CreateImageInitialization} />
-		</Switch>
-	</div>
+	<Switch>
+		<Redirect exact from='/user' to='/user/dashboard' />
+		<Route
+			path='/user'
+			render={({match: {url}}) => (
+				<ProtectedLayout>
+					<Switch>
+						<Route path={`${url}/dashboard`} component={Dashboard} />
+						<Route path={`${url}/docs`} component={() => <h2>/docs route</h2>} />
+						<Route path={`${url}/blog`} component={() => <h2>/blog route</h2>} />
+						<Route path={`${url}/create`} component={CreateImageInitialization} />
+						<Route render={() => <div>Oops...</div>} />
+					</Switch>
+				</ProtectedLayout>
+			)}
+		/>
+		<Route
+			path='/'
+			render={() => (
+				<CommonLayout>
+					<Switch>
+						<Route exact path='/' component={HomeContainer} />
+						<Route path='/login' render={() => <AuthContainer />} />
+						<Route path='/registration' component={RegistrationContainer} />
+						<Route path='/plans' component={() => <div><h2>/plans route</h2></div>} />
+						<Route path='/features' component={() => <h2>/features route</h2>} />
+						<Route render={() => <div>Oops...</div>} />
+					</Switch>
+				</CommonLayout>
+			)}
+		/>
+	</Switch>
 );
 
 export default hot(module)(withNamespaces('translation')(Routes));

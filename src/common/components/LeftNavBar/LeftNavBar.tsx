@@ -16,17 +16,17 @@ const navs = [
 	{
 		Icon: <DashboardIcon />,
 		title: 'Dashboard',
-		path: '/dashboard',
+		path: '/user/dashboard',
 	},
 	{
 		Icon: <BookCoverIcon />,
 		title: 'Docs',
-		path: '/docs',
+		path: '/user/docs',
 	},
 	{
 		Icon: <HardBookIcon />,
 		title: 'Blog',
-		path: '/blog',
+		path: '/user/blog',
 	},
 	{
 		Icon: <EnvelopeIcon />,

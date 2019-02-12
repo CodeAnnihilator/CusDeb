@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom';
 const CreateBuildButton = () => (
 	<div className={styles.wrapper}>
 		<NavLink
-			to='/create'
+			to='/user/create'
 			className={styles.button}
 		>
 			<Trans i18nKey='Dashboard.CreateNewBuild' />

@@ -19,7 +19,7 @@ const setLanguage = () => i18n
 
 const headerItems = [
 	{
-		path: '/home',
+		path: '/',
 		key: 'Home',
 		id: 1,
 	}, {
