@@ -66,7 +66,7 @@
         "OrSignUpWith": "Или войдите, используя сторонний аккаунт",
         "BecomeMember": "Стать пользователем",
         "AlreadyHaveAccount": "Уже есть аккаунт",
-        "Registation": {
+        "Registration": {
             "Username": "Имя",
             "Email": "Электронный адрес",
             "Password": "Пароль",
@@ -89,7 +89,8 @@
 			"Register": "Зарегестрируйтесь",
 			"ForgotPassword": "Забыли пароль",
 			"SignInToCusdeb": "Войти в CusDeb",
-			"Login": "Войти"
+            "Login": "Войти",
+            "OrUseEmail": "Или используйте свой email"
 		}
 	}
 }

@@ -14,7 +14,7 @@ import RegistrationCreateNewUserContainer from '../containers/RegistrationCreate
 import silentClasses from 'styles/_silent_classes.scss';
 import styles from './registration.scss';
 
-const ICON_SIZE = 32;
+const ICON_SIZE = 24;
 
 const Registration = (props: any) => (
 		<>
@@ -55,10 +55,10 @@ const Registration = (props: any) => (
 						justifyContent='center'
 						alignItems='center'
 						width='100%'
-						className={styles.registationCreateNewWrapper}
+						className={styles.registrationCreateNewWrapper}
 					>
 						<Flex
-							className={styles.registationButton}
+							className={styles.registrationButton}
 						>
 							<NavLink
 								to='/registration/create'
@@ -68,7 +68,7 @@ const Registration = (props: any) => (
 							</NavLink>
 						</Flex>
 					</Flex>
-					<Flex indent='large'>
+					<Flex className={styles.orSignUpWith}>
 						<Trans i18nKey='RegAuth.OrSignUpWith' />:
 					</Flex>
 					<Flex
@@ -82,10 +82,10 @@ const Registration = (props: any) => (
 								indent='medium'
 								justifyContent='center'
 								alignItems='center'
-								className={styles.registationButton}
+								className={styles.registrationButton}
 								key={id}
 							>
-								<Flex indent='small'>
+								<Flex indent='small' className={styles.registrationButton_icon}>
 									{icon}
 								</Flex>
 								<Flex indent='small'>

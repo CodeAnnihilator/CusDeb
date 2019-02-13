@@ -39,7 +39,7 @@ class InputWithValidation extends Component {
 				>
 					<Flex>
 						<Flex indent='small'>
-							<Trans i18nKey={`RegAuth.Registation.${capitalize(name)}`} />
+							<Trans i18nKey={`RegAuth.Registration.${capitalize(name)}`} />
 						</Flex>
 						{withSup
 							? <Flex
@@ -53,7 +53,7 @@ class InputWithValidation extends Component {
 					{HasError ? (
 						<Flex width={150} justifyContent='flex-end'>
 							<Flex style={{color: COLORS.red600}}>
-								<Trans i18nKey={`RegAuth.Registation.Validation.${error}`} />
+								<Trans i18nKey={`RegAuth.Registration.Validation.${error}`} />
 							</Flex>
 						</Flex>
 					)
@@ -64,7 +64,7 @@ class InputWithValidation extends Component {
 						className={cn(styles.input, {
 							[styles.input_error]: HasError,
 						})}
-						placeholder={i18next.t(`RegAuth.Registation.Placeholders.${capitalize(name)}`)}
+						placeholder={i18next.t(`RegAuth.Registration.Placeholders.${capitalize(name)}`)}
 						{...input}
 						type={type}
 					/>
