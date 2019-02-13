@@ -8,7 +8,7 @@ export default interface IFlexProps {
 	grow?: 1 | 2 | null;
 	height?: ReactText;
 	indent?: 'small' | 'medium' | 'large' | string | null;
-	justifyContent?: 'flex-end' | 'center' | 'space-between' | 'space-around' | string | null;
+	justifyContent?: 'flex-end' | 'center' | 'space-between' | 'space-around' | string | null | 'flex-start';
 	overflow?: 'hidden' | string | null;
 	shrink?: 0 | 1 | 2 | null;
 	width?: ReactText;

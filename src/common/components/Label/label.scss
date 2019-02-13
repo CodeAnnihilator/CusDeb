@@ -1,0 +1,17 @@
+@import 'styles/colors.scss';
+
+.labelWrapper {
+	display: flex;
+}
+
+.label {
+	border-radius: 3px;
+	background-color: $labelDefault;
+
+	& span {
+		color: #FFFFFF;
+		display: block;
+		font-size: 11px;
+		padding: 7px 15px;
+	}
+}
