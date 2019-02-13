@@ -12,6 +12,97 @@ import AuthContainer from 'modules/RegAuth/Auth/containers/AuthContainer';
 import HomeContainer from 'modules/RegAuth/Home/containers/HomeContainer';
 import RegistrationContainer from 'modules/RegAuth/Registration/containers/RegistrationContainer';
 
+import Table from 'common/components/Table/Table';
+
+const TableMock = () => (
+	<Table>
+		<Table.HeaderRow>
+			<Table.HeaderCell>
+				Header is here
+			</Table.HeaderCell>
+			<Table.HeaderCell>
+				Header is here
+			</Table.HeaderCell>
+			<Table.HeaderCell>
+				Header is here
+			</Table.HeaderCell>
+			<Table.HeaderCell>
+				Header is here
+			</Table.HeaderCell>
+		</Table.HeaderRow>
+		<Table.Row>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+		</Table.Row>
+		<Table.Row>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+		</Table.Row>
+		<Table.Row>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+		</Table.Row>
+		<Table.Row>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+		</Table.Row>
+		<Table.Row>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+			<Table.Cell>
+				Content here
+			</Table.Cell>
+		</Table.Row>
+	</Table>
+);
+
 const Routes = () => (
 	<Switch>
 		<Redirect exact from='/user' to='/user/dashboard' />
@@ -38,6 +129,7 @@ const Routes = () => (
 						<Route path='/login' render={() => <AuthContainer />} />
 						<Route path='/registration' component={RegistrationContainer} />
 						<Route path='/plans' component={() => <div><h2>/plans route</h2></div>} />
+						<Route path='/test' component={TableMock} />
 						<Route path='/features' component={() => <h2>/features route</h2>} />
 						<Route render={() => <div>Oops...</div>} />
 					</Switch>

@@ -11,7 +11,7 @@ interface IProps {
 	onClick: () => void;
 }
 
-const DropDownTab: React.SFC<IProps> = ({
+const DropDownTab: React.FC<IProps> = ({
 	title,
 	value,
 	isOpened,

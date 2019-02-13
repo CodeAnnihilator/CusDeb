@@ -12,7 +12,7 @@ interface IProps {
 	selectedItems: number;
 }
 
-const InitializationContent: React.SFC<IProps> = ({selectedItems, selectTypes}) => {
+const InitializationContent: React.FC<IProps> = ({selectedItems, selectTypes}) => {
 	const steps = [
 		'Select brands',
 		'Select target device',

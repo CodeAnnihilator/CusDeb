@@ -8,7 +8,7 @@ interface IProps {
 	className?: string;
 }
 
-const PopupHeader: React.SFC<IProps> = ({className, children}) => (
+const PopupHeader: React.FC<IProps> = ({className, children}) => (
 	<div
 		className={styles['popup-header']}
 	>

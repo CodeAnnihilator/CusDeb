@@ -5,7 +5,7 @@ import styles from './alert.scss';
 
 import IAlertProps from './Alert.d';
 
-const Alert: React.SFC<IAlertProps> = ({type, children}) => (
+const Alert: React.FC<IAlertProps> = ({type, children}) => (
 	<div
 		className={cn({
 			[styles.warning]: type === 'warning',

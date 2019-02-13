@@ -9,7 +9,7 @@ interface IProps {
 	text: string;
 }
 
-const ImagesPreloader: React.SFC<IProps> = ({text}) => (
+const ImagesPreloader: React.FC<IProps> = ({text}) => (
 	<div className={styles.wrapper}>
 		<DelayedDotsPreloader />
 		<span className={styles.text}>

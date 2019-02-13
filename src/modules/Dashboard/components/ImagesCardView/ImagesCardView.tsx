@@ -23,7 +23,7 @@ const breakpointCols = {
 	767: 1,
 };
 
-const ImagesCardView: React.SFC<IProps> = ({images, onSelect, activeImage}) => (
+const ImagesCardView: React.FC<IProps> = ({images, onSelect, activeImage}) => (
 	<div className={styles.wrapper}>
 		<Masonry breakpointCols={breakpointCols} >
 			{

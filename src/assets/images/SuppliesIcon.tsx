@@ -6,7 +6,7 @@ interface IProps {
 	style?: object;
 }
 /* tslint:disable */
-const SuppliesIcon: React.SFC<IProps> = ({fill, className, style}) => (
+const SuppliesIcon: React.FC<IProps> = ({fill, className, style}) => (
 	<svg
 		fill={fill}
 		className={className}
