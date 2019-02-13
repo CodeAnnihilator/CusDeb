@@ -83,15 +83,21 @@ export default class Auth extends React.PureComponent<any> {
 						justifyContent='center'
 						indent='large'
 					>
-						{socialNetworks(50).map(item => (
+						{socialNetworks(23).map(item => (
 							<Flex
 								key={item.id}
 								indent='small'
-								className={styles.icon}
+								className={cn(
+									styles.icon, {
+									[styles.icon_github]: item.title === 'Github',
+								})}
 							>
 								{item.icon}
 							</Flex>
 						))}
+					</Flex>
+					<Flex justifyContent='center' alignItems='center' className={styles.orUseEmail}>
+						<Trans i18nKey='RegAuth.Auth.OrUseEmail'/>
 					</Flex>
 					<Flex
 						width='100%'
