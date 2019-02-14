@@ -1,7 +1,7 @@
-import cn from 'classnames';
 import React, {PureComponent} from 'react';
 import {Trans} from 'react-i18next';
 
+import Tabs from 'common/components/Tabs/Tabs';
 import DropDownTab from './DropDownTab/DropDownTab';
 
 import styles from './currentImageTab.scss';
@@ -40,12 +40,6 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 		},
 	};
 
-	private readonly onSwitchMainTab = (nextTab: any) => {
-		if (nextTab !== this.state.activeMainTab) {
-			this.setState({activeMainTab: nextTab});
-		}
-	}
-
 	private readonly onToggleDropdownTabs = (tab: any) => this.setState(prevState => ({
 		openedDropdownTabs: {
 			...prevState.openedDropdownTabs,
@@ -55,7 +49,6 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 
 	public render() {
 		const {
-			activeMainTab,
 			openedDropdownTabs,
 		} = this.state;
 		const {
@@ -68,77 +61,78 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 			},
 		} = this.props;
 
+		const commonTab = {
+			title: <Trans i18nKey='common.Common'/>,
+			content: (
+				<div className={styles.header}>
+					<img className={styles.header_img} src={thumb} />
+					<div className={styles.header_createdAt}>
+						<Trans i18nKey='Image.CreatedAt' />
+						<strong className={styles.header_createdAt_date}>21.09.2018</strong>
+					</div>
+				</div>
+			),
+		};
+		const packagesTab = {
+			title: <Trans i18nKey='common.Packages'/>,
+			content: (
+				<div className={styles.dropDownWrapper}>
+					<DropDownTab
+						title={<Trans i18nKey='Packages.Base'/>}
+						value={basePackages.length}
+						isOpened={!!openedDropdownTabs.base}
+						onClick={() => this.onToggleDropdownTabs('base')}
+					>
+						{
+							basePackages.map((pack: any, index: any) => (
+								<div key={index}>{pack.package}</div>
+							))
+						}
+					</DropDownTab>
+					<DropDownTab
+						title={<Trans i18nKey='Packages.Dependencies'/>}
+						value={depPackages.length}
+						isOpened={!!openedDropdownTabs.dependencies}
+						onClick={() => this.onToggleDropdownTabs('dependencies')}
+					>
+						{
+							depPackages.map((pack: any, index: any) => (
+								<div key={index}>{pack.package}</div>
+							))
+						}
+					</DropDownTab>
+					<DropDownTab
+						title={<Trans i18nKey='Packages.Added'/>}
+						value={addedPackages.length}
+						isOpened={!!openedDropdownTabs.added}
+						onClick={() => this.onToggleDropdownTabs('added')}
+					>
+						{
+							addedPackages.map((pack: any, index: number) => (
+								<div key={index}>{pack.package}</div>
+							))
+						}
+					</DropDownTab>
+				</div>
+			),
+		};
+		const tabsArray = [commonTab, packagesTab];
+
 		return (
 			<div className={styles.wrapper}>
 				<div className={styles.wrapper_inner}>
-				<div className={styles.header_title}>{ distro.name }</div>
-					<div className={styles.tabs}>
-						<div
-							onClick={() => this.onSwitchMainTab(0)}
-							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 0})}
-						>
-							<Trans i18nKey='common.Common'/>
-						</div>
-						<div
-							onClick={() => this.onSwitchMainTab(1)}
-							className={cn(styles.tabs_tab, {[styles.tabs_tab__active]: activeMainTab === 1})}
-						>
-							<Trans i18nKey='common.Packages'/>
-						</div>
+					<div className={styles.header_title}>{distro.name}</div>
+					<div style={{height: '100%'}}>
+						<Tabs
+							tabs={tabsArray}
+							tabStyle={{height: 50}}
+							contentStyle={{
+								top: 50,
+								position: 'absolute',
+								bottom: 0,
+							}}
+						/>
 					</div>
-					{
-						activeMainTab === 0 && (
-							<div className={styles.header}>
-								<img className={styles.header_img} src={thumb} />
-								<div className={styles.header_createdAt}>
-									<span>Created at: </span>
-									<strong className={styles.header_createdAt_date}>21.09.2018</strong>
-								</div>
-							</div>
-						)
-					}
-					{
-						activeMainTab === 1 && (
-							<div className={styles.dropDownWrapper}>
-								<DropDownTab
-									title={<Trans i18nKey='Packages.Base'/>}
-									value={basePackages.length}
-									isOpened={!!openedDropdownTabs.base}
-									onClick={() => this.onToggleDropdownTabs('base')}
-								>
-									{
-										basePackages.map((pack: any, index: any) => (
-											<div key={index}>{pack.package}</div>
-										))
-									}
-								</DropDownTab>
-								<DropDownTab
-									title={<Trans i18nKey='Packages.Dependencies'/>}
-									value={depPackages.length}
-									isOpened={!!openedDropdownTabs.dependencies}
-									onClick={() => this.onToggleDropdownTabs('dependencies')}
-								>
-									{
-										depPackages.map((pack: any, index: any) => (
-											<div key={index}>{pack.package}</div>
-										))
-									}
-								</DropDownTab>
-								<DropDownTab
-									title={<Trans i18nKey='Packages.Added'/>}
-									value={addedPackages.length}
-									isOpened={!!openedDropdownTabs.added}
-									onClick={() => this.onToggleDropdownTabs('added')}
-								>
-									{
-										addedPackages.map((pack: any, index: any) => (
-											<div key={index}>{pack.package}</div>
-										))
-									}
-								</DropDownTab>
-							</div>
-						)
-					}
 				</div>
 			</div>
 		);

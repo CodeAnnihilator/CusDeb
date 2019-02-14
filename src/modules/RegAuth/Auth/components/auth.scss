@@ -102,7 +102,7 @@ $icon-padding: 8px;
 	background-color: $green600;
 	color: $white;
 	line-height: 18px;
-	text-transform: uppercase;
+	@extend .toUpperCase;
 	font-family: 'Fira Sans', sans-serif;
 	cursor: pointer;
 

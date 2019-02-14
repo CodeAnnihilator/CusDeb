@@ -1,4 +1,5 @@
 @import 'styles/colors.scss';
+@import 'styles/_silent_classes.scss';
 
 .registration {
 	width: 440px;
@@ -34,7 +35,7 @@
 	border-radius: 5px;
 	color: #626A7F;
 	line-height: 18px;
-	text-transform: uppercase;
+	@extend .toUpperCase;
 	font-family: 'Fira Sans', sans-serif;
 	cursor: pointer;
 

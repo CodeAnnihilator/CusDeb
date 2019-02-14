@@ -1,0 +1,39 @@
+@import 'styles/_silent_classes.scss';
+
+.tabsList {
+	display: flex;
+}
+
+.tab {
+	color: #53556A;
+	background-color: #F6FAFD;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+	align-items: center;
+
+	&_active {
+		background-color: #FFFFFF;
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 2px;
+			width: calc(100% - 20px);
+			height: 2px;
+			background-color: #E3EAF0;
+		}
+	}
+
+	&_title {
+		@extend .toUpperCase;
+		font-size: 11px;
+	}
+}
+
+.tabContent {
+	overflow-Y: auto;
+	width: 100%;
+}

@@ -65,7 +65,7 @@
 	font-size: 11px;
 	color: #626A7F;
 	line-height: 18px;
-	text-transform: uppercase;
+	@extend .toUpperCase;
 	font-family: 'Fira Sans', sans-serif;
 	cursor: pointer;
 
