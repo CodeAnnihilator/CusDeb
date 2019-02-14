@@ -5,7 +5,7 @@ interface IProps {
 	className?: string;
 }
 /* tslint:disable */
-const ImageList: React.SFC<IProps> = ({fill, className}) => (
+const ImageList: React.FC<IProps> = ({fill, className}) => (
 	<svg
 		viewBox='0 0 19 19'
 		fill={fill}

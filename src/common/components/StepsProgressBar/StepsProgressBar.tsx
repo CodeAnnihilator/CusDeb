@@ -10,7 +10,7 @@ interface IProps {
 	stepsComplete: number;
 }
 
-const StepsProgressBar: React.SFC<IProps> = ({steps, stepsComplete}) => {
+const StepsProgressBar: React.FC<IProps> = ({steps, stepsComplete}) => {
 	const stepClass = (index: number) => ({
 		[styles.step_completed]: stepsComplete > index,
 		[styles.step_inProgress]: stepsComplete === index,

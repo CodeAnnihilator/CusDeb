@@ -12,7 +12,7 @@ interface IProps {
 	}>;
 }
 
-const Controls: React.SFC<IProps> = ({icons}) => (
+const Controls: React.FC<IProps> = ({icons}) => (
 	<div className={styles.controls}>
 		{
 			icons.map(({icon, title, onClick, isDisabled}) => (

@@ -8,7 +8,7 @@ interface IProps {
 	color?: string;
 }
 
-const SimpleLoader: React.SFC<IProps> = ({color}) => (
+const SimpleLoader: React.FC<IProps> = ({color}) => (
 	<div className={styles['lds-ring']}>
 		{
 			Array

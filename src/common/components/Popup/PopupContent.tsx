@@ -5,7 +5,7 @@ interface IProps {
 	className?: string;
 }
 
-const PopupContent: React.SFC<IProps> = ({className, children}) => (
+const PopupContent: React.FC<IProps> = ({className, children}) => (
 	<div
 		className={className || styles['popup-content']}
 	>

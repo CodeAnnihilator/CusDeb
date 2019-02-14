@@ -5,7 +5,7 @@ interface IProps {
 	className?: string;
 }
 
-const PopupFooter: React.SFC<IProps> = ({className, children}) => (
+const PopupFooter: React.FC<IProps> = ({className, children}) => (
 	<div
 		className={className || styles['popup-footer']}
 	>

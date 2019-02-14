@@ -6,7 +6,7 @@ interface IProps {
 	style?: object;
 }
 /* tslint:disable */
-const ImageArrowDown: React.SFC<IProps> = ({fill, className, style}) => (
+const ImageArrowDown: React.FC<IProps> = ({fill, className, style}) => (
 	<svg
 		fill={fill}
 		className={className}

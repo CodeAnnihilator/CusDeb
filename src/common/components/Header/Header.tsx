@@ -39,7 +39,7 @@ const dropDownItems = [
 	},
 ];
 
-const Header: React.SFC<IProps> = ({onToggle, isMenuOpen}) => {
+const Header: React.FC<IProps> = ({onToggle, isMenuOpen}) => {
 	const currentSelectedItem = dropDownItems
 		.find(item => item.shortName === i18n.language.toUpperCase()) || dropDownItems[0];
 

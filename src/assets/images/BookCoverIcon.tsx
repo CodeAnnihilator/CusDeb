@@ -6,7 +6,7 @@ interface IProps {
 	style?: object;
 }
 /* tslint:disable */
-const BookCoverIcon: React.SFC<IProps> = ({fill, className, style}) => (
+const BookCoverIcon: React.FC<IProps> = ({fill, className, style}) => (
 	<svg
 		fill={fill}
 		className={className}
@@ -17,7 +17,7 @@ const BookCoverIcon: React.SFC<IProps> = ({fill, className, style}) => (
 	>
 		<g>
 			<g>
-				
+
 				<path d='M363.942,139.261c9.213-4.347,18.573-8.188,28.069-11.869c9.787-3.791,19.879-6.787,29.945-9.725
 					c10.167-2.968,20.49-5.563,30.868-7.686c10.374-2.121,20.739-4.007,31.191-5.711c10.274-1.674,20.631-2.771,30.962-4.026
 					c10.153-0.812,20.322-1.88,30.499-2.277c8.088-0.318,16.174-0.672,24.263-1.008c6.524-0.269,12.254-4.638,13.857-11.051

@@ -6,7 +6,7 @@ interface IProps {
 	color?: string;
 }
 
-const DelayedDots: React.SFC<IProps> = ({color}) => (
+const DelayedDots: React.FC<IProps> = ({color}) => (
 	<div className={styles['lds-ellipsis']}>
 		{
 			Array

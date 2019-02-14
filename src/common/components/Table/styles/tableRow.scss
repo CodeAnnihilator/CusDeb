@@ -1,0 +1,24 @@
+@import 'styles/colors.scss';
+
+.row {
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid $gray300;
+
+	&:last-child {
+		border: none;
+	}
+
+	&:nth-child(2n) {
+		background-color: #F8FAFC;
+	}
+
+	&_selected {
+		background-color: #E1FBED !important;
+	}
+
+	&:hover {
+		background-color: $green200 !important;
+		cursor: pointer;
+	}
+}

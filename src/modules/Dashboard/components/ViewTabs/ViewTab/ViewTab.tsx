@@ -4,12 +4,12 @@ import React from 'react';
 import styles from './viewTab.scss';
 
 interface IProps {
-	Icon: React.SFC<any>;
+	Icon: React.FC<any>;
 	isActive: boolean;
 	onClick: () => void;
 }
 
-const ViewTab: React.SFC<IProps> = ({
+const ViewTab: React.FC<IProps> = ({
 	Icon,
 	isActive,
 	onClick,

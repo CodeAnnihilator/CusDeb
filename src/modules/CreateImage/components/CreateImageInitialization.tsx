@@ -5,7 +5,7 @@ import CreateImageInitializationHeaderContainer from '../containers/CreateImageI
 
 import Flex from 'common/components/Flex/Flex';
 
-const CreateImageInitialization: React.SFC = () => (
+const CreateImageInitialization: React.FC = () => (
 	<div style={{width: '100%'}}>
 		<CreateImageInitializationHeaderContainer />
 		<Flex

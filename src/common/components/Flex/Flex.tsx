@@ -5,7 +5,7 @@ import styles from './flex.scss';
 
 import IFlexProps from './Flex.d';
 
-const Flex: React.SFC<IFlexProps> = ({
+const Flex: React.FC<IFlexProps> = ({
 	alignItems,
 	basis,
 	children,
