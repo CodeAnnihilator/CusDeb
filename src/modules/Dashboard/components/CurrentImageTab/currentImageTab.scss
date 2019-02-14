@@ -1,4 +1,5 @@
 @import 'styles/mixins.scss';
+@import 'styles/_silent_classes.scss';
 
 .wrapper {
 	width: 330px;
@@ -37,7 +38,7 @@
 	}
 
 	&_title {
-		text-transform: uppercase;
+		@extend .toUpperCase;
 		font-weight: bold;
 		font-size: 14px;
 		padding: 0 10px;
@@ -51,6 +52,7 @@
 
 		&_date {
 			font-weight: bold;
+			margin-left: 5px;
 		}
 	}
 }
@@ -66,7 +68,7 @@
 	&_tab {
 		flex: 1;
 		text-align: center;
-		text-transform: uppercase;
+		@extend .toUpperCase;
 
 		&__active {
 			background-color: #F4F8FB;
@@ -75,7 +77,6 @@
 }
 
 .dropDownWrapper {
-	overflow: scroll;
 	height: 100%;
 	width: 100%;
 }

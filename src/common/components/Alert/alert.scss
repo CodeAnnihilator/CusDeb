@@ -1,4 +1,5 @@
 @import 'styles/colors.scss';
+@import 'styles/_silent_classes.scss';
 
 .warning {
 	background: $amber100;
@@ -8,7 +9,7 @@
 	padding: 0 10px;
 	height: 30px;
 	font-size: 12px;
-	text-transform: uppercase;
+	@extend .toUpperCase;
 	display: flex;
 	align-items: center;
 	justify-content: center;
