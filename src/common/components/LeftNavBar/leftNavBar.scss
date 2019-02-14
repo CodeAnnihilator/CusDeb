@@ -5,7 +5,7 @@
 	background-color: #181C1F;
 	display: flex;
 	flex-direction: column;
-	width: 200px;
+	max-width: 300px;
 	transition: all 0.15s ease-in-out;
 
 	@include mobile {
@@ -66,8 +66,8 @@
 }
 
 .collapsed {
-	min-width: 60px;
-	width: 60px;
+	max-width: 60px;
+	
 	@include mobile {
 		min-width: auto;
 		width: auto;
