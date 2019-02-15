@@ -32,6 +32,7 @@ export default class Button extends Component<IButtonProps> {
 				type={type}
 				className={cn(styles.button, {
 					[className] : !!className,
+					[styles.button_disabled]: isDisabled,
 				})}
 				name={name}
 				onClick={!onClick ? undefined : this.onClick}

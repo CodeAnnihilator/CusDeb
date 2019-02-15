@@ -1,0 +1,50 @@
+@import 'styles/colors.scss';
+
+.paginationWrapper {
+	border: 1px solid $gray200;
+	border-radius: 5px;
+	position: relative;
+}
+
+.paginationContainer {
+	font-size: 12px;
+	color: $paginationTextColor;
+	background-color: $gray100;
+	box-sizing: border-box;
+}
+
+.contentItem {
+	font-weight: bold;
+}
+
+.button {
+	width: 40px;
+	background-color: $white;
+	border-radius: unset;
+	border: 1px solid $gray200;
+	box-shadow: none;
+	padding: 0;
+	color: $black;
+	box-sizing: border-box;
+
+	&:hover {
+		cursor: pointer;
+		background-color: $gray100;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+.input {
+	position: absolute;
+	width: 220px;
+	top: 50px;
+	display: flex;
+	flex-grow: 1;
+	height: 45px;
+	justify-content: center;
+	border: 1px solid $gray200;
+	box-sizing: border-box;
+}
