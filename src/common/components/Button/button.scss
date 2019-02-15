@@ -15,6 +15,11 @@
 	border: 1px solid #6EA1DE;
 	box-shadow: 0px 2px 0px 0px #679CDB;
 
+	&_disabled {
+		cursor: not-allowed !important;
+		background-color: $gray300 !important;
+	}
+
 	&:hover {
 		cursor: pointer;
 		background-color: #7FB6EC;
