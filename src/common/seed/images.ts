@@ -1,10 +1,22 @@
 import moment from 'moment';
 import randomNumInRange from 'utils/randomNumInRange';
 
+import InitializationIcon from 'assets/images/ChipIcon';
+import GearIcon from 'assets/images/ConfigurationIcon';
 import DebianSVG from 'assets/images/distributive/debian.svg';
 import DevuanSVG from 'assets/images/distributive/devuan.svg';
 import UbuntuSVG from 'assets/images/distributive/ubuntu.svg';
+import PackageIcon from 'assets/images/PackagesIcon';
+import UserIcon from 'assets/images/UserIcon';
+
 import RaspberrySVG from 'assets/images/raspberry-pi.svg';
+
+export const stepsImages = {
+	init: InitializationIcon,
+	packages: PackageIcon,
+	users: UserIcon,
+	config: GearIcon,
+};
 
 export const buildTypes = [
 	{

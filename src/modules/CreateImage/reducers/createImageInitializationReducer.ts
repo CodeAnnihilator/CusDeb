@@ -1,4 +1,4 @@
-import {brands, buildTypes, distros, targetDevices} from 'common/seed/images';
+import {brands, buildTypes, distros, stepsImages, targetDevices} from 'common/seed/images';
 
 import {handleActions} from 'redux-actions';
 import {
@@ -8,7 +8,31 @@ import {
 } from '../constants/contants';
 
 const initialState = {
-	currentStep: 'initialization',
+	currentStep: 0,
+	steps: [
+		{text: 'initialization'},
+		{text: 'packagesList'},
+		{text: 'usersAndGroups'},
+		{text: 'configuration'},
+	],
+	processSteps: [
+		{
+			text: 'initialization',
+			image: stepsImages.init,
+		},
+		{
+			text: 'packages',
+			image: stepsImages.packages,
+		},
+		{
+			text: 'usersAndGroups',
+			image: stepsImages.users,
+		},
+		{
+			text: 'configuration',
+			image: stepsImages.config,
+		},
+	],
 	brands,
 	distros,
 	targetDevices,

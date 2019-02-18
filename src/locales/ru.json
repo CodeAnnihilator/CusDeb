@@ -47,6 +47,12 @@
             "Distros": "Дистрибутив не выбран",
             "BuildType": "Тип билда не выбран"
         },
+        "CreationProcessBar": {
+            "Initialization": "Инциализация",
+            "Packages": "Пакеты",
+            "UsersAndGroups": "Пользователи",
+            "Configuration": "Конфигурация"
+        },
         "DeviceNotSelected": "Устройство не выбрано",
         "HeaderSubTitle": "Рандомнный текст, очень много текста.Рандомнный текст, очень много текста",
         "NextStep": "Следующий шаг",

@@ -1,3 +1,5 @@
+@import 'styles/colors.scss';
+
 $step-height: 32px;
 $full-width: 790px;
 
@@ -31,7 +33,7 @@ $full-width: 790px;
 	width: 35%;
 	height: 35%;
 	border-radius: 100px;
-	background-color: #C9CCD2;
+	background-color: $stepInactive;
 	display: flex;
 	align-items: center;
 	transition: width 0.1s, height 0.1s;
@@ -39,20 +41,13 @@ $full-width: 790px;
 }
 
 .stepIconImage {
-	max-width: 45%;
-	max-height: 45%;
+	max-width: 0;
+	max-height: 0;
 }
 
 .step {
-	position: relative;
-	display: flex;
-	border-radius: 100px;
-	transition: background-color 0.15s;
-	align-items: center;
-	box-sizing: border-box;
 	flex-grow: 1;
-	background: #EBEDF3;
-	height: $step-height;
+	position: relative;
 	margin-left: -$step-height;
 
 	&:first-child {
@@ -60,17 +55,22 @@ $full-width: 790px;
 		width: $step-height;
 	}
 
-	&_completed {
-		background-color: #8FE8BA;
+	&_completed .stepBar {
+		background-color: $initializationCompleted;
 
 		& .stepIcon {
-			background-color: #68C67F;
+			background-color: $initializationCompletedDarker;
 			width: 65%;
 			height: 65%;
+
+			& .stepIconImage {
+				max-width: 48%;
+				max-height: 48%;
+			}
 		}
 	}
 
-	&_inProgress {
+	&_inProgress .stepBar {
 		background-color: #DADEEA;
 
 		& .stepIcon {
@@ -79,13 +79,24 @@ $full-width: 790px;
 	}
 }
 
+.stepBar {
+	position: relative;
+	display: flex;
+	border-radius: 100px;
+	transition: background-color 0.15s;
+	align-items: center;
+	box-sizing: border-box;
+	background: #EBEDF3;
+	height: $step-height;
+}
+
 .title {
 	bottom: calc(100% + 13px);
 	font-size: 11px;
 	min-width: 120px;
 	text-align: center;
-	left: 50%;
+	right: 0;
 	color: #768293;
-	transform: translateX(-50%);
+	transform: translateX(calc(50% - #{$step-height / 2}));
 	position: absolute;
 }
