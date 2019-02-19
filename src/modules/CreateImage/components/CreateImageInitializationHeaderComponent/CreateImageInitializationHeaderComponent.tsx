@@ -20,18 +20,18 @@ interface IProps {
 const stepsHash = {
 	initialization: {
 		prev: null,
-		next: 'packagesList',
+		next: 1,
 	},
 	packagesList: {
-		prev: 'initialization',
-		next: 'usersAndGroups',
+		prev: 0,
+		next: 2,
 	},
 	usersAndGroups: {
-		prev: 'packagesList',
-		next: 'configuration',
+		prev: 1,
+		next: 3,
 	},
 	configuration: {
-		prev: 'usersAndGroups',
+		prev: 2,
 		next: null,
 	},
 };

@@ -1,9 +1,7 @@
-import cn from 'classnames';
 import React from 'react';
 import CreateImageSelectContainer from '../../containers/CreateImageSelectContainer';
 
 import Flex from 'common/components/Flex/Flex';
-import Label from 'common/components/Label/Label';
 import StepsProgressBar from 'common/components/StepsProgressBar/StepsProgressBar';
 
 import Styles from './CreateImageInitializationContent.scss';
@@ -23,7 +21,6 @@ const InitializationContent: React.FC<IProps> = ({selectedItems, selectTypes}) =
 
 	return (
 		<div className={Styles.stepsContainer}>
-			<Label text={'Spor'} />
 			<StepsProgressBar steps={steps} stepsComplete={selectedItems}/>
 				<Flex
 					justifyContent='center'

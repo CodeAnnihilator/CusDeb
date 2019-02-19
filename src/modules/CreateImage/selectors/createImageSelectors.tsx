@@ -5,7 +5,9 @@ import React from 'react';
 import BrandsLogos from 'assets/images/brandsLogos';
 import DestributivesLogos from 'assets/images/distributivesLogos';
 
-export const getCurrentStep = (state: any) =>  state.createImage.currentStep;
+export const getStepIndex = (state: any) =>  state.createImage.currentStep;
+export const getSteps = (state: any) => state.createImage.steps;
+export const getProcessSteps = (state: any) => state.createImage.processSteps;
 
 export const getDistros = (state: any) =>  state.createImage.distros;
 export const getTargetDevices = (state: any) =>  state.createImage.targetDevices;
@@ -19,6 +21,12 @@ export const getSelectedItemByType = createSelector(
 	getSelectedItems,
 	(_: any, type: string) => type,
 	(selectedItems, type) => selectedItems[type],
+);
+
+export const getCurrentStep = createSelector(
+	getSteps,
+	getStepIndex,
+	(steps, index) => steps[index].text,
 );
 
 export const getSelectedSteps = createSelector(

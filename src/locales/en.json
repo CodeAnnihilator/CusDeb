@@ -48,6 +48,12 @@
 			"Distros": "Distributive is not selected",
 			"BuildType": "Build type is not selected"
 		},
+		"CreationProcessBar": {
+            "Initialization": "Initialization",
+            "Packages": "Packages",
+            "UsersAndGroups": "Users",
+            "Configuration": "Configuration"
+        },
 		"HeaderSubTitle": "Random text, Random textRandom text, Random text Random textRandom text, Random text",
 		"NextStep": "Next step",
 		"PreviousStep": "Previous step",
