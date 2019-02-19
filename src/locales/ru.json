@@ -54,6 +54,12 @@
             "UsersAndGroups": "Пользователи",
             "Configuration": "Конфигурация"
         },
+        "SelectedParts": {
+            "brands": "Брэнд",
+            "targetDevices": "Целевое устройство",
+            "distros": "Дистрибутив",
+            "buildTypes": "Тип сборки"
+        },
         "DeviceNotSelected": "Устройство не выбрано",
         "HeaderSubTitle": "Рандомнный текст, очень много текста.Рандомнный текст, очень много текста",
         "NextStep": "Следующий шаг",

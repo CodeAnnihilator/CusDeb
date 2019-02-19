@@ -55,6 +55,12 @@
             "UsersAndGroups": "Users",
             "Configuration": "Configuration"
         },
+        "SelectedParts": {
+            "brands": "Brand",
+            "targetDevices": "Target device",
+            "distros": "Distributive",
+            "buildTypes": "Build type"
+        },
 		"HeaderSubTitle": "Random text, Random textRandom text, Random text Random textRandom text, Random text",
 		"NextStep": "Next step",
 		"PreviousStep": "Previous step",

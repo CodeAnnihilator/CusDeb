@@ -1,0 +1,33 @@
+@import 'styles/mixins.scss';
+@import 'styles/colors.scss';
+
+.partsContainer {
+	height: 50px;
+	border-bottom: 1px solid $gray300;
+	margin-bottom: 14px;
+}
+
+.part {
+	font-size: 12px;
+	padding: 0 35px;
+	border-left: 1px solid $gray300;
+	height: 100%;
+	color: $gray600;
+
+	&:first-child {
+		border-left: none;
+	}
+
+	@include mobile {
+		padding: 0 10px;
+	}
+}
+
+.partImage {
+	margin-right: 20px;
+	max-height: 20px;
+
+	@include mobile {
+		margin-right: 10px;
+	}
+}
