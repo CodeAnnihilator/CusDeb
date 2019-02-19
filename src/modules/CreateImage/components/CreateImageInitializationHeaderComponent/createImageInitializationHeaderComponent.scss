@@ -1,11 +1,46 @@
 @import 'styles/colors.scss';
 
 .headerWrapper {
-	padding: 20px 0px 20px 40px;
+	padding: 25px 0px 20px 45px;
 	border-bottom: 1px solid $gray400;
 }
 
 .headerStepInfo {
-	font-size: 11px;
+	font-size: 12px;
+	margin-top: 17px;
 	color: #839297;
+}
+
+.skipSteps {
+	font-size: 11px;
+	text-transform: uppercase;
+	text-decoration: underline;
+	color: #888888;
+}
+
+.stepTitle {
+	font-size: 20px;
+}
+
+.headerButtonsWrapper {
+	margin-top: 20px;
+}
+
+.buttonPrev {
+	background: #BEF4F6;
+	margin-right: 4px;
+}
+
+.buttonNext {
+	background: #BEF4D5;
+}
+
+.moveButton {
+	color: #565656;
+	font-size: 11px;
+	border: none;
+	box-shadow: none;
+	outline: none;
+	font-weight: 300;
+	padding: 16px 10px 15px 10px;
 }
