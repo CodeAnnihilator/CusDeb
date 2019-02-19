@@ -71,8 +71,10 @@
 	@include mobile {
 		min-width: auto;
 		width: auto;
+		max-width: none;
 	}
 	@include tablet {
+		max-width: none;
 		min-width: auto;
 		width: auto;
 	}
