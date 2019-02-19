@@ -39,8 +39,8 @@ const initialState = {
 	buildTypes,
 	selectedItems: {
 		brands: null,
-		distros: null,
 		targetDevices: null,
+		distros: null,
 		buildTypes: null,
 	},
 	entitesFilters: {

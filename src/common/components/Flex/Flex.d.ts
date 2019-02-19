@@ -16,4 +16,5 @@ export default interface IFlexProps {
 	className?: string | null;
 	style?: object | null;
 	onClick?: any;
+	title?: string;
 }

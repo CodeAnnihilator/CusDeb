@@ -20,6 +20,7 @@ const Flex: React.FC<IFlexProps> = ({
 	width,
 	wrap,
 	style,
+	title,
 	className,
 	...otherProps
 }) => (
@@ -41,6 +42,7 @@ const Flex: React.FC<IFlexProps> = ({
 				[styles[`ui-flex--overflow_${overflow}`]]: overflow !== null,
 			})}
 			onClick={onClick}
+			title={title}
 			{...otherProps}
 		>
 			{children}
