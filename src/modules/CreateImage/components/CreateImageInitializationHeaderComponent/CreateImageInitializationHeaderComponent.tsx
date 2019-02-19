@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, {MouseEvent, PureComponent} from 'react';
 
 import {Trans} from 'react-i18next';
@@ -46,7 +47,7 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 				className={styles.headerWrapper}
 			>
 				<Flex alignItems='center' indent='large'>
-					<Flex indent='medium'>
+					<Flex indent='medium' className={styles.stepTitle}>
 						<Trans i18nKey={`CreateImage.${capitalize(step)}Step`} />
 					</Flex>
 					{alertTitleKey
@@ -57,10 +58,14 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 						</Flex>
 						: null}
 				</Flex>
-				<Flex className={styles.headerStepInfo} indent='large' >
+				<Flex className={styles.headerStepInfo} >
 					<Trans i18nKey='CreateImage.HeaderSubTitle' />
 				</Flex>
-				<Flex indent='large' alignItems='center'>
+				<Flex
+					className={styles.headerButtonsWrapper}
+					indent='large'
+					alignItems='center'
+				>
 					<Flex>
 						<Flex indent='large'>
 							{step !== 'initialization'
@@ -69,7 +74,7 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 										<Button
 											width={140}
 											onClick={changeStep}
-											className={styles.buttonPrev}
+											className={cn(styles.buttonPrev, styles.moveButton)}
 											value={stepsHash[step].prev}
 										>
 											<span style={{textTransform: 'uppercase'}}>
@@ -81,11 +86,11 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 								: null}
 							{step !== 'configuration'
 								? (
-									<Flex indent='medium'>
+									<Flex>
 										<Button
 											width={140}
 											onClick={changeStep}
-											className={styles.buttonNext}
+											className={cn(styles.buttonNext, styles.moveButton)}
 											value={stepsHash[step].next}
 										>
 											<span style={{textTransform: 'uppercase'}}>
@@ -96,7 +101,7 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 								)
 								: null}
 						</Flex>
-						<Flex indent='large'>
+						<Flex indent='large' alignItems='center'>
 							{step !== 'initialization' && step !== 'configuration'
 								? (
 									<NavLink
