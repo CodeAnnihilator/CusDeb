@@ -30,7 +30,7 @@ class InputWithValidation extends Component {
 		const HasWarning = touched && warning;
 
 		return (
-			<Flex indent='large' direction='column'>
+			<Flex indent='large' className={styles.container} direction='column'>
 				<Flex
 					indent='medium'
 					className={styles.title}

@@ -72,6 +72,7 @@ const RegistrationCreateNewUser = (props: any) => (
 				indent='large'
 				direction='column'
 				alignItems='center'
+				className={styles.formWrapper}
 			>
 				<Field
 					name='username'
@@ -101,6 +102,21 @@ const RegistrationCreateNewUser = (props: any) => (
 					validate={[rules.required, rules.arePwdsMatch]}
 					withSup
 				/>
+			</Flex>
+			<Flex
+				alignItems='center'
+				className={styles.agreement}
+				justifyContent='center'
+				wrap='wrap'
+			>
+				<span><Trans i18nKey={'RegAuth.Agreement'}/></span>
+				<a href='#'>
+					<span><Trans i18nKey={'RegAuth.TermsAndServices'}/></span>
+				</a>
+				<span><Trans i18nKey={'common.and'}/></span>
+				<a href='#'>
+					<span><Trans i18nKey={'RegAuth.PrivacyPolicy'}/></span>
+				</a>
 			</Flex>
 			<Flex
 				indent='large'
