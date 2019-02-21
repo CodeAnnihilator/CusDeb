@@ -17,7 +17,8 @@
         "Docs": "Документация",
         "Feedback": "Обратная связь",
         "selected": "выбрано",
-        "select": "выбрать"
+        "select": "выбрать",
+        "and": "и"
     },
     "Packages": {
         "Base": "Базовые пакеты",
@@ -72,6 +73,9 @@
         "OrSignUpWith": "Или войдите, используя сторонний аккаунт",
         "BecomeMember": "Стать пользователем",
         "AlreadyHaveAccount": "Уже есть аккаунт",
+        "Agreement": "Регистрируясь в CusDeb, вы соглашаетесь с",
+        "TermsAndServices": "Условиями использования",
+        "PrivacyPolicy": "Политикой конфиденциальности",
         "Registration": {
             "Username": "Имя",
             "Email": "Электронный адрес",

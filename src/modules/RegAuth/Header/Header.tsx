@@ -64,10 +64,11 @@ const Header = () => (
 			<Flex>
 				{headerItems.map(({path, key, id}) => (
 					<NavLink
+						exact={path.indexOf('/registration') !== -1 ? false : true}
 						key={id}
 						to={path}
 						className={styles.headerItem}
-						activeClassName=''
+						activeClassName={styles.headerItem_active}
 					>
 						<Trans i18nKey={`RegAuth.${key}`} />
 					</NavLink>

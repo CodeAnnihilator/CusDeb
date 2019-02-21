@@ -17,7 +17,8 @@
 		"ClickHere": "Click here",
 		"Feedback": "Feedback",
 		"selected": "selected",
-		"select": "select"
+		"select": "select",
+		"and": "and"
 	},
 	"Packages": {
 		"Base": "Base packages",
@@ -72,6 +73,9 @@
 		"OrSignUpWith": "Or sign up with",
 		"BecomeMember": "Become a member",
 		"AlreadyHaveAccount": "Already have an account",
+		"Agreement": "By signing up, you agree with CudDeb’s",
+        "TermsAndServices": "Terms and Services",
+        "PrivacyPolicy": "Privacy Policy",
 		"Registration": {
 			"Username": "Name",
 			"Email": "Email Address",

@@ -51,6 +51,21 @@ const Registration = (props: any) => (
 						</Flex>
 					</Flex>
 					<Flex
+						alignItems='center'
+						className={styles.agreement}
+						justifyContent='center'
+						wrap='wrap'
+					>
+						<span><Trans i18nKey={'RegAuth.Agreement'}/></span>
+						<a href='#'>
+							<span><Trans i18nKey={'RegAuth.TermsAndServices'}/></span>
+						</a>
+						<span><Trans i18nKey={'common.and'}/></span>
+						<a href='#'>
+							<span><Trans i18nKey={'RegAuth.PrivacyPolicy'}/></span>
+						</a>
+					</Flex>
+					<Flex
 						indent='large'
 						justifyContent='center'
 						alignItems='center'
