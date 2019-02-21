@@ -39,11 +39,12 @@
 
 .input {
 	position: absolute;
-	width: 220px;
+	width: 180px;
 	top: 50px;
 	display: flex;
 	flex-grow: 1;
 	height: 45px;
+	z-index: 1;
 	justify-content: center;
 	border: 1px solid $gray200;
 	box-sizing: border-box;

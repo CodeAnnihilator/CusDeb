@@ -3,110 +3,115 @@
 		"LoadingImages": "Загрузка образов",
 		"En": "Английский",
 		"Common": "Общие",
+		"package_0": "{{count}} пакет",
+		"package_1": "{{count}} пакета",
+		"package_2": "{{count}} пакетов",
 		"Packages": "Пакеты",
 		"Ru": "Русский",
 		"Download": "Загрузить",
 		"Edit": "Добавить заметку",
+		"From": "Из",
 		"ClickHere": "Нажмите здесь",
-        "Delete": "Удалить",
-        "Terminal": "Тест драйв",
-        "Rebuild": "Пересобрать билд",
-        "ErrorLog": "Отчет о ошибках",
-        "Dashboard": "Главная",
-        "Blog": "Блог",
-        "Docs": "Документация",
-        "Feedback": "Обратная связь",
-        "selected": "выбрано",
-        "select": "выбрать",
-        "and": "и"
-    },
-    "Packages": {
-        "Base": "Базовые пакеты",
-        "Dependencies": "Зависимости",
-        "Added": "Добавленные пакеты"
-    },
-    "Image": {
-        "StartedAt": "Дата старта",
-        "CreatedAt": "Дата создания"
-    },
-    "Dashboard": {
-        "CreateNewBuild": "Создать новый билд",
-        "ImageError": "Ой, что-то пошло не так",
-        "issueWarning": "Если ошибка воспроизводится, пожалуйста",
-        "reportAboutIssue": "сообщите о проблеме",
-        "noDescription": "Описание отсутствует"
-    },
-    "CreateImage": {
-        "SelectItems": "Выберите элементы",
-        "PackagesListStep": "Этап выбора пакетов",
-        "UsersAndGroupsStep": "Этап управления пользователями и группами",
-        "ConfigurationStep": "Этап конфигурации",
-        "InitializationStep": "Этап инициализации",
-        "Issues": {
-            "Brands": "Бренд не выбран",
-            "Devices": "Устройство не выбрано",
-            "Distros": "Дистрибутив не выбран",
-            "BuildType": "Тип билда не выбран"
-        },
-        "CreationProcessBar": {
-            "Initialization": "Инциализация",
-            "Packages": "Пакеты",
-            "UsersAndGroups": "Пользователи",
-            "Configuration": "Конфигурация"
-        },
-        "SelectedParts": {
-            "brands": "Брэнд",
-            "targetDevices": "Целевое устройство",
-            "distros": "Дистрибутив",
-            "buildTypes": "Тип сборки"
-        },
-        "DeviceNotSelected": "Устройство не выбрано",
-        "HeaderSubTitle": "Рандомнный текст, очень много текста.Рандомнный текст, очень много текста",
-        "NextStep": "Следующий шаг",
-        "PreviousStep": "Предыдущий шаг",
-        "SkipSteps": "Пропустить оставшиеся шаги"
-    },
-    "RegAuth": {
-        "Home": "Главная",
-        "Features": "Особенности",
-        "Plans": "Подписки",
-        "SignIn": "Войти",
-        "SignUp": "Регистрация",
-        "SingUpWith": "Войти через {{title}}",
-        "CreateAccount": "Создать новый аккаунт",
-        "CreateFreeAccount": "Создайте Ваш бесплатный аккаунт",
-        "BackToRegistration": "Вернуться к вариантам регистрации",
-        "OrSignUpWith": "Или войдите, используя сторонний аккаунт",
-        "BecomeMember": "Стать пользователем",
-        "AlreadyHaveAccount": "Уже есть аккаунт",
-        "Agreement": "Регистрируясь в CusDeb, вы соглашаетесь с",
-        "TermsAndServices": "Условиями использования",
-        "PrivacyPolicy": "Политикой конфиденциальности",
-        "Registration": {
-            "Username": "Имя",
-            "Email": "Электронный адрес",
-            "Password": "Пароль",
-            "Confirm": "Повторите пароль",
-            "Placeholders": {
-                "Username": "Введите Ваше имя",
-                "Email": "Введите Ваш e-mail",
-                "Password": "Введите Ваш пароль",
-                "Confirm": "Повторите Ваш пароль"
-            },
-            "Validation": {
-                "Required": "Обязательное поле",
-                "InvalidEmail": "Некорректный e-mail",
-                "PwdsAreUncomparable": "Пароли не совпадают",
-                "PwdIsIncorrect": "Пароль должен содержать хотя бы одно число, спецсимвол, а так же буквы в верхнем и нижнем регистре"
-            }
+		"Delete": "Удалить",
+		"Terminal": "Тест драйв",
+		"Rebuild": "Пересобрать билд",
+		"ErrorLog": "Отчет о ошибках",
+		"Dashboard": "Главная",
+		"Blog": "Блог",
+		"Docs": "Документация",
+		"Feedback": "Обратная связь",
+		"selected": "выбрано",
+		"select": "выбрать",
+		"and": "и"
+	},
+	"bytes": {
+		"B": "б",
+		"EB": "Эб",
+		"GB": "Гб",
+		"kB": "Кб",
+		"MB": "Мб",
+		"PB": "Пб",
+		"TB": "Тб",
+		"YB": "Йб",
+		"ZB": "Зб"
+	},
+	"Packages": {
+		"Base": "Базовые пакеты",
+		"Dependencies": "Зависимости",
+		"Added": "Добавленные пакеты",
+		"PerPage": "На странице",
+		"PackageName": "Имя пакета",
+		"Description": "Описание",
+		"Version": "Версия",
+		"Size": "Размер"
+	},
+	"Image": {
+		"StartedAt": "Дата старта",
+		"CreatedAt": "Дата создания"
+	},
+	"Dashboard": {
+		"CreateNewBuild": "Создать новый билд",
+		"ImageError": "Ой, что-то пошло не так",
+		"issueWarning": "Если ошибка воспроизводится, пожалуйста",
+		"reportAboutIssue": "сообщите о проблеме",
+		"noDescription": "Описание отсутствует"
+	},
+	"CreateImage": {
+		"SelectItems": "Выберите элементы",
+		"PackagesListStep": "Этап выбора пакетов",
+		"UsersAndGroupsStep": "Этап управления пользователями и группами",
+		"ConfigurationStep": "Этап конфигурации",
+		"InitializationStep": "Этап инициализации",
+		"Issues": {
+			"Brands": "Бренд не выбран",
+			"Devices": "Устройство не выбрано",
+			"Distros": "Дистрибутив не выбран",
+			"BuildType": "Тип билда не выбран"
+		},
+		"DeviceNotSelected": "Устройство не выбрано",
+		"HeaderSubTitle": "Рандомнный текст, очень много текста.Рандомнный текст, очень много текста",
+		"NextStep": "Следующий шаг",
+		"PreviousStep": "Предыдущий шаг",
+		"SkipSteps": "Пропустить оставшиеся шаги"
+	},
+	"RegAuth": {
+		"Home": "Главная",
+		"Features": "Особенности",
+		"Plans": "Подписки",
+		"SignIn": "Войти",
+		"SignUp": "Регистрация",
+		"SingUpWith": "Войти через {{title}}",
+		"CreateAccount": "Создать новый аккаунт",
+		"CreateFreeAccount": "Создайте Ваш бесплатный аккаунт",
+		"BackToRegistration": "Вернуться к вариантам регистрации",
+		"OrSignUpWith": "Или войдите, используя сторонний аккаунт",
+		"BecomeMember": "Стать пользователем",
+		"AlreadyHaveAccount": "Уже есть аккаунт",
+		"Registration": {
+			"Username": "Имя",
+			"Email": "Электронный адрес",
+			"Password": "Пароль",
+			"Confirm": "Повторите пароль",
+			"Placeholders": {
+				"Username": "Введите Ваше имя",
+				"Email": "Введите Ваш e-mail",
+				"Password": "Введите Ваш пароль",
+				"Confirm": "Повторите Ваш пароль"
+			},
+			"Validation": {
+				"Required": "Обязательное поле",
+				"InvalidEmail": "Некорректный e-mail",
+				"PwdsAreUncomparable": "Пароли не совпадают",
+				"PwdIsIncorrect": "Пароль должен содержать хотя бы одно число, спецсимвол, а так же буквы в верхнем и нижнем регистре"
+			}
 		},
 		"Auth": {
 			"DontHaveAnAccount": "Нет аккаунта",
 			"Register": "Зарегестрируйтесь",
 			"ForgotPassword": "Забыли пароль",
 			"SignInToCusdeb": "Войти в CusDeb",
-            "Login": "Войти",
-            "OrUseEmail": "Или используйте свой email"
+			"Login": "Войти",
+			"OrUseEmail": "Или используйте свой email"
 		}
 	}
 }

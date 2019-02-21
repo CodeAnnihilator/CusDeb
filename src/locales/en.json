@@ -4,10 +4,13 @@
 		"En": "English",
 		"Ru": "Russian",
 		"Common": "Common",
+		"package": "{{count}} package",
+		"package_plural": "{{count}} packages",
 		"Packages": "Packages",
 		"Download": "Download",
 		"Edit": "Add note",
 		"Delete": "Delete",
+		"From": "From",
 		"Terminal": "Test drive",
 		"Rebuild": "Rebuild",
 		"ErrorLog": "ErrorLog",
@@ -20,10 +23,26 @@
 		"select": "select",
 		"and": "and"
 	},
+	"bytes": {
+		"B": "bytes",
+		"EB": "EB",
+		"GB": "GB",
+		"kB": "KB",
+		"MB": "MB",
+		"PB": "PB",
+		"TB": "TB",
+		"YB": "YB",
+		"ZB": "ZB"
+	},
 	"Packages": {
 		"Base": "Base packages",
 		"Dependencies": "Dependencies",
-		"Added": "Added packages"
+		"Added": "Added packages",
+		"PerPage": "Per page",
+		"PackageName": "Package name",
+		"Description": "Description",
+		"Version": "Version",
+		"Size": "Size"
 	},
 	"Image": {
 		"StartedAt": "Started At",
