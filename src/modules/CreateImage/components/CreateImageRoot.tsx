@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
-import CreateImageRootContainer from '../containers/CreateImageRootContainer';
+
+import PackagesRoot from 'modules/Packages/PackagesRoot/components/PackagesRoot';
+import CreateImageInitialization from './CreateImageInitialization';
+
+import CreateImageInitializationHeaderContainer from '../containers/CreateImageInitializationHeaderContainer';
+import CreateImageProgressBarContainer from '../containers/CreateImageProgressBarContainer';
+import CreateImageSelectedParts from '../containers/CreateImageSelectedParts';
+
+import Flex from 'common/components/Flex/Flex';
 
 interface IProps {
 	step: string;
 }
 
 const importsHash = {
-	initialization: <CreateImageRootContainer />,
+	initialization: <CreateImageInitialization />,
+	packagesList: <PackagesRoot />,
 };
 
 export default class CreateImageRoot extends Component<IProps> {
@@ -16,7 +25,12 @@ export default class CreateImageRoot extends Component<IProps> {
 
 	public render() {
 		return (
-			importsHash[this.props.step]
+			<Flex direction='column' grow={1}>
+				<CreateImageProgressBarContainer />
+				<CreateImageInitializationHeaderContainer />
+				<CreateImageSelectedParts />
+				{importsHash[this.props.step]}
+			</Flex>
 		);
 	}
 }

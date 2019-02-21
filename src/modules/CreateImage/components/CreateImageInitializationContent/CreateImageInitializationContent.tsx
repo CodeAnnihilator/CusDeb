@@ -28,15 +28,15 @@ const InitializationContent: React.FC<IProps> = ({selectedItems, selectTypes}) =
 					style={{margin: '0px 20px', overflow: 'hidden'}}
 				>
 					{selectTypes.map((item, index) => (
-							<Flex
-								indent='medium'
-								key={index}
-								direction='column'
-								alignItems='center'
-								style={{marginTop: 25}}
-							>
-								<CreateImageSelectContainer type={item} fade/>
-							</Flex>
+						<Flex
+							indent='medium'
+							key={index}
+							direction='column'
+							alignItems='center'
+							style={{marginTop: 25}}
+						>
+							<CreateImageSelectContainer type={item} fade/>
+						</Flex>
 					))}
 				</Flex>
 		</div>

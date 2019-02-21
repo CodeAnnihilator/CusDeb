@@ -35,8 +35,8 @@ export default class Pagination extends PureComponent<IPaginationProps> {
 
 		if (value > total) {
 			value = total;
-		} else if (tempValue < 0) {
-			value = 0;
+		} else if (tempValue < 1) {
+			value = 1;
 		}
 
 		onInputChange(value);
@@ -46,7 +46,7 @@ export default class Pagination extends PureComponent<IPaginationProps> {
 		const {current, total, separator, onClick} = this.props;
 
 		return (
-			<Flex direction='column' width={220} className={styles.paginationWrapper}>
+			<Flex direction='column' width={180} className={styles.paginationWrapper}>
 				<Flex
 					height={45}
 				>
@@ -57,7 +57,7 @@ export default class Pagination extends PureComponent<IPaginationProps> {
 							name='prev'
 							onClick={onClick}
 							value={current}
-							isDisabled={!current}
+							isDisabled={current <= 1}
 						>
 							<FaAngleLeft size={18} fill={COLORS.paginationTextColor} />
 						</Button>
@@ -66,7 +66,6 @@ export default class Pagination extends PureComponent<IPaginationProps> {
 						<Flex
 							alignItems='center'
 							justifyContent='center'
-							style={{padding: '0px 20px'}}
 							grow={1}
 							className={styles.paginationContainer}
 						>
@@ -80,10 +79,10 @@ export default class Pagination extends PureComponent<IPaginationProps> {
 								{total}
 							</Flex>
 						</Flex>
-						<Flex width={140}>
+						<Flex width={100}>
 							<Button
 								className={styles.button}
-								width={140}
+								width={100}
 								name='next'
 								onClick={this.onInputOpen}
 								value={current}

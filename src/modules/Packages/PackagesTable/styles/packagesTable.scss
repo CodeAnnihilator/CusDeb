@@ -1,0 +1,64 @@
+@import 'styles/colors.scss';
+@import 'styles/_silent_classes.scss';
+
+.table {
+	width: 100%;
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+.content {
+	width: 100%;
+}
+
+.headerContainer {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}
+
+.content > div {
+	width: 100%;
+}
+
+.сontrolsContainer {
+	border: 1px $gray300;
+	padding: 5px;
+	border-style: none solid;
+	background-color: $white
+}
+
+.tableHeader {
+	height: 55px;
+	background-color: $blueCreateImageSelect;
+	color: $white;
+	font-size: 12px;
+	align-items: center;
+	justify-content: center;
+
+	@extend .toUpperCase;
+}
+
+.tableHeaderCell {
+	width: calc(100% / 4);
+}
+
+.tableCell {
+	width: calc(100% / 4);
+}
+
+.row {
+	min-height: 50px;
+}
+
+.separator {
+	@extend .toUpperCase;
+}
+
+.dropdownTitle {
+	font-weight: bold;
+	color: $paginationTextColor;
+	font-size: 11px;
+
+	@extend .toUpperCase;
+}

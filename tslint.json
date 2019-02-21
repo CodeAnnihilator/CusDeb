@@ -57,7 +57,7 @@
 		"no-trailing-whitespace": true,
 		"no-unnecessary-initializer": true,
 		"number-literal-format": true,
-		"prefer-function-over-method": true,
+		"prefer-function-over-method": [true, {"allow": ["warn"]}],
 		"type-literal-delimiter": true,
 		"no-string-literal": false,
 

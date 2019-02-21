@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode, ReactText} from 'react';
 
 import Flex from 'common/components/Flex/Flex';
 
@@ -7,7 +7,7 @@ import styles from './label.scss';
 interface IProps {
 	color?: string;
 	style?: object;
-	text: string;
+	text: ReactNode | ReactText;
 }
 
 const Label: React.FC<IProps> = ({color, text, style}) => (
