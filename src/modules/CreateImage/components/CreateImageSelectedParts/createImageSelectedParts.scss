@@ -2,9 +2,10 @@
 @import 'styles/colors.scss';
 
 .partsContainer {
-	height: 50px;
+	min-height: 35px;
+	height: 35px;
+	width: 100%;
 	border-bottom: 1px solid $gray300;
-	margin-bottom: 14px;
 }
 
 .part {

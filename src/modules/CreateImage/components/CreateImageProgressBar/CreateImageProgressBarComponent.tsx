@@ -22,7 +22,12 @@ interface IProps {
 export default class CreateImageProgressBarComponent extends PureComponent<IProps> {
 	public barTitles = (steps: any) => (
 		[...steps.map((step: {text: string; image: any}, index: number) => (
-			<Flex key={index} justifyContent='center' alignItems='center'>
+			<Flex
+				key={index}
+				justifyContent='center'
+				alignItems='center'
+				style={{marginBottom: 5}}
+			>
 				<step.image
 					fill={this.props.step === index ? '#5B9FD2' : '#748286'}
 					className={styles.stepTitleIcon}

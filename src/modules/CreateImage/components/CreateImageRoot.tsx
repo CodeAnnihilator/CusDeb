@@ -9,6 +9,8 @@ import CreateImageSelectedParts from '../containers/CreateImageSelectedParts';
 
 import Flex from 'common/components/Flex/Flex';
 
+import styles from './CreateImageInitializationContent/createImageInitializationContent.scss';
+
 interface IProps {
 	step: string;
 }
@@ -25,7 +27,7 @@ export default class CreateImageRoot extends Component<IProps> {
 
 	public render() {
 		return (
-			<Flex direction='column' grow={1}>
+			<Flex direction='column' grow={1} className={styles.stepsContainer}>
 				<CreateImageProgressBarContainer />
 				<CreateImageInitializationHeaderContainer />
 				<CreateImageSelectedParts />

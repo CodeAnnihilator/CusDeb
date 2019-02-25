@@ -13,6 +13,7 @@ export const getDistros = (state: any) =>  state.createImage.distros;
 export const getTargetDevices = (state: any) =>  state.createImage.targetDevices;
 export const getBuildTypes = (state: any) =>  state.createImage.buildTypes;
 export const getBrands = (state: any) =>  state.createImage.brands;
+export const getImageInitializationSlide = (state: any) => state.createImage.currentInitializationSlide;
 
 export const getSelectedItems = (state: any) =>  state.createImage.selectedItems;
 export const getEntitesFilters = (state: any) =>  state.createImage.entitesFilters;

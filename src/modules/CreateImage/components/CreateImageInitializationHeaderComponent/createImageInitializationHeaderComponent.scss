@@ -1,13 +1,17 @@
 @import 'styles/colors.scss';
 
 .headerWrapper {
-	padding: 25px 0px 20px 45px;
+	padding: 15px 0px 10px 45px;
+	position: sticky;
+	top: 45px;
+	z-index: 180;
+	background-color: white;
 	border-bottom: 1px solid $gray300;
 }
 
 .headerStepInfo {
 	font-size: 12px;
-	margin-top: 17px;
+	margin-top: 12px;
 	color: #839297;
 }
 
@@ -23,7 +27,10 @@
 }
 
 .headerButtonsWrapper {
-	margin-top: 20px;
+	margin-top: 10px;
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
 }
 
 .buttonPrev {

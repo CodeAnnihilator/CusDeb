@@ -1,14 +1,19 @@
 @import 'styles/colors.scss';
 
-$step-height: 32px;
+$step-height: 25px;
 $full-width: 790px;
 
 .container {
 	display: flex;
 	justify-content: center;
-	padding: 30px 60px 0 60px;
+	padding: 35px 60px 10px 60px;
 	box-sizing: border-box;
+	border-bottom: 1px solid #DADEEA;
 	width: 100%;
+	background: #F8FAFC;
+	top: 115px;
+	z-index: 190;
+	position: sticky;
 	min-width: 500px;
 }
 
@@ -91,7 +96,7 @@ $full-width: 790px;
 }
 
 .title {
-	bottom: calc(100% + 13px);
+	bottom: calc(100% + 8px);
 	font-size: 11px;
 	min-width: 120px;
 	text-align: center;
