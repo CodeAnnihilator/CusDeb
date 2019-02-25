@@ -4,8 +4,7 @@
 @keyframes slidein {
 	0% {
 		opacity: 0;
-		left: 50%;
-		transform: rotate(15deg);
+		transform: scale(1.2);
 	}
 
 	20% {
@@ -13,7 +12,6 @@
 	}
 
 	100% {
-		left: 0;
 		transform: none;
 		opacity: 1;
 	}
@@ -21,20 +19,21 @@
 
 .selectWrapper {
 	min-width: 286px;
+	background: $white;
 	border: 1px solid #E0E7F2;
 	box-shadow: 0 0 8px 0 rgba(224,231,242,0.75);
 }
 
 .selectWrapperFaded {
-	transform-origin: 300% 100%;
 	animation-duration: 0.5s;
 	animation-name: slidein;
 	position: relative;
+	animation-timing-function: ease-in-out;
 }
 
 .selectSelectedItemsWrapper {
 	border-bottom: 1px solid $gray400;
-	min-height: 50px;
+	min-height: 40px;
 	box-sizing: border-box;
 	border: 1px solid $blue200;
 	border-style: none solid solid;
@@ -43,6 +42,9 @@
 	justify-content: center;
 }
 
+.selectItemSelected {
+	background: $gray100;
+}
 
 .selectContentBox {
 	border: 1px solid $gray300;
@@ -67,7 +69,7 @@
 	padding-top: 1px;
 	font-weight: 600;
 	@extend .toUpperCase;
-	min-height: 56px;
+	min-height: 35px;
 	align-items: center;
 	border: 1px solid #4D8EC1;
 	letter-spacing: 0.3px;
@@ -102,7 +104,7 @@
 }
 
 .selectItemSelectLabel {
-	padding-right: 25px;
+	padding-right: 18px;
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 10px;
 	@extend .toUpperCase;
@@ -112,7 +114,8 @@
 .selectItemSelectTitle {
 	display: flex;
 	align-items: center;
-	width: calc(100% - 85px);
+	width: 100%;
+	padding-right: 6px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
@@ -126,17 +129,30 @@
 }
 
 .selectItem {
-	min-height: 50px;
+	min-height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-left: 30px;
+	padding-left: 16px;
 	font-size: 12px;
-	cursor: pointer;
 	border-top: 1px solid $gray300;
 
 	&:first-child {
 		border-top: none;
 	}
 	
+	&:hover {
+		background-color: $gray100;
+	}
+}
+
+.buttonSelectItem {
+	padding: 8px 14px;
+	margin-right: 10px;
+	cursor: pointer;
+	color: white;
+	font-size: 9px;
+	text-transform: uppercase;
+	border-radius: 3px;
+	background-color: #5B9ED1;
 }

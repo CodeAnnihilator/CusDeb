@@ -3,6 +3,7 @@ import {brands, buildTypes, distros, stepsImages, targetDevices} from 'common/se
 import {handleActions} from 'redux-actions';
 import {
 	CREATE_IMAGE_CHANGE_CURRENT_STEP,
+	CREATE_IMAGE_CHANGE_INITIALIZATION_SLIDE,
 	CREATE_IMAGE_SELECT_ENTITY,
 	CREATE_IMAGE_SET_FILTER_BY_TYPE,
 } from '../constants/contants';
@@ -45,10 +46,11 @@ const initialState = {
 	},
 	entitesFilters: {
 		brands: '',
-		distros: '',
 		targetDevices: '',
+		distros: '',
 		buildTypes: '',
 	},
+	currentInitializationSlide: 0,
 };
 
 export default handleActions({
@@ -56,8 +58,26 @@ export default handleActions({
 		...state,
 		currentStep: step,
 	}),
+	[CREATE_IMAGE_CHANGE_INITIALIZATION_SLIDE]: (state: any , {payload: {index}}) => ({
+		...state,
+		currentInitializationSlide: index,
+	}),
 	[CREATE_IMAGE_SELECT_ENTITY]: (state: any , {payload: {entity, type, isDrop = false}}) => {
 		let isFounded = false;
+		let nextIndex = parseInt(state.currentInitializationSlide, 10);
+		const entitesFilters = {...state.entitesFilters};
+		const filtersTypes = Object.keys(entitesFilters);
+
+		if (isDrop) {
+			if (nextIndex > 0) {
+				nextIndex -= 1;
+			}
+			for (let i = filtersTypes.indexOf(type); i < filtersTypes.length; i++) {
+				entitesFilters[filtersTypes[i]] = '';
+			}
+		} else if (nextIndex < 3) {
+			nextIndex += 1;
+		}
 
 		const dropedValues = ['brands', 'targetDevices', 'distros', 'buildTypes'].reduceRight(
 			(obj: {[key: string]: null | string}, item: any) => {
@@ -82,6 +102,8 @@ export default handleActions({
 					...state.selectedItems,
 					[type]: entity,
 				},
+			currentInitializationSlide: nextIndex,
+			entitesFilters: {...entitesFilters},
 		});
 	},
 	[CREATE_IMAGE_SET_FILTER_BY_TYPE]: (state: any , {payload: {filter, type}}) => ({

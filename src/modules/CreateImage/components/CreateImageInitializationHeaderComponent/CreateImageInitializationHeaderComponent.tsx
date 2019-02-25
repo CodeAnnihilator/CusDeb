@@ -67,6 +67,18 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 					alignItems='center'
 				>
 					<Flex>
+						<Flex indent='large' alignItems='center'>
+							{step !== 'initialization' && step !== 'configuration'
+								? (
+									<NavLink
+										to='/terminal'
+										className={styles.skipSteps}
+									>
+										<Trans i18nKey='CreateImage.SkipSteps' />
+									</NavLink>
+								)
+								: null}
+						</Flex>
 						<Flex indent='large'>
 							{step !== 'initialization'
 								? (
@@ -98,18 +110,6 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 											</span>
 										</Button>
 									</Flex>
-								)
-								: null}
-						</Flex>
-						<Flex indent='large' alignItems='center'>
-							{step !== 'initialization' && step !== 'configuration'
-								? (
-									<NavLink
-										to='/terminal'
-										className={styles.skipSteps}
-									>
-										<Trans i18nKey='CreateImage.SkipSteps' />
-									</NavLink>
 								)
 								: null}
 						</Flex>

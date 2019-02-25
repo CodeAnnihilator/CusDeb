@@ -3,7 +3,7 @@ import React, {ReactNode} from 'react';
 
 import checkmarkSVG from 'assets/images/checkmark.svg';
 
-import styles from './StepsProgressBar.scss';
+import styles from './stepsProgressBar.scss';
 
 interface IProps {
 	steps: any;

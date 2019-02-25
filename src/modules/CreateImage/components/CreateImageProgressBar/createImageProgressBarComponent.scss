@@ -1,6 +1,6 @@
 @import 'styles/colors.scss';
 
-$step-height: 70px;
+$step-height: 45px;
 $step-width: 190px;
 $icon-width: 18px;
 
@@ -10,13 +10,18 @@ $icon-width: 18px;
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 500px;
+	position: sticky;
+	margin-bottom: -12px;
+	z-index: 200;
+	top: 0;
 	overflow: hidden;
-	padding-bottom: $icon-width;
+	padding-bottom: 12px;
 }
 
 .body {
 	display: flex;
 	width: 100%;
+	background: $white;
 	width: 100%;
 }
 
@@ -57,9 +62,9 @@ $icon-width: 18px;
 		content: '';
 		border-top: 1px solid $gray200;
 		border-right: 1px solid $gray200;
-		width: 40px;
-		height: 40px;
-		bottom: 16px;
+		width: 30px;
+		height: 30px;
+		bottom: 13px;
 		right: 0;
 		position: absolute;
 		transform: rotate(45deg) skew(15deg, 15deg);
@@ -97,7 +102,7 @@ $icon-width: 18px;
 				z-index: -1;
 				width: 300%;
 				height: 100%;
-				background: $stepInactive;
+				background: #EBEDF3;
 			}
 		}
 	}

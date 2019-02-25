@@ -16,7 +16,7 @@ const makeMapStateToProps = () => {
 		headerTitle: `Select ${type}`,
 		placeholder: `find ${type}...`,
 		width: 286,
-		height: 440,
+		height: 400,
 		inputValue: getInputValueByType(state, type),
 	});
 };
