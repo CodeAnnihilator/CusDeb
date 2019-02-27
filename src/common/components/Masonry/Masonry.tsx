@@ -19,6 +19,8 @@ export default class Masonry extends PureComponent<IProps, IState> {
 		this.state = {columnCount};
 	}
 
+	private readonly masonryRef = React.createRef<HTMLDivElement>();
+
 	public componentDidMount() {
 		this.reCalculateColumnCount();
 		if (window) window.addEventListener('resize', this.reCalculateColumnCount);
@@ -33,7 +35,10 @@ export default class Masonry extends PureComponent<IProps, IState> {
 	}
 
 	private readonly reCalculateColumnCount = () => {
-		const windowWidth = window && window.innerWidth || Infinity;
+		const windowWidth = this.masonryRef.current
+			? this.masonryRef.current.getBoundingClientRect().width
+			: Infinity;
+
 		let breakpointColsObject = this.props.breakpointCols;
 
 		if (parseInt(breakpointColsObject, 10) > 0) {
@@ -84,16 +89,23 @@ export default class Masonry extends PureComponent<IProps, IState> {
 		const width = `${100 / childrenInColumns.length}%`;
 
 		return childrenInColumns.map((items, i) => (
-			<div className={styles.column} key={i} style={{width}}>
-			{items}
+			<div
+				key={i}
+				className={styles.column}
+				style={{width}}
+			>
+				{items}
 			</div>
 		));
 	}
 
 	public render() {
 		return (
-			<div style={{display: 'flex'}}>
-			{ this.renderColumns() }
+			<div
+				style={{display: 'flex'}}
+				ref={this.masonryRef}
+			>
+				{this.renderColumns()}
 			</div>
 		);
 	}
