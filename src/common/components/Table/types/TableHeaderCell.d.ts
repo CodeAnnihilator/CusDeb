@@ -1,7 +1,7 @@
 import {ReactNode, ReactText} from 'react';
 
 interface ITableHeaderCellProps {
-	children: ReactNode;
+	children?: ReactNode;
 	className?: string;
 	width?: ReactText;
 	height?: ReactText;

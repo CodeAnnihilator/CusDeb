@@ -40,11 +40,18 @@
 }
 
 .tableHeaderCell {
-	width: calc(100% / 4);
+	width: calc((100% - 100px) / 4);
+}
+
+.tableCellCheckboxCell {
+	width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .tableCell {
-	width: calc(100% / 4);
+	width: calc((100% - 100px) / 4);
 }
 
 .row {

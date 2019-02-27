@@ -1,8 +1,12 @@
 import Table from 'common/components/Table/Table';
 import React, {PureComponent} from 'react';
 
+import Checkbox from 'common/components/Checkbox/Checkbox';
+
 import {formatBytes} from 'utils/formatBytes';
 import styles from '../styles/packagesTable.scss';
+
+const generateStatus = () => !!Math.round(Math.random()); // temporary solution
 
 export default class PackagesTableRow extends PureComponent<any> {
 	public render() {
@@ -10,6 +14,9 @@ export default class PackagesTableRow extends PureComponent<any> {
 
 		return (
 			<Table.Row className={styles.row}>
+				<Table.Cell className={styles.tableCellCheckboxCell}>
+					<Checkbox isActive={generateStatus()} />
+				</Table.Cell>
 				<Table.Cell className={styles.tableCell}>
 					{item.package}
 				</Table.Cell>
