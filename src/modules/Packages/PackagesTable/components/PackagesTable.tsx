@@ -106,6 +106,7 @@ export default class PackagesTable extends Component<any, any> {
 				<Flex>
 					<Table className={styles.table}>
 						<Table.HeaderRow>
+							<Table.HeaderCell className={styles.tableCellCheckboxCell} />
 							<Table.HeaderCell className={styles.tableHeaderCell}>
 								<Trans i18nKey='Packages.PackageName' />
 							</Table.HeaderCell>
