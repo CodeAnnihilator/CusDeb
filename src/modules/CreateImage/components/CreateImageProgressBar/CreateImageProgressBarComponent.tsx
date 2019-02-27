@@ -21,7 +21,7 @@ interface IProps {
 
 export default class CreateImageProgressBarComponent extends PureComponent<IProps> {
 	public barTitles = (steps: any) => (
-		[...steps.map((step: {text: string; image: any}, index: number) => (
+		steps.map((step: {text: string; image: any}, index: number) => (
 			<Flex
 				key={index}
 				justifyContent='center'
@@ -29,12 +29,12 @@ export default class CreateImageProgressBarComponent extends PureComponent<IProp
 				style={{marginBottom: 5}}
 			>
 				<step.image
-					fill={this.props.step === index ? '#5B9FD2' : '#748286'}
+					fill={this.props.step === index ? COLORS.stepInProcess : '#748286'}
 					className={styles.stepTitleIcon}
 				/>
 				<Trans i18nKey={`CreateImage.CreationProcessBar.${capitalize(step.text)}`}/>
 			</Flex>
-		))]
+		))
 	)
 
 	public render() {
