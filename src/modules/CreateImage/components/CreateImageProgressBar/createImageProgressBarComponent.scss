@@ -118,16 +118,16 @@ $icon-width: 18px;
 
 	&_inProgress {
 		& .stepBar {
-			background-color: #5B9FD2;
+			background-color: $stepInProcess;
 			height: 3px;
-	
+
 			& .stepIcon {
-				background-color: #5B9FD2;
+				background-color: $stepInProcess;
 			}
 		}
 
 		& .title {
-			color: #5B9FD2;
+			color: $stepInProcess;
 		}
 	}
 }
