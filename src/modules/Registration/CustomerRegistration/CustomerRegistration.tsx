@@ -20,7 +20,7 @@ import SimpleLoader from 'common/components/Preloaders/SimpleLoader/SimpleLoader
 import silentClasses from 'styles/_silent_classes.scss';
 import styles from './customerRegistration.scss';
 
-const RegistrationCreateNewUser = (props: any) => (
+const CustomerRegistration = (props: any) => (
 	<Flex
 		className={styles.wrapper}
 	>
@@ -118,6 +118,8 @@ const RegistrationCreateNewUser = (props: any) => (
 					<span><Trans i18nKey={'RegAuth.PrivacyPolicy'}/></span>
 				</a>
 			</Flex>
+			{props.validationError &&
+				<div className={styles.validationError}>{props.validationError}</div>}
 			<Flex
 				indent='large'
 				className={styles.submitButtonContainer}
@@ -130,11 +132,11 @@ const RegistrationCreateNewUser = (props: any) => (
 					})}
 					onClick={props.valid ? props.sendData : null}
 				>
-					{props.isFetching ? <SimpleLoader /> : <Trans i18nKey='RegAuth.CreateAccount' />}
+					{props.isSubmitting ? <SimpleLoader /> : <Trans i18nKey='RegAuth.CreateAccount' />}
 				</Flex>
 			</Flex>
 		</Flex>
 	</Flex>
 );
 
-export default RegistrationCreateNewUser;
+export default CustomerRegistration;

@@ -1,5 +1,6 @@
 import {all, fork} from 'redux-saga/effects';
 
+import checkUserLoggedSaga from 'common/sagas/authenticate';
 import watchEntities from 'common/sagas/entities';
 import authSaga from 'modules/Auth/sagas/authSaga';
 import watchImageDateOfCreation from 'modules/Dashboard/sagas/createDateUpdaterSaga';
@@ -13,5 +14,6 @@ export default function* rootSaga() {
 		fork(watchImageDateOfCreation),
 		fork(registrationSaga),
 		fork(authSaga),
+		fork(checkUserLoggedSaga),
 	]);
 }

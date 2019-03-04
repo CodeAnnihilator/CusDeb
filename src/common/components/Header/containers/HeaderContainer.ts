@@ -1,5 +1,17 @@
-import {withRouter} from 'react-router';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import Header from '../Header';
 
-export default withRouter(Header as any) as React.ComponentType<any>;
+import {login} from 'common/actions/user';
+import {getIsAuthenticated} from 'common/selectors/user';
+
+const mapStateToProps = (state: any) => ({
+	isAuthenticated: getIsAuthenticated(state),
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+	proceedLogin: () => dispatch(login()),
+});
+
+export default withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(Header));

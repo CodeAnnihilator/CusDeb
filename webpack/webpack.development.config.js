@@ -61,6 +61,11 @@ export default {
 	  new webpack.DllReferencePlugin({
 		context: __dirname,
 		manifest: require(path.resolve(libPath, 'library.json'))
-	  })
+    }),
+    new webpack.DefinePlugin({
+			'process.env': {
+        DEVELOPMENT: true,
+			},
+		}),
     ],
 }

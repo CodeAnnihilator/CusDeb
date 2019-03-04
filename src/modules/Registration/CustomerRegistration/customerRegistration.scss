@@ -16,6 +16,12 @@
 	height: 35px;
 }
 
+.validationError {
+	font-size: 14px;
+	margin: 16px 0 8px 0;
+	color: $red600;
+}
+
 .header {
 	border-bottom: 1px solid $gray300;
 	padding: 25px 0px;

@@ -2,6 +2,7 @@ import {handleActions} from 'redux-actions';
 import * as types from '../constants/authConstants';
 
 export default handleActions({
-	[types.START_AUTH_REQUEST]: (state: any) => ({...state, isFetching: true}),
-	[types.STOP_AUTH_REQUEST]: (state: any) => ({...state, isFetching: false}),
-}, {isFetching: false});
+	[types.CHANGE_LOGIN_ERROR]: (state: any, {payload: {error}}) => (
+		{...state, validationError: error}
+	),
+}, {isSubmitting: false});

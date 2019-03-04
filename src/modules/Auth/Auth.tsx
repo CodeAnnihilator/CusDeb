@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import {Trans} from 'react-i18next';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {Field} from 'redux-form';
 
 import Flex from 'common/components/Flex/Flex';
@@ -29,10 +29,15 @@ export default class Auth extends React.PureComponent<any> {
 		this.props.sendAuthData();
 	}
 
+	public componentDidMount() {
+		this.props.checkUserLogged();
+	}
+
 	public render() {
-		const {valid, isFetching} = this.props;
+		const {valid, isSubmitting, validationError, isAuthenticated} = this.props;
 
 		return (
+			!isAuthenticated ? (
 			<Flex
 				className={styles.wrapper}
 			>
@@ -109,18 +114,22 @@ export default class Auth extends React.PureComponent<any> {
 						alignItems='center'
 					>
 						<Field
-							name='email'
-							component={InputWithValidation as any}
-							type='text'
-							validate={[rules.required, rules.email]}
-						/>
-						<Field
-							name='password'
+							name='username'
 							component={InputWithValidation as any}
 							type='text'
 							validate={rules.required}
 						/>
+						<Field
+							name='password'
+							component={InputWithValidation as any}
+							type='password'
+							validate={rules.required}
+						/>
 					</Flex>
+					{
+						validationError &&
+						<div className={styles.validationError}>{validationError}</div>
+					}
 					<Flex
 						indent='large'
 						className={cn(styles.loginButton, {
@@ -128,10 +137,10 @@ export default class Auth extends React.PureComponent<any> {
 						})}
 						onClick={valid ? this.onSubmit : null}
 					>
-						{isFetching ? <SimpleLoader color={COLORS.white} /> : <Trans i18nKey='RegAuth.Auth.Login' />}
+						{isSubmitting ? <SimpleLoader color={COLORS.white} /> : <Trans i18nKey='RegAuth.Auth.Login' />}
 					</Flex>
 				</Flex>
 			</Flex>
-		);
+		) : (<Redirect to={'/user'} />) );
 	}
 }

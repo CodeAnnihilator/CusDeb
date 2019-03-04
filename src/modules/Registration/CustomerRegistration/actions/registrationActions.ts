@@ -1,15 +1,20 @@
 import {createAction} from 'redux-actions';
 
-import {SEND_REGISTRATION_DATA, START_REGISTRATION_REQUEST, STOP_REGISTRATION_REQUEST} from '../constants/registration';
+import * as types from '../constants/registration';
 
 export const sendData = createAction(
-	SEND_REGISTRATION_DATA,
+	types.SEND_REGISTRATION_DATA,
 );
 
 export const startRegistrationRequest = createAction(
-	START_REGISTRATION_REQUEST,
+	types.START_REGISTRATION_REQUEST,
 );
 
 export const stopRegistrationRequest = createAction(
-	STOP_REGISTRATION_REQUEST,
+	types.STOP_REGISTRATION_REQUEST,
+);
+
+export const changeRegistrationError = createAction(
+	types.CHANGE_REGISTRATION_ERROR,
+	(error: string) => ({error}),
 );

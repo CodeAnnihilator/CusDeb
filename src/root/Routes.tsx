@@ -4,7 +4,7 @@ import {withNamespaces} from 'react-i18next';
 import {Redirect, Route, Switch} from 'react-router-dom';
 
 import CommonLayout from 'common/components/Layouts/Common/CommonLayout';
-import ProtectedLayout from 'common/components/Layouts/Protected/ProtectedLayout';
+import ProtectedLayout from 'common/components/Layouts/Protected/ProtectedLayoutContainer';
 
 import AuthContainer from 'modules/Auth/containers/AuthContainer';
 import Dashboard from 'modules/Dashboard/containers/Dashboard';
