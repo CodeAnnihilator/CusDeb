@@ -16,6 +16,7 @@ interface IProps {
 	onToggle: () => void;
 	isMenuOpen: boolean;
 	isAuthenticated: boolean;
+	proceedLogin: any;
 }
 
 const setLanguage = () => i18n
@@ -50,7 +51,7 @@ const headerItems = [
 
 const URL = 'http://i.pravatar.cc/200';
 
-const Header: React.FC<IProps> = ({onToggle, isMenuOpen, isAuthenticated}) => (
+const Header: React.FC<IProps> = ({onToggle, isMenuOpen, isAuthenticated, proceedLogin}) => (
 	<Flex className={styles.header}>
 		{isAuthenticated && (
 			<Flex
@@ -103,6 +104,9 @@ const Header: React.FC<IProps> = ({onToggle, isMenuOpen, isAuthenticated}) => (
 					<Flex alignItems='center'>
 						<img className={styles.avatar} src={URL} alt='Avatar' />
 					</Flex>
+				}
+				{ process.env.DEVELOPMENT && !isAuthenticated &&
+					<div onClick={() => proceedLogin()} className={styles.hardAuthorize}>LOGIN</div>
 				}
 			</Flex>
 		</Flex>

@@ -1,5 +1,5 @@
-import Banana from './Banana.svg';
-import Orange from './Orange.svg';
+import Banana from './banana.svg';
+import Orange from './orange.svg';
 import Raspberry from './raspberry-pi.svg';
 import SampleBrand from './sample-brand.svg';
 

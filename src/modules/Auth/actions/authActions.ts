@@ -1,13 +1,18 @@
 import {createAction} from 'redux-actions';
-import {SEND_AUTH_DATA, START_AUTH_REQUEST, STOP_AUTH_REQUEST} from '../constants/authConstants';
+import * as types from '../constants/authConstants';
 
 export const sendAuthData = createAction(
-	SEND_AUTH_DATA,
+	types.SEND_AUTH_DATA,
 );
 
 export const startAuthRequest = createAction(
-	START_AUTH_REQUEST,
+	types.START_AUTH_REQUEST,
 );
 export const stopAuthRequest = createAction(
-	STOP_AUTH_REQUEST,
+	types.STOP_AUTH_REQUEST,
+);
+
+export const changeLoginError = createAction(
+	types.CHANGE_LOGIN_ERROR,
+	(error: string) => ({error}),
 );

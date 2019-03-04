@@ -36,6 +36,12 @@ $icon-padding: 8px;
 	font-size: 12px;
 }
 
+.validationError {
+	font-size: 14px;
+	margin: 16px 0 8px 0;
+	color: $red600;
+}
+
 .iconsBlock {
 	width: 100%;
 	height: 88px;

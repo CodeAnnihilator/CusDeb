@@ -168,9 +168,9 @@ const generateBuildType = () => {
 };
 
 const generateTargetDevice = () => {
-	const targetDevice = targetDevices[Math.round(Math.random() * (targetDevices.length - 1))];
+	const targetDevice = brands[Math.round(Math.random() * (brands.length - 1))].targetDevices[0];
 
-	return {full_name: targetDevice.title, device_icon: targetDevice.icon};
+	return targetDevice;
 };
 
 const generateConfiguration = () => ({

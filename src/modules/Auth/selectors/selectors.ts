@@ -1,1 +1,1 @@
-export const isFetching = (state: any) => state.form.auth.isFetching;
+export const getValidationError = (state: any) => state.form.auth.validationError;

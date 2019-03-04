@@ -5,6 +5,7 @@ import * as React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
+import {batchDispatchMiddleware, enableBatching} from 'redux-batched-actions';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
@@ -13,6 +14,8 @@ import throttle from 'lodash.throttle';
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 import Routes from './Routes';
+
+import {getCurrentUser} from 'common/selectors/user';
 
 import {loadState, saveState} from 'utils/localStorage';
 
@@ -32,19 +35,20 @@ const history = createHistory({
 const persistedState = loadState();
 
 const store = createStore(
-	rootReducer(history),
+	enableBatching(rootReducer(history)),
 	persistedState,
 	composeWithDevTools(
 		applyMiddleware(
 			routerMiddleware(history),
 			sagaMiddleware,
+			batchDispatchMiddleware,
 		),
 	),
 );
 
 store.subscribe(throttle(() => {
 	saveState({
-		dashboard: store.getState().dashboard,
+		user: getCurrentUser(store.getState()),
 	});
 }, 1000));
 

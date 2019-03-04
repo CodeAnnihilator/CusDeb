@@ -1,14 +1,15 @@
 import {connect} from 'react-redux';
-import {reduxForm} from 'redux-form';
+import {isSubmitting, reduxForm} from 'redux-form';
 
 import {sendData} from '../actions/registrationActions';
+import {getValidationError} from '../selectors/selectors';
 
 import CustomerRegistration from '../CustomerRegistration';
-import {isFetching} from '../selectors/selectors';
 
 export default reduxForm({form: 'registration'})(connect(
 	(state: any) => ({
-		isFetching: isFetching(state),
+		isSubmitting: isSubmitting('registration')(state),
+		validationError: getValidationError(state),
 	}),
 	{sendData},
 )(CustomerRegistration) as any);

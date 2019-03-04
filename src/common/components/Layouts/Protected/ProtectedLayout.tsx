@@ -1,24 +1,22 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 
 import LeftNavBarContainer from 'common/containers/LeftNavBarContainer';
 import HeaderContainer from '../../Header/containers/HeaderContainer';
 
+import {IProps, IState} from './protectedLayout.d';
+
 import styles from './protectedLayout.scss';
 
-interface IProps {
-	isAuthenticated: boolean;
-}
-
-interface IState {
-	isCollapsed: boolean;
-}
-
 class MainLayout extends Component<IProps, IState> {
-
 	public static defaultProps = {
-		isAuthenticated: true,
+		isAuthenticated: false,
 	};
+
+	public componentDidMount() {
+		if (!this.props.isAuthenticated) {
+			this.props.checkUserLogged();
+		}
+	}
 
 	public state = {
 		isCollapsed: true,
@@ -39,7 +37,7 @@ class MainLayout extends Component<IProps, IState> {
 						{children}
 					</div>
 				</div>
-			) : <Redirect to='/login' />;
+			) : null;
 	}
 }
 

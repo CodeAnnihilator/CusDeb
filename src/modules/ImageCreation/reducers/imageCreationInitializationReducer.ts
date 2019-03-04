@@ -1,4 +1,4 @@
-import {brands, buildTypes, distros, stepsImages, targetDevices} from 'common/seed/images';
+import {brands, buildTypes, distros, stepsImages} from 'common/seed/images';
 
 import {handleActions} from 'redux-actions';
 import types from '../constants/contants';
@@ -31,7 +31,6 @@ const initialState = {
 	],
 	brands,
 	distros,
-	targetDevices,
 	buildTypes,
 	selectedItems: {
 		brands: null,

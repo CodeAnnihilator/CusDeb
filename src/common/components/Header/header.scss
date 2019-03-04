@@ -33,6 +33,16 @@
 	color: $headerTextColor;
 }
 
+.hardAuthorize {
+	height: 19px;
+	cursor: pointer;
+	align-self: center;
+	padding: 8px 15px 5px 15px;
+	border-radius: 5px;
+	margin-left: 20px;
+	background-color: #FFFFFF;
+}
+
 .headerItem {
 	border-left: 1px solid #38A46B;
 	width: 130px;

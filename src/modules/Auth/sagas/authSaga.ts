@@ -1,30 +1,36 @@
-import {call, put, select, takeLatest} from 'redux-saga/effects';
+import {push} from 'connected-react-router';
+import {batchActions} from 'redux-batched-actions';
+import {all, call, put, select, takeLatest} from 'redux-saga/effects';
 
 import {SEND_AUTH_DATA} from '../constants/authConstants';
 
-import {getFormValues} from 'redux-form';
+import {login, writeAccessToken, writeRefreshToken} from 'common/actions/user';
+import {getFormValues, startSubmit, stopSubmit} from 'redux-form';
 import {delay} from 'redux-saga';
-import {fetch} from 'utils/fetch';
-import {startAuthRequest, stopAuthRequest} from '../actions/authActions';
+import {changeLoginError} from '../actions/authActions';
+import {loginRequest} from '../api/requests';
 
-function* sendRegistrationData() {
+function* sendLoginData() {
 	//tslint:disable
 	const authData = yield select(getFormValues('auth'));
 
 	try {
-        yield put(startAuthRequest());
-        
-        yield call(delay, 1000);
-
-        yield call(fetch.post, '/signin', authData);
+		yield all([put(startSubmit('auth')), call(delay, 1000)]);
+		
+		const request = yield call(loginRequest, authData);
+		yield put(batchActions([
+			writeAccessToken(request.data.access),
+			writeRefreshToken(request.data.refresh),
+			login(),
+			push('/user'),
+		]))
 	} catch (error) {
-		console.log('waiting for backend', error)
+		yield put(changeLoginError('Login error'));
 	} finally {
-        yield put(stopAuthRequest()) 
+        yield put(stopSubmit('auth'));
     }
-
 }
 
 export default function* watchEntities() {
-	yield takeLatest(SEND_AUTH_DATA, sendRegistrationData);
+	yield takeLatest(SEND_AUTH_DATA, sendLoginData);
 }

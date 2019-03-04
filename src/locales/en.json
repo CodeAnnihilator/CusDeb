@@ -128,6 +128,7 @@
 			}
 		},
 		"Auth": {
+			"Username": "Username",
 			"DontHaveAnAccount": "Don’t have an account",
 			"Register": "Register",
 			"ForgotPassword": "Forgot your password",
@@ -135,5 +136,9 @@
 			"Login": "Login",
 			"OrUseEmail": "Or use your email account"
 		}
+	},
+	"RequestsErrors": {
+		"usernameIsAlreadyInUse": "This username is already in use",
+		"emailIsAlreadyInUse": "This email is already in use"
 	}
 }

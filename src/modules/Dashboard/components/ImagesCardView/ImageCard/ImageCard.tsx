@@ -3,6 +3,7 @@ import moment from 'moment';
 import React, {Component, SyntheticEvent} from 'react';
 import {Trans} from 'react-i18next';
 
+import brandsLogos from 'assets/images/brandsLogos';
 import ProgressBar from 'common/components/ProgressBar/ProgressBar';
 import {COLORS} from 'common/constants/entities';
 import StateControls from './imageCardParts';
@@ -26,8 +27,8 @@ interface IProps {
 		started_at: string;
 		thumb: string;
 		targetdevice: {
-			full_name: string;
-			device_icon?: string;
+			title: string;
+			icon?: string;
 		};
 	};
 	onSelect: (name: string) => void;
@@ -159,8 +160,10 @@ export default class ImageCard extends Component<IProps, IState> {
 					</div>
 				</div>
 				<div className={styles.device}>
-					<img src={targetdevice.device_icon} className={styles.device_icon} alt=''/>
-					<span className={styles.device_name}>{targetdevice.full_name}</span>
+					{ targetdevice.icon &&
+						<img src={brandsLogos[targetdevice.icon]} className={styles.device_icon} alt=''/>
+					}
+					<span className={styles.device_name}>{targetdevice.title}</span>
 				</div>
 				<div className={cn(styles.note, {[styles.note_open]: isNotesExpanded})}>
 					{

@@ -121,5 +121,9 @@
 			"Login": "Войти",
 			"OrUseEmail": "Или используйте свой email"
 		}
+	},
+	"RequestsErrors": {
+		"usernameIsAlreadyInUse": "Это имя пользователя уже используется",
+		"emailIsAlreadyInUse": "Этот Email уже используется"
 	}
 }

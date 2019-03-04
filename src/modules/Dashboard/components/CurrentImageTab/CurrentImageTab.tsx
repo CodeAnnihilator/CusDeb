@@ -5,6 +5,7 @@ import {Trans} from 'react-i18next';
 import Tabs from 'common/components/Tabs/Tabs';
 import DropDownTab from './DropDownTab/DropDownTab';
 
+import brandsLogos from 'assets/images/brandsLogos';
 import styles from './currentImageTab.scss';
 
 interface IProps {
@@ -83,8 +84,8 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 						</div>
 					</div>
 					<div className={styles.subheader}>
-						<img className={styles.subheader_img} src={targetdevice.device_icon} />
-						<span className={styles.subheader_deviceName}>{targetdevice.full_name}</span>
+						<img className={styles.subheader_img} src={brandsLogos[targetdevice.icon]} />
+						<span className={styles.subheader_deviceName}>{targetdevice.title}</span>
 					</div>
 					<div className={styles.notes}>
 						<span>{notes}</span>
