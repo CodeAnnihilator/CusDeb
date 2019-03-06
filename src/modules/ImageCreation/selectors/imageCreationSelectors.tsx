@@ -5,18 +5,18 @@ import React from 'react';
 import BrandsLogos from 'assets/images/brandsLogos';
 import DestributivesLogos from 'assets/images/distributivesLogos';
 
-export const getStepIndex = (state: any) =>  state.createImage.currentStep;
-export const getSteps = (state: any) => state.createImage.steps;
-export const getProcessSteps = (state: any) => state.createImage.processSteps;
+export const getStepIndex = (state: any) =>  state.imageCreation.currentStep;
+export const getSteps = (state: any) => state.imageCreation.steps;
+export const getProcessSteps = (state: any) => state.imageCreation.processSteps;
 
-export const getDistros = (state: any) =>  state.createImage.distros;
-export const getTargetDevices = (state: any) =>  state.createImage.targetDevices;
-export const getBuildTypes = (state: any) =>  state.createImage.buildTypes;
-export const getBrands = (state: any) =>  state.createImage.brands;
-export const getImageInitializationSlide = (state: any) => state.createImage.currentInitializationSlide;
+export const getDistros = (state: any) =>  state.imageCreation.distros;
+export const getTargetDevices = (state: any) =>  state.imageCreation.targetDevices;
+export const getBuildTypes = (state: any) =>  state.imageCreation.buildTypes;
+export const getBrands = (state: any) =>  state.imageCreation.brands;
+export const getImageInitializationSlide = (state: any) => state.imageCreation.currentInitializationSlide;
 
-export const getSelectedItems = (state: any) =>  state.createImage.selectedItems;
-export const getEntitesFilters = (state: any) =>  state.createImage.entitesFilters;
+export const getSelectedItems = (state: any) =>  state.imageCreation.selectedItems;
+export const getEntitesFilters = (state: any) =>  state.imageCreation.entitesFilters;
 
 export const getSelectedItemByType = createSelector(
 	getSelectedItems,

@@ -76,7 +76,7 @@ export default class Select extends PureComponent<IProps> {
 									indent='large'
 									className={styles.selectSelectedItemsTitleClose}
 								>
-									<MdClose size={14} fill={COLORS.blueCreateImageSelect}/>
+									<MdClose size={14} fill={COLORS.blueImageCreationSelect}/>
 								</Flex>
 							</Flex>
 						)

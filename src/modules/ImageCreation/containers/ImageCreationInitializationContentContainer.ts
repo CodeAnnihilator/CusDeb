@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 
-import {changeImageCreationPart} from 'modules/CreateImage/actions/actions';
+import {changeImageCreationPart} from 'modules/ImageCreation/actions/actions';
 
-import InitializationContent from '../components/CreateImageInitializationContent/CreateImageInitializationContent';
-import {getImageInitializationSlide, getSelectedSteps, getSelectItems} from '../selectors/createImageSelectors';
+import InitializationContent from '../components/ImageCreationInitializationContent/ImageCreationInitializationContent';
+import {getImageInitializationSlide, getSelectedSteps, getSelectItems} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({
 	selectTypes: getSelectItems(state),

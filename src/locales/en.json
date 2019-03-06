@@ -55,7 +55,7 @@
 		"reportAboutIssue": "report an issue",
 		"noDescription": "No description"
 	},
-	"CreateImage": {
+	"ImageCreation": {
 		"SelectItems": "Select items",
 		"InitializationStep": "Initialization Step",
 		"PackagesListStep": "Package List Step",

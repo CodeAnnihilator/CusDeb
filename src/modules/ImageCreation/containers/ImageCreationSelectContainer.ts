@@ -2,7 +2,7 @@ import Select from 'common/components/Select/Select';
 import {SyntheticEvent} from 'react';
 import {connect} from 'react-redux';
 
-import {getSelectedItemByType, makeGetImagesByType, makeGetInputValue} from '../selectors/createImageSelectors';
+import {getSelectedItemByType, makeGetImagesByType, makeGetInputValue} from '../selectors/imageCreationSelectors';
 
 import {selectEntity, setFilterByType} from '../actions/actions';
 

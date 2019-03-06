@@ -98,7 +98,7 @@ export default class PackagesTable extends Component<any, any> {
 						<Flex indent='small'>
 							<Label
 								text={i18n.t('common.package', {count: allPackagesLength})}
-								color={COLORS.blueCreateImageSelect}
+								color={COLORS.blueImageCreationSelect}
 							/>
 						</Flex>
 					</Flex>

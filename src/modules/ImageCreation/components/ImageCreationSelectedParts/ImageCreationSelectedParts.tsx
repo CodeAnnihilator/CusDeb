@@ -3,9 +3,9 @@ import React from 'react';
 
 import Flex from 'common/components/Flex/Flex';
 
-import ISteps from './CreateImageSelectedParts.d';
+import ISteps from './ImageCreationSelectedParts.d';
 
-import Styles from './createImageSelectedParts.scss';
+import Styles from './imageCreationSelectedParts.scss';
 
 interface IProps {
 	steps: ISteps;
@@ -14,7 +14,7 @@ interface IProps {
 
 const SelectedImageParts: React.FC<IProps> = ({steps}) => {
 	const titles = (key: string) => (
-		i18n.t(`CreateImage.SelectedParts.${key}`)
+		i18n.t(`ImageCreation.SelectedParts.${key}`)
 	);
 
 	return (
