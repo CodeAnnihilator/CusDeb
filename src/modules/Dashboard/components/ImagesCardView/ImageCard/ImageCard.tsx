@@ -89,8 +89,7 @@ export default class ImageCard extends Component<IProps, IState> {
 
 		let jsx: string | React.ReactNode = <React.Fragment />;
 		switch (status) {
-			case 'error': jsx = errorJSX(); break;
-			case 'build_error': {
+			case 'error': {
 				jsx = (
 					<>
 						<div className={styles.sign} style={{backgroundColor: '#DF7979'}}>
@@ -114,7 +113,7 @@ export default class ImageCard extends Component<IProps, IState> {
 				);
 				break;
 			}
-			case 'build_ready': {
+			case 'ready': {
 				jsx = (
 					<>
 						<div className={styles.sign} style={{backgroundColor: '#7FE079'}}>

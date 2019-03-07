@@ -1,0 +1,17 @@
+@import 'styles/mixins.scss';
+@import 'styles/colors.scss';
+
+.wrapper {
+	min-height: 70px;
+	display: flex;
+	align-items: center;
+	padding-left: 25px;
+	background-color: $buildOptionsBackground;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+
+	@include mobile {
+		padding-left: 0;
+	}
+}

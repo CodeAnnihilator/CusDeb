@@ -6,14 +6,12 @@ import styles from './createBuildButton.scss';
 import {NavLink} from 'react-router-dom';
 
 const CreateBuildButton = () => (
-	<div className={styles.wrapper}>
-		<NavLink
-			to='/user/create'
-			className={styles.button}
-		>
-			<Trans i18nKey='Dashboard.CreateNewBuild' />
-		</NavLink>
-	</div>
+	<NavLink
+		to='/user/create'
+		className={styles.button}
+	>
+		<Trans i18nKey='Dashboard.CreateNewBuild' />
+	</NavLink>
 );
 
 export default CreateBuildButton;

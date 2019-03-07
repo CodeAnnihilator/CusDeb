@@ -1,21 +1,5 @@
 @import 'styles/mixins.scss';
 
-.wrapper {
-	min-height: 70px;
-	display: flex;
-	align-items: center;
-	border-bottom: 1px solid #F1F1F1;
-	padding-left: 25px;
-	background-color: #FBFBFB;
-	position: sticky;
-	top: 0;
-	z-index: 1;
-
-	@include mobile {
-		padding-left: 0;
-	}
-}
-
 .button {
 	font-size: 12px;
 	font-weight: bold;

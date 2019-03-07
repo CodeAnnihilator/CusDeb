@@ -22,7 +22,7 @@ function* taskCreator(image: any) { // todo -> to d.ts file
 		yield call(delay, Math.round(Math.random() * 5) * 1000);
 		let status = '';
 		const hasBulidFailded = Math.round(Math.random() * 100) <= 3;
-		if (hasBulidFailded) status = 'build_error';
+		if (hasBulidFailded) status = 'error';
 		else if (i < totalSteps && !hasBulidFailded) status = 'building';
 		else if (i === totalSteps && !hasBulidFailded) {
 			yield put(updateImage({
@@ -37,7 +37,7 @@ function* taskCreator(image: any) { // todo -> to d.ts file
 			}));
 
 			yield call(delay, 2000);
-			status = 'build_ready';
+			status = 'ready';
 		}
 
 		yield put(updateImage({
@@ -50,7 +50,7 @@ function* taskCreator(image: any) { // todo -> to d.ts file
 				},
 			}}));
 
-		if (status === 'build_error') break;
+		if (status === 'error') break;
 	}
 }
 

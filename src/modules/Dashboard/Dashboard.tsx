@@ -1,9 +1,9 @@
 import React, {ChangeEvent, PureComponent} from 'react';
 
+import BuildOptionsSection from './components/BuildOptionsSection/BuildOptionsSection';
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
 import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
-import CreateBuildButtonContainer from './containers/CreateBuildButtonContainer';
 
 import styles from './dashboard.scss';
 
@@ -53,7 +53,7 @@ export default class Dashboard extends PureComponent<IProps> {
 
 	return (
 		<div className={styles.wrapper}>
-			<CreateBuildButtonContainer />
+			<BuildOptionsSection />
 			{ /* <ViewTabs /> */ }
 			<div className={styles.container}>
 				{
