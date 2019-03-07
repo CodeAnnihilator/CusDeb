@@ -56,7 +56,7 @@
 		"reportAboutIssue": "сообщите о проблеме",
 		"noDescription": "Описание отсутствует"
 	},
-	"CreateImage": {
+	"ImageCreation": {
 		"SelectItems": "Выберите элементы",
 		"PackagesListStep": "Этап выбора пакетов",
 		"UsersAndGroupsStep": "Этап управления пользователями и группами",

@@ -1,12 +1,7 @@
 import {brands, buildTypes, distros, stepsImages, targetDevices} from 'common/seed/images';
 
 import {handleActions} from 'redux-actions';
-import {
-	CREATE_IMAGE_CHANGE_CURRENT_STEP,
-	CREATE_IMAGE_CHANGE_INITIALIZATION_SLIDE,
-	CREATE_IMAGE_SELECT_ENTITY,
-	CREATE_IMAGE_SET_FILTER_BY_TYPE,
-} from '../constants/contants';
+import types from '../constants/contants';
 
 const initialState = {
 	currentStep: 0,
@@ -54,15 +49,15 @@ const initialState = {
 };
 
 export default handleActions({
-	[CREATE_IMAGE_CHANGE_CURRENT_STEP]: (state: any , {payload: {step}}) => ({
+	[types.CHANGE_CURRENT_STEP]: (state: any , {payload: {step}}) => ({
 		...state,
 		currentStep: step,
 	}),
-	[CREATE_IMAGE_CHANGE_INITIALIZATION_SLIDE]: (state: any , {payload: {index}}) => ({
+	[types.CHANGE_INITIALIZATION_SLIDE]: (state: any , {payload: {index}}) => ({
 		...state,
 		currentInitializationSlide: index,
 	}),
-	[CREATE_IMAGE_SELECT_ENTITY]: (state: any , {payload: {entity, type, isDrop = false}}) => {
+	[types.SELECT_ENTITY]: (state: any , {payload: {entity, type, isDrop = false}}) => {
 		let isFounded = false;
 		let nextIndex = parseInt(state.currentInitializationSlide, 10);
 		const entitesFilters = {...state.entitesFilters};
@@ -106,7 +101,7 @@ export default handleActions({
 			entitesFilters: {...entitesFilters},
 		});
 	},
-	[CREATE_IMAGE_SET_FILTER_BY_TYPE]: (state: any , {payload: {filter, type}}) => ({
+	[types.SET_FILTER_BY_TYPE]: (state: any , {payload: {filter, type}}) => ({
 		...state,
 		entitesFilters: {
 			...state.entitesFilters,

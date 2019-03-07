@@ -11,7 +11,7 @@ import AuthContainer from 'modules/RegAuth/Auth/containers/AuthContainer';
 import HomeContainer from 'modules/RegAuth/Home/containers/HomeContainer';
 import RegistrationContainer from 'modules/RegAuth/Registration/containers/RegistrationContainer';
 
-import CreateImageRootContainer from 'modules/CreateImage/containers/CreateImageRootContainer';
+import ImageCreationRootContainer from 'modules/ImageCreation/containers/ImageCreationRootContainer';
 
 const Routes = () => (
 	<Switch>
@@ -24,7 +24,7 @@ const Routes = () => (
 						<Route path={`${url}/dashboard`} component={Dashboard} />
 						<Route path={`${url}/docs`} component={() => <h2>/docs route</h2>} />
 						<Route path={`${url}/blog`} component={() => <h2>/blog route</h2>} />
-						<Route path={`${url}/create`} component={CreateImageRootContainer} />
+						<Route path={`${url}/create`} component={ImageCreationRootContainer} />
 						<Route render={() => <div>Oops...</div>} />
 					</Switch>
 				</ProtectedLayout>

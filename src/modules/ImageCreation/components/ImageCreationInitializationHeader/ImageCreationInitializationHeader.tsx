@@ -10,7 +10,7 @@ import Flex from 'common/components/Flex/Flex';
 
 import capitalize from 'utils/capitalize';
 
-import styles from './createImageInitializationHeaderComponent.scss';
+import styles from './imageCreationInitializationHeader.scss';
 
 interface IProps {
 	changeStep: (event: MouseEvent<HTMLButtonElement>, value: any) => void;
@@ -37,7 +37,7 @@ const stepsHash = {
 	},
 };
 
-export default class CreateImageInitializationHeaderComponent extends PureComponent<IProps> {
+export default class ImageCreationInitializationHeader extends PureComponent<IProps> {
 	public render() {
 		const {changeStep, step, alertTitleKey} = this.props;
 
@@ -48,18 +48,18 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 			>
 				<Flex alignItems='center' indent='large'>
 					<Flex indent='medium' className={styles.stepTitle}>
-						<Trans i18nKey={`CreateImage.${capitalize(step)}Step`} />
+						<Trans i18nKey={`ImageCreation.${capitalize(step)}Step`} />
 					</Flex>
 					{alertTitleKey
 						? <Flex indent='medium'>
 							<Alert type='warning'>
-								<Trans i18nKey={`CreateImage.Issues.${alertTitleKey}`} />
+								<Trans i18nKey={`ImageCreation.Issues.${alertTitleKey}`} />
 							</Alert>
 						</Flex>
 						: null}
 				</Flex>
 				<Flex className={styles.headerStepInfo} >
-					<Trans i18nKey='CreateImage.HeaderSubTitle' />
+					<Trans i18nKey='ImageCreation.HeaderSubTitle' />
 				</Flex>
 				<Flex
 					className={styles.headerButtonsWrapper}
@@ -74,7 +74,7 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 										to='/terminal'
 										className={styles.skipSteps}
 									>
-										<Trans i18nKey='CreateImage.SkipSteps' />
+										<Trans i18nKey='ImageCreation.SkipSteps' />
 									</NavLink>
 								)
 								: null}
@@ -90,7 +90,7 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 											value={stepsHash[step].prev}
 										>
 											<span style={{textTransform: 'uppercase'}}>
-												<Trans i18nKey='CreateImage.PreviousStep' />
+												<Trans i18nKey='ImageCreation.PreviousStep' />
 											</span>
 										</Button>
 									</Flex>
@@ -106,7 +106,7 @@ export default class CreateImageInitializationHeaderComponent extends PureCompon
 											value={stepsHash[step].next}
 										>
 											<span style={{textTransform: 'uppercase'}}>
-												<Trans i18nKey='CreateImage.NextStep' />
+												<Trans i18nKey='ImageCreation.NextStep' />
 											</span>
 										</Button>
 									</Flex>

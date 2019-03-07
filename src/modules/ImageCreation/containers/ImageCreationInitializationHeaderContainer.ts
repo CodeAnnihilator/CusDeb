@@ -1,8 +1,8 @@
 import {MouseEvent} from 'react';
 import {connect} from 'react-redux';
 import {changeCurrentStep} from '../actions/actions';
-import Header from '../components/CreateImageInitializationHeaderComponent/CreateImageInitializationHeaderComponent';
-import {getAlertTitleKey, getCurrentStep} from '../selectors/createImageSelectors';
+import Header from '../components/ImageCreationInitializationHeader/ImageCreationInitializationHeader';
+import {getAlertTitleKey, getCurrentStep} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({
 	step: getCurrentStep(state),

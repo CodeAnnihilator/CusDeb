@@ -38,7 +38,7 @@
 	border: 1px solid $blue200;
 	border-style: none solid solid;
 	width: 100%;
-	background: $blueCreateImageSelectedItem;
+	background: $blueImageCreationSelectedItem;
 	justify-content: center;
 }
 
@@ -57,12 +57,12 @@
 
 .selectHeader {
 	height: 50px;
-	background: $blueCreateImageSelect;
+	background: $blueImageCreationSelect;
 }
 
 .selectSelectedItemsType {
 	box-sizing: border-box;
-	background: $blueCreateImageSelect;
+	background: $blueImageCreationSelect;
 	font-size: 12px;
 	color: $white;
 	width: 100%;
