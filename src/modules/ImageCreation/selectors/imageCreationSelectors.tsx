@@ -109,7 +109,7 @@ export const makeGetImagesByType = () => createSelector(
 
 		const Logos = {...DestributivesLogos, ...BrandsLogos}
 
-		return items.reduce((memo: any, item: {title: string; icon: any}) => {
+		return items.reduce((memo: any, item: {title: string; icon: any, targetDevices: any[]}) => {
 			if (item.title.toUpperCase().includes(filter.toUpperCase())) {
 				memo.push(
 					{
@@ -117,6 +117,7 @@ export const makeGetImagesByType = () => createSelector(
 						id: item.title,
 						title: item.title,
 						isDisabled: false,
+						targetDevices: item.targetDevices,
 					},
 				);
 			}

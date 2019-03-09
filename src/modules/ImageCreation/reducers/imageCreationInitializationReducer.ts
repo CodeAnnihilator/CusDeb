@@ -57,13 +57,13 @@ export default handleActions({
 		...state,
 		currentInitializationSlide: index,
 	}),
-	[types.SELECT_ENTITY]: (state: any , {payload: {entity, type, isDrop = false}}) => {
+	[types.SELECT_ENTITY]: (state: any , {payload: {entity, type, isSelected}}) => {
 		let isFounded = false;
 		let nextIndex = parseInt(state.currentInitializationSlide, 10);
 		const entitesFilters = {...state.entitesFilters};
 		const filtersTypes = Object.keys(entitesFilters);
 
-		if (isDrop) {
+		if (isSelected) {
 			if (nextIndex > 0) {
 				nextIndex -= 1;
 			}
@@ -88,7 +88,8 @@ export default handleActions({
 
 		return ({
 			...state,
-			selectedItems: isDrop
+			...((type === 'brands' && !isSelected) ? {targetDevices: entity.targetDevices} : []),
+			selectedItems: isSelected
 				? {
 					...state.selectedItems,
 					...dropedValues,
@@ -96,6 +97,7 @@ export default handleActions({
 				: {
 					...state.selectedItems,
 					[type]: entity,
+					...(type === 'brands' ? {targetDevices: null} : null),
 				},
 			currentInitializationSlide: nextIndex,
 			entitesFilters: {...entitesFilters},

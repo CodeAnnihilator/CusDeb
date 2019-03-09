@@ -3,6 +3,7 @@ interface IStep {
 	id: string;
 	title: string;
 	isDisabled: boolean;
+	targetDevices: any[];
 }
 
 interface ISteps {
