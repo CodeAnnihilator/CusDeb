@@ -1,10 +1,11 @@
 @import 'styles/mixins.scss';
 @import 'styles/_silent_classes.scss';
+@import 'styles/colors.scss';
 
 .wrapper {
 	width: 330px;
 	background-color: white;
-	border-left: 1px solid #F1F3F5;
+	border-left: 1px solid $gray100;
 	color: #4A4C5D;
 	height: calc(100vh - 70px);
 	position: sticky;
@@ -30,25 +31,23 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-bottom: 20px;
+	padding: 16px;
+	border-bottom: 1px solid $gray100;
 
 	&_img {
-		width: 40px;
-		margin: 20px;
+		width: 23px;
+		margin-bottom: 10px;
 	}
 
-	&_title {
+	&_distro {
 		@extend .toUpperCase;
+		font-size: 11px;
 		font-weight: bold;
-		font-size: 14px;
-		padding: 0 10px;
-		text-align: center;
-		line-height: 23px;
+		margin-bottom: 5px;
 	}
 
 	&_createdAt {
-		font-size: 12px;
-		margin-top: 5px;
+		font-size: 11px;
 
 		&_date {
 			font-weight: bold;
@@ -57,11 +56,38 @@
 	}
 }
 
+.subheader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 14px;
+	background-color: $gray50;
+	border-bottom: 1px solid $gray100;
+
+	&_img {
+		height: 27px;
+		margin-right: 11px;
+	}
+
+	&_deviceName {
+		font-size: 11px;
+		color: #626478;
+	}
+}
+
+.notes {
+	font-size: 11px;
+	line-height: 1.8;
+	padding: 15px;
+	color: #87889D;
+	border-bottom: 1px solid $gray100;
+}
+
 .tabs {
 	display: flex;
 	line-height: 50px;
 	font-size: 12px;
-	border-bottom: 1px solid #F1F3F5;
+	border-bottom: 1px solid $gray100;
 	cursor: pointer;
 	flex-shrink: 0;
 

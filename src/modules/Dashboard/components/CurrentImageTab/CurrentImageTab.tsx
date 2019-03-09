@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, {PureComponent} from 'react';
 import {Trans} from 'react-i18next';
 
@@ -28,6 +29,9 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 			distro: {
 				full_name: '',
 			},
+			targetdevice: {},
+			started_at: null,
+			notes: null,
 		},
 	};
 
@@ -58,27 +62,42 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 				depPackages,
 				distro,
 				thumb,
+				targetdevice,
+				notes,
+				started_at,
 			},
 		} = this.props;
 
 		const commonTab = {
-			title: <Trans i18nKey='common.Common'/>,
+			title: <Trans i18nKey='common.Common' />,
 			content: (
-				<div className={styles.header}>
-					<img className={styles.header_img} src={thumb} />
-					<div className={styles.header_createdAt}>
-						<Trans i18nKey='Image.CreatedAt' />
-						<strong className={styles.header_createdAt_date}>21.09.2018</strong>
+				<>
+					<div className={styles.header}>
+						<img className={styles.header_img} src={thumb} />
+						<div className={styles.header_distro}>
+							<span>{distro.full_name}</span>
+						</div>
+						<div className={styles.header_createdAt}>
+							<Trans i18nKey='Image.CreatedAt' />:
+							<span className={styles.header_createdAt_date}>{moment(started_at).fromNow()}</span>
+						</div>
 					</div>
-				</div>
+					<div className={styles.subheader}>
+						<img className={styles.subheader_img} src={targetdevice.device_icon} />
+						<span className={styles.subheader_deviceName}>{targetdevice.full_name}</span>
+					</div>
+					<div className={styles.notes}>
+						<span>{notes}</span>
+					</div>
+				</>
 			),
 		};
 		const packagesTab = {
-			title: <Trans i18nKey='common.Packages'/>,
+			title: <Trans i18nKey='common.Details' />,
 			content: (
 				<div className={styles.dropDownWrapper}>
 					<DropDownTab
-						title={<Trans i18nKey='Packages.Base'/>}
+						title={<Trans i18nKey='Packages.Base' />}
 						value={basePackages.length}
 						isOpened={!!openedDropdownTabs.base}
 						onClick={() => this.onToggleDropdownTabs('base')}
@@ -90,7 +109,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 						}
 					</DropDownTab>
 					<DropDownTab
-						title={<Trans i18nKey='Packages.Dependencies'/>}
+						title={<Trans i18nKey='Packages.Dependencies' />}
 						value={depPackages.length}
 						isOpened={!!openedDropdownTabs.dependencies}
 						onClick={() => this.onToggleDropdownTabs('dependencies')}
@@ -102,7 +121,7 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 						}
 					</DropDownTab>
 					<DropDownTab
-						title={<Trans i18nKey='Packages.Added'/>}
+						title={<Trans i18nKey='Packages.Added' />}
 						value={addedPackages.length}
 						isOpened={!!openedDropdownTabs.added}
 						onClick={() => this.onToggleDropdownTabs('added')}
@@ -121,7 +140,6 @@ export default class CurrentImageTab extends PureComponent<IProps, IState> {
 		return (
 			<div className={styles.wrapper}>
 				<div className={styles.wrapper_inner}>
-					<div className={styles.header_title}>{distro.name}</div>
 					<div style={{height: '100%'}}>
 						<Tabs
 							tabs={tabsArray}
