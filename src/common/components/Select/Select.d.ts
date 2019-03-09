@@ -14,6 +14,7 @@ export default interface IProps {
 		onClick: (event: ChangeEvent<HTMLDivElement>, item: any) => void;
 		icon?: ReactNode;
 		isDisabled: boolean;
+		targetDevices: any[];
 	}>;
 	width: string | number;
 	dropSelected: (event: any) => void;

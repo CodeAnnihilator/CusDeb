@@ -9,8 +9,6 @@ import UbuntuSVG from 'assets/images/distributive/ubuntu.svg';
 import PackageIcon from 'assets/images/PackagesIcon';
 import UserIcon from 'assets/images/UserIcon';
 
-import RaspberrySVG from 'assets/images/raspberry-pi.svg';
-
 export const stepsImages = {
 	init: InitializationIcon,
 	packages: PackageIcon,
@@ -34,33 +32,93 @@ export const brands = [
 	{
 		title: 'Raspberry',
 		icon: 'Raspberry',
+		targetDevices: [
+			{
+				title: 'Raspberry Pi Model B and B+',
+				icon: 'Raspberry',
+			},
+			{
+				title: 'Raspberry Pi 2 Model B',
+				icon: 'Raspberry',
+			},
+			{
+				title: 'Raspberry Pi 3 Model B',
+				icon: 'Raspberry',
+			},
+			{
+				title: 'Raspberry Pi Zero',
+				icon: 'Raspberry',
+			},
+		],
 	},
 	{
 		title: 'Orange pi',
-		icon: 'SampleBrand',
+		icon: 'Orange',
+		targetDevices: [
+			{
+				title: 'Orange Pi Model B and B+',
+				icon: 'Orange',
+			},
+			{
+				title: 'Orange Pi 2 Model B',
+				icon: 'Orange',
+			},
+		],
+	},
+	{
+		title: 'Banana pi',
+		icon: 'Banana',
+		targetDevices: [
+			{
+				title: 'Banana Pi Model B and B+',
+				icon: 'Banana',
+			},
+			{
+				title: 'Banana Pi 2 Model B',
+				icon: 'Banana',
+			},
+			{
+				title: 'Banana Pi 111 Model Qwerty',
+				icon: 'Banana',
+			},
+		],
 	},
 	{
 		title: 'Something else',
 		icon: 'SampleBrand',
+		targetDevices: [
+			{
+				title: 'SampleBrand Pi Model B and B+',
+				icon: 'SampleBrand',
+			},
+			{
+				title: 'SampleBrand Pi 2 Model B',
+				icon: 'SampleBrand',
+			},
+			{
+				title: 'SampleBrand Pi 3 Model C',
+				icon: 'SampleBrand',
+			},
+		],
 	},
 ];
 
 export const targetDevices = [
 	{
 		title: 'Raspberry Pi Model B and B+',
-		icon: RaspberrySVG,
+		icon: 'Raspberry',
 	},
 	{
 		title: 'Raspberry Pi 2 Model B',
-		icon: RaspberrySVG,
+		icon: 'Raspberry',
 	},
 	{
 		title: 'Raspberry Pi 3 Model B',
-		icon: RaspberrySVG,
+		icon: 'Raspberry',
 	},
 	{
 		title: 'Raspberry Pi Zero',
-		icon: RaspberrySVG,
+		icon: 'Raspberry',
 	},
 ];
 
