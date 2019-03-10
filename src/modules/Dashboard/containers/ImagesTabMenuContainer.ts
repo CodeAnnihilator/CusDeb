@@ -16,4 +16,4 @@ const mapStateToProps = (state: any) => ({
 		failedImages: getFailedImagesCount(state),
 });
 
-export default connect(mapStateToProps, null)(ImagesTabMenu);
+export default connect(mapStateToProps)(ImagesTabMenu);

@@ -1,15 +1,22 @@
+@import 'styles/_silent_classes.scss';
+@import 'styles/colors.scss';
+
 .wrapper {
 	justify-content: space-between;
 	display: flex;
-	height: 40px;
+	height: 50px;
 	align-items: center;
 	padding: 0 25px;
 	font-size: 12px;
-	border-bottom: 1px solid #F1F3F5;
+	border-bottom: 1px solid $gray100;
 	position: sticky;
 	top: 0;
 	cursor: pointer;
 	background-color: white;
+
+	& span {
+		@extend .toUpperCase;
+	}
 
 	& span:last-child {
 		font-weight: bold;
@@ -23,7 +30,16 @@
 }
 
 .children {
-	padding: 15px 25px;
-	font-size: 13px;
-	line-height: 18px;
+	div {
+		display: flex;
+		align-items: center;
+		height: 50px;
+		padding: 0 25px;
+		font-size: 12px;
+		border-bottom: 1px solid $gray100;
+
+		&:nth-child(2n+1) {
+			background-color: $gray50;
+		}
+	}
 }

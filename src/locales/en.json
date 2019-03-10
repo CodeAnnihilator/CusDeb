@@ -7,6 +7,7 @@
 		"package": "{{count}} package",
 		"package_plural": "{{count}} packages",
 		"Packages": "Packages",
+		"Details": "Details",
 		"Download": "Download",
 		"Edit": "Add note",
 		"Delete": "Delete",
