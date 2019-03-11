@@ -3,11 +3,11 @@ import {combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 
 import entitiesReducer from 'common/reducers/entities';
+import authReducer from 'modules/Auth/reducer/authReducer';
 import dashboardReducer from 'modules/Dashboard/reducers/dashboard';
 import imageCreationInitializationReducer from 'modules/ImageCreation/reducers/imageCreationInitializationReducer';
 import packagesStepReducer from 'modules/Packages/PackagesTable/reducers/packagesStepReducer';
-import AuthReducer from 'modules/RegAuth/Auth/reducer/AuthReducer';
-import RegistrationReducer from 'modules/RegAuth/Registration/reducer/registrationReducer';
+import registrationReducer from 'modules/Registration/CustomerRegistration/reducer/registrationReducer';
 
 const rootReducer = (history: any) => combineReducers({
 	entities: entitiesReducer,
@@ -16,8 +16,8 @@ const rootReducer = (history: any) => combineReducers({
 	packagesStep: packagesStepReducer,
 	router: connectRouter(history as any),
 	form: formReducer.plugin({
-		auth: AuthReducer,
-		registration: RegistrationReducer,
+		auth: authReducer,
+		registration: registrationReducer,
 	}),
 });
 

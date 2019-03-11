@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 
-import Header from 'common/components/Header/Header';
 import LeftNavBarContainer from 'common/containers/LeftNavBarContainer';
+import HeaderContainer from '../../Header/containers/HeaderContainer';
 
 import styles from './protectedLayout.scss';
 
@@ -27,15 +27,16 @@ class MainLayout extends Component<IProps, IState> {
 	protected readonly onToggle = () => this.setState(prevState => ({isCollapsed: !prevState.isCollapsed}));
 
 	public render() {
-		const {isAuthenticated} = this.props;
+		const {isAuthenticated, children} = this.props;
+		const {isCollapsed} = this.state;
 
 		return isAuthenticated
 			? (
 				<div className={styles.page}>
-					<Header onToggle={this.onToggle} isMenuOpen={!this.state.isCollapsed}/>
+					<HeaderContainer onToggle={this.onToggle} isMenuOpen={!isCollapsed} />
 					<div className={styles.wrapper}>
-					<LeftNavBarContainer isCollapsed={this.state.isCollapsed} />
-						{this.props.children}
+						<LeftNavBarContainer isCollapsed={isCollapsed} />
+						{children}
 					</div>
 				</div>
 			) : <Redirect to='/login' />;

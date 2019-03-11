@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
 
-import Header from '../components/Header/Header';
+import Header from '../components/Header/containers/HeaderContainer';
 
 export default connect()(Header);
