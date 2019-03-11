@@ -232,6 +232,13 @@ $note-line-height: 18px;
 	justify-content: center;
 }
 
+.highlighted {
+	background-color: rgb(32, 183, 51);
+	color: #FFF;
+	padding: 2px 1px;
+	border-radius: 5px;
+}
+
 .animated_box {
 	animation-duration: $time-to-animate * 2;
 	animation-name: showIn;

@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 
 import {
-		getAllImagesCount,
-		getBuildingImagesCount,
-		getFailedImagesCount,
-		getSuccededImagesCount,
-		} from 'common/selectors/entities';
+	getAllImagesCount,
+	getBuildingImagesCount,
+	getFailedImagesCount,
+	getSuccededImagesCount,
+} from 'common/selectors/entities';
 
 import {setActiveImagesStatus} from 'modules/Dashboard/actions/dashboard';
 

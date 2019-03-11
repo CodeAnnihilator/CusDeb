@@ -115,7 +115,7 @@ const CustomerRegistration = (props: any) => (
 				</a>
 				<span><Trans i18nKey={'common.and'}/></span>
 				<a href='#'>
-					<span><Trans i18nKey={'RegAuth.PrivacyPolicy'}/></span>
+					<span><Trans i18nKey={'RegAuth.PrivacyPolicy'}/>.</span>
 				</a>
 			</Flex>
 			{props.validationError &&

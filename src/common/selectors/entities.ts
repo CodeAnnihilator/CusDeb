@@ -2,12 +2,31 @@ import moment, {Moment} from 'moment';
 import {createSelector} from 'reselect';
 
 export const getImages = (state: any) => state.entities.images;
+export const getImagesTextFilter = (state: any) => state.dashboard.displaying.textFilter;
 export const getRoute = (state: any) => state.router.pathname;
 export const getAllImagesCount = (state: any) => state.entities.images.length;
 
 export const getBuildingImages = createSelector(
 	getImages,
 	images => images.filter((item: any) => item.build.status === 'building'),
+);
+
+export const getFilteredImages = createSelector(
+	getImages,
+	getImagesTextFilter,
+	(images, substr) => {
+		if (images.length && substr) {
+			return images.filter((image: any) => {
+				if (
+					image.notes.toLowerCase().indexOf(substr.toLowerCase()) !== -1
+					|| image.distro.full_name.toLowerCase().indexOf(substr.toLowerCase()) !== -1
+					|| image.targetdevice.title.toLowerCase().indexOf(substr.toLowerCase()) !== -1
+				) { return true; }
+			});
+		}
+
+		return images;
+	},
 );
 
 export const getBuildingImagesCount = createSelector(
