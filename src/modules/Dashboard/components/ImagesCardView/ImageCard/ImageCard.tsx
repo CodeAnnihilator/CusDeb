@@ -1,7 +1,8 @@
 import cn from 'classnames';
 import moment from 'moment';
-import React, {Component, SyntheticEvent} from 'react';
+import React, {Component} from 'react';
 import {Trans} from 'react-i18next';
+import reactStringReplace from 'react-string-replace';
 
 import brandsLogos from 'assets/images/brandsLogos';
 import ProgressBar from 'common/components/ProgressBar/ProgressBar';
@@ -33,6 +34,7 @@ interface IProps {
 	};
 	onSelect: (name: string) => void;
 	isActive: boolean;
+	textFilter: string;
 }
 
 interface IState {
@@ -48,7 +50,20 @@ export default class ImageCard extends Component<IProps, IState> {
 		image: {
 			thumb: '',
 		},
+		textFilter: '',
 	};
+
+	public findInTextWrapper = (text: string) => {
+		if (this.props.textFilter) {
+			return (
+				reactStringReplace(text, this.props.textFilter, (match: string, i: number) => (
+					<span key={i} className={styles.highlighted}>{match}</span>
+				))
+			);
+		}
+
+		return text;
+	}
 
 	protected onSelect = () => {
 		const {image, onSelect} = this.props;
@@ -134,6 +149,7 @@ export default class ImageCard extends Component<IProps, IState> {
 	private readonly styleGetter = (tail: string) => styles[tail];
 
 	public render() {
+		const {findInTextWrapper} = this;
 		const {image, isActive} = this.props;
 		const {isNotesExpanded} = this.state;
 		const distro = image.distro.full_name;
@@ -141,7 +157,7 @@ export default class ImageCard extends Component<IProps, IState> {
 		const {thumb, targetdevice, notes} = image;
 
 		return (
-			<div ref='test' className={cn(styles.wrapper, {[styles.active]: isActive})}>
+			<div className={cn(styles.wrapper, {[styles.active]: isActive})}>
 				<div className={styles.header}>
 					<div
 						onClick={this.onSelect}
@@ -154,7 +170,7 @@ export default class ImageCard extends Component<IProps, IState> {
 				</div>
 				<div className={styles.titles}>
 					<img className={styles.titles_img} src={ thumb } />
-					<div className={styles.titles_main}>{ distro }</div>
+					<div className={styles.titles_main}>{ findInTextWrapper(distro) }</div>
 					<div className={styles.titles_sub}>
 						<Trans i18nKey='Image.StartedAt' />: { moment(startedAt).fromNow() }
 					</div>
@@ -163,7 +179,7 @@ export default class ImageCard extends Component<IProps, IState> {
 					{ targetdevice.icon &&
 						<img src={brandsLogos[targetdevice.icon]} className={styles.device_icon} alt=''/>
 					}
-					<span className={styles.device_name}>{targetdevice.title}</span>
+					<span className={styles.device_name}>{findInTextWrapper(targetdevice.title)}</span>
 				</div>
 				<div className={cn(styles.note, {[styles.note_open]: isNotesExpanded})}>
 					{
@@ -171,13 +187,13 @@ export default class ImageCard extends Component<IProps, IState> {
 							<>
 								{notes.length > 270 ?
 									<>
-										<div className={styles.note_wrapper}>{notes}</div>
+										<div className={styles.note_wrapper}>{findInTextWrapper(notes)}</div>
 										<div onClick={this.onNoteExpand} className={styles.note_expand}>
 											{isNotesExpanded ? 'contract' : 'expand'} notes text
 											<img className={styles.note_expand_icon} src={ExpandIconSVG} alt=''/>
 										</div>
 									</>
-									: <div>{notes}</div>
+									: <div>{findInTextWrapper(notes)}</div>
 								}
 							</>
 						: <Trans i18nKey='Dashboard.noDescription' />

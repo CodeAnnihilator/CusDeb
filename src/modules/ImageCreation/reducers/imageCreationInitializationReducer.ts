@@ -38,7 +38,7 @@ const initialState = {
 		distros: null,
 		buildTypes: null,
 	},
-	entitesFilters: {
+	entitiesFilters: {
 		brands: '',
 		targetDevices: '',
 		distros: '',
@@ -59,15 +59,15 @@ export default handleActions({
 	[types.SELECT_ENTITY]: (state: any , {payload: {entity, type, isSelected}}) => {
 		let isFounded = false;
 		let nextIndex = parseInt(state.currentInitializationSlide, 10);
-		const entitesFilters = {...state.entitesFilters};
-		const filtersTypes = Object.keys(entitesFilters);
+		const entitiesFilters = {...state.entitiesFilters};
+		const filtersTypes = Object.keys(entitiesFilters);
 
 		if (isSelected) {
 			if (nextIndex > 0) {
 				nextIndex -= 1;
 			}
 			for (let i = filtersTypes.indexOf(type); i < filtersTypes.length; i++) {
-				entitesFilters[filtersTypes[i]] = '';
+				entitiesFilters[filtersTypes[i]] = '';
 			}
 		} else if (nextIndex < 3) {
 			nextIndex += 1;
@@ -99,13 +99,13 @@ export default handleActions({
 					...(type === 'brands' ? {targetDevices: null} : null),
 				},
 			currentInitializationSlide: nextIndex,
-			entitesFilters: {...entitesFilters},
+			entitiesFilters: {...entitiesFilters},
 		});
 	},
 	[types.SET_FILTER_BY_TYPE]: (state: any , {payload: {filter, type}}) => ({
 		...state,
-		entitesFilters: {
-			...state.entitesFilters,
+		entitiesFilters: {
+			...state.entitiesFilters,
 			[type]: filter,
 		},
 	}),
