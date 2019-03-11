@@ -4,7 +4,7 @@ import BuildOptionsSection from './components/BuildOptionsSection/BuildOptionsSe
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
 import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
-import SearchOptionsSection from './components/SearchOptionsSection/SearchOptionsSection';
+import SearchOptionsSection from './containers/SearchOptionsSection';
 
 import styles from './dashboard.scss';
 
@@ -14,6 +14,7 @@ interface IProps {
 	activeImage: any;
 	selectImage: (name: string) => void;
 	imagesByActiveStatus: [any];
+	textFilter: string;
 }
 
 export default class Dashboard extends PureComponent<IProps> {
@@ -52,6 +53,7 @@ export default class Dashboard extends PureComponent<IProps> {
 		selectImage,
 		activeImage,
 		imagesByActiveStatus,
+		textFilter,
 	} = this.props;
 
 	return (
@@ -59,26 +61,27 @@ export default class Dashboard extends PureComponent<IProps> {
 			<BuildOptionsSection />
 			{ /* <ViewTabs /> */ }
 			<div className={styles.container}>
-				{
-					images.length > 0
-						? (
-							<div className={styles.images}>
-								<div className={styles.imagesCardWrapper}>
-									<SearchOptionsSection />
-									<ImagesCardView
-										images={images}
-										onSelect={selectImage}
-										activeImage={activeImage}
-										imagesByActiveStatus={imagesByActiveStatus}
-									/>
-								</div>
-								<CurrentImageTab
+				<div className={styles.images}>
+					<div className={styles.imagesCardWrapper}>
+						<SearchOptionsSection />
+						{
+							images.length ? (
+								<ImagesCardView
+									images={images}
+									onSelect={selectImage}
 									activeImage={activeImage}
+									imagesByActiveStatus={imagesByActiveStatus}
+									textFilter={textFilter}
 								/>
-							</div>
-						)
-						: <ImagesPreloader text='loading images' />
-				}
+							) : (
+								<ImagesPreloader text='loading images' />
+							)
+						}
+					</div>
+					<CurrentImageTab
+						activeImage={activeImage}
+					/>
+				</div>
 			</div>
 		</div>
 	);

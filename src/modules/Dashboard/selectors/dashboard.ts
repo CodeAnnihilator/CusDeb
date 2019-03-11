@@ -5,6 +5,8 @@ import {getImages} from 'common/selectors/entities';
 export const getActiveImageId = (state: any) => (state.dashboard || {}).activeImageId;
 export const getActiveImagesStatus = (state: any) => state.dashboard.activeImagesStatus;
 
+export const getImagesTextFilter = (state: any) => state.dashboard.displaying.textFilter || '';
+
 export const getActiveImage = createSelector(
 	[getImages, getActiveImageId],
 	(images, activeImageId) => images.find((image: any) => image.name === activeImageId),

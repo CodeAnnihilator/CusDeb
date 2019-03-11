@@ -16,7 +16,7 @@ export const getBrands = (state: any) =>  state.imageCreation.brands;
 export const getImageInitializationSlide = (state: any) => state.imageCreation.currentInitializationSlide;
 
 export const getSelectedItems = (state: any) =>  state.imageCreation.selectedItems;
-export const getEntitesFilters = (state: any) =>  state.imageCreation.entitesFilters;
+export const getEntitiesFilters = (state: any) =>  state.imageCreation.entitiesFilters;
 
 export const getSelectedItemByType = createSelector(
 	getSelectedItems,
@@ -84,10 +84,10 @@ export const getAlertTitleKey = createSelector(
 	},
 );
 
-export const makeGetInputValue = () => (state: any, type: string) => getEntitesFilters(state)[type];
+export const getInputValue = () => (state: any, type: string) => getEntitiesFilters(state)[type];
 
-export const makeGetImagesByType = () => createSelector(
-	getDistros, getTargetDevices, getBuildTypes, getBrands, makeGetInputValue(),
+export const getImagesByType = () => createSelector(
+	getDistros, getTargetDevices, getBuildTypes, getBrands, getInputValue(),
 	(_: any, type: string) => type,
 	(distros: any, targetDevices: any, buildTypes: any, brands: any, filter: any, type: string): any => {
 		let items = [];

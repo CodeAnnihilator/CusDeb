@@ -12,6 +12,7 @@ interface IProps {
 	};
 	onSelect: (name: string) => void;
 	imagesByActiveStatus: any;
+	textFilter: string;
 }
 
 const breakpointCols = {
@@ -24,7 +25,7 @@ const breakpointCols = {
 	767: 1,
 };
 
-const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, imagesByActiveStatus}) => (
+const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, imagesByActiveStatus, textFilter}) => (
 	<div className={styles.wrapper}>
 		<Masonry breakpointCols={breakpointCols}>
 			{imagesByActiveStatus.map((image: any, index: any) => (
@@ -33,6 +34,7 @@ const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, imagesByActive
 						image={image}
 						onSelect={onSelect}
 						isActive={image.name === activeImage.name}
+						textFilter={textFilter}
 					/>
 				))
 			}

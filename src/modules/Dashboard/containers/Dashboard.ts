@@ -1,18 +1,19 @@
 import {connect} from 'react-redux';
 
 import {requestImages} from 'common/actions/entities';
-import {getImages} from 'common/selectors/entities';
+import {getFilteredImages} from 'common/selectors/entities';
 
 import {getImagesByStatus} from 'modules/Dashboard/selectors/dashboard';
 
 import {selectImage} from '../actions/dashboard';
 import Dashboard from '../Dashboard';
-import {getActiveImage} from '../selectors/dashboard';
+import {getActiveImage, getImagesTextFilter} from '../selectors/dashboard';
 
 const mapStateToProps = (state: any) => ({
-	images: getImages(state),
+	images: getFilteredImages(state),
 	activeImage: getActiveImage(state),
 	imagesByActiveStatus: getImagesByStatus(state),
+	textFilter: getImagesTextFilter(state),
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

@@ -1,6 +1,7 @@
 import moment from 'moment';
 import randomNumInRange from 'utils/randomNumInRange';
 
+import brandsLogos from 'assets/images/brandsLogos';
 import InitializationIcon from 'assets/images/ChipIcon';
 import GearIcon from 'assets/images/ConfigurationIcon';
 import DebianSVG from 'assets/images/distributive/debian.svg';
