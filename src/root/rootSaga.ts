@@ -1,10 +1,10 @@
 import {all, fork} from 'redux-saga/effects';
 
 import watchEntities from 'common/sagas/entities';
+import authSaga from 'modules/Auth/sagas/authSaga';
 import watchImageDateOfCreation from 'modules/Dashboard/sagas/createDateUpdaterSaga';
 import watchDashboard from 'modules/Dashboard/sagas/dashboard';
-import authSaga from 'modules/RegAuth/Auth/sagas/authSaga';
-import registrationSaga from 'modules/RegAuth/Registration/sagas/registrationSaga';
+import registrationSaga from 'modules/Registration/CustomerRegistration/sagas/registrationSaga';
 
 export default function* rootSaga() {
 	yield all([

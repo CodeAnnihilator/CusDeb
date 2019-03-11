@@ -6,10 +6,11 @@ import {Redirect, Route, Switch} from 'react-router-dom';
 import CommonLayout from 'common/components/Layouts/Common/CommonLayout';
 import ProtectedLayout from 'common/components/Layouts/Protected/ProtectedLayout';
 
+import AuthContainer from 'modules/Auth/containers/AuthContainer';
 import Dashboard from 'modules/Dashboard/containers/Dashboard';
-import AuthContainer from 'modules/RegAuth/Auth/containers/AuthContainer';
-import HomeContainer from 'modules/RegAuth/Home/containers/HomeContainer';
-import RegistrationContainer from 'modules/RegAuth/Registration/containers/RegistrationContainer';
+import HomeContainer from 'modules/Home/containers/HomeContainer';
+// tslint:disable-next-line: max-line-length
+import ServicesRegistrationContainer from 'modules/Registration/ServicesRegistration/containers/ServicesRegistrationContainer';
 
 import ImageCreationRootContainer from 'modules/ImageCreation/containers/ImageCreationRootContainer';
 
@@ -37,9 +38,9 @@ const Routes = () => (
 					<Switch>
 						<Route exact path='/' component={HomeContainer} />
 						<Route path='/login' render={() => <AuthContainer />} />
-						<Route path='/registration' component={RegistrationContainer} />
-						<Route path='/plans' component={() => <div><h2>/plans route</h2></div>} />
-						<Route path='/features' component={() => <h2>/features route</h2>} />
+						<Route path='/registration' component={ServicesRegistrationContainer} />
+						<Route path='/blog' component={() => <div><h2>/blog route</h2></div>} />
+						<Route path='/pricing' component={() => <h2>/pricing route</h2>} />
 						<Route render={() => <div>Oops...</div>} />
 					</Switch>
 				</CommonLayout>

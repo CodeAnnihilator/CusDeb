@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HeaderContainer from 'modules/RegAuth/Header/containers/HeaderContainer';
+import HeaderContainer from '../../Header/containers/HeaderContainer';
 
 const AuthLayout = ({children}: any) => (
 	<div>
