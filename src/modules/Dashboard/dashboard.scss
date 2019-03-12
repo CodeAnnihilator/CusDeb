@@ -1,3 +1,5 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
 	display: flex;
 	min-height: 0px;
@@ -15,4 +17,16 @@
 .images {
 	width: 100%;
 	display: flex;
+}
+
+.imagesCardWrapper {
+	width: calc(100% - 300px);
+
+	@include tablet {
+		width: calc(100% - 250px);
+	}
+
+	@include mobile {
+		width: 100%;
+	}
 }

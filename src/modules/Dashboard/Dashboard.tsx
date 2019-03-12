@@ -4,6 +4,7 @@ import BuildOptionsSection from './components/BuildOptionsSection/BuildOptionsSe
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
 import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
+import SearchOptionsSection from './components/SearchOptionsSection/SearchOptionsSection';
 
 import styles from './dashboard.scss';
 
@@ -60,11 +61,14 @@ export default class Dashboard extends PureComponent<IProps> {
 					images.length > 0
 						? (
 							<div className={styles.images}>
-							<ImagesCardView
-								images={images}
-								onSelect={selectImage}
-								activeImage={activeImage}
-							/>
+							<div className={styles.imagesCardWrapper}>
+								<SearchOptionsSection />
+								<ImagesCardView
+									images={images}
+									onSelect={selectImage}
+									activeImage={activeImage}
+								/>
+							</div>
 							<CurrentImageTab
 								activeImage={activeImage}
 							/>

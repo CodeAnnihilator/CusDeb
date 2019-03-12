@@ -54,7 +54,12 @@
 		"ImageError": "Oops, something went wrong",
 		"issueWarning": "if the problem persists, please",
 		"reportAboutIssue": "report an issue",
-		"noDescription": "No description"
+		"noDescription": "No description",
+		"Filters": "Filters",
+		"HeadToActiveImage": "Head to active image",
+		"Placeholders": {
+			"TypeImageName": "type image name here..."
+		}
 	},
 	"ImageCreation": {
 		"SelectItems": "Select items",

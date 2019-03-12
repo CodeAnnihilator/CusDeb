@@ -7,9 +7,7 @@ import Flex from 'common/components/Flex/Flex';
 
 import LocaleIcon from 'assets/images/LocaleIcon';
 import LogoIcon from 'assets/images/LogoIcon';
-import UserIcon from 'assets/images/UserIcon';
 
-import {COLORS} from 'common/constants/entities';
 import i18n from 'locales/i18nextConfig';
 
 import styles from './header.scss';
@@ -17,6 +15,7 @@ import styles from './header.scss';
 interface IProps {
 	onToggle: () => void;
 	isMenuOpen: boolean;
+	isAuthenticated: boolean;
 }
 
 const setLanguage = () => i18n
@@ -49,20 +48,30 @@ const headerItems = [
 	},
 ];
 
-const Header: React.FC<IProps> = ({onToggle, isMenuOpen}) => (
+const URL = 'http://i.pravatar.cc/200';
+
+const Header: React.FC<IProps> = ({onToggle, isMenuOpen, isAuthenticated}) => (
 	<Flex className={styles.header}>
+		{isAuthenticated && (
+			<Flex
+				className={cn(styles.toggle, {[styles.toggle_active]: isMenuOpen})}
+				onClick={onToggle}
+			>
+				<div className={styles.toggle_img}>
+					<span /><span /><span /><span />
+				</div>
+			</Flex>
+		)}
 		<Flex
-			className={cn(styles.toggle, {[styles.toggle_active]: isMenuOpen})}
-			onClick={onToggle}
+			grow={1}
+			className={cn({
+				[styles.authenticated]: isAuthenticated,
+				[styles.login]: !isAuthenticated,
+			})}
 		>
-			<div className={styles.toggle_img}>
-				<span /><span /><span /><span />
-			</div>
-		</Flex>
-		<Flex justifyContent='center' grow={1}>
 			<Flex alignItems='center'>
 				<Flex indent='large'>
-					<LogoIcon className={styles.logoIcon} fill={COLORS.white} />
+					<LogoIcon className={styles.logoIcon} />
 				</Flex>
 				<Flex indent='large'>
 					<Flex
@@ -72,13 +81,10 @@ const Header: React.FC<IProps> = ({onToggle, isMenuOpen}) => (
 					>
 						CusDeb
 					</Flex>
-					<Flex indent='small' className={styles.headerLogoItemSubLogo}>
-						beta
-					</Flex>
 				</Flex>
 			</Flex>
 			<Flex className={styles.tabsHeader}>
-				{headerItems.map(({path, key, id}) => (
+				{!isAuthenticated && headerItems.map(({path, key, id}) => (
 					<NavLink
 						exact={path.indexOf('/registration') !== -1 ? false : true}
 						key={id}
@@ -89,16 +95,15 @@ const Header: React.FC<IProps> = ({onToggle, isMenuOpen}) => (
 						<Trans i18nKey={`RegAuth.${key}`} />
 					</NavLink>
 				))}
-				<div
-					className={styles.headerItem}
-					onClick={setLanguage}
-				>
-					<LocaleIcon className={styles.localeIcon} fill={COLORS.white} />
+				<div className={styles.headerItem} onClick={setLanguage}>
+					<LocaleIcon className={styles.localeIcon} />
 					{i18n.language.toUpperCase()}
 				</div>
-				<div className={styles.userInfo}>
-					<UserIcon className={styles.avatar} fill={COLORS.white} />
-				</div>
+				{isAuthenticated &&
+					<Flex alignItems='center'>
+						<img className={styles.avatar} src={URL} alt='Avatar' />
+					</Flex>
+				}
 			</Flex>
 		</Flex>
 	</Flex>

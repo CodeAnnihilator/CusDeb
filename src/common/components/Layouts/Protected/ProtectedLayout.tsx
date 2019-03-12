@@ -33,7 +33,7 @@ class MainLayout extends Component<IProps, IState> {
 		return isAuthenticated
 			? (
 				<div className={styles.page}>
-					<HeaderContainer onToggle={this.onToggle} isMenuOpen={!isCollapsed} />
+					<HeaderContainer onToggle={this.onToggle} isMenuOpen={!isCollapsed} isAuthenticated />
 					<div className={styles.wrapper}>
 						<LeftNavBarContainer isCollapsed={isCollapsed} />
 						{children}
