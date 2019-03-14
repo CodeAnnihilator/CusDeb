@@ -55,7 +55,12 @@
 		"ImageError": "Ой, что-то пошло не так",
 		"issueWarning": "Если ошибка воспроизводится, пожалуйста",
 		"reportAboutIssue": "сообщите о проблеме",
-		"noDescription": "Описание отсутствует"
+		"noDescription": "Описание отсутствует",
+		"Filters": "Фильтры",
+		"HeadToActiveImage": "Перейти к выбранному образу",
+		"Placeholders": {
+			"TypeImageName": "введите имя изображения здесь..."
+		}
 	},
 	"ImageCreation": {
 		"SelectItems": "Выберите элементы",
@@ -79,7 +84,7 @@
 		"Home": "Главная",
 		"Features": "Особенности",
 		"Plans": "Подписки",
-		"Pricing": "Ценообразование",
+		"Pricing": "Цены",
 		"Blog": "Блог",
 		"SignIn": "Войти",
 		"SignUp": "Регистрация",
