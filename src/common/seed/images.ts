@@ -103,25 +103,6 @@ export const brands = [
 	},
 ];
 
-export const targetDevices = [
-	{
-		title: 'Raspberry Pi Model B and B+',
-		icon: 'Raspberry',
-	},
-	{
-		title: 'Raspberry Pi 2 Model B',
-		icon: 'Raspberry',
-	},
-	{
-		title: 'Raspberry Pi 3 Model B',
-		icon: 'Raspberry',
-	},
-	{
-		title: 'Raspberry Pi Zero',
-		icon: 'Raspberry',
-	},
-];
-
 export const distros = [
 	{
 		title: 'Ubuntu 18.04 \'Bionic Beaver\' (32-bit)',
