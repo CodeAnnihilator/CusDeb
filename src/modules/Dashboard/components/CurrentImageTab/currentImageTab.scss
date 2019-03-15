@@ -3,7 +3,7 @@
 @import 'styles/colors.scss';
 
 .wrapper {
-	width: 330px;
+	width: 30%;
 	background-color: white;
 	border-left: 1px solid $gray100;
 	color: #4A4C5D;
@@ -22,7 +22,6 @@
 	}
 
 	@include tablet {
-		width: 250px;
 		height: calc(100vh - 70px);
 	}
 }
