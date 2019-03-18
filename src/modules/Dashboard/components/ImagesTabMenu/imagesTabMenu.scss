@@ -19,6 +19,7 @@
 	padding: 0 20px;
 	background-color: transparent;
 	border-left: 1px solid $imagesTabBorder;
+	cursor: pointer;
 
 	&:hover {
 		text-decoration: none;
@@ -49,4 +50,8 @@
 
 .faild {
 	color: $red600;
+}
+
+.active {
+	background-color: $activeImagesTabColor;
 }

@@ -5,6 +5,7 @@ import types from '../constants/dashboard';
 const initialState = {
 	activeImageId: null,
 	isPending: true,
+	activeImagesStatus: 'all',
 };
 
 export default handleActions({
@@ -12,5 +13,9 @@ export default handleActions({
 		...state,
 		activeImageId: action.payload,
 		isPending: false,
+	}),
+	[types.SET_ACTIVE_IMAGES_STATUS]: (state: any , action: any) => ({
+		...state,
+		activeImagesStatus: action.payload,
 	}),
 }, initialState);

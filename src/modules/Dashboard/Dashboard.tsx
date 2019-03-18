@@ -13,6 +13,7 @@ interface IProps {
 	requestImages: () => void;
 	activeImage: any;
 	selectImage: (name: string) => void;
+	imagesByActiveStatus: [any];
 }
 
 export default class Dashboard extends PureComponent<IProps> {
@@ -50,6 +51,7 @@ export default class Dashboard extends PureComponent<IProps> {
 		images,
 		selectImage,
 		activeImage,
+		imagesByActiveStatus,
 	} = this.props;
 
 	return (
@@ -61,17 +63,18 @@ export default class Dashboard extends PureComponent<IProps> {
 					images.length > 0
 						? (
 							<div className={styles.images}>
-							<div className={styles.imagesCardWrapper}>
-								<SearchOptionsSection />
-								<ImagesCardView
-									images={images}
-									onSelect={selectImage}
+								<div className={styles.imagesCardWrapper}>
+									<SearchOptionsSection />
+									<ImagesCardView
+										images={images}
+										onSelect={selectImage}
+										activeImage={activeImage}
+										imagesByActiveStatus={imagesByActiveStatus}
+									/>
+								</div>
+								<CurrentImageTab
 									activeImage={activeImage}
 								/>
-							</div>
-							<CurrentImageTab
-								activeImage={activeImage}
-							/>
 							</div>
 						)
 						: <ImagesPreloader text='loading images' />
