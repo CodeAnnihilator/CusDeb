@@ -3,7 +3,8 @@ import {combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 
 import entitiesReducer from 'common/reducers/entities';
-import userReduces from 'common/reducers/user';
+import interfaceReducer from 'common/reducers/interface';
+import userReducer from 'common/reducers/user';
 import authReducer from 'modules/Auth/reducer/authReducer';
 import dashboardReducer from 'modules/Dashboard/reducers/dashboard';
 import imageCreationInitializationReducer from 'modules/ImageCreation/reducers/imageCreationInitializationReducer';
@@ -12,7 +13,8 @@ import registrationReducer from 'modules/Registration/CustomerRegistration/reduc
 
 const rootReducer = (history: any) => combineReducers({
 	entities: entitiesReducer,
-	user: userReduces,
+	interface: interfaceReducer,
+	user: userReducer,
 	dashboard: dashboardReducer,
 	imageCreation: imageCreationInitializationReducer,
 	packagesStep: packagesStepReducer,

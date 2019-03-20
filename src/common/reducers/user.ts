@@ -3,13 +3,13 @@ import {handleActions} from 'redux-actions';
 import {
 	LOGIN,
 	LOGOUT,
-	SET_USER_ACCESS_TOKEN,
-	SET_USER_REFRESH_TOKEN,
+	SET_USER_DATA,
 } from '../constants/user';
 
 const initialState = {
 	isAuthenticated: false,
 	name: '',
+	isCheckingDone: false,
 };
 
 export default handleActions({
@@ -21,12 +21,8 @@ export default handleActions({
 		...state,
 		isAuthenticated: false,
 	}),
-	[SET_USER_ACCESS_TOKEN]: (state: any, {payload: {token}}) => ({
+	[SET_USER_DATA]: (state: any, {payload}) => ({
 		...state,
-		accessToken: token,
-	}),
-	[SET_USER_REFRESH_TOKEN]: (state: any, {payload: {token}}) => ({
-		...state,
-		refreshToken: token,
+		name: payload.username,
 	}),
 }, initialState);

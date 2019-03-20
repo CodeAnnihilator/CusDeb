@@ -11,7 +11,10 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-	proceedLogin: () => dispatch(login()),
+	proceedLogin: () => {
+		localStorage.setItem('isDeveloper', 'true');
+		dispatch(login());
+	},
 });
 
 export default withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(Header));

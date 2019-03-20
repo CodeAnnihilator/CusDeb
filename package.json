@@ -84,7 +84,6 @@
     "@types/jest": "24.0.9",
     "@types/node": "10.12.15",
     "@types/react-redux": "6.0.11",
-    "@types/react-router-dom": "4.3.1",
     "autodll-webpack-plugin": "0.4.2",
     "awesome-typescript-loader": "5.2.1",
     "babel-jest": "24.1.0",

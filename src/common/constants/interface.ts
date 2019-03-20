@@ -1,0 +1,3 @@
+export const types = {
+	SWITCH_IS_PRELOADING: 'INTERFACE/SWITCH_IS_PRELOADING',
+};

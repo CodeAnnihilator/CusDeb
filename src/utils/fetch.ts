@@ -1,35 +1,40 @@
 import axios from 'axios';
-import {push} from 'connected-react-router';
 
+import {logOut} from 'common/actions/user';
 import {backendURI} from 'config/main';
+import {setBearerToken} from 'utils/token';
 
 export const fetch = axios.create({
 	baseURL: backendURI,
 });
 
-export const createAxiosResponseInterceptor = () => {
-	const interceptor = axios.interceptors.response.use(
-		response => response,
-		error => {
-			if (error.response.status !== 401) {
-				return Promise.reject(error);
-			}
+setBearerToken(localStorage.getItem('access_token'));
 
-			axios.interceptors.response.eject(interceptor);
+export const axiosInstance = {
+	createAxiosResponseInterceptor: (store?: any) => {
+		const interceptor = fetch.interceptors.response.use(
+			response => response,
+			error => {
+				if (error.response.status !== 401) {
+					return Promise.reject(error);
+				}
 
-			return axios.post(`${backendURI}/auth/token/refresh/`, {
-				refresh_token: localStorage.getItem('refresh_token'),
-			}).then(response => {
-				localStorage.setItem('access_token', response.data);
-				error.response.config.headers['Authorization'] = `Bearer ${response.data.access}`;
+				fetch.interceptors.response.eject(interceptor);
 
-				return axios(error.response.config);
-			}).catch(refreshError => {
-				localStorage.clear();
-				push('/login');
+				return fetch.post('auth/token/refresh/', {
+					refresh: localStorage.getItem('refresh_token'),
+				}).then(response => {
+					localStorage.setItem('access_token', response.data.access);
+					error.response.config.headers['Authorization'] = `Bearer ${response.data.access}`;
 
-				return Promise.reject(refreshError);
-			}).finally(createAxiosResponseInterceptor);
-		},
-	);
+					return axios(error.response.config);
+				}).catch(refreshError => {
+
+					store.dispatch(logOut());
+
+					return Promise.reject(refreshError);
+				}).finally(axiosInstance.createAxiosResponseInterceptor);
+			},
+		);
+	},
 };
