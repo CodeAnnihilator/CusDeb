@@ -7,6 +7,7 @@ export interface IProps {
 	history: any;
 	isAuthenticated: boolean;
 	checkUserLogged: () => void;
+	isPreloading: boolean;
 }
 
 export interface IState {
