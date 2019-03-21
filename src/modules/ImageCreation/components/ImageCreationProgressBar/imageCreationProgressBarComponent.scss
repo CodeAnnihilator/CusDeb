@@ -1,6 +1,6 @@
 @import 'styles/colors.scss';
 
-$step-height: 45px;
+$step-height: 60px;
 $step-width: 190px;
 $icon-width: 18px;
 
@@ -62,9 +62,9 @@ $icon-width: 18px;
 		content: '';
 		border-top: 1px solid $gray200;
 		border-right: 1px solid $gray200;
-		width: 30px;
-		height: 30px;
-		bottom: 13px;
+		width: 33px;
+		height: 33px;
+		bottom: 14px;
 		right: 0;
 		position: absolute;
 		transform: rotate(45deg) skew(15deg, 15deg);

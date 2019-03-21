@@ -101,7 +101,7 @@
 .toggle {
 	display: flex;
 	height: 60px;
-	width: 60px;
+	width: 80px;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
@@ -146,12 +146,10 @@
 		}
 	}
 
-	/* stylelint-ignore */
 	@include mobile {
 		display: none;
-	};
-	/* stylelint-ignore */
+	}
 	@include tablet {
 		display: none;
-	};
+	}
 }
