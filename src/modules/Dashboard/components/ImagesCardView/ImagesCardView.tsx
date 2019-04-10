@@ -6,7 +6,7 @@ import ImageCard from './ImageCard/ImageCard';
 import styles from './imagesCardView.scss';
 
 interface IProps {
-	images: [any];
+	images: any[];
 	activeImage: {
 		name: string;
 	};
@@ -27,7 +27,7 @@ const breakpointCols = {
 const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, imagesByActiveStatus}) => (
 	<div className={styles.wrapper}>
 		<Masonry breakpointCols={breakpointCols}>
-			{imagesByActiveStatus.map((image: any, index: any) => (
+			{imagesByActiveStatus.map((image: any, index: number) => (
 					<ImageCard
 						key={index}
 						image={image}

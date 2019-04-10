@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {Dispatch} from 'redux';
 
 import {requestImages} from 'common/actions/entities';
 import {getImages} from 'common/selectors/entities';
@@ -15,7 +16,7 @@ const mapStateToProps = (state: any) => ({
 	imagesByActiveStatus: getImagesByStatus(state),
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
 	requestImages: () => dispatch(requestImages()),
 	selectImage: (name: any) => dispatch(selectImage(name)),
 });

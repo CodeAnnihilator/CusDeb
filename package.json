@@ -85,7 +85,6 @@
     "@types/node": "10.12.15",
     "@types/react-redux": "6.0.11",
     "autodll-webpack-plugin": "0.4.2",
-    "awesome-typescript-loader": "5.2.1",
     "babel-jest": "24.1.0",
     "babel-loader": "8.0.4",
     "babel-plugin-transform-async-to-generator": "6.24.1",

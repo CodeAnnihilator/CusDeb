@@ -11,23 +11,28 @@ import styles from './inputWithValidation.scss';
 import i18next from 'i18next';
 
 import {COLORS} from 'common/constants/entities';
+import {WrappedFieldProps} from 'redux-form';
 
-class InputWithValidation extends Component {
+interface InputWithValidationInterface extends WrappedFieldProps {
+	withSup: boolean;
+	type: string;
+}
+
+class InputWithValidation extends Component<InputWithValidationInterface> {
 	public static readonly defaultProps = {
 		withSup: false,
 	};
 
 	public render() {
 		const {
-			input: {label, name},
-			meta: {touched, error, warning},
+			input: {name},
+			meta: {touched, error},
 			withSup,
 			input,
 			type,
-		} = this.props as any;
+		} = this.props;
 
 		const HasError = touched && error;
-		const HasWarning = touched && warning;
 
 		return (
 			<Flex indent='large' className={styles.container} direction='column'>

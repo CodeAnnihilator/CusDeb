@@ -5,12 +5,11 @@ import styles from './imagesTabMenu.scss';
 
 interface IProps {
 	allImages: number;
-	buildingImages: number;
-	succededImages: number;
-	failedImages: number;
+	buildingImagesCount: number;
+	succededImagesCount: number;
+	failedImagesCount: number;
 	activeImagesStatus: string;
 	setActiveImagesStatus: any;
-	imagesByStatusCount: any;
 }
 
 class ImagesTabMenu extends Component<IProps> {
@@ -19,8 +18,9 @@ class ImagesTabMenu extends Component<IProps> {
 	};
 
 	public componentDidUpdate() {
-		const {buildingImages, activeImagesStatus, setActiveImagesStatus} = this.props;
-		if (activeImagesStatus === 'building' && buildingImages === 0) {
+		const {buildingImagesCount, activeImagesStatus, setActiveImagesStatus} = this.props;
+
+		if (activeImagesStatus === 'building' && buildingImagesCount === 0) {
 			setActiveImagesStatus('all');
 		}
 	}
@@ -28,9 +28,9 @@ class ImagesTabMenu extends Component<IProps> {
 	public render() {
 		const {
 			allImages,
-			buildingImages,
-			succededImages,
-			failedImages,
+			buildingImagesCount,
+			succededImagesCount,
+			failedImagesCount,
 			activeImagesStatus,
 			setActiveImagesStatus,
 		} = this.props;
@@ -41,17 +41,17 @@ class ImagesTabMenu extends Component<IProps> {
 				type: 'all',
 			},
 			{
-				count: buildingImages,
+				count: buildingImagesCount,
 				title: 'Building images',
 				type: 'building',
 			},
 			{
-				count: failedImages,
+				count: failedImagesCount,
 				title: 'Failed images',
 				type: 'error',
 			},
 			{
-				count: succededImages,
+				count: succededImagesCount,
 				title: 'Succeded images',
 				type: 'ready',
 			},
