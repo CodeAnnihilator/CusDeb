@@ -10,17 +10,18 @@ import {
 import {setActiveImagesStatus} from 'modules/Dashboard/actions/dashboard';
 
 import ImagesTabMenu from '../components/ImagesTabMenu/ImagesTabMenu';
+import {getActiveImagesStatus} from '../selectors/dashboard';
 
 const mapStateToProps = (state: any) => ({
-		allImages: getAllImagesCount(state),
-		buildingImages: getBuildingImagesCount(state),
-		succededImages: getSuccededImagesCount(state),
-		failedImages: getFailedImagesCount(state),
-		activeImagesStatus: state.dashboard.activeImagesStatus,
+	allImages: getAllImagesCount(state),
+	buildingImagesCount: getBuildingImagesCount(state),
+	succededImagesCount: getSuccededImagesCount(state),
+	failedImagesCount: getFailedImagesCount(state),
+	activeImagesStatus: getActiveImagesStatus(state),
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-	setActiveImagesStatus: (status: any) => dispatch(setActiveImagesStatus(status)),
-});
+const mapDispatchToProps = {
+	setActiveImagesStatus,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImagesTabMenu as any);
+export default connect(mapStateToProps, mapDispatchToProps)(ImagesTabMenu);

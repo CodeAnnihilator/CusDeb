@@ -1,6 +1,7 @@
+import {History} from 'history';
 import React from 'react';
 import {Trans} from 'react-i18next';
-import {NavLink, Route} from 'react-router-dom';
+import {match as MatchInterface, NavLink, Route} from 'react-router-dom';
 
 import Flex from 'common/components/Flex/Flex';
 
@@ -17,9 +18,9 @@ import GoogleIcon from 'assets/images/google-icon.svg';
 import {FaGithub} from 'react-icons/fa';
 
 interface IProps {
-	match: any;
+	match: MatchInterface;
 	isAuthenticated: boolean;
-	history: any;
+	history: History;
 }
 
 const ICON_SIZE = 24;
@@ -54,7 +55,9 @@ const ServicesRegistration: React.FC<IProps> = ({match}) => (
 									<Trans i18nKey='RegAuth.AlreadyHaveAccount' />?
 								</Flex>
 								<Flex indent='small'>
-									<NavLink to='/login'><Trans i18nKey='RegAuth.SignIn' /></NavLink>
+									<NavLink to='/login'>
+										<Trans i18nKey='RegAuth.SignIn' />
+									</NavLink>
 								</Flex>
 							</Flex>
 						</Flex>
@@ -64,13 +67,13 @@ const ServicesRegistration: React.FC<IProps> = ({match}) => (
 							justifyContent='center'
 							wrap='wrap'
 						>
-							<span><Trans i18nKey={'RegAuth.Agreement'}/></span>
+							<span><Trans i18nKey='RegAuth.Agreement'/></span>
 							<a href='#'>
-								<span><Trans i18nKey={'RegAuth.TermsAndServices'}/></span>
+								<span><Trans i18nKey='RegAuth.TermsAndServices'/></span>
 							</a>
-							<span><Trans i18nKey={'common.and'}/></span>
+							<span><Trans i18nKey='common.and'/></span>
 							<a href='#'>
-								<span><Trans i18nKey={'RegAuth.PrivacyPolicy'}/></span>
+								<span><Trans i18nKey='RegAuth.PrivacyPolicy'/></span>
 							</a>
 						</Flex>
 						<Flex
