@@ -5,7 +5,7 @@ interface IProps {
 	className?: string;
 }
 /* tslint:disable */
-const ConfigurationIcon: React.FC<IProps> = ({fill, className}) => (
+const GearIcon: React.FC<IProps> = ({fill, className}) => (
 	<svg
 		x="0px"
 		y="0px"
@@ -43,4 +43,4 @@ const ConfigurationIcon: React.FC<IProps> = ({fill, className}) => (
 	</svg>
 );
 
-export default ConfigurationIcon;
+export default GearIcon;

@@ -1,6 +1,5 @@
-import {createSelector} from 'reselect';
-
 import React from 'react';
+import {createSelector} from 'reselect';
 
 import BrandsLogos from 'assets/images/brandsLogos';
 import DestributivesLogos from 'assets/images/distributivesLogos';

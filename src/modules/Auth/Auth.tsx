@@ -23,9 +23,10 @@ import {FaGithub} from 'react-icons/fa';
 
 const ICON_SIZE = 24;
 
-export default class Auth extends React.PureComponent<any> {
-	private readonly onSubmit = (event: any) => {
-		event.persist();
+import {IProps} from './auth.d';
+
+export default class Auth extends React.PureComponent<IProps> {
+	private readonly onSubmit = () => {
 		this.props.sendAuthData();
 	}
 

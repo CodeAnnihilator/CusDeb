@@ -1,6 +1,6 @@
-import {brands, buildTypes, distros, stepsImages} from 'common/seed/images';
-
 import {handleActions} from 'redux-actions';
+
+import {brands, buildTypes, distros, stepsImages} from 'common/seed/images';
 import types from '../constants/contants';
 
 const initialState = {

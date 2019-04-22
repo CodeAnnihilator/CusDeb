@@ -17,7 +17,7 @@
 		"plugins": [
 			{
 			"name": "typescript-tslint-plugin",
-			"alwaysShowRuleFailuresAsWarnings": false,
+			"alwaysShowRuleFailuresAsWarnings": true,
 			"ignoreDefinitionFiles": false,
 			"configFile": "./tslint.json",
 			"suppressWhileTypeErrorsPresent": false,

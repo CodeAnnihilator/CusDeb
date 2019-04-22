@@ -31,7 +31,7 @@ class MainLayout extends Component<IProps, IState> {
 		const {isPreloading, isAuthenticated, children} = this.props;
 		const {isCollapsed} = this.state;
 
-		return !isPreloading ? (
+		return isPreloading ? (
 			<Flex
 				justifyContent='center'
 				alignItems='center'
@@ -44,7 +44,7 @@ class MainLayout extends Component<IProps, IState> {
 					<div className={styles.page}>
 						<HeaderContainer onToggle={this.onToggle} isMenuOpen={!isCollapsed} isAuthenticated />
 						<div className={styles.wrapper}>
-							<LeftNavBarContainer isCollapsed />
+							<LeftNavBarContainer isCollapsed={isCollapsed} />
 							{children}
 						</div>
 					</div>
