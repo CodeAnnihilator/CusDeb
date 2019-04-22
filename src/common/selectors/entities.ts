@@ -1,4 +1,4 @@
-import moment, {Moment} from 'moment';
+import moment from 'moment';
 import {createSelector} from 'reselect';
 
 export const getImages = (state: any) => state.entities.images;

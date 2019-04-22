@@ -7,7 +7,9 @@ import {login} from 'common/actions/user';
 import {getIsAuthenticated} from 'common/selectors/user';
 import {Dispatch} from 'redux';
 
-const mapStateToProps = (state: any) => ({
+import {IState} from 'common/types/entities.d';
+
+const mapStateToProps = (state: IState) => ({
 	isAuthenticated: getIsAuthenticated(state),
 });
 

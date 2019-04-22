@@ -1,4 +1,5 @@
 import {connectRouter} from 'connected-react-router';
+import {History} from 'history';
 import {combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 
@@ -11,14 +12,14 @@ import imageCreationInitializationReducer from 'modules/ImageCreation/reducers/i
 import packagesStepReducer from 'modules/Packages/PackagesTable/reducers/packagesStepReducer';
 import registrationReducer from 'modules/Registration/CustomerRegistration/reducer/registrationReducer';
 
-const rootReducer = (history: any) => combineReducers({
+const rootReducer = (history: History) => combineReducers({
 	entities: entitiesReducer,
 	interface: interfaceReducer,
 	user: userReducer,
 	dashboard: dashboardReducer,
 	imageCreation: imageCreationInitializationReducer,
 	packagesStep: packagesStepReducer,
-	router: connectRouter(history as any),
+	router: connectRouter(history),
 	form: formReducer.plugin({
 		auth: authReducer,
 		registration: registrationReducer,

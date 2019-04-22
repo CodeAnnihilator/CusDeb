@@ -13,16 +13,7 @@ const initialState = {
 };
 
 export default handleActions({
-	[LOGIN]: (state: any) => ({
-		...state,
-		isAuthenticated: true,
-	}),
-	[LOGOUT]: (state: any) => ({
-		...state,
-		isAuthenticated: false,
-	}),
-	[SET_USER_DATA]: (state: any, {payload}) => ({
-		...state,
-		name: payload.username,
-	}),
+	[LOGIN]: (state: any) => ({...state, isAuthenticated: true}),
+	[LOGOUT]: (state: any) => ({...state, isAuthenticated: false}),
+	[SET_USER_DATA]: (state: any, {payload}) => ({...state, name: payload.username}),
 }, initialState);

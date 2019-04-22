@@ -9,7 +9,9 @@ import {getIsAuthenticated} from 'common/selectors/user';
 import Auth from '../Auth';
 import {getValidationError} from '../selectors/selectors';
 
-const mapStateToProps = (state: any) => ({
+import {IState} from '../index.d';
+
+const mapStateToProps = (state: IState) => ({
 	isSubmitting: isSubmitting('auth')(state),
 	isAuthenticated: getIsAuthenticated(state),
 	validationError: getValidationError(state),

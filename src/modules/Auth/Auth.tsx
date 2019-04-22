@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import React from 'react';
+import React, {PureComponent} from 'react';
 import {Trans} from 'react-i18next';
 import {NavLink, Redirect} from 'react-router-dom';
-import {Field} from 'redux-form';
+import {Field, InjectedFormProps} from 'redux-form';
 
 import Flex from 'common/components/Flex/Flex';
 
@@ -25,7 +25,7 @@ const ICON_SIZE = 24;
 
 import {IProps} from './auth.d';
 
-export default class Auth extends React.PureComponent<IProps> {
+export default class Auth extends React.PureComponent<InjectedFormProps<{}> & IProps> {
 	private readonly onSubmit = () => {
 		this.props.sendAuthData();
 	}

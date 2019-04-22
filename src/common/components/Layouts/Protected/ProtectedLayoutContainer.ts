@@ -7,7 +7,12 @@ import {getInterfaceIsPreloading} from 'common/selectors/interface';
 import {getIsAuthenticated} from 'common/selectors/user';
 import ProtectedLayout from './ProtectedLayout';
 
-const mapStateToProps = (state: any) => ({
+import {IInterfaceState} from 'common/types/interface.d';
+import {IUserState} from 'common/types/user.d';
+
+interface IMappedState extends IInterfaceState, IUserState {}
+
+const mapStateToProps = (state: IMappedState) => ({
 	isAuthenticated: getIsAuthenticated(state),
 	isPreloading: getInterfaceIsPreloading(state),
 });
@@ -17,4 +22,4 @@ const mapDispatchToProps = {
 	login,
 };
 
-export default withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(ProtectedLayout) as any);
+export default withRouter<any>(connect(mapStateToProps, mapDispatchToProps)(ProtectedLayout));

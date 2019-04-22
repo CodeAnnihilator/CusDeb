@@ -16,7 +16,7 @@ interface IProps {
 	onToggle: () => void;
 	isMenuOpen: boolean;
 	isAuthenticated: boolean;
-	proceedLogin: any;
+	proceedLogin(): void;
 }
 
 const setLanguage = () => i18n

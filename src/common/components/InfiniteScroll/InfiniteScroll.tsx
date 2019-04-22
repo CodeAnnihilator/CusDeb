@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, RefObject} from 'react';
 
 interface IProps {
 	children: React.ReactChild[];
@@ -11,7 +11,7 @@ interface IState {
 }
 
 export default class InfiniteScroll extends PureComponent<IProps, IState> {
-	private readonly scroll: any;
+	private readonly scroll: RefObject<HTMLDivElement>;
 
 	constructor(props: IProps) {
 		super(props);
@@ -36,9 +36,11 @@ export default class InfiniteScroll extends PureComponent<IProps, IState> {
 		const {currentCount, totalCount} = this.state;
 		const {innerHeight, innerWidth} = window;
 		if (currentCount === totalCount) return;
-		const rect = this.scroll.getBoundingClientRect();
-		const isAtEnd = rect.bottom <= innerHeight && rect.right <= innerWidth;
-		if (isAtEnd) this.setState(st => ({currentCount: st.currentCount + 3}));
+		if (this.scroll.current) {
+			const rect = this.scroll.current.getBoundingClientRect();
+			const isAtEnd = rect.bottom <= innerHeight && rect.right <= innerWidth;
+			if (isAtEnd) this.setState(st => ({currentCount: st.currentCount + 3}));
+		}
 	}
 
 	public render() {

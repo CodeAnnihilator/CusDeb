@@ -1,4 +1,4 @@
 export interface IState {
-    isSubmitting: boolean;
-    validationError: any;
+	isSubmitting: boolean;
+	validationError: any;
 }

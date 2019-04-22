@@ -1,7 +1,9 @@
 import {handleActions} from 'redux-actions';
 import {types} from '../constants/entities';
 
-const initialState = {
+import {IState} from '../types/entities';
+
+const initialState: IState = {
 	images: [],
 };
 

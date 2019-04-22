@@ -6,4 +6,4 @@ interface IProps extends RouteComponentProps {
 	isCollapsed: boolean;
 }
 
-export default withRouter<IProps>(LeftNavBar as any);
+export default withRouter<IProps>(LeftNavBar);

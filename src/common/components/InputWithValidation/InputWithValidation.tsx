@@ -13,12 +13,12 @@ import i18next from 'i18next';
 import {COLORS} from 'common/constants/entities';
 import {WrappedFieldProps} from 'redux-form';
 
-interface InputWithValidationInterface extends WrappedFieldProps {
+export interface InputWithValidProps extends WrappedFieldProps {
 	withSup: boolean;
 	type: string;
 }
 
-class InputWithValidation extends Component<InputWithValidationInterface> {
+class InputWithValidation extends Component<InputWithValidProps> {
 	public static readonly defaultProps = {
 		withSup: false,
 	};
