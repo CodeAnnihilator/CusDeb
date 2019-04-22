@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {MouseEvent} from 'react';
 
 interface IProps {
 	active: boolean;
 	fill?: string;
 	className?: string;
-	onClick?: any;
+	onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 }
 /* tslint:disable */
 const CheckboxIcon: React.FC<IProps> = ({fill, active, className}) => {

@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default handleActions({
-	[types.REQUEST_IMAGES_SUCCESS]: (state: any, action: any) => ({...state, images: action.payload}),
+	[types.REQUEST_IMAGES_SUCCESS]: (state: any, {payload}) => ({...state, images: payload}),
 	[types.UPDATE_IMAGES_START_DATE]: (state: any, {payload: {images}}: any) => ({
 		...state,
 		images: state.images.map((oldItem: any) => {
