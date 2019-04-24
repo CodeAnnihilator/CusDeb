@@ -1,14 +1,16 @@
 import {push} from 'connected-react-router';
 import {batchActions} from 'redux-batched-actions';
-import {all, call, put, select, takeLatest} from 'redux-saga/effects';
-
-import {SEND_AUTH_DATA} from '../constants/authConstants';
-
-import {login, writeAccessToken, writeRefreshToken} from 'common/actions/user';
 import {getFormValues, startSubmit, stopSubmit} from 'redux-form';
 import {delay} from 'redux-saga';
-import {changeLoginError} from '../actions/authActions';
+import {all, call, put, select, takeLatest} from 'redux-saga/effects';
+
+import {whoAmIRequest} from 'modules/Auth/api/requests';
+import {setBearerToken} from 'utils/token';
 import {loginRequest} from '../api/requests';
+
+import {login, setUserData} from 'common/actions/user';
+import {changeLoginError} from '../actions/authActions';
+import {SEND_AUTH_DATA} from '../constants/authConstants';
 
 function* sendLoginData() {
 	//tslint:disable
@@ -17,10 +19,17 @@ function* sendLoginData() {
 	try {
 		yield all([put(startSubmit('auth')), call(delay, 1000)]);
 		
-		const request = yield call(loginRequest, authData);
+		const authResponse = yield call(loginRequest, authData);
+		
+		localStorage.setItem('access_token', authResponse.data.access);
+		localStorage.setItem('refresh_token', authResponse.data.refresh);
+		
+		setBearerToken(authResponse.data.access);
+		
+		const {data} = yield call(whoAmIRequest);
+		yield put(setUserData(data));
+
 		yield put(batchActions([
-			writeAccessToken(request.data.access),
-			writeRefreshToken(request.data.refresh),
 			login(),
 			push('/user'),
 		]))

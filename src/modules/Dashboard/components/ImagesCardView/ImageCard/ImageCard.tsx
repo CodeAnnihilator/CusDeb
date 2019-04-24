@@ -170,7 +170,7 @@ export default class ImageCard extends Component<IProps, IState> {
 				</div>
 				<div className={styles.titles}>
 					<img className={styles.titles_img} src={ thumb } />
-					<div className={styles.titles_main}>{ findInTextWrapper(distro) }</div>
+					<div className={styles.titles_main}>{findInTextWrapper(distro)}</div>
 					<div className={styles.titles_sub}>
 						<Trans i18nKey='Image.StartedAt' />: { moment(startedAt).fromNow() }
 					</div>

@@ -11,12 +11,11 @@
 	@include mobile {
 		min-width: auto;
 		width: auto;
-	};
-	/* stylelint-ignore */
+	}
 	@include tablet {
 		min-width: auto;
 		width: auto;
-	};
+	}
 }
 
 .navigation {
@@ -35,8 +34,7 @@
 		height: 40px;
 		align-items: center;
 		position: relative;
-		cursor: pointer;
-		padding: 10px 20px 9px 20px;
+		padding: 10px 25px;
 		border-bottom: 1px solid #252B31;
 		cursor: pointer;
 		text-decoration: none;
@@ -46,14 +44,14 @@
 		}
 
 		&_img {
-			width: 20px;
-			height: 20px;
+			width: 30px;
+			height: 25px;
 			position: absolute;
 		}
 
 		&_text {
 			font-size: 14px;
-			margin-left: 50px;
+			margin-left: 55px;
 			color: inherit;
 		}
 	}
@@ -66,7 +64,7 @@
 }
 
 .collapsed {
-	max-width: 60px;
+	max-width: 80px;
 	
 	@include mobile {
 		min-width: auto;

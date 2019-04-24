@@ -73,14 +73,10 @@ export default class Dashboard extends PureComponent<IProps> {
 									imagesByActiveStatus={imagesByActiveStatus}
 									textFilter={textFilter}
 								/>
-							) : (
-								<ImagesPreloader text='loading images' />
-							)
+							) : <ImagesPreloader text='loading images' />
 						}
 					</div>
-					<CurrentImageTab
-						activeImage={activeImage}
-					/>
+					<CurrentImageTab activeImage={activeImage} />
 				</div>
 			</div>
 		</div>

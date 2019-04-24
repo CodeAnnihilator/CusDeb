@@ -1,9 +1,9 @@
 @import 'styles/colors.scss';
 
 .headerWrapper {
-	padding: 15px 0px 10px 45px;
+	padding: 20px 0 10px 45px;
 	position: sticky;
-	top: 45px;
+	top: 60px;
 	z-index: 180;
 	background-color: white;
 	border-bottom: 1px solid $gray300;
@@ -27,7 +27,6 @@
 }
 
 .headerButtonsWrapper {
-	margin-top: 10px;
 	position: absolute;
 	right: 20px;
 	bottom: 10px;

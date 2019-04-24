@@ -1,4 +1,4 @@
-import moment, {Moment} from 'moment';
+import moment from 'moment';
 import {createSelector} from 'reselect';
 
 export const getImages = (state: any) => state.entities.images;
@@ -9,16 +9,6 @@ export const getAllImagesCount = (state: any) => state.entities.images.length;
 export const getBuildingImages = createSelector(
 	getImages,
 	images => images.filter((item: any) => item.build.status === 'building'),
-);
-
-export const getFilteredImages = createSelector(
-	getImages,
-	getImagesTextFilter,
-	(images, substr) => images.filter((image: any) => (
-		image.notes.toLowerCase().includes(substr.toLowerCase())
-		|| image.distro.full_name.toLowerCase().includes(substr.toLowerCase())
-		|| image.targetdevice.title.toLowerCase().includes(substr.toLowerCase())
-	)),
 );
 
 export const getBuildingImagesCount = createSelector(

@@ -83,7 +83,7 @@ const CustomerRegistration = (props: any) => (
 				/>
 				<Field
 					name='email'
-					component={InputWithValidation as any}
+					component={InputWithValidation as any} // we need to check how to resolve that issue
 					type='text'
 					validate={[rules.required, rules.email]}
 					withSup

@@ -9,17 +9,10 @@ import {batchDispatchMiddleware, enableBatching} from 'redux-batched-actions';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-import throttle from 'lodash.throttle';
-
+import {axiosInstance} from 'utils/fetch';
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 import Routes from './Routes';
-
-import {getCurrentUser} from 'common/selectors/user';
-
-import {loadState, saveState} from 'utils/localStorage';
-
-// import {whyDidYouUpdate} from 'why-did-you-update';
 
 import 'locales/i18nextConfig';
 import 'styles/index.scss';
@@ -28,15 +21,12 @@ moment.defaultFormat = 'YYYY.MM.DD';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const history = createHistory({
+export const history = createHistory({
 	basename: `/${process.env.PREFIX}`,
 });
 
-const persistedState = loadState();
-
 const store = createStore(
 	enableBatching(rootReducer(history)),
-	persistedState,
 	composeWithDevTools(
 		applyMiddleware(
 			routerMiddleware(history),
@@ -46,15 +36,9 @@ const store = createStore(
 	),
 );
 
-store.subscribe(throttle(() => {
-	saveState({
-		user: getCurrentUser(store.getState()),
-	});
-}, 1000));
+axiosInstance.createAxiosResponseInterceptor(store);
 
 sagaMiddleware.run(rootSaga);
-
-// whyDidYouUpdate(React, {include: [/^Select/], exclude: [/^Connect/]} as any); use for re-renders searching
 
 render((
 	<Provider store={store}>

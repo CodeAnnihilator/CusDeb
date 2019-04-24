@@ -3,8 +3,16 @@ import React, {PureComponent} from 'react';
 import styles from './masonry.scss';
 
 interface IProps {
-	children: any;
-	breakpointCols: any;
+	children: HTMLElement[];
+	breakpointCols: any | {
+		default: number;
+		2500: number;
+		2200: number;
+		1900: number;
+		1600: number;
+		1400: number;
+		767: number;
+	};
 }
 
 interface IState {
