@@ -6,12 +6,11 @@ import ImageCard from './ImageCard/ImageCard';
 import styles from './imagesCardView.scss';
 
 interface IProps {
-	images: any[];
+	images: any;
 	activeImage: {
 		name: string;
 	};
 	onSelect: (name: string) => void;
-	imagesByActiveStatus: any;
 	textFilter: string;
 }
 
@@ -25,10 +24,10 @@ const breakpointCols = {
 	767: 1,
 };
 
-const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, imagesByActiveStatus, textFilter}) => (
+const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, images, textFilter}) => (
 	<div className={styles.wrapper}>
 		<Masonry breakpointCols={breakpointCols}>
-			{imagesByActiveStatus.map((image: any, index: number) => (
+			{images.map((image: any, index: number) => (
 					<ImageCard
 						key={index}
 						image={image}
@@ -46,7 +45,6 @@ ImagesCardView.defaultProps = {
 	activeImage: {
 		name: '',
 	},
-	imagesByActiveStatus: [],
 };
 
 export default ImagesCardView;

@@ -46,13 +46,6 @@ export default class ImageCard extends Component<IProps, IState> {
 		isNotesExpanded: false,
 	};
 
-	public static defaultProps = {
-		image: {
-			thumb: '',
-		},
-		textFilter: '',
-	};
-
 	public findInTextWrapper = (text: string) => {
 		if (this.props.textFilter) {
 			return (
@@ -76,8 +69,8 @@ export default class ImageCard extends Component<IProps, IState> {
 
 	public renderContent = () => {
 		const {styleGetter} = this;
-
 		const {image} = this.props;
+
 		const [status, activeStep, totalSteps] = ['status', 'activeStep', 'totalSteps']
 			.map(item => image.build[item]);
 

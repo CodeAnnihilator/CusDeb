@@ -2,8 +2,8 @@ import React, {ChangeEvent, PureComponent} from 'react';
 
 import BuildOptionsSection from './components/BuildOptionsSection/BuildOptionsSection';
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
-import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
+import ImagesCardView from './containers/ImageCardViewContainer';
 import SearchOptionsSection from './containers/SearchOptionsSection';
 
 import styles from './dashboard.scss';
@@ -52,7 +52,6 @@ export default class Dashboard extends PureComponent<IProps> {
 		images,
 		selectImage,
 		activeImage,
-		imagesByActiveStatus,
 		textFilter,
 	} = this.props;
 
@@ -67,10 +66,8 @@ export default class Dashboard extends PureComponent<IProps> {
 						{
 							images.length ? (
 								<ImagesCardView
-									images={images}
 									onSelect={selectImage}
 									activeImage={activeImage}
-									imagesByActiveStatus={imagesByActiveStatus}
 									textFilter={textFilter}
 								/>
 							) : <ImagesPreloader text='loading images' />

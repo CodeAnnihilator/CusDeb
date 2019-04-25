@@ -10,7 +10,6 @@ import {getActiveImage, getFilteredImages, getImagesTextFilter} from '../selecto
 const mapStateToProps = (state: any) => ({
 	images: getFilteredImages(state),
 	activeImage: getActiveImage(state),
-	imagesByActiveStatus: getFilteredImages(state),
 	textFilter: getImagesTextFilter(state),
 });
 
