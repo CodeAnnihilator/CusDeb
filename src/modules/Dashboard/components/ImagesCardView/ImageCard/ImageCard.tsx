@@ -20,15 +20,19 @@ import styles from './imageCard.scss';
 interface IProps {
 	image: {
 		name: string;
+		highlighted_name: any;
 		notes: string;
+		highlighted_notes: any;
 		build: string;
 		distro: {
 			full_name: string;
+			highlighted_full_name: any;
 		};
 		started_at: string;
 		thumb: string;
 		targetdevice: {
 			title: string;
+			highlighted_title: any;
 			icon?: string;
 		};
 	};
@@ -149,12 +153,11 @@ export default class ImageCard extends Component<IProps, IState> {
 	private readonly styleGetter = (tail: string) => styles[tail];
 
 	public render() {
-		const {findInTextWrapper} = this;
 		const {image, isActive} = this.props;
 		const {isNotesExpanded} = this.state;
-		const distro = image.distro.full_name;
+		const distro = image.distro.highlighted_full_name;
 		const startedAt = image.started_at;
-		const {thumb, targetdevice, notes} = image;
+		const {thumb, targetdevice, notes, highlighted_notes} = image;
 
 		return (
 			<div className={cn(styles.wrapper, {[styles.active]: isActive})}>
@@ -170,7 +173,7 @@ export default class ImageCard extends Component<IProps, IState> {
 				</div>
 				<div className={styles.titles}>
 					<img className={styles.titles_img} src={ thumb } />
-					<div className={styles.titles_main}>{findInTextWrapper(distro)}</div>
+					<div className={styles.titles_main}>{distro}</div>
 					<div className={styles.titles_sub}>
 						<Trans i18nKey='Image.StartedAt' />: { moment(startedAt).fromNow() }
 					</div>
@@ -179,7 +182,7 @@ export default class ImageCard extends Component<IProps, IState> {
 					{ targetdevice.icon &&
 						<img src={brandsLogos[targetdevice.icon]} className={styles.device_icon} alt=''/>
 					}
-					<span className={styles.device_name}>{findInTextWrapper(targetdevice.title)}</span>
+					<span className={styles.device_name}>{targetdevice.title}</span>
 				</div>
 				<div className={cn(styles.note, {[styles.note_open]: isNotesExpanded})}>
 					{
@@ -187,13 +190,13 @@ export default class ImageCard extends Component<IProps, IState> {
 							<>
 								{notes.length > 270 ?
 									<>
-										<div className={styles.note_wrapper}>{findInTextWrapper(notes)}</div>
+										<div className={styles.note_wrapper}>{highlighted_notes}</div>
 										<div onClick={this.onNoteExpand} className={styles.note_expand}>
 											{isNotesExpanded ? 'contract' : 'expand'} notes text
 											<img className={styles.note_expand_icon} src={ExpandIconSVG} alt=''/>
 										</div>
 									</>
-									: <div>{findInTextWrapper(notes)}</div>
+									: <div>{highlighted_notes}</div>
 								}
 							</>
 						: <Trans i18nKey='Dashboard.noDescription' />
