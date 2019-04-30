@@ -1,7 +1,7 @@
-import {createAction} from 'redux-actions';
-import {types} from '../constants/interface';
+import {createStandardAction} from 'typesafe-actions';
 
-export const switchIsPreloading = createAction(
-	types.SWITCH_IS_PRELOADING,
-	(value: boolean) => value,
-);
+import {interfaceActionTypes} from '../constants/interface';
+
+export const switchIsPreloading =
+	createStandardAction(interfaceActionTypes.SWITCH_IS_PRELOADING)
+		<boolean>();

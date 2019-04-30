@@ -1,21 +1,37 @@
-import {handleActions} from 'redux-actions';
+import {ActionType, getType} from 'typesafe-actions';
 
-import types from '../constants/dashboard';
+import * as actions from '../actions/dashboard';
+export interface IDashboardState {
+	activeImageId: null | string;
+	isPending: boolean;
+	activeImagesStatus: string;
+}
 
-const initialState = {
+const initialState: IDashboardState = {
 	activeImageId: null,
 	isPending: true,
 	activeImagesStatus: 'all',
 };
 
-export default handleActions({
-	[types.SELECT_IMAGE]: (state: any , action: any) => ({
-		...state,
-		activeImageId: action.payload,
-		isPending: false,
-	}),
-	[types.SET_ACTIVE_IMAGES_STATUS]: (state: any , action: any) => ({
-		...state,
-		activeImagesStatus: action.payload,
-	}),
-}, initialState);
+export type DashboardActions = ActionType<typeof actions>;
+
+export default (state = initialState, action: DashboardActions): IDashboardState => {
+	switch (action.type) {
+
+		case getType(actions.selectImage):
+			return {
+				...state,
+					activeImageId: action.payload,
+					isPending: false,
+			};
+
+		case getType(actions.setActiveImagesStatus):
+			return {
+				...state,
+					activeImagesStatus: action.payload,
+			};
+
+		default:
+			return state;
+	}
+};

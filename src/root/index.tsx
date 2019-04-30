@@ -8,9 +8,10 @@ import {applyMiddleware, createStore} from 'redux';
 import {batchDispatchMiddleware, enableBatching} from 'redux-batched-actions';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
+import {StateType} from 'typesafe-actions';
 
 import {axiosInstance} from 'utils/fetch';
-import rootReducer from './rootReducer';
+import createRootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 import Routes from './Routes';
 
@@ -19,14 +20,17 @@ import 'styles/index.scss';
 
 moment.defaultFormat = 'YYYY.MM.DD';
 
-const sagaMiddleware = createSagaMiddleware();
-
 export const history = createHistory({
 	basename: `/${process.env.PREFIX}`,
 });
 
+const sagaMiddleware = createSagaMiddleware();
+const rootReducer = createRootReducer(history);
+
+export type RootState = StateType<typeof rootReducer>;
+
 const store = createStore(
-	enableBatching(rootReducer(history)),
+	enableBatching(rootReducer),
 	composeWithDevTools(
 		applyMiddleware(
 			routerMiddleware(history),

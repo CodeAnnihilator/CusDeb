@@ -1,13 +1,27 @@
-import {handleActions} from 'redux-actions';
-import {types} from '../constants/interface';
+import {ActionType, getType} from 'typesafe-actions';
 
-const initialState = {
+import * as actions from '../actions/interface';
+
+export type InterfaceState = Readonly<{
+	isPreloading: boolean;
+}>;
+
+const initialState: InterfaceState = {
 	isPreloading: true,
 };
 
-export default handleActions({
-	[types.SWITCH_IS_PRELOADING]: (state: any, {payload}) => ({
-		...state,
-		isPreloading: payload,
-	}),
-}, initialState);
+export type InterfaceActions = ActionType<typeof actions>;
+
+export default (state = initialState, action: InterfaceActions): InterfaceState => {
+	switch (action.type) {
+
+		case getType(actions.switchIsPreloading):
+			return {
+				...state,
+				isPreloading: action.payload,
+			};
+
+		default:
+			return state;
+	}
+};

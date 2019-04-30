@@ -1,7 +1,7 @@
 import moment from 'moment';
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 
-import {types} from 'common/constants/entities';
+import {entitiesActionTypes} from 'common/constants/entities';
 
 import {updateImagesDateStart} from 'common/actions/entities';
 import {getImages, getItemsIDAndDate} from 'common/selectors/entities';
@@ -24,7 +24,7 @@ function* createDateUpdater() {
 
 export default function* watchImageDateOfCreation() {
 	yield takeLatest(
-		types.REQUEST_IMAGES_SUCCESS,
+		entitiesActionTypes.REQUEST_IMAGES_SUCCESS,
 		createDateUpdater,
 	)
 }

@@ -11,7 +11,7 @@ import imageCreationInitializationReducer from 'modules/ImageCreation/reducers/i
 import packagesStepReducer from 'modules/Packages/PackagesTable/reducers/packagesStepReducer';
 import registrationReducer from 'modules/Registration/CustomerRegistration/reducer/registrationReducer';
 
-const rootReducer = (history: any) => combineReducers({
+const createRootReducer = (history: any) => combineReducers({
 	entities: entitiesReducer,
 	interface: interfaceReducer,
 	user: userReducer,
@@ -22,7 +22,7 @@ const rootReducer = (history: any) => combineReducers({
 	form: formReducer.plugin({
 		auth: authReducer,
 		registration: registrationReducer,
-	}),
+	} as any),
 });
 
-export default rootReducer;
+export default createRootReducer;

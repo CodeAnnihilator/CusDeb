@@ -1,28 +1,43 @@
-import {handleActions} from 'redux-actions';
+import {ActionType, getType} from 'typesafe-actions';
 
-import {
-	LOGIN,
-	LOGOUT,
-	SET_USER_DATA,
-} from '../constants/user';
+import * as actions from '../actions/user';
 
-const initialState = {
-	isAuthenticated: false,
-	name: '',
-	isCheckingDone: false,
+export type UserState = Readonly<{
+	isAuthenticated: boolean;
+	name: string;
+	isCheckingDone: boolean;
+}>;
+
+const initialState: UserState = {
+	isAuthenticated: true,
+	name: 'test user',
+	isCheckingDone: true,
 };
 
-export default handleActions({
-	[LOGIN]: (state: any) => ({
-		...state,
-		isAuthenticated: true,
-	}),
-	[LOGOUT]: (state: any) => ({
-		...state,
-		isAuthenticated: false,
-	}),
-	[SET_USER_DATA]: (state: any, {payload}) => ({
-		...state,
-		name: payload.username,
-	}),
-}, initialState);
+export type UserActions = ActionType<typeof actions>;
+
+export default (state = initialState, action: UserActions): UserState => {
+	switch (action.type) {
+
+		case getType(actions.login):
+			return {
+				...state,
+				isAuthenticated: true,
+			};
+
+		case getType(actions.logOut):
+			return {
+				...state,
+				isAuthenticated: false,
+			};
+
+		case getType(actions.setUserData):
+			return {
+				...state,
+				name: action.payload.username,
+			};
+
+		default:
+			return state;
+	}
+};

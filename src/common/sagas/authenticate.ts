@@ -4,7 +4,7 @@ import {call, put, select, takeLatest} from 'redux-saga/effects';
 
 import {switchIsPreloading} from 'common/actions/interface';
 import {login, logOut, setUserData} from 'common/actions/user';
-import {CHECK_USER_LOGGED} from 'common/constants/user';
+import {userActionTypes} from 'common/constants/user';
 import {getCurrentUser} from 'common/selectors/user';
 import {whoAmIRequest} from 'modules/Auth/api/requests';
 
@@ -53,5 +53,5 @@ function* passDeveloper() {
 const isDeveloper = localStorage.getItem('isDeveloper');
 
 export default function* watchUserLoggedIn() {
-	yield takeLatest(CHECK_USER_LOGGED, isDeveloper ? passDeveloper : checkUserSaga);
+	yield takeLatest(userActionTypes.CHECK_USER_LOGGED, isDeveloper ? passDeveloper : checkUserSaga);
 }

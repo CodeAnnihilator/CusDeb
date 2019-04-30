@@ -1,18 +1,11 @@
-import {createAction} from 'redux-actions';
-import {
-	CHECK_USER_LOGGED,
-	LOGIN,
-	LOGOUT,
-	SET_USER_DATA,
-} from '../constants/user';
+import {createStandardAction} from 'typesafe-actions';
 
-export const login = createAction(LOGIN);
+import {userActionTypes} from '../constants/user';
 
-export const setUserData = createAction(
-	SET_USER_DATA,
-	(data: any) => data,
-);
+export const login = createStandardAction(userActionTypes.LOGIN)();
+export const logOut = createStandardAction(userActionTypes.LOGOUT)();
+export const checkUserLogged = createStandardAction(userActionTypes.CHECK_USER_LOGGED)();
 
-export const logOut = createAction(LOGOUT);
-
-export const checkUserLogged = createAction(CHECK_USER_LOGGED);
+export const setUserData =
+	createStandardAction(userActionTypes.SET_USER_DATA)
+		<any>();

@@ -1,9 +1,11 @@
 import {createSelector} from 'reselect';
 
+import {RootState} from 'root/index';
+
 import {getImages} from 'common/selectors/entities';
 
-export const getActiveImageId = (state: any) => (state.dashboard || {}).activeImageId;
-export const getActiveImagesStatus = (state: any) => state.dashboard.activeImagesStatus;
+export const getActiveImageId = (state: RootState) => (state.dashboard || {}).activeImageId;
+export const getActiveImagesStatus = (state: RootState) => state.dashboard.activeImagesStatus;
 
 export const getActiveImage = createSelector(
 	[getImages, getActiveImageId],

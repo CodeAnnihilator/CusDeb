@@ -2,7 +2,7 @@ import {delay} from 'redux-saga';
 import {call, put, select, spawn, takeLatest} from 'redux-saga/effects';
 
 import {requestImagesSuccess, updateImage} from 'common/actions/entities';
-import {types} from 'common/constants/entities';
+import {entitiesActionTypes} from 'common/constants/entities';
 import {generateDummyImages} from 'common/seed/images';
 import {getBuildingImages} from 'common/selectors/entities';
 
@@ -63,6 +63,6 @@ function* watchImagesStatusesSaga() {
 }
 
 export default function* watchEntities() {
-	yield takeLatest(types.REQUEST_IMAGES, requestImagesSaga);
-	yield takeLatest(types.REQUEST_IMAGES_SUCCESS, watchImagesStatusesSaga);
+	yield takeLatest(entitiesActionTypes.REQUEST_IMAGES, requestImagesSaga);
+	yield takeLatest(entitiesActionTypes.REQUEST_IMAGES_SUCCESS, watchImagesStatusesSaga);
 }

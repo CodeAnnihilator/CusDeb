@@ -1,8 +1,29 @@
-import {handleActions} from 'redux-actions';
-import * as types from '../constants/authConstants';
+import {ActionType, getType} from 'typesafe-actions';
 
-export default handleActions({
-	[types.CHANGE_LOGIN_ERROR]: (state: any, {payload: {error}}) => (
-		{...state, validationError: error}
-	),
-}, {isSubmitting: false});
+import * as actions from '../actions/authActions';
+
+export type AuthState = Readonly<{
+	isSubmitting: boolean;
+	validationError: null | string;
+}>;
+
+const initialState: AuthState = {
+	isSubmitting: false,
+	validationError: null,
+};
+
+export type AuthActions = ActionType<typeof actions>;
+
+export default (state = initialState, action: AuthActions): AuthState => {
+	switch (action.type) {
+
+		case getType(actions.changeLoginError):
+			return {
+				...state,
+					validationError: action.payload,
+			};
+
+		default:
+			return state;
+	}
+};

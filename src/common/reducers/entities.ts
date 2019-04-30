@@ -1,34 +1,57 @@
-import {handleActions} from 'redux-actions';
-import {types} from '../constants/entities';
+import {ActionType, getType} from 'typesafe-actions';
 
-const initialState = {
+import * as actions from '../actions/entities';
+
+export type EntitiesState = Readonly<{
+	images: any;
+}>;
+
+const initialState: EntitiesState = {
 	images: [],
 };
 
-export default handleActions({
-	[types.REQUEST_IMAGES_SUCCESS]: (state: any, action: any) => ({...state, images: action.payload}),
-	[types.UPDATE_IMAGES_START_DATE]: (state: any, {payload: {images}}: any) => ({
-		...state,
-		images: state.images.map((oldItem: any) => {
-			const foundedItem = images.find((item: any) => item.name === oldItem.name) || {};
+export type EntitiesActions = ActionType<typeof actions>;
 
+export default (state = initialState, action: EntitiesActions): EntitiesState => {
+	switch (action.type) {
+
+		case getType(actions.requestImagesSuccess):
 			return {
-				...oldItem,
-				...foundedItem,
+				...state,
+				images: action.payload,
 			};
-		}),
-	}),
-	[types.UPDATE_IMAGE]: (state: any, {payload: {changes}}: any) => ({
-		...state,
-		images: state.images.map((item: any) => {
-			if (item.name === changes.name) {
-				return {
-					...item,
-					...changes,
-				};
-			}
 
-			return item;
-		}),
-	}),
-}, initialState);
+		case getType(actions.updateImagesDateStart):
+			return {
+				...state,
+				images: state.images.map((oldItem: any) => {
+					const foundedItem = action.payload.images
+						.find((item: any) => item.name === oldItem.name) || {};
+
+					return {
+						...oldItem,
+						...foundedItem,
+					};
+				}),
+			};
+
+		case getType(actions.updateImage):
+			return {
+				...state,
+				images: state.images.map((item: any) => {
+					const changes = action.payload;
+					if (item.name === changes.name) {
+						return {
+							...item,
+							...changes,
+						};
+					}
+
+					return item;
+				}),
+			};
+
+		default:
+			return state;
+	}
+};
