@@ -1,10 +1,11 @@
 import {put, takeLatest} from 'redux-saga/effects';
 
-import {types} from 'common/constants/entities';
+import {requestImagesSuccess} from 'common/actions/entities';
+import {entitiesActionTypes} from 'common/constants/entities';
 
 import {selectImage} from 'modules/Dashboard/actions/dashboard';
 
-function* imagesPreloaderSaga(action: any) {
+function* imagesPreloaderSaga(action: ReturnType<typeof requestImagesSuccess>) {
 	const data = action.payload;
 
 	if (data.length) {
@@ -14,5 +15,5 @@ function* imagesPreloaderSaga(action: any) {
 }
 
 export default function* watchEntities() {
-	yield takeLatest(types.REQUEST_IMAGES_SUCCESS, imagesPreloaderSaga);
+	yield takeLatest(entitiesActionTypes.REQUEST_IMAGES_SUCCESS, imagesPreloaderSaga);
 }

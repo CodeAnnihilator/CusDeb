@@ -1,12 +1,11 @@
-import {createAction} from 'redux-actions';
-import types from '../constants/dashboard';
+import {createStandardAction} from 'typesafe-actions';
 
-export const selectImage = (id: string | number) => ({
-	type: types.SELECT_IMAGE,
-	payload: id,
-});
+import {dashboardActionTypes} from '../constants/dashboard';
 
-export const setActiveImagesStatus = createAction(
-	types.SET_ACTIVE_IMAGES_STATUS,
-	(status: string) => status,
-);
+export const selectImage =
+	createStandardAction(dashboardActionTypes.SELECT_IMAGE)
+		<string>();
+
+export const setActiveImagesStatus =
+	createStandardAction(dashboardActionTypes.SET_ACTIVE_IMAGES_STATUS)
+		<string>();

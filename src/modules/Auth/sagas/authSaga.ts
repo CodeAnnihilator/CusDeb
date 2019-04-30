@@ -10,7 +10,7 @@ import {loginRequest} from '../api/requests';
 
 import {login, setUserData} from 'common/actions/user';
 import {changeLoginError} from '../actions/authActions';
-import {SEND_AUTH_DATA} from '../constants/authConstants';
+import {authActionTypes} from '../constants/authConstants';
 
 function* sendLoginData() {
 	//tslint:disable
@@ -41,5 +41,5 @@ function* sendLoginData() {
 }
 
 export default function* watchEntities() {
-	yield takeLatest(SEND_AUTH_DATA, sendLoginData);
+	yield takeLatest(authActionTypes.SEND_AUTH_DATA, sendLoginData);
 }

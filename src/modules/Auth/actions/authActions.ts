@@ -1,18 +1,11 @@
-import {createAction} from 'redux-actions';
-import * as types from '../constants/authConstants';
+import {action, createStandardAction} from 'typesafe-actions';
 
-export const sendAuthData = createAction(
-	types.SEND_AUTH_DATA,
-);
+import {authActionTypes} from '../constants/authConstants';
 
-export const startAuthRequest = createAction(
-	types.START_AUTH_REQUEST,
-);
-export const stopAuthRequest = createAction(
-	types.STOP_AUTH_REQUEST,
-);
+export const sendAuthData = action(authActionTypes.SEND_AUTH_DATA);
+export const startAuthRequest = action(authActionTypes.START_AUTH_REQUEST);
+export const stopAuthRequest = action(authActionTypes.STOP_AUTH_REQUEST);
 
-export const changeLoginError = createAction(
-	types.CHANGE_LOGIN_ERROR,
-	(error: string) => ({error}),
-);
+export const changeLoginError =
+	createStandardAction(authActionTypes.CHANGE_LOGIN_ERROR)
+		<string>();

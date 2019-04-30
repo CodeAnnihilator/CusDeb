@@ -1,24 +1,22 @@
-import {createAction} from 'redux-actions';
-import {types} from '../constants/entities';
+import {action, createStandardAction} from 'typesafe-actions';
 
-export const requestImages = () => ({type: types.REQUEST_IMAGES});
+import {entitiesActionTypes} from '../constants/entities';
 
-export const requestImagesSuccess = createAction(
-	types.REQUEST_IMAGES_SUCCESS,
-	(data: any) => data,
-);
+export const requestImages = () =>
+	action(entitiesActionTypes.REQUEST_IMAGES);
 
-export const updateImage = createAction(
-	types.UPDATE_IMAGE,
-	(changes: any) => ({changes}),
-);
+export const requestImagesSuccess =
+	createStandardAction(entitiesActionTypes.REQUEST_IMAGES_SUCCESS)
+		<any>();
 
-export const updateImagesDateStart = createAction(
-	types.UPDATE_IMAGES_START_DATE,
-	(images: any[]) => ({images}),
-);
+export const updateImage =
+	createStandardAction(entitiesActionTypes.UPDATE_IMAGE)
+		<any>();
 
-export const requestImagesError = createAction(
-	types.REQUEST_IMAGES_ERROR,
-	(error: any) => error,
-);
+export const updateImagesDateStart =
+	createStandardAction(entitiesActionTypes.UPDATE_IMAGES_START_DATE)
+		<any>();
+
+export const requestImagesError =
+	createStandardAction(entitiesActionTypes.REQUEST_IMAGES_SUCCESS)
+		<any>();

@@ -1,3 +1,3 @@
-export const types = {
-	SWITCH_IS_PRELOADING: 'INTERFACE/SWITCH_IS_PRELOADING',
-};
+export const enum interfaceActionTypes {
+	SWITCH_IS_PRELOADING = '@@INTERFACE/SWITCH_IS_PRELOADING',
+}
