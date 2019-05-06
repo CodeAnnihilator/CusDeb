@@ -25,7 +25,7 @@ export default (state = initialState, action: EntitiesActions): EntitiesState =>
 			return {
 				...state,
 				images: state.images.map((oldItem: any) => {
-					const foundedItem = action.payload.images
+					const foundedItem = action.payload
 						.find((item: any) => item.name === oldItem.name) || {};
 
 					return {

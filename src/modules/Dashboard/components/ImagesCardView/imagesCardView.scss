@@ -7,8 +7,8 @@
 	min-width: 290px;
 	flex-wrap: wrap;
 	align-content: baseline;
+	min-height: 200px;
 	flex-flow: column wrap;
-	overflow-x: scroll;
 
 	@include mobile {
 		overflow: auto;

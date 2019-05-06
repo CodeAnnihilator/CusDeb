@@ -5,11 +5,13 @@ export interface IDashboardState {
 	activeImageId: null | string;
 	isPending: boolean;
 	activeImagesStatus: string;
+	imagesTextFilter: string;
 }
 
 const initialState: IDashboardState = {
 	activeImageId: null,
 	isPending: true,
+	imagesTextFilter: '',
 	activeImagesStatus: 'all',
 };
 
@@ -31,6 +33,11 @@ export default (state = initialState, action: DashboardActions): IDashboardState
 					activeImagesStatus: action.payload,
 			};
 
+		case getType(actions.setImagesTextFilter):
+			return {
+				...state,
+					imagesTextFilter: action.payload,
+			};
 		default:
 			return state;
 	}

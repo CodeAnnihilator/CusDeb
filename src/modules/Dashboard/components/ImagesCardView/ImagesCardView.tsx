@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Masonry from 'common/components/Masonry/Masonry';
+import ImagesPreloader from 'modules/Dashboard/components/ImagesPreloader/ImagesPreloader';
 
 import ImageCard from './ImageCard/ImageCard';
 import styles from './imagesCardView.scss';
@@ -26,17 +27,22 @@ const breakpointCols = {
 
 const ImagesCardView: React.FC<IProps> = ({onSelect, activeImage, imagesByActiveStatus}) => (
 	<div className={styles.wrapper}>
-		<Masonry breakpointCols={breakpointCols}>
-			{imagesByActiveStatus.map((image: any, index: number) => (
-					<ImageCard
-						key={index}
-						image={image}
-						onSelect={onSelect}
-						isActive={image.name === activeImage.name}
-					/>
-				))
-			}
-		</Masonry>
+		{
+			imagesByActiveStatus.length
+				? (
+					<Masonry breakpointCols={breakpointCols}>
+						{imagesByActiveStatus.map((image: any, index: number) => (
+								<ImageCard
+									key={index}
+									image={image}
+									onSelect={onSelect}
+									isActive={image.name === activeImage.name}
+								/>
+							))
+						}
+					</Masonry>
+				) : <ImagesPreloader text='loading images' />
+		}
 	</div>
 );
 

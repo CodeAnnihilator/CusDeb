@@ -4,7 +4,7 @@ import BuildOptionsSection from './components/BuildOptionsSection/BuildOptionsSe
 import CurrentImageTab from './components/CurrentImageTab/CurrentImageTab';
 import ImagesCardView from './components/ImagesCardView/ImagesCardView';
 import ImagesPreloader from './components/ImagesPreloader/ImagesPreloader';
-import SearchOptionsSection from './components/SearchOptionsSection/SearchOptionsSection';
+import SearchOptionsSection from './containers/SearchOptionsSection';
 
 import styles from './dashboard.scss';
 
@@ -59,26 +59,18 @@ export default class Dashboard extends PureComponent<IProps> {
 			<BuildOptionsSection />
 			{ /* <ViewTabs /> */ }
 			<div className={styles.container}>
-				{
-					images.length > 0
-						? (
-							<div className={styles.images}>
-								<div className={styles.imagesCardWrapper}>
-									<SearchOptionsSection />
-									<ImagesCardView
-										images={images}
-										onSelect={selectImage}
-										activeImage={activeImage}
-										imagesByActiveStatus={imagesByActiveStatus}
-									/>
-								</div>
-								<CurrentImageTab
-									activeImage={activeImage}
-								/>
-							</div>
-						)
-						: <ImagesPreloader text='loading images' />
-				}
+				<div className={styles.images}>
+					<div className={styles.imagesCardWrapper}>
+						<SearchOptionsSection />
+						<ImagesCardView
+							images={images}
+							onSelect={selectImage}
+							activeImage={activeImage}
+							imagesByActiveStatus={imagesByActiveStatus}
+						/>
+					</div>
+					<CurrentImageTab activeImage={activeImage} />
+				</div>
 			</div>
 		</div>
 	);
