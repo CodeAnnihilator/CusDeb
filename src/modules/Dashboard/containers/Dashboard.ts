@@ -6,9 +6,8 @@ import * as actions from '../actions/dashboard';
 import {RootState} from 'root/index';
 
 import {requestImages} from 'common/actions/entities';
-import {getImages} from 'common/selectors/entities';
 
-import {getImagesByStatus} from 'modules/Dashboard/selectors/dashboard';
+import {getImagesByStatus, getImagesWithFilteredText} from 'modules/Dashboard/selectors/dashboard';
 
 import Dashboard from '../Dashboard';
 
@@ -19,9 +18,9 @@ export type DashboardActions =
 	| ActionType<typeof requestImages>;
 
 const mapStateToProps = (state: RootState) => ({
-	images: getImages(state),
+	images: getImagesWithFilteredText(state),
 	activeImage: getActiveImage(state),
-	imagesByActiveStatus: getImagesByStatus(state),
+	imagesByActiveStatus: getImagesWithFilteredText(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DashboardActions>) => ({

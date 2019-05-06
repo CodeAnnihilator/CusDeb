@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import moment from 'moment';
-import React, {Component, SyntheticEvent} from 'react';
+import React, {Component, ReactNode, SyntheticEvent} from 'react';
 import {Trans} from 'react-i18next';
 
 import brandsLogos from 'assets/images/brandsLogos';
@@ -20,14 +20,17 @@ interface IProps {
 	image: {
 		name: string;
 		notes: string;
+		notes_filtered?: ReactNode;
 		build: string;
 		distro: {
 			full_name: string;
+			full_name_filtered?: ReactNode;
 		};
 		started_at: string;
 		thumb: string;
 		targetdevice: {
 			title: string;
+			title_filtered?: ReactNode;
 			icon?: string;
 		};
 	};
@@ -136,9 +139,7 @@ export default class ImageCard extends Component<IProps, IState> {
 	public render() {
 		const {image, isActive} = this.props;
 		const {isNotesExpanded} = this.state;
-		const distro = image.distro.full_name;
-		const startedAt = image.started_at;
-		const {thumb, targetdevice, notes} = image;
+		const {thumb, targetdevice, notes, notes_filtered, distro, started_at} = image;
 
 		return (
 			<div ref='test' className={cn(styles.wrapper, {[styles.active]: isActive})}>
@@ -154,16 +155,16 @@ export default class ImageCard extends Component<IProps, IState> {
 				</div>
 				<div className={styles.titles}>
 					<img className={styles.titles_img} src={ thumb } />
-					<div className={styles.titles_main}>{ distro }</div>
+					<div className={styles.titles_main}>{ distro.full_name_filtered }</div>
 					<div className={styles.titles_sub}>
-						<Trans i18nKey='Image.StartedAt' />: { moment(startedAt).fromNow() }
+						<Trans i18nKey='Image.StartedAt' />: {moment(started_at).fromNow()}
 					</div>
 				</div>
 				<div className={styles.device}>
 					{ targetdevice.icon &&
 						<img src={brandsLogos[targetdevice.icon]} className={styles.device_icon} alt=''/>
 					}
-					<span className={styles.device_name}>{targetdevice.title}</span>
+					<span className={styles.device_name}>{targetdevice.title_filtered}</span>
 				</div>
 				<div className={cn(styles.note, {[styles.note_open]: isNotesExpanded})}>
 					{
@@ -171,13 +172,13 @@ export default class ImageCard extends Component<IProps, IState> {
 							<>
 								{notes.length > 270 ?
 									<>
-										<div className={styles.note_wrapper}>{notes}</div>
+										<div className={styles.note_wrapper}>{notes_filtered}</div>
 										<div onClick={this.onNoteExpand} className={styles.note_expand}>
 											{isNotesExpanded ? 'contract' : 'expand'} notes text
 											<img className={styles.note_expand_icon} src={ExpandIconSVG} alt=''/>
 										</div>
 									</>
-									: <div>{notes}</div>
+									: <div>{notes_filtered}</div>
 								}
 							</>
 						: <Trans i18nKey='Dashboard.noDescription' />

@@ -1,6 +1,5 @@
-import cn from 'classnames';
 import i18next from 'i18next';
-import React from 'react';
+import React, {ChangeEvent, MouseEvent} from 'react';
 import {Trans} from 'react-i18next';
 
 import ImageArrowDown from 'assets/images/ImageArrowDown';
@@ -12,16 +11,22 @@ import IconMenu from './IconMenu/IconMenu';
 import Flex from 'common/components/Flex/Flex';
 import SearchInput from 'common/components/SearchInput/SearchInput';
 
-const SearchOptionsSection: React.FC = () => (
+interface IProps {
+	imagesTextFilter: string;
+	onInputChange: ((event: ChangeEvent<HTMLInputElement>, value: string | {[x: string]: string}) => void);
+	onInputCloseBtnClick: (event: MouseEvent<HTMLSpanElement>) => void;
+}
+
+const SearchOptionsSection: React.FC<IProps> = ({imagesTextFilter, onInputChange, onInputCloseBtnClick}) => (
 	<Flex className={styles.wrapper}>
 		<Flex alignItems='center' grow={1} className={styles.searchOptionsWrapper}>
 			<div className={styles.searchInputWrapper}>
 				<SearchInput
-					value=''
-					onChange={() => null} //todo: add function
+					value={imagesTextFilter}
+					onChange={onInputChange}
 					placeholder={i18next.t('Dashboard.Placeholders.TypeImageName')}
 					height={40}
-					onInputCloseBtnClick={() => null} //todo: add function
+					onInputCloseBtnClick={onInputCloseBtnClick}
 				/>
 			</div>
 			<Flex
