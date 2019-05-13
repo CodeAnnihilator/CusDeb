@@ -10,7 +10,7 @@ import Flex from 'common/components/Flex/Flex';
 
 import capitalize from 'utils/capitalize';
 
-import styles from './imageCreationInitializationHeader.scss';
+import styles from './initializationHeader.scss';
 
 interface IProps {
 	changeStep: (event: MouseEvent<HTMLButtonElement>, value: any) => void;
@@ -37,7 +37,7 @@ const stepsHash = {
 	},
 };
 
-export default class ImageCreationInitializationHeader extends PureComponent<IProps> {
+export default class InitializationHeader extends PureComponent<IProps> {
 	public render() {
 		const {changeStep, step, alertTitleKey} = this.props;
 

@@ -7,6 +7,7 @@
 		"package": "{{count}} package",
 		"package_plural": "{{count}} packages",
 		"Packages": "Packages",
+		"UsersAndGroups": "Users and groups",
 		"Details": "Details",
 		"Download": "Download",
 		"Edit": "Add note",
@@ -45,6 +46,15 @@
 		"Version": "Version",
 		"Size": "Size"
 	},
+	"UsersAndGroupsTable": {
+		"Username": "Username",
+		"Group": "Group",
+		"Uid": "UID",
+		"Gid": "GID",
+		"Comment": "Comment",
+		"HomeDirectory": "Home directory",
+		"Shell": "Shell"
+	},
 	"Image": {
 		"StartedAt": "Started At",
 		"CreatedAt": "Created At"
@@ -66,6 +76,9 @@
 		"InitializationStep": "Initialization Step",
 		"PackagesListStep": "Package List Step",
 		"UsersAndGroupsStep": "Users & Groups Step",
+		"TotalUsers": "Total users: ",
+		"AddUser": "Add user",
+		"SelectUsersGroup": "Select Users Group",
 		"ConfigurationStep": "Configuration Step",
 		"DeviceNotSelected": "Device is not selected",
 		"Issues": {

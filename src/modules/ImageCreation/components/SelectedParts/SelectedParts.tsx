@@ -3,9 +3,9 @@ import React from 'react';
 
 import Flex from 'common/components/Flex/Flex';
 
-import ISteps from './ImageCreationSelectedParts.d';
+import ISteps from './SelectedParts.d';
 
-import Styles from './imageCreationSelectedParts.scss';
+import Styles from './selectedParts.scss';
 
 interface IProps {
 	steps: ISteps;

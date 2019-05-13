@@ -8,18 +8,20 @@ interface IProps {
 	color?: string;
 	style?: object;
 	text: ReactNode | ReactText;
+	textColor?: string;
 }
 
-const Label: React.FC<IProps> = ({color, text, style}) => (
+const Label: React.FC<IProps> = ({color, text, style, textColor}) => (
 	<Flex alignItems='center'>
 		<div className={styles.label} style={{...style, backgroundColor: color}}>
-			<span>{text}</span>
+			<span style={{color: textColor}}>{text}</span>
 		</div>
 	</Flex>
 );
 
 Label.defaultProps = {
 	text: '',
+	textColor: '#FFF',
 };
 
 export default Label;

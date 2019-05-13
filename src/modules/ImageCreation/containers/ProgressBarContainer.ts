@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ImageCreationProgressBar from '../components/ImageCreationProgressBar/ImageCreationProgressBarComponent';
+import ProgressBar from '../components/ProgressBar/ProgressBarComponent';
 import {getProcessSteps, getStepIndex} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({
@@ -7,4 +7,4 @@ const mapStateToProps = (state: any) => ({
 	steps: getProcessSteps(state),
 });
 
-export default connect(mapStateToProps)(ImageCreationProgressBar);
+export default connect(mapStateToProps)(ProgressBar);

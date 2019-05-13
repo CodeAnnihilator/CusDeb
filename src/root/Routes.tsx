@@ -12,7 +12,7 @@ import HomeContainer from 'modules/Home/containers/HomeContainer';
 // tslint:disable-next-line: max-line-length
 import ServicesRegistrationContainer from 'modules/Registration/ServicesRegistration/containers/ServicesRegistrationContainer';
 
-import ImageCreationRootContainer from 'modules/ImageCreation/containers/ImageCreationRootContainer';
+import ImageCreationRootContainer from 'modules/ImageCreation/containers/RootContainer';
 
 const Routes = () => (
 	<Switch>

@@ -9,4 +9,3 @@ export const enum entitiesActionTypes {
 }
 
 export const COLORS = styleColors;
-

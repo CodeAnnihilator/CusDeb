@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ImageCreationRoot from '../components/ImageCreationRoot';
+import ImageCreationRoot from '../components/Root';
 import {getCurrentStep, getSteps} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({

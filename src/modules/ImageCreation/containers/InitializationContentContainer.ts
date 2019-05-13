@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 
 import {changeImageCreationPart} from 'modules/ImageCreation/actions/actions';
 
-import InitializationContent from '../components/ImageCreationInitializationContent/ImageCreationInitializationContent';
+import InitializationContent from '../components/InitializationContent/InitializationContent';
 import {getImageInitializationSlide, getSelectedSteps, getSelectItems} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({

@@ -1,11 +1,11 @@
 import React from 'react';
-import ImageCreationSelectContainer from '../../containers/ImageCreationSelectContainer';
+import SelectContainer from '../../containers/SelectContainer';
 
 import Flex from 'common/components/Flex/Flex';
 import Slider from 'common/components/Slider/SliderContainer';
 import StepsProgressBar from 'common/components/StepsProgressBar/StepsProgressBar';
 
-import Styles from './imageCreationInitializationContent.scss';
+import styles from './initializationContent.scss';
 
 interface IProps {
 	selectTypes: string[];
@@ -21,7 +21,7 @@ const InitializationContent: React.FC<IProps> = ({selectedItems, selectTypes}) =
 	];
 
 	return (
-		<div className={Styles.stepsContainer}>
+		<div className={styles.stepsContainer}>
 			<StepsProgressBar steps={steps} stepsComplete={selectedItems}/>
 			<Flex
 				justifyContent='center'
@@ -36,7 +36,7 @@ const InitializationContent: React.FC<IProps> = ({selectedItems, selectTypes}) =
 							alignItems='center'
 							style={{marginTop: 25}}
 						>
-							<ImageCreationSelectContainer type={item} fade/>
+							<SelectContainer type={item} fade/>
 						</Flex>
 					))}
 				/>

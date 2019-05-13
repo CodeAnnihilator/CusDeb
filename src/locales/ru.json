@@ -7,6 +7,7 @@
 		"package_1": "{{count}} пакета",
 		"package_2": "{{count}} пакетов",
 		"Packages": "Пакеты",
+		"UsersAndGroups": "Пользователи и группы",
 		"Details": "Детали",
 		"Ru": "Русский",
 		"Download": "Загрузить",
@@ -46,6 +47,15 @@
 		"Version": "Версия",
 		"Size": "Размер"
 	},
+	"UsersAndGroupsTable": {
+		"Username": "Имя пользователя",
+		"Group": "Группа",
+		"Uid": "UID",
+		"Gid": "GID",
+		"Comment": "Комментарий",
+		"Home_directory": "Домашняя директория",
+		"Shell": "Консоль"
+	},
 	"Image": {
 		"StartedAt": "Дата старта",
 		"CreatedAt": "Дата создания"
@@ -66,6 +76,9 @@
 		"SelectItems": "Выберите элементы",
 		"PackagesListStep": "Этап выбора пакетов",
 		"UsersAndGroupsStep": "Этап управления пользователями и группами",
+		"TotalUsers": "Всего пользователей: ",
+		"AddUser": "Добавить пользователя",
+		"SelectUsersGroup": "Выбрать группу пользователей",
 		"ConfigurationStep": "Этап конфигурации",
 		"InitializationStep": "Этап инициализации",
 		"Issues": {

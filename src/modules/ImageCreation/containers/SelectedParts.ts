@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ImageCreationSelectedParts from '../components/ImageCreationSelectedParts/ImageCreationSelectedParts';
+import SelectedParts from '../components/SelectedParts/SelectedParts';
 import {getSelectedItems, getSelectedSteps} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({
@@ -7,4 +7,4 @@ const mapStateToProps = (state: any) => ({
 	partsSelected: getSelectedSteps(state),
 });
 
-export default connect(mapStateToProps)(ImageCreationSelectedParts);
+export default connect(mapStateToProps)(SelectedParts);

@@ -1,7 +1,7 @@
 import {MouseEvent} from 'react';
 import {connect} from 'react-redux';
 import {changeCurrentStep} from '../actions/actions';
-import Header from '../components/ImageCreationInitializationHeader/ImageCreationInitializationHeader';
+import Header from '../components/InitializationHeader/InitializationHeader';
 import {getAlertTitleKey, getCurrentStep} from '../selectors/imageCreationSelectors';
 
 const mapStateToProps = (state: any) => ({

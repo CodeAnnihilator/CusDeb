@@ -9,7 +9,7 @@ import StepsProgressBar from 'common/components/StepsProgressBar/StepsProgressBa
 import Checked from 'assets/images/Checked.svg';
 
 import {COLORS} from 'common/constants/entities';
-import styles from './imageCreationProgressBarComponent.scss';
+import styles from './progressBarComponent.scss';
 
 interface IProps {
 	step: number;
@@ -19,7 +19,7 @@ interface IProps {
 	}];
 }
 
-export default class ImageCreationProgressBarComponent extends PureComponent<IProps> {
+export default class ProgressBarComponent extends PureComponent<IProps> {
 	public barTitles = (steps: any) => (
 		steps.map((step: {text: string; image: any}, index: number) => (
 			<Flex
